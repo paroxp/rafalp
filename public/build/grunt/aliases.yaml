@@ -1,0 +1,17 @@
+bower:
+  - 'bower_concat'
+  - 'sass'
+  - 'uglify'
+
+css:
+  - 'sass'
+
+default:
+  - 'jshint'
+  - 'uglify'
+  - 'sass'
+  - 'watch'
+
+js:
+  - 'jshint'
+  - 'uglify'

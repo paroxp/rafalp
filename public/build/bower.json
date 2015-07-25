@@ -1,0 +1,15 @@
+{
+  "name": "rafalp",
+  "version": "1.0.0",
+  "description": "Rafal Proszowski - homepage.",
+  "authors": [
+    "Rafal Proszowski"
+  ],
+  "license": "MIT",
+  "homepage": "https://rafalp.com/",
+  "dependencies": {
+    "bourbon": "~4.2.3",
+    "susy": "~2.2.5",
+    "underscore": "~1.8.3"
+  }
+}
