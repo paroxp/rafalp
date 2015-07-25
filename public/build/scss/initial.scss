@@ -1,0 +1,52 @@
+// Include some toolkits.
+@import "bourbon";
+@import "susy";
+
+// Import our dependencies.
+@import "variables";
+
+@include keyframes(pulse) {
+  0% {
+    opacity: 1;
+  }
+  35% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+// Import rest of our styles.
+div#initial {
+  background-color: #000;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 9999;
+
+//  @include transition(all .3s ease);
+
+  &:before {
+    color: #fff;
+    content: "...";
+    display: block;
+    font-size: 48px;
+    font-size: 3rem;
+    font-weight: 100;
+    left: 0;
+    margin-top: -30px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    text-align: center;
+
+    @include animation(pulse 1.5s ease);
+    @include animation-iteration-count(infinite);
+  }
+}
