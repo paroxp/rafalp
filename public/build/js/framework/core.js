@@ -50,6 +50,8 @@ app.extend(app, {
         } else {
             this._wrapped.addEventListener('DOMContentLoaded', callback);
         }
+
+        return this;
     },
 
     /**

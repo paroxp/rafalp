@@ -15,6 +15,8 @@ app.extend(app, {
         app.nodeAssure(this._wrapped, function (element) {
             element.removeEventListener(event, callback);
         });
+
+        return this;
     },
 
     /**
@@ -27,6 +29,8 @@ app.extend(app, {
         app.nodeAssure(this._wrapped, function (element) {
             element.addEventListener(event, callback);
         });
+
+        return this;
     }
 
 });

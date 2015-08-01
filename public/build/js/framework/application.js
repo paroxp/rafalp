@@ -11,6 +11,8 @@ var _ = function (selector) {
 
     this._wrapped = app.element(selector);
     app.extend(this, app);
+
+    return this;
 };
 
 // Make sure, we'll be able to use our up without summoning an element.

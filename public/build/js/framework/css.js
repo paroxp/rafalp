@@ -23,6 +23,8 @@ app.extend(app, {
                 element.style[attribute] = value;
             }
         });
+
+        return this;
     },
 
     /**
@@ -32,6 +34,8 @@ app.extend(app, {
         app.nodeAssure(this._wrapped, function (element) {
             element.style.display = 'none';
         });
+
+        return this;
     },
 
     /**
@@ -41,6 +45,8 @@ app.extend(app, {
         app.nodeAssure(this._wrapped, function (element) {
             element.style.display = '';
         });
+
+        return this;
     }
 
 });
