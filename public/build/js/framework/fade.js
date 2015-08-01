@@ -54,6 +54,8 @@ app.extend(app, {
 
             tick();
         });
+
+        return this;
     }
 
 });
