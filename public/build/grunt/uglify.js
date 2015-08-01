@@ -12,7 +12,9 @@ module.exports = {
                 'js/framework/core.js',
 
                 // Single modules.
+                'js/framework/attribute.js',
                 'js/framework/css.js',
+                'js/framework/element.js',
                 'js/framework/event.js',
                 'js/framework/fade.js',
 
