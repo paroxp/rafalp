@@ -13,8 +13,6 @@ app.extend(app, {
      */
     css: function (attribute, value) {
         app.nodeAssure(this._wrapped, function (element) {
-            console.log(element);
-
             if (app.isArray(attribute) || app.isObject(attribute)) {
                 app.each(attribute, function (val, attr) {
                     element.style[attr] = val;
