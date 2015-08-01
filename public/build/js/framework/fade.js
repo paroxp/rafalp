@@ -9,7 +9,7 @@ app.extend(app, {
     fadeIn: function (speed) {
         speed = speed || 400;
 
-        app.nodeAssure(this._wrapped, function (element) {
+        app.nodeAssure(this.all(), function (element) {
             element.style.display = '';
             element.style.opacity = 0;
 
@@ -38,7 +38,7 @@ app.extend(app, {
     fadeOut: function (speed) {
         speed = speed || 400;
 
-        app.nodeAssure(this._wrapped, function (element) {
+        app.nodeAssure(this.all(), function (element) {
             element.style.opacity = 1;
 
             var last = +new Date(),

@@ -12,7 +12,7 @@ app.extend(app, {
      * @param callback
      */
     off: function (event, callback) {
-        app.nodeAssure(this._wrapped, function (element) {
+        app.nodeAssure(this.all(), function (element) {
             element.removeEventListener(event, callback);
         });
 

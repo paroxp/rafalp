@@ -12,24 +12,28 @@ app.extend(app, {
      * @param value
      */
     css: function (attribute, value) {
-        app.nodeAssure(this._wrapped, function (element) {
-            if (app.isArray(attribute) || app.isObject(attribute)) {
-                app.each(attribute, function (val, attr) {
-                    element.style[attr] = val;
-                });
-            } else {
-                element.style[attribute] = value;
-            }
-        });
+        if (typeof value !== 'undefined') {
+            app.nodeAssure(this.all(), function (element) {
+                if (app.isArray(attribute) || app.isObject(attribute)) {
+                    app.each(attribute, function (val, attr) {
+                        element.style[attr] = val;
+                    });
+                } else {
+                    element.style[attribute] = value;
+                }
+            });
 
-        return this;
+            return this;
+        } else {
+            return getComputedStyle(this.single())[attribute];
+        }
     },
 
     /**
      * Hide an element.
      */
     hide: function () {
-        app.nodeAssure(this._wrapped, function (element) {
+        app.nodeAssure(this.all(), function (element) {
             element.style.display = 'none';
         });
 
@@ -40,7 +44,7 @@ app.extend(app, {
      * Show an element.
      */
     show: function () {
-        app.nodeAssure(this._wrapped, function (element) {
+        app.nodeAssure(this.all(), function (element) {
             element.style.display = '';
         });
 

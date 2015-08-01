@@ -6,6 +6,15 @@
 app.extend(app, {
 
     /**
+     * Return all wrapped elements.
+     *
+     * @returns {app._wrapped|*}
+     */
+    all: function () {
+        return this._wrapped;
+    },
+
+    /**
      * Select any DOM element.
      *
      * @param selector
@@ -20,6 +29,8 @@ app.extend(app, {
 
         if ($elements.length > 1) {
             return $elements;
+        } else if (typeof $elements[0] === 'undefined') {
+            return [];
         } else {
             return $elements[0];
         }
@@ -52,6 +63,19 @@ app.extend(app, {
         }
 
         return this;
+    },
+
+    /**
+     * Select single wrapped element.
+     *
+     * @returns {*}
+     */
+    single: function() {
+        if (typeof this._wrapped !== 'undefined' && this._wrapped.length > 1) {
+            return this._wrapped[0];
+        } else {
+            return this._wrapped;
+        }
     },
 
     /**
