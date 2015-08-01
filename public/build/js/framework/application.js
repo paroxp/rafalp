@@ -5,9 +5,9 @@
  * @returns {*}
  * @private
  */
-var _ = function (selector) {
-    if (selector instanceof _) return selector;
-    if (!(this instanceof _)) return new _(selector);
+var $ = function (selector) {
+    if (selector instanceof $) return selector;
+    if (!(this instanceof $)) return new $(selector);
 
     this._wrapped = app.element(selector);
     app.extend(this, app);
@@ -16,4 +16,4 @@ var _ = function (selector) {
 };
 
 // Make sure, we'll be able to use our up without summoning an element.
-app.extend(_, app);
+app.extend($, app);
