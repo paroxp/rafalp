@@ -12,7 +12,7 @@ app.extend(app, {
      * @param value
      */
     css: function (attribute, value) {
-        if (typeof value !== 'undefined') {
+        if (typeof value !== 'undefined' || typeof attribute === 'object') {
             app.nodeAssure(this.all(), function (element) {
                 if (app.isArray(attribute) || app.isObject(attribute)) {
                     app.each(attribute, function (val, attr) {
