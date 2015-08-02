@@ -9,6 +9,7 @@
   "homepage": "https://rafalp.com/",
   "dependencies": {
     "bourbon": "~4.2.3",
+    "normalize.css": "~3.0.3",
     "susy": "~2.2.5",
     "underscore": "~1.8.3"
   }

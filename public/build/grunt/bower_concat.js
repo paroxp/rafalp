@@ -2,7 +2,7 @@ module.exports = {
     plugins: {
         dest: 'js/plugins.js',
         cssDest: 'scss/_plugins.scss',
-        exclude: ['susy'],
+        exclude: ['susy', 'bourbon'],
         dependencies: {
 
         },
