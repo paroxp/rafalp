@@ -1,0 +1,8 @@
+/**
+ * Ability to use shorthand media query in our project.
+ */
+@mixin min($width) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}

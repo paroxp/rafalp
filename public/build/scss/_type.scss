@@ -1,0 +1,125 @@
+a, a:hover, a:active, a:link, a:visited {
+  color: $blue;
+  text-decoration: none;
+}
+
+blockquote {
+  border-left: 1px solid $silver;
+  display: block;
+  margin: 0;
+  margin-bottom: rem(8);
+  padding: 0;
+  padding-left: rem(8);
+
+  cite {
+    color: $gray;
+    display: block;
+    font-size: 90%;
+
+    &:before {
+      content: "- "
+    }
+  }
+
+  q {
+    display: block;
+  }
+}
+
+code {
+  background-color: $silver;
+  border: 1px solid $gray;
+  display: block;
+  padding: rem(8);
+}
+
+h1 {
+  font-size: 30px;
+  font-size: rem(30);
+
+  @include min($tablet) {
+    font-size: 38px;
+    font-size: rem(38);
+  }
+}
+
+h2 {
+  font-size: 24px;
+  font-size: rem(24);
+
+  @include min($tablet) {
+    font-size: 32px;
+    font-size: rem(32);
+  }
+}
+
+h3 {
+  font-size: 19px;
+  font-size: rem(19);
+
+  @include min($tablet) {
+    font-size: 24px;
+    font-size: rem(24);
+  }
+}
+
+h4 {
+  font-size: 16px;
+  font-size: rem(16);
+
+  @include min($tablet) {
+    font-size: 20px;
+    font-size: rem(20);
+  }
+}
+
+h5 {
+  font-size: 16px;
+  font-size: rem(16);
+}
+
+h6 {
+  font-size: 16px;
+  font-size: rem(16);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: rem(4) 0 rem(8);
+
+  small {
+    color: $gray;
+    font-size: 60%;
+    font-weight: normal;
+  }
+}
+
+hr {
+  border: none;
+  border-bottom: 1px solid $white;
+  border-top: 1px solid $silver;
+}
+
+pre {
+  background-color: $black;
+  color: $white;
+  display: block;
+  padding: rem(8);
+}
+
+table {
+  border: 1px solid $gray;
+  width: 100%;
+
+  th, td {
+    padding: rem(4) rem(8);
+  }
+
+  th {
+    background-color: lighten($silver, 5);
+    text-align: left;
+  }
+
+  tr:nth-of-type(even) {
+    background-color: lighten($silver, 10);
+  }
+}
