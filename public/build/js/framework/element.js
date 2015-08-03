@@ -13,7 +13,6 @@ app.extend(app, {
      */
     after: function (html) {
         app.nodeAssure(this.all(), function (element) {
-            console.log(element);
             element.insertAdjacentHTML('afterend', html);
         });
 
@@ -209,7 +208,11 @@ app.extend(app, {
      * Remove an element from existance.
      */
     remove: function () {
-        this.single().parentNode.removeChild(this.single());
+        try {
+            return this.single().parentNode.removeChild(this.single());
+        } catch (e) {
+
+        }
     },
 
     /**

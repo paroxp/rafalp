@@ -70,8 +70,8 @@ app.extend(app, {
      *
      * @returns {*}
      */
-    single: function() {
-        if (typeof this._wrapped !== 'undefined' && this._wrapped.length > 1) {
+    single: function () {
+        if (typeof this._wrapped !== 'undefined' && this._wrapped.length > 1 && app.type(this._wrapped) === 'object') {
             return this._wrapped[0];
         } else {
             return this._wrapped;

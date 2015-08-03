@@ -20,7 +20,15 @@ app.extend(app, {
 
             return this;
         } else {
-            return this.single().getAttribute(key);
+            var result;
+
+            try {
+                result = this.single().getAttribute(key);
+            } catch (e) {
+                result =  null;
+            }
+
+            return result;
         }
     },
 
