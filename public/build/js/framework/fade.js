@@ -39,6 +39,7 @@ app.extend(app, {
         speed = speed || 400;
 
         app.nodeAssure(this.all(), function (element) {
+            element.style.display = '';
             element.style.opacity = 1;
 
             var last = +new Date(),
@@ -48,6 +49,7 @@ app.extend(app, {
 
                     if (+element.style.opacity >= 0) {
                         var call = (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16);
+                    } else {
                         element.style.display = 'none';
                     }
                 };
