@@ -233,6 +233,24 @@ app.extend(app, {
         });
 
         return this;
+    },
+
+    /**
+     * Ability to obtain or set a value.
+     *
+     * @param value
+     * @returns {*}
+     */
+    value: function(value) {
+        value = value || false;
+
+        if (value) {
+            this.single().value = value;
+
+            return this;
+        }
+
+        return this.single().value;
     }
 
 });
