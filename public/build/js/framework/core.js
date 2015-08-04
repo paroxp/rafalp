@@ -37,6 +37,22 @@ app.extend(app, {
     },
 
     /**
+     * Generate an unique identification.
+     *
+     * @returns {string}
+     */
+    guid: function () {
+        function s4() {
+            return Math.floor((1 + Math.random()) * 0x10000)
+                .toString(16)
+                .substring(1);
+        }
+
+        return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+            s4() + '-' + s4() + s4() + s4();
+    },
+
+    /**
      * Run specific set of functionality for each detected node.
      *
      * @param nodes
