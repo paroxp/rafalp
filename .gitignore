@@ -2,3 +2,4 @@
 /.vagrant/
 /.idea/
 *.map
+public/build/npm-debug.log
