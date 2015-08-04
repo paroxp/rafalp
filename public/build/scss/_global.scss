@@ -3,6 +3,7 @@ html {
   color: $black;
   font-size: 16px;
   font-size: rem(16);
+  font-weight: 100;
   line-height: 1.6;
 }
 
@@ -10,5 +11,10 @@ html {
   box-sizing: inherit;
   color: inherit;
   font-size: inherit;
+  font-weight: inherit;
   line-height: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 100;
 }

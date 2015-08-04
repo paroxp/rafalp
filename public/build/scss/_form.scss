@@ -19,7 +19,19 @@ textarea {
   font-size: rem(12);
   height: rem(40);
   margin-bottom: rem(8);
+  outline: none;
   padding: rem(8);
+
+  @include transition(all .3s ease);
+
+  @include min($tablet) {
+    font-size: 16px;
+    font-size: rem(16);
+  }
+
+  &:focus {
+    border-color: $teal;
+  }
 }
 
 fieldset {
@@ -41,27 +53,55 @@ button,
   color: $blue;
   height: rem(40);
   margin-bottom: rem(8);
+  outline: none;
   padding: rem(8) rem(16);
+
+  @include transition(all .15s ease);
+
+  &:active {
+    background-color: $blue;
+    color: $white;
+  }
 
   &.danger {
     border: 1px solid $red;
     color: $red;
+
+    &:active {
+      background-color: $red;
+      color: $white;
+    }
   }
 
   &.disabled,
   &[disabled] {
     border: 1px solid $silver;
     color: $silver;
+
+    &:active {
+      background-color: $white;
+      color: $silver;
+    }
   }
 
   &.success {
     border: 1px solid $green;
     color: $green;
+
+    &:active {
+      background-color: $green;
+      color: $white;
+    }
   }
 
   &.warning {
     border: 1px solid $orange;
     color: $orange;
+
+    &:active {
+      background-color: $orange;
+      color: $white;
+    }
   }
 }
 

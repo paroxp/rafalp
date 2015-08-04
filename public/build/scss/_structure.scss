@@ -1,0 +1,49 @@
+header[role=banner] {
+  padding: 0 rem(16);
+  text-align: center;
+
+  h1 {
+    font-weight: 100;
+    line-height: 1.2;
+
+    small {
+      color: $black;
+      display: block;
+      font-weight: 100;
+    }
+  }
+}
+
+main[role=main] {
+  padding: 0 rem(16);
+  text-align: center;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      display: inline-block;
+      margin: 0 rem(8);
+
+      &:first-of-type {
+        margin-left: 0;
+      }
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+
+    i {
+      margin-right: rem(4);
+    }
+  }
+}
+
+footer[role=contentinfo] {
+  color: $gray;
+  padding: 0 rem(16);
+  text-align: center;
+}
