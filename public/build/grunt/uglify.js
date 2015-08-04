@@ -11,12 +11,15 @@ module.exports = {
                 'js/framework/init.js',
                 'js/framework/core.js',
 
-                // Single modules.
+                // Single framework modules.
                 'js/framework/attribute.js',
                 'js/framework/css.js',
                 'js/framework/element.js',
                 'js/framework/event.js',
                 'js/framework/fade.js',
+
+                // Single application modules.
+                'js/application/modal.js',
 
                 // Wrap it up.
                 'js/framework/application.js',
