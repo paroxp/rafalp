@@ -166,10 +166,11 @@ app.extend(app, {
     /**
      * Aim for the element's parent.
      *
-     * @returns {domLvl1.parentNode|*|Function|Node}
+     * @returns {*|Node}
      */
     parent: function () {
-        return this.single().parentNode;
+        this._wrapped = this.single().parentNode;
+        return this;
     },
 
     /**
@@ -205,7 +206,9 @@ app.extend(app, {
     },
 
     /**
-     * Remove an element from existance.
+     * Remove an element from existence.
+     *
+     * @returns {Node}
      */
     remove: function () {
         try {
@@ -222,15 +225,37 @@ app.extend(app, {
      * @returns {app}
      */
     siblings: function (selector) {
-        var el = this.single();
+        var siblings = [];
 
-        this._wrapped = Array.prototype.filter.call(el.parentNode.children, function (child) {
-            if (typeof selector !== 'undefined') {
-                return child !== el && app.element(child) === app.element(selector);
-            } else {
-                return child !== el;
+        app.nodeAssure(this.all(), function (element) {
+            var sibling = element.parentNode.firstChild,
+                selected = typeof selector !== 'undefined' ? element.parentNode.querySelectorAll(selector) : [],
+                find = function (child) {
+                    var result = false;
+
+                    app.each(selected, function (element) {
+                        if (element === child) {
+                            result = true;
+                        }
+                    });
+
+                    return result;
+                };
+
+            for (; sibling; sibling = sibling.nextSibling) {
+                if (selected.length) {
+                    if (sibling.nodeType === 1 && sibling !== element && find(sibling)) {
+                        siblings.push(sibling);
+                    }
+                } else {
+                    if (sibling.nodeType === 1 && sibling !== element) {
+                        siblings.push(sibling);
+                    }
+                }
             }
         });
+
+        this._wrapped = app.element(siblings);
 
         return this;
     },
@@ -241,7 +266,7 @@ app.extend(app, {
      * @param value
      * @returns {*}
      */
-    value: function(value) {
+    value: function (value) {
         value = value || false;
 
         if (value) {
