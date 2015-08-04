@@ -1,5 +1,6 @@
-bower:
+build:
   - 'bower_concat'
+  - 'copy'
   - 'sass'
   - 'uglify'
 

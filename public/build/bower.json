@@ -8,7 +8,9 @@
   "license": "MIT",
   "homepage": "https://rafalp.com/",
   "dependencies": {
+    "animate.css": "~3.3.0",
     "bourbon": "~4.2.3",
+    "font-awesome": "~4.4.0",
     "normalize.css": "~3.0.3",
     "susy": "~2.2.5",
     "underscore": "~1.8.3"

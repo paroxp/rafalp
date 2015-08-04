@@ -7,7 +7,7 @@ module.exports = {
 
         },
         mainFiles: {
-
+            'font-awesome': ['css/font-awesome.css']
         },
         bowerOptions: {
             relative: false
