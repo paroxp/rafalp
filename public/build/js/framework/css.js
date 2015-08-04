@@ -45,7 +45,7 @@ app.extend(app, {
      */
     show: function () {
         app.nodeAssure(this.all(), function (element) {
-            element.style.display = '';
+            element.style.display = 'inherit';
         });
 
         return this;
