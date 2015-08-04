@@ -10,7 +10,7 @@ app.extend(app, {
         speed = speed || 400;
 
         app.nodeAssure(this.all(), function (element) {
-            element.style.display = '';
+            element.style.display = 'inherit';
             element.style.opacity = 0;
 
             var last = +new Date(),
@@ -39,7 +39,7 @@ app.extend(app, {
         speed = speed || 400;
 
         app.nodeAssure(this.all(), function (element) {
-            element.style.display = '';
+            element.style.display = 'inherit';
             element.style.opacity = 1;
 
             var last = +new Date(),
