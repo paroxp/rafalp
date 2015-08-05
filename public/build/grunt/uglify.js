@@ -17,6 +17,7 @@ module.exports = {
                 'js/framework/element.js',
                 'js/framework/event.js',
                 'js/framework/fade.js',
+                'js/framework/validator.js',
 
                 // Single application modules.
                 'js/application/modal.js',
