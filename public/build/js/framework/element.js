@@ -105,6 +105,27 @@ app.extend(app, {
     },
 
     /**
+     * Calculate element's height.
+     *
+     * @param includeMargin
+     * @returns {number}
+     */
+    height: function (includeMargin) {
+        includeMargin = includeMargin || false;
+
+        var element = this.single(),
+            height = element.offsetHeight;
+
+        if (includeMargin) {
+            var style = getComputedStyle(element);
+
+            height += parseInt(style.marginTop) + parseInt(style.marginBottom);
+        }
+
+        return height;
+    },
+
+    /**
      * Set/Get some HTML in/from the element.
      *
      * @param html
@@ -208,14 +229,14 @@ app.extend(app, {
     /**
      * Remove an element from existence.
      *
-     * @returns {Node}
+     * @returns {boolean}
      */
     remove: function () {
-        try {
-            return this.single().parentNode.removeChild(this.single());
-        } catch (e) {
+        app.nodeAssure(this.all(), function (element) {
+            element.parentNode.removeChild(element);
+        });
 
-        }
+        return true;
     },
 
     /**

@@ -9,8 +9,8 @@ app.extend(app, {
 
             $modal
                 .addClass('animated')
-                .removeClass('slideInLeft')
-                .addClass('slideOutLeft')
+                .removeClass('fadeInLeftBig')
+                .addClass('fadeOutLeftBig')
                 .fadeOut();
 
             $('.overlay')
@@ -31,8 +31,8 @@ app.extend(app, {
             $('[role=dialog]' + modal)
                 .fadeIn()
                 .addClass('animated')
-                .removeClass('slideOutLeft')
-                .addClass('slideInLeft');
+                .removeClass('fadeOutLeftBig')
+                .addClass('fadeInLeftBig');
 
             return false;
         }
