@@ -17,11 +17,11 @@ html {
   font-size: inherit;
   font-weight: inherit;
   line-height: inherit;
-
-  &::-moz-selection { background-color: $purple; color: $white; }
-  &::selection { background-color: $purple; color: $white; }
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 100;
 }
+
+::-moz-selection { background-color: $purple; color: $white; }
+::selection { background-color: $purple; color: $white; }
