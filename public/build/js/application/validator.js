@@ -33,6 +33,18 @@ _.extend(Application, {
                 $element
                     .after('<small data-error>' + error + '</small>');
             });
+
+            $(form)
+                .parent()
+                .addClass('animated')
+                .addClass('shake');
+
+            _.delay(function () {
+                console.log(form);
+                $(form)
+                    .parent()
+                    .removeClass('shake');
+            }, 460);
         }
 
     }
