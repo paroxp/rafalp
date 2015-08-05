@@ -3,11 +3,12 @@ header[role=banner] {
   text-align: center;
 
   h1 {
+    color: #96D3B7;
     font-weight: 100;
     line-height: 1.2;
 
     small {
-      color: $black;
+      color: lighten(#96D3B7, 10);
       display: block;
       font-weight: 100;
     }
@@ -15,8 +16,15 @@ header[role=banner] {
 }
 
 main[role=main] {
+  margin-top: rem(24);
   padding: 0 rem(16);
   text-align: center;
+
+  a {
+    color: $white;
+    display: inline-block;
+    padding: 0.25rem 0;
+  }
 
   ul {
     list-style: none;
@@ -43,7 +51,12 @@ main[role=main] {
 }
 
 footer[role=contentinfo] {
-  color: $gray;
+  color: #61B38E;
+  margin-top: rem(24);
   padding: 0 rem(16);
   text-align: center;
+
+  a {
+    color: #96D3B7;
+  }
 }
