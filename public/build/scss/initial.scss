@@ -22,7 +22,7 @@
 
 // Import rest of our styles.
 div#initial {
-  background-color: #000;
+  background-color: $black;
   bottom: 0;
   left: 0;
   position: fixed;
@@ -33,7 +33,9 @@ div#initial {
 //  @include transition(all .3s ease);
 
   &:before {
-    color: #fff;
+    @include animation(pulse 1.5s ease);
+    @include animation-iteration-count(infinite);
+    color: $white;
     content: "...";
     display: block;
     font-size: 48px;
@@ -45,8 +47,5 @@ div#initial {
     right: 0;
     top: 50%;
     text-align: center;
-
-    @include animation(pulse 1.5s ease);
-    @include animation-iteration-count(infinite);
   }
 }
