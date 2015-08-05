@@ -1,9 +1,11 @@
+var app = app || {};
+
 /**
  * event.js
  *
  * Handle some basic events on the fly.
  */
-app.extend(app, {
+_.extend(app, {
 
     /**
      * Unbind an event from an element with a callback function.
@@ -12,7 +14,7 @@ app.extend(app, {
      * @param callback
      */
     off: function (event, callback) {
-        app.nodeAssure(this.all(), function (element) {
+        app.nodeAssure(this, function (element) {
             element.removeEventListener(event, callback);
         });
 
@@ -28,9 +30,9 @@ app.extend(app, {
      */
     on: function (event, first, second) {
         var func = typeof second !== 'undefined' ? second : first,
-            $element = typeof second !== 'undefined' ? $(first) : this;
+            $element = typeof second !== 'undefined' ? app.element(first) : this;
 
-        app.nodeAssure($element._wrapped, function (element) {
+        app.nodeAssure($element, function (element) {
             element.addEventListener(event, func);
         });
 
@@ -47,7 +49,7 @@ app.extend(app, {
     trigger: function (event, data, element) {
         data = typeof element !== 'undefined' ? data : {};
 
-        var $element = typeof element !== 'undefined' ? $(element) : this,
+        var $element = typeof element !== 'undefined' ? element : this,
             e;
 
         e = document.createEvent('HTMLEvents');
@@ -61,7 +63,7 @@ app.extend(app, {
         //    e.initCustomEvent(event, true, true, data);
         //}
 
-        app.nodeAssure($element._wrapped, function (element) {
+        app.nodeAssure($element, function (element) {
             element.dispatchEvent(e);
         });
 

@@ -1,4 +1,11 @@
-app.extend(app, {
+var Application = Application || {};
+
+/**
+ * modal.js
+ *
+ * Application module responsible for the modals.
+ */
+_.extend(Application, {
 
     modal: {
 

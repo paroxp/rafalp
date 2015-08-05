@@ -1,4 +1,12 @@
-app.extend(app, {
+var app = app || {};
+
+/**
+ * fade.js
+ *
+ * Functionality responsible for fading in/out.
+ * Don't judge, first module...
+ */
+_.extend(app, {
 
     /**
      * Fade in current element.
@@ -9,7 +17,7 @@ app.extend(app, {
     fadeIn: function (speed) {
         speed = speed || 400;
 
-        app.nodeAssure(this.all(), function (element) {
+        app.nodeAssure(this, function (element) {
             element.style.display = 'inherit';
             element.style.opacity = 0;
 
@@ -38,7 +46,7 @@ app.extend(app, {
     fadeOut: function (speed) {
         speed = speed || 400;
 
-        app.nodeAssure(this.all(), function (element) {
+        app.nodeAssure(this, function (element) {
             element.style.display = 'inherit';
             element.style.opacity = 1;
 

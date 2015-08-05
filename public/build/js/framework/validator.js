@@ -1,10 +1,18 @@
-app.extend(app, {
+var app = app || {};
+
+/**
+ * validator.js
+ *
+ * Functionality responsible for the form validation.
+ */
+_.extend(app, {
 
     /**
      * Run the validation system.
      */
     validate: function (handleErrors) {
-        handleErrors = handleErrors || function (errors, $form) {};
+        handleErrors = handleErrors || function (errors, $form) {
+            };
 
         $(this)
             .on('submit', app.validator.validateForm)
@@ -12,7 +20,7 @@ app.extend(app, {
                 handleErrors(app.validator.getErrors($(this).attr('data-validation')), this);
             });
 
-        app.nodeAssure($(this).all(), function (element) {
+        app.nodeAssure($(this), function (element) {
             var $form = $(element),
                 uuid = app.guid();
 
@@ -75,11 +83,11 @@ app.extend(app, {
                 error = '', name = '';
 
             // Validate required fields.
-            app.each($form.find('[required]').all(), function (input) {
-                name = $(input).attr('name');
-                error = $(input).attr('data-error') || 'Field "' + name + '" is required...';
+            _.each($form.find('[required]'), function (input) {
+                name = input.getAttribute('name');
+                error = input.getAttribute('data-error') || 'Field "' + name + '" is required...';
 
-                if (!app.validator.validateRequired($(input).value())) {
+                if (!app.validator.validateRequired(input.value)) {
                     app.validator.addError(error, name, formId);
                 }
             });
@@ -106,14 +114,17 @@ app.extend(app, {
          * @returns {boolean}
          */
         validateForm: function (e) {
-            var uuid = $(this).attr('data-validation');
+            e.preventDefault();
+            var $form = this,
+                uuid = $form.attr('data-validation'),
+                $inputs = $form.find('input');
 
             app.validator
                 .clearErrorLog()
-                .validateType(uuid, $(this).find('input').all())
-                .validateAttribute($(this));
+                .validateType(uuid, $inputs)
+                .validateAttribute($form);
 
-            if (!app.isEmpty(app.validator.validationErrors)) {
+            if (!_.isEmpty(app.validator.validationErrors)) {
                 e.preventDefault();
 
                 $(this)
@@ -121,6 +132,7 @@ app.extend(app, {
 
                 return false;
             }
+            return false;
         },
 
         /**
@@ -130,7 +142,7 @@ app.extend(app, {
          * @returns {*}
          */
         validateNumber: function (value) {
-            return app.isNumber(parseFloat(value));
+            return _.isNumber(parseFloat(value));
         },
 
         /**
@@ -140,32 +152,32 @@ app.extend(app, {
          * @returns {boolean|*}
          */
         validateRequired: function (value) {
-            return !app.isNull(value) && !app.isUndefined(value) && !app.isNull(value) && (app.isNumber(value) || value.length > 0);
+            return !_.isNull(value) && !_.isUndefined(value) && (_.isNumber(value) || value.length > 0);
         },
 
         /**
          * Verify if form data is a correct type.
          *
          * @param formId
-         * @param inputs
+         * @param $inputs
          */
-        validateType: function (formId, inputs) {
+        validateType: function (formId, $inputs) {
             var error = '', name = '';
 
-            app.each(inputs, function (input) {
-                name = $(input).attr('name');
+            _.each($inputs, function (input) {
+                name = input.getAttribute('name');
 
-                switch ($(input).attr('type')) {
+                switch (input.getAttribute('type')) {
                     case 'email':
-                        if (!app.validator.validateEmail($(input).value())) {
-                            error = $(input).attr('data-error') || 'Please insert a valid email address into "' + name + '" field...';
+                        if (!app.validator.validateEmail(input.value)) {
+                            error = input.getAttribute('data-error') || 'Please insert a valid email address into "' + name + '" field...';
 
                             app.validator.addError(error, name, formId);
                         }
                         break;
                     case 'number':
-                        if (!app.validator.validateNumber($(input).value())) {
-                            error = $(input).attr('data-error') || 'Please insert a valid number into "' + name + '" field...';
+                        if (!app.validator.validateNumber(input.value)) {
+                            error = input.getAttribute('data-error') || 'Please insert a valid number into "' + name + '" field...';
 
                             app.validator.addError(error, name, formId);
                         }

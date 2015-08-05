@@ -1,6 +1,7 @@
 module.exports = {
     options: {
-        mangle: false
+        mangle: false,
+        sourceMap: true
     },
     app: {
         files: {
@@ -19,11 +20,13 @@ module.exports = {
                 'js/framework/fade.js',
                 'js/framework/validator.js',
 
-                // Single application modules.
-                'js/application/modal.js',
-
                 // Wrap it up.
                 'js/framework/application.js',
+
+                // Single application modules.
+                'js/application/modal.js',
+                'js/application/position.js',
+                'js/application/validator.js',
 
                 'js/app.js'
             ]

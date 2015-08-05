@@ -1,9 +1,11 @@
 var app = app || {};
 
-// Extend our application with underscore library.
-_.extend(app, _);
-
-app.extend(app, {
+/**
+ * init.js
+ *
+ * Build our application basis.
+ */
+_.extend(app, {
     /**
      * Name of the application.
      */
@@ -22,13 +24,10 @@ app.extend(app, {
     /**
      * Transform underscore version, for the peace of mind.
      */
-    underscore: app.VERSION,
+    underscore: _.VERSION,
 
     /**
      * Application version for future reference...
      */
     version: '1.0.0'
 });
-
-// Ignore underscore initial version.
-delete app.VERSION;

@@ -1,3 +1,5 @@
+var app = app || {};
+
 /**
  * Modify the underscore call, in order to add some of our functionality.
  *
@@ -9,11 +11,12 @@ var $ = function (selector) {
     if (selector instanceof $) return selector;
     if (!(this instanceof $)) return new $(selector);
 
-    this._wrapped = app.element(selector);
-    app.extend(this, app);
+    var $element = app.element(selector);
 
-    return this;
+    _.extend($element, app);
+
+    return $element;
 };
 
 // Make sure, we'll be able to use our up without summoning an element.
-app.extend($, app);
+_.extend($, app);

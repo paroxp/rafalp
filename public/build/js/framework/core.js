@@ -1,18 +1,11 @@
+var app = app || {};
+
 /**
  * core.js
  *
  * Some of our basic functionality, used throughout the framework.
  */
-app.extend(app, {
-
-    /**
-     * Return all wrapped elements.
-     *
-     * @returns {app._wrapped|*}
-     */
-    all: function () {
-        return this._wrapped;
-    },
+_.extend(app, {
 
     /**
      * Select any DOM element.
@@ -21,7 +14,7 @@ app.extend(app, {
      * @returns {*}
      */
     element: function (selector) {
-        if (selector && app.type(selector) !== 'string') {
+        if (selector && app.ofType(selector) !== 'string') {
             return selector;
         }
 
@@ -59,8 +52,8 @@ app.extend(app, {
      * @param callback
      */
     nodeAssure: function (nodes, callback) {
-        if (app.isArray(nodes) || (app.isObject(nodes) && app.type(nodes) === 'nodelist')) {
-            app.each(nodes, callback);
+        if (_.isArray(nodes) || (_.isObject(nodes) && app.ofType(nodes) === 'nodelist')) {
+            _.each(nodes, callback);
         } else {
             callback(nodes);
         }
@@ -72,26 +65,13 @@ app.extend(app, {
      * @param callback
      */
     ready: function (callback) {
-        if (this._wrapped.readyState != 'loading') {
+        if (this.readyState != 'loading') {
             callback();
         } else {
-            this._wrapped.addEventListener('DOMContentLoaded', callback);
+            this.addEventListener('DOMContentLoaded', callback);
         }
 
         return this;
-    },
-
-    /**
-     * Select single wrapped element.
-     *
-     * @returns {*}
-     */
-    single: function () {
-        if (typeof this._wrapped !== 'undefined' && this._wrapped.length > 1 && app.type(this._wrapped) === 'object') {
-            return this._wrapped[0];
-        } else {
-            return this._wrapped;
-        }
     },
 
     /**
@@ -100,8 +80,8 @@ app.extend(app, {
      * @param obj
      * @returns {string}
      */
-    type: function (obj) {
-        obj = obj || this._wrapped;
+    ofType: function (obj) {
+        obj = obj || this;
 
         return Object.prototype.toString.call(obj).replace(/^\[object (.+)\]$/, "$1").toLowerCase();
     }

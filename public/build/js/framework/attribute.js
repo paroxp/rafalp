@@ -1,9 +1,11 @@
+var app = app || {};
+
 /**
  * attribute.js
  *
  * Functionality strictly aiming at the element's attributes.
  */
-app.extend(app, {
+_.extend(app, {
 
     /**
      * Control the element's attributes.
@@ -14,7 +16,7 @@ app.extend(app, {
      */
     attr: function (key, value) {
         if (typeof value !== 'undefined') {
-            app.nodeAssure(this.all(), function (element) {
+            app.nodeAssure(this, function (element) {
                 element.setAttribute(key, value);
             });
 
@@ -23,9 +25,9 @@ app.extend(app, {
             var result;
 
             try {
-                result = this.single().getAttribute(key);
+                result = this.getAttribute(key);
             } catch (e) {
-                result =  null;
+                result = null;
             }
 
             return result;
@@ -39,10 +41,10 @@ app.extend(app, {
      * @returns {app}
      */
     addClass: function (className) {
-        if (this.single().classList) {
-            this.single().classList.add(className);
+        if (this.classList) {
+            this.classList.add(className);
         } else {
-            this.single().className += ' ' + className;
+            this.className += ' ' + className;
         }
 
         return this;
@@ -55,10 +57,10 @@ app.extend(app, {
      * @returns {app}
      */
     hasClass: function (className) {
-        if (this.single().classList) {
-            this.single().classList.contains(className);
+        if (this.classList) {
+            this.classList.contains(className);
         } else {
-            new RegExp('(^| )' + className + '( |$)', 'gi').test(this.single().className);
+            new RegExp('(^| )' + className + '( |$)', 'gi').test(this.className);
         }
 
         return this;
@@ -71,10 +73,10 @@ app.extend(app, {
      * @returns {app}
      */
     removeClass: function (className) {
-        if (this.single().classList) {
-            this.single().classList.remove(className);
+        if (this.classList) {
+            this.classList.remove(className);
         } else {
-            this.single().className = this.single().className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+            this.className = this.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
         }
 
         return this;
@@ -87,10 +89,10 @@ app.extend(app, {
      * @returns {app}
      */
     toggleClass: function (className) {
-        if (this.single().classList) {
-            this.single().classList.toggle(className);
+        if (this.classList) {
+            this.classList.toggle(className);
         } else {
-            var classes = this.single().className.split(' '),
+            var classes = this.className.split(' '),
                 existingIndex = classes.indexOf(className);
 
             if (existingIndex >= 0) {
@@ -99,7 +101,7 @@ app.extend(app, {
                 classes.push(className);
             }
 
-            this.single().className = classes.join(' ');
+            this.className = classes.join(' ');
         }
 
         return this;

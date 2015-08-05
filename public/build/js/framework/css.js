@@ -1,9 +1,11 @@
+var app = app || {};
+
 /**
  * css.js
  *
  * Functionality strictly aiming at the element's css.
  */
-app.extend(app, {
+_.extend(app, {
 
     /**
      * Ability to modify the CSS on the fly.
@@ -13,9 +15,9 @@ app.extend(app, {
      */
     css: function (attribute, value) {
         if (typeof value !== 'undefined' || typeof attribute === 'object') {
-            app.nodeAssure(this.all(), function (element) {
-                if (app.isArray(attribute) || app.isObject(attribute)) {
-                    app.each(attribute, function (val, attr) {
+            app.nodeAssure(this, function (element) {
+                if (_.isArray(attribute) || _.isObject(attribute)) {
+                    _.each(attribute, function (val, attr) {
                         element.style[attr] = val;
                     });
                 } else {
@@ -25,7 +27,7 @@ app.extend(app, {
 
             return this;
         } else {
-            return getComputedStyle(this.single())[attribute];
+            return getComputedStyle(this)[attribute];
         }
     },
 
@@ -33,7 +35,7 @@ app.extend(app, {
      * Hide an element.
      */
     hide: function () {
-        app.nodeAssure(this.all(), function (element) {
+        app.nodeAssure(this, function (element) {
             element.style.display = 'none';
         });
 
@@ -44,7 +46,7 @@ app.extend(app, {
      * Show an element.
      */
     show: function () {
-        app.nodeAssure(this.all(), function (element) {
+        app.nodeAssure(this, function (element) {
             element.style.display = 'inherit';
         });
 

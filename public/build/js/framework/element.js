@@ -1,9 +1,11 @@
+var app = app || {};
+
 /**
  * element.js
  *
  * Functionality strictly aiming at the elements.
  */
-app.extend(app, {
+_.extend(app, {
 
     /**
      * Insert some HTML after just after the end of an element.
@@ -12,7 +14,7 @@ app.extend(app, {
      * @returns {app}
      */
     after: function (html) {
-        app.nodeAssure(this.all(), function (element) {
+        app.nodeAssure(this, function (element) {
             element.insertAdjacentHTML('afterend', html);
         });
 
@@ -26,7 +28,7 @@ app.extend(app, {
      * @returns {app}
      */
     append: function ($element) {
-        app.nodeAssure(this.all(), function (element) {
+        app.nodeAssure(this, function (element) {
             element.appendChild($element);
         });
 
@@ -40,7 +42,7 @@ app.extend(app, {
      * @returns {app}
      */
     before: function (html) {
-        app.nodeAssure(this.all(), function (element) {
+        app.nodeAssure(this, function (element) {
             element.insertAdjacentHTML('beforebegin', html);
         });
 
@@ -50,20 +52,18 @@ app.extend(app, {
     /**
      * Return all children found inside an element.
      *
-     * @returns {app}
+     * @returns {HTMLElement}
      */
-    children: function () {
+    child: function () {
         var results = [];
 
-        app.nodeAssure(this.all(), function (element) {
-            app.each(element.children, function (value) {
+        app.nodeAssure(this, function (element) {
+            _.each(element.children, function (value) {
                 results.push(value);
             });
         });
 
-        this._wrapped = results;
-
-        return this;
+        return $(results);
     },
 
     /**
@@ -72,36 +72,56 @@ app.extend(app, {
      * @returns {Node}
      */
     clone: function () {
-        return this.single().cloneNode(true);
+        return this.cloneNode(true);
+    },
+
+    /**
+     * Set/Get some text in/from the element;
+     *
+     * @param text
+     * @returns {*}
+     */
+    content: function (text) {
+        if (typeof text !== 'undefined') {
+            app.nodeAssure(this, function (element) {
+                element.innerHTML = text;
+            });
+
+            return this;
+        } else {
+            return this.textContent;
+        }
     },
 
     /**
      * Check if the element is empty.
      *
-     * @returns {boolean}
+     * @returns {app}
      */
     empty: function () {
-        return this.single().innerHTML === '';
+        app.nodeAssure(this, function (element) {
+            element.innerHTML = '';
+        });
+
+        return this;
     },
 
     /**
      * Find any selectors inside our element.
      *
      * @param selector
-     * @returns {app}
+     * @returns {HTMLElement}
      */
     find: function (selector) {
         var results = [];
 
-        app.nodeAssure(this.all(), function (element) {
-            app.each(element.querySelectorAll(selector), function (value) {
+        app.nodeAssure(this, function (element) {
+            _.each(element.querySelectorAll(selector), function (value) {
                 results.push(value);
             });
         });
 
-        this._wrapped = results;
-
-        return this;
+        return $(results);
     },
 
     /**
@@ -113,7 +133,7 @@ app.extend(app, {
     height: function (includeMargin) {
         includeMargin = includeMargin || false;
 
-        var element = this.single(),
+        var element = this,
             height = element.offsetHeight;
 
         if (includeMargin) {
@@ -133,31 +153,13 @@ app.extend(app, {
      */
     html: function (html) {
         if (typeof html !== 'undefined') {
-            app.nodeAssure(this.all(), function (element) {
+            app.nodeAssure(this, function (element) {
                 element.innerHTML = html;
             });
 
             return this;
         } else {
-            return this.single().innerHTML;
-        }
-    },
-
-    /**
-     * Set/Get some text in/from the element;
-     *
-     * @param text
-     * @returns {*}
-     */
-    text: function (text) {
-        if (typeof text !== 'undefined') {
-            app.nodeAssure(this.all(), function (element) {
-                element.innerHTML = text;
-            });
-
-            return this;
-        } else {
-            return this.single().textContent;
+            return this.innerHTML;
         }
     },
 
@@ -167,7 +169,7 @@ app.extend(app, {
      * @returns {HTMLElement}
      */
     next: function () {
-        return this.single().nextElementSibling;
+        return this.nextElementSibling;
     },
 
     /**
@@ -176,7 +178,7 @@ app.extend(app, {
      * @returns {{top: number, left: number}}
      */
     offset: function () {
-        var rect = this.single().getBoundingClientRect();
+        var rect = this.getBoundingClientRect();
 
         return {
             top: rect.top + document.body.scrollTop,
@@ -187,11 +189,10 @@ app.extend(app, {
     /**
      * Aim for the element's parent.
      *
-     * @returns {*|Node}
+     * @returns {HTMLElement}
      */
     parent: function () {
-        this._wrapped = this.single().parentNode;
-        return this;
+        return $(this.parentNode);
     },
 
     /**
@@ -200,7 +201,7 @@ app.extend(app, {
      * @returns {{left: (Number|number), top: (Number|number)}}
      */
     position: function () {
-        return {left: this.single().offsetLeft, top: this.single().offsetTop};
+        return {left: this.offsetLeft, top: this.offsetTop};
     },
 
     /**
@@ -210,7 +211,7 @@ app.extend(app, {
      * @returns {app}
      */
     prepend: function ($element) {
-        app.nodeAssure(this.all(), function (element) {
+        app.nodeAssure(this, function (element) {
             element.insertBefore($element, element.firstChild);
         });
 
@@ -223,7 +224,7 @@ app.extend(app, {
      * @returns {HTMLElement}
      */
     prev: function () {
-        return this.single().previousElementSibling;
+        return this.previousElementSibling;
     },
 
     /**
@@ -232,7 +233,7 @@ app.extend(app, {
      * @returns {boolean}
      */
     remove: function () {
-        app.nodeAssure(this.all(), function (element) {
+        app.nodeAssure(this, function (element) {
             element.parentNode.removeChild(element);
         });
 
@@ -243,18 +244,18 @@ app.extend(app, {
      * Localise any siblings of an element.
      *
      * @param selector
-     * @returns {app}
+     * @returns {HTMLElement}
      */
     siblings: function (selector) {
         var siblings = [];
 
-        app.nodeAssure(this.all(), function (element) {
+        app.nodeAssure(this, function (element) {
             var sibling = element.parentNode.firstChild,
                 selected = typeof selector !== 'undefined' ? element.parentNode.querySelectorAll(selector) : [],
                 find = function (child) {
                     var result = false;
 
-                    app.each(selected, function (element) {
+                    _.each(selected, function (element) {
                         if (element === child) {
                             result = true;
                         }
@@ -276,9 +277,7 @@ app.extend(app, {
             }
         });
 
-        this._wrapped = app.element(siblings);
-
-        return this;
+        return $(siblings);
     },
 
     /**
@@ -287,16 +286,16 @@ app.extend(app, {
      * @param value
      * @returns {*}
      */
-    value: function (value) {
+    val: function (value) {
         value = value || false;
 
         if (value) {
-            this.single().value = value;
+            this.value = value;
 
             return this;
         }
 
-        return this.single().value;
+        return this.value;
     }
 
 });
