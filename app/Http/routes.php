@@ -12,3 +12,4 @@
 */
 
 Route::get('/', 'Main@index');
+Route::post('/contact', 'Contact@send');
