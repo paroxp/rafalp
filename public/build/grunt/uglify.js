@@ -18,6 +18,7 @@ module.exports = {
                 'js/framework/element.js',
                 'js/framework/event.js',
                 'js/framework/fade.js',
+                'js/framework/request.js',
                 'js/framework/validator.js',
 
                 // Wrap it up.
