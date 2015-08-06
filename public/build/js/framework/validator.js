@@ -114,7 +114,6 @@ _.extend(app, {
          * @returns {boolean}
          */
         validateForm: function (e) {
-            e.preventDefault();
             var $form = this,
                 uuid = $form.attr('data-validation'),
                 $inputs = $form.find('input');
@@ -132,7 +131,6 @@ _.extend(app, {
 
                 return false;
             }
-            return false;
         },
 
         /**
