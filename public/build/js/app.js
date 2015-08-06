@@ -6,7 +6,8 @@ $(document)
     .ready(function () {
         $body
             .on('click', '[data-modal]', Application.modal.open)
-            .on('click', '[role=dialog] [data-close]', Application.modal.close);
+            .on('click', '[role=dialog] [data-close]', Application.modal.close)
+            .on('submit', '#contact form', Application.contact.submit);
 
         // Centralise the body on the go.
         $(window)
