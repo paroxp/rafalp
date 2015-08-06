@@ -18,12 +18,14 @@ module.exports = {
                 'js/framework/element.js',
                 'js/framework/event.js',
                 'js/framework/fade.js',
+                'js/framework/request.js',
                 'js/framework/validator.js',
 
                 // Wrap it up.
                 'js/framework/application.js',
 
                 // Single application modules.
+                'js/application/contact.js',
                 'js/application/modal.js',
                 'js/application/position.js',
                 'js/application/validator.js',
