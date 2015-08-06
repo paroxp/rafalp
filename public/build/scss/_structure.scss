@@ -9,6 +9,10 @@ header[role=banner] {
     small {
       color: lighten(#96D3B7, 10);
       display: block;
+
+      @include min(48rem) {
+        font-weight: 100;
+      }
     }
   }
 }
