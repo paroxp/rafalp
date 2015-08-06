@@ -32,7 +32,7 @@ section[role=dialog] {
   }
 
   a[data-close] {
-    color: $silver;
+    color: $gray;
     line-height: 1;
     position: absolute;
     right: rem(16);
@@ -41,7 +41,7 @@ section[role=dialog] {
     @include transition(all .3s ease);
 
     &:hover {
-      color: $gray;
+      color: $red;
     }
   }
 
