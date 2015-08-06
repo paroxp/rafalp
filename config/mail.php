@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => null, 'name' => null],
+    'from' => ['address' => 'server@rafalp.com', 'name' => 'Obi-Wan Kenobi'],
 
     /*
     |--------------------------------------------------------------------------
