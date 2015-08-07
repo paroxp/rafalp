@@ -101,16 +101,16 @@ section[role=dialog] {
           @include span(8 of 12 no-gutters);
         }
       }
+    }
 
-      small[data-error] {
-        color: $red;
-        margin-bottom: 0.5rem;
-        text-align: right;
+    small[data-error] {
+      color: $red;
+      margin-bottom: 0.5rem;
+      text-align: right;
 
-        @include min($tablet) {
-          @include push(4 of 12);
-          @include span(8 of 12 no-gutters);
-        }
+      @include min($tablet) {
+        @include push(4 of 12);
+        @include span(8 of 12 no-gutters);
       }
     }
 
