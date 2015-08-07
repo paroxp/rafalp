@@ -10,6 +10,7 @@ namespace App\Http\Controllers;
 
 use App;
 use Illuminate\Http\Request;
+use Illuminate\Support\MessageBag;
 
 class Contact extends Controller
 {
@@ -22,17 +23,25 @@ class Contact extends Controller
      */
     public function send(Request $request)
     {
-        if (App\Contact::send($request->all())) {
+        $instance = App\Contact::send($request->all());
+
+        if ($instance instanceof App\Contact) {
             return response()->json([
                 'status' => 'OK',
                 'message' => 'Your message has been sent. Thank you!',
             ]);
+        } elseif ($instance instanceof MessageBag) {
+            return response()->json([
+                'status' => 'Bad Request',
+                'message' => 'I\'m sorry... We\'ve found some problems with your data...',
+                'data' => $instance->getMessages(),
+            ], 400);
         }
 
         return response()->json([
-            'status' => 'Bad Request',
+            'status' => 'I\'m a teapot',
             'message' => 'We couldn\'t send your message... Please try again later.',
-        ], 400);
+        ], 418);
     }
 
 }

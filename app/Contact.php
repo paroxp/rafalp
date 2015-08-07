@@ -36,6 +36,17 @@ class Contact extends Model
      */
     public static function send(array $data)
     {
+        $validator = \Validator::make($data, [
+            'name' => 'required',
+            'email' => 'required|email',
+            'message' => 'required|min:25',
+            'url' => 'in:',
+        ]);
+
+        if ($validator->fails()) {
+            return $validator->errors();
+        }
+
         $instance = static::create($data);
 
         Mail::send('email.message', ['contact' => $instance], function ($message) use ($instance) {
