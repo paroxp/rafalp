@@ -25,13 +25,13 @@ class Contact extends Controller
         if (App\Contact::send($request->all())) {
             return response()->json([
                 'status' => 'OK',
-                'message' => 'Your message has been sent.',
+                'message' => 'Your message has been sent. Thank you!',
             ]);
         }
 
         return response()->json([
-            'status' => 'OK',
-            'message' => 'Your message has been sent.',
+            'status' => 'Bad Request',
+            'message' => 'We couldn\'t send your message... Please try again later.',
         ], 400);
     }
 
