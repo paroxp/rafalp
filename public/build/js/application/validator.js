@@ -40,7 +40,6 @@ _.extend(Application, {
                 .addClass('shake');
 
             _.delay(function () {
-                console.log(form);
                 $(form)
                     .parent()
                     .removeClass('shake');
