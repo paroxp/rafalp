@@ -41,6 +41,8 @@ class Contact extends Model
             'email' => 'required|email',
             'message' => 'required|min:25',
             'url' => 'in:',
+        ], [
+            'url.in' => 'I see what you did there. I don\'t like it...',
         ]);
 
         if ($validator->fails()) {
