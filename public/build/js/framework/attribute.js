@@ -105,6 +105,20 @@ _.extend(app, {
         }
 
         return this;
+    },
+
+    /**
+     * Ability to remove the attribute.
+     *
+     * @param attribute
+     * @returns {app}
+     */
+    unset: function (attribute) {
+        _.each(this, function (element) {
+            element.removeAttribute(attribute);
+        });
+
+        return this;
     }
 
 });
