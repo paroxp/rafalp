@@ -45,7 +45,39 @@ section[role=dialog] {
     }
   }
 
+  h2 {
+    margin-bottom: 0;
+
+    span {
+      i {
+        color: rgba($black, .5);
+        font-size: 28px;
+        font-size: rem(28);
+
+        &.green {
+          color: $green;
+        }
+      }
+    }
+  }
+
+  .message {
+    margin-top: 0;
+    text-align: center;
+
+    &.error {
+      color: $red;
+    }
+
+    &.success {
+      color: $green;
+    }
+  }
+
   form {
+    @include clearfix;
+
+    position: relative;
     width: 100%;
 
     label {

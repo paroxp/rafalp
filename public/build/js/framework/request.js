@@ -12,7 +12,7 @@ _.extend(app, {
             url = _.isString(options) ? options : (options.url || '/'),
             method = typeof options.method !== 'undefined' ? options.method.toUpperCase() : 'GET',
             headers = options.headers || {},
-            data = options.headers || {},
+            data = options.data || {},
             success = options.success || function (request) {},
             error = options.error || function (request) {};
 
