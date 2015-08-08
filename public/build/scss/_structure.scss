@@ -9,10 +9,6 @@ header[role=banner] {
     small {
       color: rgba($white, .5);
       display: block;
-
-      @include min(48rem) {
-        font-weight: 100;
-      }
     }
   }
 }
