@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Lato:100,300);
+@import url(https://fonts.googleapis.com/css?family=Lato:300);
 
 html {
   background-color: $olive;
@@ -9,10 +9,6 @@ html {
   font-size: rem(16);
   font-weight: 300;
   line-height: 1.6;
-
-  @include min(48rem) {
-    font-weight: 100;
-  }
 }
 
 * {
@@ -25,10 +21,6 @@ html {
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 300;
-
-  @include min(48rem) {
-    font-weight: 100;
-  }
 }
 
 ::-moz-selection { background-color: $purple; color: $white; }
