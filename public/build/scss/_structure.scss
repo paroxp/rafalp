@@ -3,11 +3,11 @@ header[role=banner] {
   text-align: center;
 
   h1 {
-    color: #96D3B7;
+    color: rgba($white, .75);
     line-height: 1.2;
 
     small {
-      color: lighten(#96D3B7, 10);
+      color: rgba($white, .5);
       display: block;
 
       @include min(48rem) {
@@ -53,12 +53,12 @@ main[role=main] {
 }
 
 footer[role=contentinfo] {
-  color: #61B38E;
+  color: rgba($white, .5);
   margin-top: rem(24);
   padding: 0 rem(16);
   text-align: center;
 
   a {
-    color: #96D3B7;
+    color: rgba($white, .75);
   }
 }
