@@ -26,6 +26,7 @@ module.exports = {
 
                 // Single application modules.
                 'js/application/contact.js',
+                'js/application/layout.js',
                 'js/application/modal.js',
                 'js/application/position.js',
                 'js/application/validator.js',

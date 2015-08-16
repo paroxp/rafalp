@@ -9,6 +9,21 @@ html {
   font-size: rem(16);
   font-weight: 300;
   line-height: 1.6;
+
+  @include transition(all .3s ease .3s);
+
+  &.github, &.newcastle {
+    background-color: #000;
+  }
+  &.hurstDev {
+    background-color: $hurstDev;
+  }
+  &.netwerven {
+    background-color: $netwerven;
+  }
+  &.twitter {
+    background-color: $twitter;
+  }
 }
 
 * {
