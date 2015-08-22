@@ -1,10 +1,5 @@
 .DS_Store
-.env
-/.vagrant/
 /.idea/
-/node_modules
-/public/build/npm-debug.log
-/vendor
+/vendor/src
 *.map
-Homestead.yaml
-_ide_helper.php
+npm-debug.log
