@@ -40,8 +40,13 @@
 {{template "modal"}}
 
 <link href="/css/app.min.css" type="text/css" rel="stylesheet" property="stylesheet">
-{{template "css"}}
 <script src="/js/app.min.js" type="text/javascript" rel="script"></script>
-{{template "js"}}
+
+{{range .css}}
+<link href="{{.}}" type="text/css" rel="stylesheet" property="stylesheet">
+{{end}}
+{{range .js}}
+<script src="{{.}}" type="text/javascript" rel="script"></script>
+{{end}}
 </body>
 </html>
