@@ -1,0 +1,10 @@
+{
+  "Database": {
+      "engine": "mysql",
+      "host": "localhost",
+      "name": "rafalp",
+      "user": "root",
+      "password": "root",
+      "charset": "utf-8"
+  }
+}

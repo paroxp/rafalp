@@ -15,8 +15,12 @@ type Router struct{}
 func (c Router) NewRouter() *mux.Router {
 	router := mux.NewRouter().StrictSlash(true)
 
+	// Read configuration file.
+	configuration := Read()
+
 	// Setup middleware for our system.
 	http.Handle("/", middleware.Adapt(router,
+		middleware.SetContext(configuration),
 		middleware.PrintLog(),
 	))
 
