@@ -2,26 +2,25 @@ package config
 
 import (
 	"encoding/json"
-	"fmt"
-	"os"
+	"io/ioutil"
 )
 
-// Configuration will hold the details for current app.
-type Configuration struct {
-	Database map[string]interface{}
-}
-
 // Read the configuration file.
-func Read() Configuration {
-	file, _ := os.Open("./config/config.json")
-
-	decoder := json.NewDecoder(file)
-	configuration := Configuration{}
-	err := decoder.Decode(&configuration)
+func Read(filename string) interface{} {
+	// Test the configfile
+	config, err := ioutil.ReadFile("./config/" + filename + ".json")
 
 	if err != nil {
-		fmt.Println("error:", err)
+		panic(err)
 	}
 
+	var configuration map[string]interface{}
+	if err := json.Unmarshal(config, &configuration); err != nil {
+		panic(err)
+	}
+
+	// database := configuration["Database"].(map[string]interface{})
+	//
+	// log.Print(database["host"])
 	return configuration
 }
