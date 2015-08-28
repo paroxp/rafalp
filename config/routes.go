@@ -28,4 +28,10 @@ var routes = Routes{
 		"/",
 		Home.Index,
 	},
+	Route{
+		"Home.Contact",
+		"POST",
+		"/contact",
+		Home.PostContact,
+	},
 }

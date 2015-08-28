@@ -22,6 +22,7 @@ func (c Router) NewRouter() *mux.Router {
 	http.Handle("/", middleware.Adapt(router,
 		middleware.SetContext(configuration),
 		middleware.PrintLog(),
+		middleware.ClearContext(),
 	))
 
 	for _, route := range routes {
