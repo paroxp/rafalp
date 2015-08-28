@@ -4,7 +4,7 @@ import (
 	"log"
 	"net/http"
 
-	"./config"
+	"rafalp.com/config"
 )
 
 // Router - loaded our configuration router.

@@ -3,7 +3,7 @@ package config
 import (
 	"net/http"
 
-	"../handler"
+	"rafalp.com/handler"
 )
 
 // Route - define our struct.

@@ -4,8 +4,8 @@ import (
 	"log"
 	"net/http"
 
-	"../middleware"
 	"github.com/gorilla/mux"
+	"rafalp.com/middleware"
 )
 
 // Router Define the router delegation.
