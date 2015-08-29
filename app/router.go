@@ -11,7 +11,7 @@ import (
 type Router struct{}
 
 // NewRouter overrides the mux.Router NewRouter functionality.
-func (c Router) NewRouter() *mux.Router {
+func (a Router) NewRouter() *mux.Router {
 	router := mux.NewRouter()
 
 	for _, route := range routes {
@@ -28,8 +28,8 @@ func (c Router) NewRouter() *mux.Router {
 
 	// Setup middleware for our system.
 	http.Handle("/", middleware.Adapt(router,
-		middleware.SetContext(Read("application")),
-		middleware.SaveConnection(Connect()),
+		middleware.SetContext(Configuration{}.Read("application")),
+		middleware.SaveConnection(Database{}.Connect()),
 		middleware.PrintLog(),
 		middleware.ClearContext(),
 	))

@@ -6,10 +6,13 @@ import (
 	"github.com/jmoiron/sqlx"
 )
 
+// Database will handle the connection and maybe some "ORM" later on.
+type Database struct{}
+
 // Connect will establish the connection to the database.
-func Connect() *sqlx.DB {
+func (a Database) Connect() *sqlx.DB {
 	// Read the configuration.
-	database := Decode(Read("database")).(map[string]interface{})
+	database := Configuration{}.Decode(Configuration{}.Read("database")).(map[string]interface{})
 
 	// Establish connection to the database.
 	db, err := sqlx.Open(database["engine"].(string),

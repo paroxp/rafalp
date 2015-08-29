@@ -5,8 +5,11 @@ import (
 	"io/ioutil"
 )
 
+// Configuration will handle basic tasks on our config files.
+type Configuration struct{}
+
 // Read the configuration file.
-func Read(filename string) []byte {
+func (a Configuration) Read(filename string) []byte {
 	// Test the configfile
 	config, err := ioutil.ReadFile("./config/" + filename + ".json")
 
@@ -18,7 +21,7 @@ func Read(filename string) []byte {
 }
 
 // Decode will convert our interface into an "array".
-func Decode(config []byte) interface{} {
+func (a Configuration) Decode(config []byte) interface{} {
 	var configuration map[string]interface{}
 
 	if err := json.Unmarshal(config, &configuration); err != nil {
