@@ -3,3 +3,4 @@
 /vendor/src
 *.map
 npm-debug.log
+db/dbconf.yml
