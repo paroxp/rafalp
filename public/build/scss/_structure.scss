@@ -4,11 +4,13 @@ header[role=banner] {
 
   h1 {
     color: rgba($white, .75);
+    font-weight: 200;
     line-height: 1.2;
 
     small {
       color: rgba($white, .5);
       display: block;
+      font-weight: 200;
     }
   }
 }
