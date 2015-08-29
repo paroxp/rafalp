@@ -4,11 +4,11 @@ import "time"
 
 // Contact defines the entries submited from the frontend.
 type Contact struct {
-	ID        int        `json:"id"`
-	Name      string     `sql:"type:varchar(255)",json:"name"`
-	Email     string     `sql:"type:varchar(255)",json:"email"`
-	Message   string     `sql:"type:varchar(1024)",json:"message"`
-	CreatedAt time.Time  `json:"created_at"`
-	UpdatedAt time.Time  `json:"-"`
-	DeletedAt *time.Time `json:"-"`
+	ID        int        `db:"id",json:"id"`
+	Name      string     `db:"name",json:"name"`
+	Email     string     `db:"email",json:"email"`
+	Message   string     `db:"message",json:"message"`
+	CreatedAt time.Time  `db:"created_at",json:"created_at"`
+	UpdatedAt time.Time  `db:"updated_at",json:"-"`
+	DeletedAt *time.Time `db:"deleted_at",json:"-"`
 }
