@@ -1,7 +1,6 @@
 package config
 
 import (
-	"log"
 	"net/http"
 
 	"github.com/gorilla/mux"
@@ -13,14 +12,7 @@ type Router struct{}
 
 // NewRouter overrides the mux.Router NewRouter functionality.
 func (c Router) NewRouter() *mux.Router {
-	router := mux.NewRouter().StrictSlash(true)
-
-	// Setup middleware for our system.
-	http.Handle("/", middleware.Adapt(router,
-		middleware.SetContext(Read("config")),
-		middleware.PrintLog(),
-		middleware.ClearContext(),
-	))
+	router := mux.NewRouter()
 
 	for _, route := range routes {
 		var handler http.Handler
@@ -32,9 +24,14 @@ func (c Router) NewRouter() *mux.Router {
 			Path(route.Pattern).
 			Name(route.Name).
 			Handler(handler)
-
-		log.Print("Loading the route for: " + route.Name)
 	}
+
+	// Setup middleware for our system.
+	http.Handle("/", middleware.Adapt(router,
+		middleware.SetContext(Read("config")),
+		middleware.PrintLog(),
+		middleware.ClearContext(),
+	))
 
 	// Handle any static files.
 	router.PathPrefix("/").Handler(http.FileServer(http.Dir("./public/")))

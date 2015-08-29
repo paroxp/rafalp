@@ -8,8 +8,8 @@ import (
 )
 
 func main() {
-	router := config.Router{}.NewRouter()
+	config.Router{}.NewRouter()
 
 	log.Println("Listening...")
-	log.Fatal(http.ListenAndServe(":8080", router))
+	log.Fatal(http.ListenAndServe(":8080", nil))
 }
