@@ -1,5 +1,8 @@
 {
-  "Database": {
+  "application": {
+    "port": "3000"
+  },
+  "database": {
       "engine": "mysql",
       "host": "localhost",
       "name": "rafalp",
