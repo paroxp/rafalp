@@ -1,4 +1,4 @@
-package config
+package app
 
 import (
 	"net/http"
@@ -28,7 +28,8 @@ func (c Router) NewRouter() *mux.Router {
 
 	// Setup middleware for our system.
 	http.Handle("/", middleware.Adapt(router,
-		middleware.SetContext(Read("config")),
+		middleware.SetContext(Read("application")),
+		middleware.SaveConnection(Connect()),
 		middleware.PrintLog(),
 		middleware.ClearContext(),
 	))
