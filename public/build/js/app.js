@@ -7,8 +7,6 @@ $(document)
         $body
             .on('click', '[data-modal]', Application.modal.open)
             .on('click', '[role=dialog] [data-close]', Application.modal.close)
-            .on('mouseenter', '[data-html-class]', Application.layout.htmlClass)
-            .on('mouseleave', '[data-html-class]', Application.layout.htmlClass)
             .on('submit', '#contact form', Application.contact.submit);
 
         // Centralise the body on the go.
