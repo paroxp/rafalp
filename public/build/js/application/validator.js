@@ -7,45 +7,45 @@ var Application = Application || {};
  */
 _.extend(Application, {
 
+  /**
+   * Initialise validator module.
+   */
+  validator: {
+
     /**
-     * Initialise validator module.
+     * Decide what to do with any validation errors.
+     *
+     * @param errors
+     * @param form
      */
-    validator: {
+    validationErrors: function(errors, form) {
+      var $element;
 
-        /**
-         * Decide what to do with any validation errors.
-         *
-         * @param errors
-         * @param form
-         */
-        validationErrors: function (errors, form) {
-            var $element;
+      if ($(form).find('[data-error]').length) {
+        $(form)
+          .find('[data-error]')
+          .remove();
+      }
 
-            if ($(form).find('[data-error]').length) {
-                $(form)
-                    .find('[data-error]')
-                    .remove();
-            }
+      _.each(errors, function(error, input) {
+        $element = $(form).find('[name=' + input + ']');
 
-            _.each(errors, function (error, input) {
-                $element = $(form).find('[name=' + input + ']');
+        $element
+          .after('<small data-error>' + error + '</small>');
+      });
 
-                $element
-                    .after('<small data-error>' + error + '</small>');
-            });
+      $(form)
+        .parent()
+        .addClass('animated')
+        .addClass('shake');
 
-            $(form)
-                .parent()
-                .addClass('animated')
-                .addClass('shake');
-
-            _.delay(function () {
-                $(form)
-                    .parent()
-                    .removeClass('shake');
-            }, 460);
-        }
-
+      _.delay(function() {
+        $(form)
+          .parent()
+          .removeClass('shake');
+      }, 460);
     }
+
+  }
 
 });
