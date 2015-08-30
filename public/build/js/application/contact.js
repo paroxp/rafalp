@@ -53,8 +53,9 @@ _.extend(Application, {
           json = JSON.parse(request.responseText);
 
           if (request.status === 200) {
+            Application.contact
+              .handleMessage($form, 'Your message has been sent. Thank you!', 'success');
 
-                        Application.contact.handleMessage($form, json.message, 'success');
             // Add a check.
             $form
               .parent()
@@ -62,9 +63,9 @@ _.extend(Application, {
               .html('<i class="fa fa-check green"></i>');
 
           } else if (request.status === 400) {
+            _.each(json.error, function(value, key) {
+              app.validator.addError(value, key, $form.attr('data-validation'));
             });
-                        _.each(json.data, function (value, key) {
-                            app.validator.addError(value[0], key, $form.attr('data-validation'));
 
             $form
               .trigger('validation-error');
@@ -73,14 +74,15 @@ _.extend(Application, {
               .find('button[type=submit]')
               .unset('disabled');
 
+            Application.contact
+              .handleMessage($form, 'I\'m sorry... We\'ve found some problems with your data...', 'error');
           } else {
-                        Application.contact.handleMessage($form, json.message, 'error');
             $form
               .find('button[type=submit]')
               .unset('disabled');
 
-                        Application.contact.handleMessage($form, json.message, 'success');
-                        Application.contact.handleMessage($form, json.message, 'error');
+            Application.contact
+              .handleMessage($form, 'We couldn\'t send your message... Please try again later.', 'error');
           }
         },
         error: function(request) {
@@ -96,8 +98,8 @@ _.extend(Application, {
 
           json = JSON.parse(request.responseText);
 
-                    Application.contact
-                        .handleMessage($form, 'We couldn\'t send your message... Please try again later.', 'error');
+          Application.contact
+            .handleMessage($form, 'We couldn\'t send your message... Please try again later.', 'error');
         }
       });
 
