@@ -1,4 +1,4 @@
-package app
+package system
 
 import (
 	"net/http"
@@ -11,7 +11,7 @@ import (
 type Router struct{}
 
 // NewRouter overrides the mux.Router NewRouter functionality.
-func (a Router) NewRouter() *mux.Router {
+func (r Router) NewRouter() *mux.Router {
 	router := mux.NewRouter()
 
 	for _, route := range routes {

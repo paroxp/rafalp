@@ -1,4 +1,4 @@
-package app
+package system
 
 import (
 	// Import is being used by the sqlx.Open as a driver.
@@ -10,16 +10,15 @@ import (
 type Database struct{}
 
 // Connect will establish the connection to the database.
-func (a Database) Connect() *sqlx.DB {
+func (d Database) Connect() *sqlx.DB {
 	// Read the configuration.
 	database := Configuration{}.Decode(Configuration{}.Read("database")).(map[string]interface{})
-
 	// Establish connection to the database.
-	db, err := sqlx.Open(database["engine"].(string),
-		database["user"].(string)+":"+database["password"].(string)+
-			"@tcp("+database["host"].(string)+")"+
-			"/"+database["name"].(string)+
-			"?charset="+database["charset"].(string))
+	db, err := sqlx.Open(database["engine"].(string), database["user"].(string)+
+		":"+database["password"].(string)+
+		"@tcp("+database["host"].(string)+":"+database["port"].(string)+")"+
+		"/"+database["name"].(string)+
+		"?charset=utf8")
 
 	if err != nil {
 		panic(err)

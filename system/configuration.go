@@ -1,4 +1,4 @@
-package app
+package system
 
 import (
 	"encoding/json"
@@ -9,7 +9,7 @@ import (
 type Configuration struct{}
 
 // Read the configuration file.
-func (a Configuration) Read(filename string) []byte {
+func (c Configuration) Read(filename string) []byte {
 	// Test the configfile
 	config, err := ioutil.ReadFile("./config/" + filename + ".json")
 
@@ -21,7 +21,7 @@ func (a Configuration) Read(filename string) []byte {
 }
 
 // Decode will convert our interface into an "array".
-func (a Configuration) Decode(config []byte) interface{} {
+func (c Configuration) Decode(config []byte) interface{} {
 	var configuration map[string]interface{}
 
 	if err := json.Unmarshal(config, &configuration); err != nil {

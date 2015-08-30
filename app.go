@@ -4,11 +4,11 @@ import (
 	"log"
 	"net/http"
 
-	"rafalp.com/app"
+	"rafalp.com/system"
 )
 
 func main() {
-	app.Router{}.NewRouter()
+	system.Router{}.NewRouter()
 
 	log.Println("Listening...")
 	log.Fatal(http.ListenAndServe(":8080", nil))
