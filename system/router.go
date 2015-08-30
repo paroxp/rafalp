@@ -29,8 +29,9 @@ func (r Router) NewRouter() *mux.Router {
 	// Setup middleware for our system.
 	http.Handle("/", middleware.Adapt(router,
 		middleware.SetContext(Configuration{}.Read("application")),
-		middleware.SaveConnection(Database{}.Connect()),
 		middleware.PrintLog(),
+		middleware.SaveConnection(Database{}.Connect()),
+		middleware.SetDispatcher(Mail{}.Setup()),
 		middleware.ClearContext(),
 	))
 

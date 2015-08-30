@@ -7,6 +7,7 @@ import (
 
 	"github.com/gorilla/context"
 	"github.com/jmoiron/sqlx"
+	"github.com/mailgun/mailgun-go"
 	"rafalp.com/model"
 )
 
@@ -35,7 +36,21 @@ func (h Home) PostContact(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		panic(err)
 	} else {
-		// Send email.
+		mg := context.Get(r, "mailgun").(mailgun.Mailgun)
+		message := mg.NewMessage(
+			"Obi-Wan Kenobi <server@rafalp.com>",
+			"New message from "+contact.Name,
+			contact.Message,
+			"Rafał Proszowski <paroxp@gmail.com>",
+		)
+
+		// Just in case we will need it some time in the future, its:
+		// _, id, err := mg.Send(message)
+		_, _, err := mg.Send(message)
+
+		if err != nil {
+			panic(err)
+		}
 	}
 
 	// Compose the JSON response.
