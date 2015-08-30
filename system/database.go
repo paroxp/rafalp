@@ -13,6 +13,7 @@ type Database struct{}
 func (d Database) Connect() *sqlx.DB {
 	// Read the configuration.
 	database := Configuration{}.Decode(Configuration{}.Read("database")).(map[string]interface{})
+
 	// Establish connection to the database.
 	db, err := sqlx.Open(database["engine"].(string), database["user"].(string)+
 		":"+database["password"].(string)+
