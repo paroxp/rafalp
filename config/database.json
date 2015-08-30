@@ -1,8 +1,9 @@
 {
   "engine": "mysql",
   "host": "localhost",
+  "port": "3306",
   "name": "rafalp",
   "user": "root",
   "password": "root",
-  "charset": "utf-8"
+  "charset": "utf8"
 }

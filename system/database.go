@@ -18,7 +18,7 @@ func (d Database) Connect() *sqlx.DB {
 		":"+database["password"].(string)+
 		"@tcp("+database["host"].(string)+":"+database["port"].(string)+")"+
 		"/"+database["name"].(string)+
-		"?charset=utf8")
+		"?charset="+database["charset"].(string)+"&parseTime=True")
 
 	if err != nil {
 		panic(err)
