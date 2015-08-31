@@ -52,7 +52,7 @@ _.extend(Application, {
 
           json = JSON.parse(request.responseText);
 
-          if (request.status === 200) {
+          if (request.status === 201) {
             Application.contact
               .handleMessage($form, 'Your message has been sent. Thank you!', 'success');
 
@@ -75,7 +75,7 @@ _.extend(Application, {
               .unset('disabled');
 
             Application.contact
-              .handleMessage($form, 'I\'m sorry... We\'ve found some problems with your data...', 'error');
+              .handleMessage($form, json.message, 'error');
           } else {
             $form
               .find('button[type=submit]')
