@@ -26,6 +26,8 @@ func (h Home) Index(w http.ResponseWriter, r *http.Request) {
 func (h Home) PostContact(w http.ResponseWriter, r *http.Request) {
 	contact := model.Contact{
 		Db:      context.Get(r, "db").(*sqlx.DB),
+		Mailgun: context.Get(r, "mailgun").(mailgun.Mailgun),
+
 		Name:    r.FormValue("name"),
 		Email:   r.FormValue("email"),
 		Message: r.FormValue("message"),

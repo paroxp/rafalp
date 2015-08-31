@@ -4,11 +4,13 @@ import (
 	"time"
 
 	"github.com/jmoiron/sqlx"
+	"github.com/mailgun/mailgun-go"
 )
 
 // Contact defines the entries submited from the frontend.
 type Contact struct {
-	Db *sqlx.DB `json:"-"`
+	Db      *sqlx.DB        `json:"-"`
+	Mailgun mailgun.Mailgun `json:"-"`
 
 	ID        int        `db:"id" json:"id"`
 	Name      string     `db:"name" json:"name"`
@@ -34,4 +36,16 @@ func (c Contact) Find(id int64) (Contact, error) {
 	err := c.Db.Get(&c, "SELECT * FROM contact WHERE id=?", id)
 
 	return c, err
+}
+
+// Send an email copy out.
+func (c Contact) Send() (string, string, error) {
+	message := c.Mailgun.NewMessage(
+		"Obi-Wan Kenobi <server@rafalp.com>",
+		"New message from "+c.Name,
+		c.Message,
+		"Rafał Proszowski <paroxp@gmail.com>",
+	)
+
+	return c.Mailgun.Send(message)
 }
