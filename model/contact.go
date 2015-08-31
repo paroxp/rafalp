@@ -1,9 +1,7 @@
 package model
 
 import (
-	"regexp"
 	"time"
-	"unicode/utf8"
 
 	"github.com/jmoiron/sqlx"
 	"github.com/mailgun/mailgun-go"
@@ -64,34 +62,19 @@ func (c Contact) Send() (string, string, error) {
 
 // Validate the model.
 func (c Contact) Validate() utility.Error {
-	err := utility.Error{}
+	Validator := utility.Validator{}
 
-	// Validate Name field.
-	if c.Name == "" {
-		err = err.Add("name", "I'd prefer to know who you are.")
-	} else if utf8.RuneCountInString(c.Name) < 5 {
-		err = err.Add("name", "Surely, your name is longer than 4 characters.")
-	}
+	validator := Validator.Validate("name",
+		Validator.NotEmpty(c.Name, "I'd prefer to know who you are."),
+	).Validate("email",
+		Validator.NotEmpty(c.Email, "I won't be able to reply to you!"),
+		Validator.IsEmail(c.Email, "This email doesn't look right to me..."),
+	).Validate("message",
+		Validator.NotEmpty(c.Message, "Got nothing to say?"),
+		Validator.MinLength(c.Message, 25, "Your message should be at least 25 characters long."),
+	).Validate("url",
+		Validator.Empty(c.URL, "I see what you did there... I don't like it."),
+	)
 
-	// Validate Email field.
-	email := regexp.MustCompile(`^[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,4}$`)
-	if c.Email == "" {
-		err = err.Add("email", "I won't be able to reply to you!")
-	} else if !email.MatchString(c.Email) {
-		err = err.Add("email", "Provided email address is invalid.")
-	}
-
-	// Validate Message field.
-	if c.Message == "" {
-		err = err.Add("message", "Got nothing to say?")
-	} else if utf8.RuneCountInString(c.Message) < 26 {
-		err = err.Add("message", "Your message should be at least 25 characters long.")
-	}
-
-	// Make sure to protect ourselves against the spam...
-	if c.URL != "" {
-		err = err.Add("url", "I see what you did there... I don't like it.")
-	}
-
-	return err
+	return validator.Error
 }
