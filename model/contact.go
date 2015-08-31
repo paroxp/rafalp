@@ -7,6 +7,7 @@ import (
 
 	"github.com/jmoiron/sqlx"
 	"github.com/mailgun/mailgun-go"
+	"rafalp.com/utility"
 )
 
 // Contact defines the entries submited from the frontend.
@@ -25,13 +26,21 @@ type Contact struct {
 }
 
 // Create will add a new entry to the database.
-func (c Contact) Create() (Contact, error) {
+func (c Contact) Create() (Contact, utility.Error) {
+	errors := c.Validate()
+	if !errors.Empty() {
+		return c, errors
+	}
+
 	result := c.Db.MustExec("INSERT INTO contact (name, email, message, created_at, updated_at) VALUES (?, ?, ?, NOW(), NOW());", c.Name, c.Email, c.Message)
 
-	id, err := result.LastInsertId()
+	id, _ := result.LastInsertId()
 	object, err := c.Find(id)
+	if err != nil {
+		errors = errors.Add("insert", err.Error())
+	}
 
-	return object, err
+	return object, errors
 }
 
 // Find the entry by id.

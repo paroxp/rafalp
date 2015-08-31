@@ -1,7 +1,6 @@
 package handler
 
 import (
-	"encoding/json"
 	"net/http"
 	"text/template"
 
@@ -9,6 +8,7 @@ import (
 	"github.com/jmoiron/sqlx"
 	"github.com/mailgun/mailgun-go"
 	"rafalp.com/model"
+	"rafalp.com/utility"
 )
 
 // Home defines the default handler.
@@ -34,37 +34,28 @@ func (h Home) PostContact(w http.ResponseWriter, r *http.Request) {
 		URL:     r.FormValue("url"),
 	}
 
-	contact, err := contact.Create()
+	// Attempt to save an entry.
+	contact, errors := contact.Create()
 
-	if err != nil {
-		panic(err)
-	} else {
-		mg := context.Get(r, "mailgun").(mailgun.Mailgun)
-		message := mg.NewMessage(
-			"Obi-Wan Kenobi <server@rafalp.com>",
-			"New message from "+contact.Name,
-			contact.Message,
-			"Rafał Proszowski <paroxp@gmail.com>",
-		)
+	// Return any validation issues.
+	if !errors.Empty() {
+		utility.Response{}.
+			JSON(w, errors.SetMessage("I'm sorry... We've found some problems with your data..."), http.StatusBadRequest)
 
-		// Just in case we will need it some time in the future, its:
-		// _, id, err := mg.Send(message)
-		_, _, err := mg.Send(message)
-
-		if err != nil {
-			panic(err)
-		}
-	}
-
-	// Compose the JSON response.
-	js, err := json.Marshal(contact)
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
-	w.Header().Set("Content-Type", "application/json")
-	w.Write(js)
+	// Send an email.
+	_, _, err := contact.Send()
 
-	return
+	if err != nil {
+		utility.Response{}.
+			JSON(w, err, http.StatusTeapot)
+
+		return
+	}
+
+	// Return our newly created object.
+	utility.Response{}.
+		JSON(w, contact, http.StatusCreated)
 }
