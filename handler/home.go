@@ -31,6 +31,7 @@ func (h Home) PostContact(w http.ResponseWriter, r *http.Request) {
 		Name:    r.FormValue("name"),
 		Email:   r.FormValue("email"),
 		Message: r.FormValue("message"),
+		URL:     r.FormValue("url"),
 	}
 
 	contact, err := contact.Create()
