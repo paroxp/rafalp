@@ -7,15 +7,15 @@ var app = app || {};
  * @returns {*}
  * @private
  */
-var $ = function (selector) {
-    if (selector instanceof $) return selector;
-    if (!(this instanceof $)) return new $(selector);
+var $ = function(selector) {
+  if (selector instanceof $) return selector;
+  if (!(this instanceof $)) return new $(selector);
 
-    var $element = app.element(selector);
+  var $element = app.element(selector);
 
-    _.extend($element, app);
+  _.extend($element, app);
 
-    return $element;
+  return $element;
 };
 
 // Make sure, we'll be able to use our up without summoning an element.
