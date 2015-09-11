@@ -39,8 +39,10 @@ func (h Home) PostContact(w http.ResponseWriter, r *http.Request) {
 
 	// Return any validation issues.
 	if !errors.Empty() {
+		&errors.SetMessage("I'm sorry... We've found some problems with your data...")
+
 		utility.Response{}.
-			JSON(w, errors.SetMessage("I'm sorry... We've found some problems with your data..."), http.StatusBadRequest)
+			JSON(w, errors, http.StatusBadRequest)
 
 		return
 	}
