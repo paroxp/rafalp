@@ -5,7 +5,7 @@
 
     <meta charset="utf-8">
     <meta name="author" content="Rafal Proszowski">
-    <meta name="copyright" content="Rafal Proszowski Copyright (c) 2014 - 2015">
+    <meta name="copyright" content="Rafal Proszowski Copyright (c) 2014 - 2016">
     <meta name="description" content="An amazing web developer.">
     <meta name="keywords" content="php, html, css, scss, javascript, js, mysql, go">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -27,88 +27,62 @@
     <meta name="msapplication-TileColor" content="#3d9970">
     <meta name="msapplication-TileImage" content="/img/favicon/mstile-144x144.png">
     <meta name="theme-color" content="#ffffff">
-
-    <link href="/css/initial.min.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-<div id="initial"></div>
 
 <header role="banner">
-    <h1>Rafal Proszowski <small>Web Developer</small></h1>
+    <nav>
+        <ul>
+            <li>
+                <a href="/" class="active">Home</a>
+            </li>
+            <li>
+                <a href="/blog">Blog</a>
+            </li>
+            <li>
+                <a href="/about">About</a>
+            </li>
+            <li>
+                <a href="/contact">Contact</a>
+            </li>
+        </ul>
+    </nav>
+
+    <a href="#">Menu</a>
 </header>
 
 <main role="main">
-    <ul>
-        <!--<li>
-            <a href="//netwerven.nl/" target="_blank" rel="external nofollow" data-html-class="netwerven">
-                <i class="fa fa-suitcase"></i> Netwerven
-            </a>
-        </li>
-        <li>
-            <a href="//www.iamsterdam.com/" target="_blank" rel="external nofollow" data-html-class="amsterdam">
-                <i class="fa fa-map-marker"></i> Amsterdam, NL
-            </a>
-        </li>-->
-        <li>
-            <a href="http://hurstdev.co.uk/" target="_blank" rel="external nofollow" data-html-class="hurstDev">
-                <i class="fa fa-suitcase"></i> HurstDEV
-            </a>
-        </li>
-        <li>
-            <a href="http://newcastlegateshead.com/" target="_blank" rel="external nofollow" data-html-class="newcastle">
-                <i class="fa fa-map-marker"></i> Newcastle upon Tyne, UK
-            </a>
-        </li>
-        <li>
-            <a href="//twitter.com/paroxp" target="_blank" rel="external nofollow" data-html-class="twitter">
-                <i class="fa fa-twitter"></i> Twitter
-            </a>
-        </li>
-        <li>
-            <a href="//github.com/paroxp" target="_blank" rel="external nofollow" data-html-class="github">
-                <i class="fa fa-github"></i> GitHub
-            </a>
-        </li>
-        <li>
-            <a href="#contact" data-modal="#contact">
-                <i class="fa fa-envelope"></i> Contact
-            </a>
-        </li>
-    </ul>
+
 </main>
 
 <footer role="contentinfo">
-    <p><small>Copyright 2014 - 2015 <a href="/">Rafal Proszowski</a></small></p>
+    <ul class="social">
+        <li>
+            <a href="//github.com/paroxp" target="_blank" rel="external nofollow" title="GitHub">
+                <i class="fa fa-github"></i>
+            </a>
+        </li>
+        <li>
+            <a href="//twitter.com/paroxp" target="_blank" rel="external nofollow" title="Twitter">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        <li>
+            <a href="//linkedin.com/in/rafał-proszowski-78816744" target="_blank" rel="external nofollow" title="LinkedIn">
+                <i class="fa fa-linkedin"></i>
+            </a>
+        </li>
+        <li>
+            <a href="/contact" title="Contact">
+                <i class="fa fa-envelope"></i>
+            </a>
+        </li>
+    </ul>
+
+    <div class="copyright">
+        <small>Copyright 2014 - 2016</small>
+    </div>
 </footer>
-
-<div class="overlay"></div>
-
-<section role="dialog" id="contact">
-    <a href="#" data-close>&times;</a>
-
-    <h2>Contact <span></span></h2>
-
-    <form method="post" action="/contact">
-        <label>
-            <span>Name</span>
-            <input type="text" name="name" required>
-        </label>
-
-        <label>
-            <span>Email</span>
-            <input type="email" name="email" required>
-        </label>
-
-        <label>
-            <span>Message</span>
-            <textarea name="message" required></textarea>
-        </label>
-
-        <input type="hidden" name="url">
-
-        <button type="submit">Submit</button>
-    </form>
-</section>
 
 <link href="/css/app.css" type="text/css" rel="stylesheet" property="stylesheet">
 <script src="/js/app.min.js" type="text/javascript" rel="script"></script>
