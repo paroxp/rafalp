@@ -1,6 +1,6 @@
 {
   "name": "rafalp",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Rafal Proszowski - homepage.",
   "author": [
     "Rafal Proszowski"
@@ -8,15 +8,11 @@
   "license": "MIT",
   "homepage": "https://rafalp.com/",
   "dependencies": {
-    "grunt": "^0.4.5",
-    "grunt-bower-concat": "^0.5.0",
-    "grunt-contrib-copy": "^0.8.1",
-    "grunt-contrib-jshint": "^0.11.2",
-    "grunt-contrib-uglify": "^0.9.1",
-    "grunt-contrib-watch": "^0.6.1",
-    "grunt-sass": "^1.0.0",
-    "jit-grunt": "^0.9.1",
-    "load-grunt-config": "^0.17.2",
-    "time-grunt": "^1.2.1"
+    "browser-sync": "^2.11.1",
+    "del": "^2.2.0",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-sass": "^2.0.4",
+    "gulp-uglify": "^1.4.2"
   }
 }
