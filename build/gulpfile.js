@@ -30,7 +30,7 @@ gulp.task('serve', function () {
 
     gulp.watch(config.sass.source, ['sass']);
     gulp.watch(config.uglify.source, ['uglify']);
-    gulp.watch('**.*.html').on('change', browserSync.reload);
+    gulp.watch('../**/*.html').on('change', browserSync.reload);
 
     return gulp;
 });
