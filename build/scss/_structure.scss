@@ -67,9 +67,11 @@ header[role=banner] {
 }
 
 footer[role=contentinfo] {
+  margin-top: 1rem;
   text-align: center;
 
   @include min(40em) {
+    margin-top: 3rem;
     text-align: left;
   }
 
@@ -89,13 +91,16 @@ footer[role=contentinfo] {
 
   .copyright {
     text-transform: uppercase;
-    
+
     @include min(40em) {
       @include span(first 6 of 12);
     }
   }
 
   .social {
+    cursor: default;
+    @include user-select(none);
+
     @include min(40em) {
       @include span(last 6 of 12);
       text-align: right;
