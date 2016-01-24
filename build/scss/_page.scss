@@ -3,3 +3,45 @@ body.home main[role=main] {
   font-size: rem(26);
   text-align: center;
 }
+
+body.blog main[role=main] {
+
+  @include min(40rem) {
+    @include display(flex);
+    @include flex-direction(row);
+    @include flex-wrap(wrap);
+  }
+
+  article {
+    background-color: #f0f0f0;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    @include clearfix;
+
+    &:last-of-type {
+      margin: 0;
+    }
+
+    @include min(40rem) {
+      margin-bottom: gutter(12);
+      width: span(6 of 12);
+
+      &:nth-of-type(odd) {
+        margin-right: gutter(12);
+      }
+    }
+  }
+
+  article time {
+    color: lighten($gray, 15);
+    float: right;
+    font-size: 12px;
+    font-size: rem(12);
+
+    @include transition(all .3s ease);
+  }
+
+  article:hover time {
+    color: $gray;
+  }
+}
