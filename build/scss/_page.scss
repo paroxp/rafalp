@@ -45,3 +45,29 @@ body.blog main[role=main] {
     color: $gray;
   }
 }
+
+body.contact main[role=main] {
+  aside {
+    font-size: 26px;
+    font-size: rem(26);
+    text-align: center;
+
+    @include min(40em) {
+      @include span(6 of 12);
+    }
+  }
+
+  form {
+    background-color: #f0f0f0;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+
+    @include min(40em) {
+      @include span(last 6 of 12);
+    }
+
+    input, textarea, button {
+      width: 100%;
+    }
+  }
+}
