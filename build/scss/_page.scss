@@ -16,18 +16,18 @@ body.blog main[role=main] {
     background-color: #f0f0f0;
     margin-bottom: 1.5rem;
     padding: 1.5rem;
+    width: 100%;
     @include clearfix;
-
-    &:last-of-type {
-      margin: 0;
-    }
 
     @include min(40rem) {
       margin-bottom: gutter(12);
-      width: span(6 of 12);
 
-      &:nth-of-type(odd) {
-        margin-right: gutter(12);
+      &:not(:first-of-type) {
+        width: span(6 of 12);
+
+        &:nth-of-type(even) {
+          margin-right: gutter(12);
+        }
       }
     }
   }
