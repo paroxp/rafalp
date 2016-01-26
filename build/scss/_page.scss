@@ -2,6 +2,12 @@ body.home main[role=main] {
   font-size: 26px;
   font-size: rem(26);
   text-align: center;
+
+  img {
+    display: block;
+    margin: 0 auto;
+    max-width: 20rem;
+  }
 }
 
 body.blog main[role=main] {

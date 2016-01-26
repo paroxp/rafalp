@@ -19,6 +19,27 @@ header[role=banner] {
     text-align: inherit;
   }
 
+  figure {
+    margin: 0 0 1rem;
+    padding: 0;
+
+    @include min(40em) {
+      margin: 0;
+
+      @include span(first 6 of 12);
+    }
+
+    img {
+      display: block;
+      margin: 0 auto;
+      max-width: 6rem;
+
+      @include min(40em) {
+        margin: 0;
+      }
+    }
+  }
+
   a {
     font-weight: 400;
   }
@@ -27,6 +48,14 @@ header[role=banner] {
     list-style: none;
     margin: 0;
     padding: 0;
+
+    @include min(40em) {
+      left: 0;
+      margin-top: -12.5px;
+      position: absolute;
+      right: 0;
+      top: 50%;
+    }
   }
 
   ul li {
@@ -54,6 +83,7 @@ header[role=banner] {
 
   nav {
     display: none;
+    position: relative;
     @include clearfix;
 
     @include min(40em) {
