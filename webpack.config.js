@@ -4,10 +4,6 @@ module.exports = {
             './app/main.jsx'
         ]
     },
-    output: {
-        filename: '[name].js',
-        path: './js'
-    },
     module: {
         loaders: [,
             {
@@ -31,6 +27,10 @@ module.exports = {
                 loader: 'file-loader?name=../fonts/[name].[ext]'
             }
         ]
+    },
+    output: {
+        filename: '[name].js',
+        path: './js'
     },
     sassLoader: {
         includePaths: [
