@@ -1,3 +1,5 @@
+var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+
 module.exports = {
     entry: {
         main: [
@@ -32,6 +34,17 @@ module.exports = {
         filename: '[name].js',
         path: './js'
     },
+    plugins: [
+        new BrowserSyncPlugin({
+            host: 'localhost',
+            port: 3000,
+            server: {
+                baseDir: [
+                    './'
+                ]
+            }
+        })
+    ],
     sassLoader: {
         includePaths: [
             './node_modules/bourbon/app/assets/stylesheets',
