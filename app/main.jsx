@@ -1,7 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Header from './layout/Header.jsx';
+import {render} from 'react-dom';
+
+import routes from './config/routes.jsx';
 
 require("!style!css!sass!../scss/app.scss");
 
-ReactDOM.render(<Header />, document.querySelector('header[role="banner"]'));
+render(routes, document.getElementById('Application'));
