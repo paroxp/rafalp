@@ -28,7 +28,7 @@ class Header extends React.Component {
         var expandedClass = this.state.expanded ? 'active' : '';
 
         return (
-            <div>
+            <header role="banner">
                 <figure>
                     <img src="img/logo.svg" alt="Logo" />
                 </figure>
@@ -51,7 +51,7 @@ class Header extends React.Component {
                 </nav>
 
                 <a href="#" onClick={this.expandMenu.bind(this)}>Menu</a>
-            </div>
+            </header>
         );
     }
 
