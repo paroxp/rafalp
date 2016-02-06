@@ -6,7 +6,6 @@ class Header extends React.Component {
         super();
 
         this.state = {
-            current: 'home',
             expanded: false
         };
     }
@@ -15,14 +14,6 @@ class Header extends React.Component {
         this.setState({expanded: !this.state.expanded});
 
         return false;
-    }
-
-    isCurrent(route) {
-        if (this.state.current === route) {
-            return 'active';
-        }
-
-        return '';
     }
 
     render() {
@@ -37,16 +28,16 @@ class Header extends React.Component {
                 <nav className={expandedClass}>
                     <ul>
                         <li>
-                            <Link to="/" className={this.isCurrent('home')}>Home</Link>
+                            <Link to="/">Home</Link>
                         </li>
                         <li>
-                            <Link to="/blog" className={this.isCurrent('journal')}>Journal</Link>
+                            <Link to="/journal" activeClassName="active">Journal</Link>
                         </li>
                         <li>
-                            <Link to="/about" className={this.isCurrent('about')}>About</Link>
+                            <Link to="/about"  activeClassName="active">About</Link>
                         </li>
                         <li>
-                            <Link to="/contact" className={this.isCurrent('contact')}>Contact</Link>
+                            <Link to="/contact"  activeClassName="active">Contact</Link>
                         </li>
                     </ul>
                 </nav>
@@ -54,10 +45,6 @@ class Header extends React.Component {
                 <a href="#" onClick={this.expandMenu.bind(this)}>Menu</a>
             </header>
         );
-    }
-
-    setCurrent(route) {
-        this.setState({current: route});
     }
 }
 

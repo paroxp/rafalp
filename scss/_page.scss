@@ -1,4 +1,4 @@
-body.home main[role=main] {
+body main[role=main].home {
   font-size: 26px;
   font-size: rem(26);
   text-align: center;
@@ -10,7 +10,7 @@ body.home main[role=main] {
   }
 }
 
-body.blog main[role=main] {
+body main[role=main].blog {
 
   @include min(40rem) {
     @include display(flex);
@@ -52,7 +52,7 @@ body.blog main[role=main] {
   }
 }
 
-body.contact main[role=main] {
+body main[role=main].contact {
   aside {
     font-size: 26px;
     font-size: rem(26);
@@ -78,7 +78,7 @@ body.contact main[role=main] {
   }
 }
 
-body.about main[role=main] {
+body main[role=main].about {
   section {
     @include min(40em) {
       @include span(first 8 of 12);
