@@ -157,5 +157,32 @@ footer[role=contentinfo] {
 
   ul li {
     display: inline-block;
+    margin: .075rem;
+
+    &:first-of-type {
+      margin-left: 0;
+    }
+
+    &:last-of-type {
+      margin-right: 0;
+    }
   }
+}
+
+.fade-enter {
+  opacity: 0.01;
+  @include transition(opacity .5s ease);
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+}
+
+.fade-leave {
+  opacity: 1;
+  @include transition(opacity .5s ease);
+}
+
+.fade-leave.fade-leave-active {
+  opacity: 0;
 }
