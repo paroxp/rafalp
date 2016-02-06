@@ -19,24 +19,26 @@ class Menu extends React.Component {
         var expandedClass = this.state.expanded ? 'active' : '';
 
         return (
-            <nav class="{expandedClass}">
-                <ul>
-                    <li>
-                        <a href="/" class="active">Home</a>
-                    </li>
-                    <li>
-                        <a href="/blog">Journal</a>
-                    </li>
-                    <li>
-                        <a href="/about">About</a>
-                    </li>
-                    <li>
-                        <a href="/contact">Contact</a>
-                    </li>
-                </ul>
-            </nav>
+            <div>
+                <nav className={expandedClass}>
+                    <ul>
+                        <li>
+                            <a href="/" className="active">Home</a>
+                        </li>
+                        <li>
+                            <a href="/blog">Journal</a>
+                        </li>
+                        <li>
+                            <a href="/about">About</a>
+                        </li>
+                        <li>
+                            <a href="/contact">Contact</a>
+                        </li>
+                    </ul>
+                </nav>
 
-            <a href="#" onClick={this.expandMenu}>Menu</a>
+                <a href="#" onClick={this.expandMenu.bind(this)}>Menu</a>
+            </div>
         );
     }
 }
