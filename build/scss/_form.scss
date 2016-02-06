@@ -50,9 +50,10 @@ input[type=submit],
 input[type=reset],
 button,
 [role=button] {
-  background-color: $white;
+  background-color: $blue;
   border: 1px solid $blue;
-  color: $blue;
+  color: $white;
+  cursor: pointer;
   height: rem(40);
   line-height: 1;
   margin-bottom: rem(8);
@@ -61,49 +62,44 @@ button,
 
   @include transition(all .15s ease);
 
-  &:active {
-    background-color: $blue;
-    color: $white;
+  &:hover, &:active {
+    background-color: lighten($blue, 5);
   }
 
   &.danger {
+    background-color: $red;
     border: 1px solid $red;
-    color: $red;
 
-    &:active {
-      background-color: $red;
-      color: $white;
+    &:hover, &:active {
+      background-color: lighten($red, 5);
     }
   }
 
   &.disabled,
   &[disabled] {
+    background-color: $silver;
     border: 1px solid $silver;
-    color: $silver;
 
-    &:active {
-      background-color: $white;
-      color: $silver;
+    &:hover, &:active {
+      background-color: lighten($white, 5);
     }
   }
 
   &.success {
+    background-color: $green;
     border: 1px solid $green;
-    color: $green;
 
-    &:active {
-      background-color: $green;
-      color: $white;
+    &:hover, &:active {
+      background-color: lighten($green, 5);
     }
   }
 
   &.warning {
+    background-color: $orange;
     border: 1px solid $orange;
-    color: $orange;
 
-    &:active {
-      background-color: $orange;
-      color: $white;
+    &:hover, &:active {
+      background-color: lighten($orange, 5);
     }
   }
 }

@@ -1,15 +1,15 @@
 // Include some toolkits.
 @import "bourbon";
+@import "font-awesome";
 @import "susy";
 
 // Import our dependencies.
 @import "methods";
-@import "plugins";
 @import "variables";
 
 // Import rest of our styles.
 @import "form";
 @import "global";
-@import "modal";
+@import "page";
 @import "structure";
 @import "type";

@@ -1,29 +1,47 @@
-header[role=banner] {
-  padding: 0 rem(16);
-  text-align: center;
+header[role=banner], main[role=main], footer[role=contentinfo] {
+  margin: 0 1rem;
+  max-width: 48rem;
 
-  h1 {
-    color: rgba($white, .75);
-    font-weight: 200;
-    line-height: 1.2;
+  @include clearfix;
 
-    small {
-      color: rgba($white, .5);
-      display: block;
-      font-weight: 200;
-    }
+  @include min(48em + 1em) {
+    margin: 0 auto;
   }
 }
 
-main[role=main] {
-  margin-top: rem(24);
-  padding: 0 rem(16);
+header[role=banner] {
+  margin: 1rem;
   text-align: center;
+  text-transform: uppercase;
+
+  @include min(40em) {
+    margin: 1rem auto;
+    text-align: inherit;
+  }
+
+  figure {
+    margin: 0 0 1rem;
+    padding: 0;
+
+    @include min(40em) {
+      margin: 0;
+
+      @include span(first 6 of 12);
+    }
+
+    img {
+      display: block;
+      margin: 0 auto;
+      max-width: 6rem;
+
+      @include min(40em) {
+        margin: 0;
+      }
+    }
+  }
 
   a {
-    color: $white;
-    display: inline-block;
-    padding: 0.25rem 0;
+    font-weight: 400;
   }
 
   ul {
@@ -31,9 +49,21 @@ main[role=main] {
     margin: 0;
     padding: 0;
 
-    li {
+    @include min(40em) {
+      left: 0;
+      margin-top: -12.5px;
+      position: absolute;
+      right: 0;
+      top: 50%;
+    }
+  }
+
+  ul li {
+    margin: .5rem 0;
+
+    @include min(40em) {
       display: inline-block;
-      margin: 0 rem(8);
+      margin: 0 .5rem;
 
       &:first-of-type {
         margin-left: 0;
@@ -43,20 +73,77 @@ main[role=main] {
         margin-right: 0;
       }
     }
+  }
 
-    i {
-      margin-right: rem(4);
+  nav + a {
+    @include min(40em) {
+      display: none;
+    }
+  }
+
+  nav {
+    display: none;
+    position: relative;
+    @include clearfix;
+
+    @include min(40em) {
+      @include span(last 6 of 12);
+
+      display: block;
+      min-height: 6em;
+      text-align: right;
     }
   }
 }
 
 footer[role=contentinfo] {
-  color: rgba($white, .5);
-  margin-top: rem(24);
-  padding: 0 rem(16);
+  margin-top: 1rem;
   text-align: center;
 
+  @include min(40em) {
+    margin-top: 3rem;
+    text-align: left;
+  }
+
   a {
-    color: rgba($white, .75);
+    height: 2.25em;
+    width: 2.25em;
+
+    @include button() {
+      background-color: $olive;
+      color: $white;
+
+      &:active, &:hover {
+        background-color: lighten($olive, 3);
+      }
+    }
+  }
+
+  .copyright {
+    text-transform: uppercase;
+
+    @include min(40em) {
+      @include span(first 6 of 12);
+    }
+  }
+
+  .social {
+    cursor: default;
+    @include user-select(none);
+
+    @include min(40em) {
+      @include span(last 6 of 12);
+      text-align: right;
+    }
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  ul li {
+    display: inline-block;
   }
 }

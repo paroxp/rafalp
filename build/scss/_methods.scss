@@ -1,3 +1,16 @@
+@mixin button() {
+  @include border-top-radius(5px);
+  @include border-right-radius(5px);
+  @include border-bottom-radius(5px);
+  @include border-left-radius(5px);
+  display: inline-block;
+  padding: .3rem;
+  text-align: center;
+  @include transition(all .3s ease);
+
+  @content;
+}
+
 /**
  * We might need to clearfix some stuff using mixin!
  */
