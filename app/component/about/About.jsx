@@ -38,7 +38,7 @@ class About extends React.Component {
                         <details open>
                             <summary>JavaScript</summary>
                             JavaScript, has became my daily bread lately. I've got a lot of experience with <a href="https://jquery.com/" target="_blank" rel="external nofollow">jQuery</a> and plugins written for it. About a year ago, I decided, I didn't like it that much, and more often
-                            find myself trying to avoid using it. Lately, I'm dipping myself with some <a href="https://angular.io/" target="_blank" rel="external nofollow">Angular</a> &amp; <a href="http://www.typescriptlang.org/" target="_blank" rel="external nofollow">TypeScript</a>, and hoping to do the same thing with <a href="https://facebook.github.io/react/" target="_blank" rel="external nofollow">React</a>.
+                            find myself trying to avoid using it. Lately, I'm dipping myself with some <a href="https://angular.io/" target="_blank" rel="external nofollow">Angular</a> &amp; <a href="http://www.typescriptlang.org/" target="_blank" rel="external nofollow">TypeScript</a> and <a href="https://facebook.github.io/react/" target="_blank" rel="external nofollow">React</a>.
                             I am doing some WebGL stuff, therefore, I've also looked into: <a href="http://www.pixijs.com/" target="_blank" rel="external nofollow">Pixi.js</a>.
                         </details>
                     </element>
@@ -100,8 +100,9 @@ class About extends React.Component {
                     <h3>Other amazing things previously encountered</h3>
 
                     <p>
-                        Git, Foundation, Bootstrap, Golang, Revel, Node.js, npm, Sails.js, Express.js, Grunt, Gulp, Bower, NGINX, Apache2,
-                        Ubuntu Server, Memcached, Redis, Mailgun, JWT, Ruby on Rails, Java.
+                        Git, Foundation, Bootstrap, Golang, Revel, Node.js, npm, Sails.js, Express.js, Grunt, Gulp,
+                        Webpack, Bower, NGINX, Apache2, Ubuntu Server, Memcached, Redis, Mailgun, JWT, Ruby on Rails,
+                        Java.
                     </p>
 
                     <h3>Hobbies &amp; Interests</h3>
