@@ -76,21 +76,33 @@ header[role=banner] {
   }
 
   nav + a {
+    display: block;
+    margin: .5rem 0;
+
     @include min(40em) {
       display: none;
     }
   }
 
   nav {
-    display: none;
+    display: block;
+    height: 0;
+    overflow: hidden;;
     position: relative;
     @include clearfix;
+
+    @include transition(all .3s ease);
+
+    &.active {
+      height: rem(140);
+    }
 
     @include min(40em) {
       @include span(last 6 of 12);
 
-      display: block;
+      height: auto;
       min-height: 6em;
+      overflow: initial;
       text-align: right;
     }
   }
