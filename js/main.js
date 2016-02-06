@@ -19705,6 +19705,7 @@
 	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Menu).call(this));
 
 	        _this.state = {
+	            current: 'home',
 	            expanded: false
 	        };
 	        return _this;
@@ -19716,6 +19717,15 @@
 	            this.setState({ expanded: !this.state.expanded });
 
 	            return false;
+	        }
+	    }, {
+	        key: 'isCurrent',
+	        value: function isCurrent(route) {
+	            if (this.state.current === route) {
+	                return 'active';
+	            }
+
+	            return '';
 	        }
 	    }, {
 	        key: 'render',
@@ -19736,7 +19746,7 @@
 	                            null,
 	                            _react2.default.createElement(
 	                                'a',
-	                                { href: '/', className: 'active' },
+	                                { href: '/', className: this.isCurrent('home') },
 	                                'Home'
 	                            )
 	                        ),
@@ -19745,7 +19755,7 @@
 	                            null,
 	                            _react2.default.createElement(
 	                                'a',
-	                                { href: '/blog' },
+	                                { href: '/blog', className: this.isCurrent('journal') },
 	                                'Journal'
 	                            )
 	                        ),
@@ -19754,7 +19764,7 @@
 	                            null,
 	                            _react2.default.createElement(
 	                                'a',
-	                                { href: '/about' },
+	                                { href: '/about', className: this.isCurrent('about') },
 	                                'About'
 	                            )
 	                        ),
@@ -19763,7 +19773,7 @@
 	                            null,
 	                            _react2.default.createElement(
 	                                'a',
-	                                { href: '/contact' },
+	                                { href: '/contact', className: this.isCurrent('contact') },
 	                                'Contact'
 	                            )
 	                        )
@@ -19775,6 +19785,11 @@
 	                    'Menu'
 	                )
 	            );
+	        }
+	    }, {
+	        key: 'setCurrent',
+	        value: function setCurrent(route) {
+	            this.setState({ current: route });
 	        }
 	    }]);
 

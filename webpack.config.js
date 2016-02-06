@@ -1,12 +1,12 @@
 module.exports = {
     entry: {
         main: [
-            './main.jsx'
+            './app/main.jsx'
         ]
     },
     output: {
         filename: '[name].js',
-        path: './dist'
+        path: './js'
     },
     module: {
         loaders: [,
