@@ -10,9 +10,9 @@ import Journal from '../component/journal/Journal.jsx';
 import NotFound from '../component/layout/NotFound.jsx';
 
 var routes = (
-    <Router>
+    <Router history={browserHistory}>
         <Route path="/" component={App}>
-            <IndexRoute component={Home} />
+            <IndexRoute component={Home}/>
             <Route path="about" component={About}/>
             <Route path="contact" component={Contact}/>
             <Route path="journal" component={Journal}>
