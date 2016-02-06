@@ -14,16 +14,7 @@ class App extends React.Component {
             <div>
                 <Header />
 
-                <ReactCSSTransitionGroup
-                    component="div"
-                    transitionName="fade"
-                    transitionEnterTimeout={500}
-                    transitionLeaveTimeout={500}
-                >
-                    {React.cloneElement(this.props.children, {
-                        key: this.props.location.pathname
-                    })}
-                </ReactCSSTransitionGroup>
+                {this.props.children}
 
                 <Footer />
             </div>
