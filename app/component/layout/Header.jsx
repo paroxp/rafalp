@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router';
 
 class Header extends React.Component {
     constructor() {
@@ -36,16 +37,16 @@ class Header extends React.Component {
                 <nav className={expandedClass}>
                     <ul>
                         <li>
-                            <a href="/" className={this.isCurrent('home')}>Home</a>
+                            <Link to="/" className={this.isCurrent('home')}>Home</Link>
                         </li>
                         <li>
-                            <a href="/blog" className={this.isCurrent('journal')}>Journal</a>
+                            <Link to="/blog" className={this.isCurrent('journal')}>Journal</Link>
                         </li>
                         <li>
-                            <a href="/about" className={this.isCurrent('about')}>About</a>
+                            <Link to="/about" className={this.isCurrent('about')}>About</Link>
                         </li>
                         <li>
-                            <a href="/contact" className={this.isCurrent('contact')}>Contact</a>
+                            <Link to="/contact" className={this.isCurrent('contact')}>Contact</Link>
                         </li>
                     </ul>
                 </nav>
