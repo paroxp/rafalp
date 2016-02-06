@@ -6,5 +6,11 @@
     "Rafal Proszowski"
   ],
   "license": "MIT",
-  "homepage": "https://rafalp.com/"
+  "homepage": "https://rafalp.com/",
+  "devDependencies": {
+    "bourbon": "^4.2.6",
+    "font-awesome": "^4.5.0",
+    "normalize.css": "^3.0.3",
+    "susy": "^2.2.12",
+  }
 }
