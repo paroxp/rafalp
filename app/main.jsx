@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Menu from './layout/Menu.jsx';
+import Header from './layout/Header.jsx';
 
 require("!style!css!sass!../scss/app.scss");
 
-ReactDOM.render(<Menu />, document.getElementById('navigation'));
+ReactDOM.render(<Header />, document.querySelector('header[role="banner"]'));

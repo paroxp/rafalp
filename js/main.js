@@ -61,15 +61,15 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Menu = __webpack_require__(160);
+	var _Header = __webpack_require__(171);
 
-	var _Menu2 = _interopRequireDefault(_Menu);
+	var _Header2 = _interopRequireDefault(_Header);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	__webpack_require__(161);
 
-	_reactDom2.default.render(_react2.default.createElement(_Menu2.default, null), document.getElementById('navigation'));
+	_reactDom2.default.render(_react2.default.createElement(_Header2.default, null), document.querySelector('header[role="banner"]'));
 
 /***/ },
 /* 2 */
@@ -19673,132 +19673,7 @@
 
 
 /***/ },
-/* 160 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var Menu = function (_React$Component) {
-	    _inherits(Menu, _React$Component);
-
-	    function Menu() {
-	        _classCallCheck(this, Menu);
-
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Menu).call(this));
-
-	        _this.state = {
-	            current: 'home',
-	            expanded: false
-	        };
-	        return _this;
-	    }
-
-	    _createClass(Menu, [{
-	        key: 'expandMenu',
-	        value: function expandMenu(event) {
-	            this.setState({ expanded: !this.state.expanded });
-
-	            return false;
-	        }
-	    }, {
-	        key: 'isCurrent',
-	        value: function isCurrent(route) {
-	            if (this.state.current === route) {
-	                return 'active';
-	            }
-
-	            return '';
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            var expandedClass = this.state.expanded ? 'active' : '';
-
-	            return _react2.default.createElement(
-	                'div',
-	                null,
-	                _react2.default.createElement(
-	                    'nav',
-	                    { className: expandedClass },
-	                    _react2.default.createElement(
-	                        'ul',
-	                        null,
-	                        _react2.default.createElement(
-	                            'li',
-	                            null,
-	                            _react2.default.createElement(
-	                                'a',
-	                                { href: '/', className: this.isCurrent('home') },
-	                                'Home'
-	                            )
-	                        ),
-	                        _react2.default.createElement(
-	                            'li',
-	                            null,
-	                            _react2.default.createElement(
-	                                'a',
-	                                { href: '/blog', className: this.isCurrent('journal') },
-	                                'Journal'
-	                            )
-	                        ),
-	                        _react2.default.createElement(
-	                            'li',
-	                            null,
-	                            _react2.default.createElement(
-	                                'a',
-	                                { href: '/about', className: this.isCurrent('about') },
-	                                'About'
-	                            )
-	                        ),
-	                        _react2.default.createElement(
-	                            'li',
-	                            null,
-	                            _react2.default.createElement(
-	                                'a',
-	                                { href: '/contact', className: this.isCurrent('contact') },
-	                                'Contact'
-	                            )
-	                        )
-	                    )
-	                ),
-	                _react2.default.createElement(
-	                    'a',
-	                    { href: '#', onClick: this.expandMenu.bind(this) },
-	                    'Menu'
-	                )
-	            );
-	        }
-	    }, {
-	        key: 'setCurrent',
-	        value: function setCurrent(route) {
-	            this.setState({ current: route });
-	        }
-	    }]);
-
-	    return Menu;
-	}(_react2.default.Component);
-
-	exports.default = Menu;
-
-/***/ },
+/* 160 */,
 /* 161 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -20183,6 +20058,137 @@
 			URL.revokeObjectURL(oldSrc);
 	}
 
+
+/***/ },
+/* 171 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Header = function (_React$Component) {
+	    _inherits(Header, _React$Component);
+
+	    function Header() {
+	        _classCallCheck(this, Header);
+
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Header).call(this));
+
+	        _this.state = {
+	            current: 'home',
+	            expanded: false
+	        };
+	        return _this;
+	    }
+
+	    _createClass(Header, [{
+	        key: 'expandMenu',
+	        value: function expandMenu(event) {
+	            this.setState({ expanded: !this.state.expanded });
+
+	            return false;
+	        }
+	    }, {
+	        key: 'isCurrent',
+	        value: function isCurrent(route) {
+	            if (this.state.current === route) {
+	                return 'active';
+	            }
+
+	            return '';
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var expandedClass = this.state.expanded ? 'active' : '';
+
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                _react2.default.createElement(
+	                    'figure',
+	                    null,
+	                    _react2.default.createElement('img', { src: 'img/logo.svg', alt: 'Logo' })
+	                ),
+	                _react2.default.createElement(
+	                    'nav',
+	                    { className: expandedClass },
+	                    _react2.default.createElement(
+	                        'ul',
+	                        null,
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            _react2.default.createElement(
+	                                'a',
+	                                { href: '/', className: this.isCurrent('home') },
+	                                'Home'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            _react2.default.createElement(
+	                                'a',
+	                                { href: '/blog', className: this.isCurrent('journal') },
+	                                'Journal'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            _react2.default.createElement(
+	                                'a',
+	                                { href: '/about', className: this.isCurrent('about') },
+	                                'About'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            _react2.default.createElement(
+	                                'a',
+	                                { href: '/contact', className: this.isCurrent('contact') },
+	                                'Contact'
+	                            )
+	                        )
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'a',
+	                    { href: '#', onClick: this.expandMenu.bind(this) },
+	                    'Menu'
+	                )
+	            );
+	        }
+	    }, {
+	        key: 'setCurrent',
+	        value: function setCurrent(route) {
+	            this.setState({ current: route });
+	        }
+	    }]);
+
+	    return Header;
+	}(_react2.default.Component);
+
+	exports.default = Header;
 
 /***/ }
 /******/ ]);

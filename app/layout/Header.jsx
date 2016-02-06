@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Menu extends React.Component {
+class Header extends React.Component {
     constructor() {
         super();
 
@@ -29,6 +29,10 @@ class Menu extends React.Component {
 
         return (
             <div>
+                <figure>
+                    <img src="img/logo.svg" alt="Logo" />
+                </figure>
+
                 <nav className={expandedClass}>
                     <ul>
                         <li>
@@ -56,4 +60,4 @@ class Menu extends React.Component {
     }
 }
 
-export default Menu;
+export default Header;
