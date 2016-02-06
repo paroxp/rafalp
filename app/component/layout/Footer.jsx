@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router';
 
 class Footer extends React.Component {
     constructor() {
@@ -32,9 +33,9 @@ class Footer extends React.Component {
                         </a>
                     </li>
                     <li>
-                        <a href="/contact" title="Contact">
+                        <Link to="/contact" title="Contact">
                             <i className="fa fa-envelope"></i>
-                        </a>
+                        </Link>
                     </li>
                 </ul>
 
