@@ -7,7 +7,7 @@ class Home extends React.Component {
 
     render() {
         return (
-            <main role="main">
+            <main role="main" className="home">
                 <img src="img/beard.svg" alt="Beard!"/>
 
                 <p>
