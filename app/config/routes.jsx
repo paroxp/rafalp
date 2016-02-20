@@ -9,7 +9,7 @@ import Home from '../component/home/Home.jsx';
 import Journal from '../component/journal/Journal.jsx';
 import NotFound from '../component/layout/NotFound.jsx';
 
-var routes = (
+let routes = (
     <Router history={browserHistory}>
         <Route path="/" component={App}>
             <IndexRoute component={Home}/>
