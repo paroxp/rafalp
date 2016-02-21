@@ -11,6 +11,8 @@ class Header extends React.Component {
     }
 
     expandMenu(event) {
+        event.preventDefault();
+
         this.setState({expanded: !this.state.expanded});
 
         return false;
