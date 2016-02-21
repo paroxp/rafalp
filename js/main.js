@@ -19725,11 +19725,8 @@
 	        _react2.default.createElement(_reactRouter.IndexRoute, { component: _Home2.default }),
 	        _react2.default.createElement(_reactRouter.Route, { path: 'about', component: _About2.default }),
 	        _react2.default.createElement(_reactRouter.Route, { path: 'contact', component: _Contact2.default }),
-	        _react2.default.createElement(
-	            _reactRouter.Route,
-	            { path: 'journal', component: _Journal2.default },
-	            _react2.default.createElement(_reactRouter.Route, { path: 'journal/:slug', component: _Article2.default })
-	        ),
+	        _react2.default.createElement(_reactRouter.Route, { path: 'journal', component: _Journal2.default }),
+	        _react2.default.createElement(_reactRouter.Route, { path: 'journal/:slug', component: _Article2.default }),
 	        _react2.default.createElement(_reactRouter.Route, { name: '404', path: '*', component: _NotFound2.default })
 	    )
 	);
@@ -26216,11 +26213,27 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactDom = __webpack_require__(159);
+
+	var _superagent = __webpack_require__(234);
+
+	var _superagent2 = _interopRequireDefault(_superagent);
+
+	var _moment = __webpack_require__(237);
+
+	var _moment2 = _interopRequireDefault(_moment);
+
+	var _Footer = __webpack_require__(228);
+
+	var _Footer2 = _interopRequireDefault(_Footer);
+
+	var _Header = __webpack_require__(227);
+
+	var _Header2 = _interopRequireDefault(_Header);
+
 	var _NotFound = __webpack_require__(230);
 
 	var _NotFound2 = _interopRequireDefault(_NotFound);
-
-	var _reactDom = __webpack_require__(159);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -26233,6 +26246,40 @@
 	var Article = function (_React$Component) {
 	    _inherits(Article, _React$Component);
 
+	    _createClass(Article, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            _superagent2.default.get('http://localhost:8080/article/' + this.props.params.slug).on('error', failure).end(success.bind(this));
+
+	            /////////////
+
+	            function success(error, response) {
+	                if (error) {
+	                    return failure(error);
+	                }
+
+	                this.setState({
+	                    article: response.body
+	                });
+	            }
+
+	            function failure(response) {
+	                return (0, _reactDom.render)(_react2.default.createElement(
+	                    'div',
+	                    null,
+	                    _react2.default.createElement(_Header2.default, null),
+	                    _react2.default.createElement(_NotFound2.default, null),
+	                    _react2.default.createElement(_Footer2.default, null)
+	                ), document.getElementById('Application'));
+	            }
+	        }
+	    }, {
+	        key: 'componentWillUnmount',
+	        value: function componentWillUnmount() {
+	            //
+	        }
+	    }]);
+
 	    function Article() {
 	        _classCallCheck(this, Article);
 
@@ -26241,39 +26288,38 @@
 	        _this.state = {
 	            article: {}
 	        };
-
-	        //this.getArticle();
 	        return _this;
 	    }
 
 	    _createClass(Article, [{
-	        key: 'getArticle',
-	        value: function getArticle() {
-	            fetch('http://localhost:8080/article/' + this.props.params.slug, {
-	                method: 'GET',
-	                headers: {
-	                    'Accept': 'application/json',
-	                    'Content-Type': 'application/json'
-	                }
-	            }).then(success, failure);
-
-	            /////////////
-
-	            function success(response) {
-	                this.state.article = response.data;
-	            }
-
-	            function failure(response) {
-	                //return render(<NotFound />);
-	            }
-	        }
-	    }, {
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'main',
-	                { role: 'main', className: 'article' },
-	                '...'
+	                { role: 'main', className: 'blog article' },
+	                _react2.default.createElement(
+	                    'article',
+	                    null,
+	                    _react2.default.createElement(
+	                        'header',
+	                        null,
+	                        _react2.default.createElement(
+	                            'h2',
+	                            null,
+	                            this.state.article.title
+	                        )
+	                    ),
+	                    this.state.article.content,
+	                    _react2.default.createElement(
+	                        'footer',
+	                        null,
+	                        _react2.default.createElement(
+	                            'time',
+	                            { dateTime: this.state.article.created_at },
+	                            (0, _moment2.default)(this.state.article.created_at, 'YYYY-MM-DD HH:mm:ss').format('MMMM Do, YYYY')
+	                        )
+	                    )
+	                )
 	            );
 	        }
 	    }]);
