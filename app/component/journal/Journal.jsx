@@ -1,22 +1,16 @@
 import React from 'react';
-import request from 'superagent';
 import {render} from 'react-dom';
+import {Link} from 'react-router';
+
+import request from 'superagent';
+import moment from 'moment';
+
 import Footer from '../layout/Footer.jsx';
 import Header from '../layout/Header.jsx';
 import NotFound from '../layout/NotFound.jsx';
 
 class Journal extends React.Component {
-    constructor() {
-        super();
-
-        this.state = {
-            articles: {}
-        };
-
-        this.getArticles();
-    }
-
-    getArticles() {
+    componentDidMount() {
         request
             .get('http://localhost:8080/article')
             .on('error', failure)
@@ -29,7 +23,9 @@ class Journal extends React.Component {
                 return failure(error);
             }
 
-            this.state.articles = response.body;
+            this.setState({
+                articles: response.body
+            });
         }
 
         function failure(error) {
@@ -42,10 +38,40 @@ class Journal extends React.Component {
         }
     }
 
+    componentWillUnmount() {
+        //
+    }
+
+    constructor() {
+        super();
+
+        this.state = {
+            articles: {
+                data: []
+            }
+        };
+    }
+
     render() {
         return (
             <main role="main" className="blog">
-                ...
+                {this.state.articles.data.map(function (article, key) {
+                    return (
+                        <article key={key}>
+                            <header>
+                                <h2><Link to={`/journal/${article.slug}`}>{article.title}</Link></h2>
+                            </header>
+
+                            <p>{article.synopsis}</p>
+
+                            <footer>
+                                <time dateTime={article.created_at}>
+                                    {moment(article.created_at, 'YYYY-MM-DD HH:mm:ss').format('MMMM Do, YYYY')}
+                                </time>
+                            </footer>
+                        </article>
+                    );
+                })}
             </main>
         );
     }
