@@ -59,7 +59,7 @@ class About extends React.Component {
                         <details open>
                             <summary>CSS</summary>
                             I try to be up to date with css trends and functionality. I love SASS and prefer it over Less.
-                            I use <a href="http://susy.oddbird.net/">Susy</a> very often and lately I've started using <a href="http://bourbon.io/" target="_blank" rel="external nofollow">Bourbon</a>,
+                            I use <a href="http://susy.oddbird.net/" target="_blank" rel="external nofollow">Susy</a> very often and lately I've started using <a href="http://bourbon.io/" target="_blank" rel="external nofollow">Bourbon</a>,
                             in order to increase productivity. Also, mobile-first!
                         </details>
                     </element>
@@ -100,9 +100,9 @@ class About extends React.Component {
                     <h3>Other amazing things previously encountered</h3>
 
                     <p>
-                        Git, Foundation, Bootstrap, Golang, Revel, Node.js, npm, Sails.js, Express.js, Grunt, Gulp,
-                        Webpack, Bower, NGINX, Apache2, Ubuntu Server, Memcached, Redis, Mailgun, JWT, Ruby on Rails,
-                        Java.
+                        Git, Foundation, Bootstrap, Golang, Revel, Python, Django, Node.js, npm, Sails.js, Express.js,
+                        Grunt, Gulp, Webpack, Bower, NGINX, Apache2, Ubuntu Server, Memcached, Redis, Mailgun, JWT,
+                        Ruby on Rails, Java.
                     </p>
 
                     <h3>Hobbies &amp; Interests</h3>
