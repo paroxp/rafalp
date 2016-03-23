@@ -15,8 +15,6 @@ let routes = (
             <IndexRoute component={Home}/>
             <Route path="about" component={About}/>
             <Route path="contact" component={Contact}/>
-            <Route path="journal" component={Journal}/>
-            <Route path="journal/:slug" component={Article}/>
             <Route name="404" path="*" component={NotFound}/>
         </Route>
     </Router>
