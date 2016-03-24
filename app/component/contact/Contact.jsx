@@ -1,5 +1,9 @@
 import React from 'react';
 
+import request from 'superagent';
+
+import Notification from '../notification/notification.jsx';
+import Stack from '../notification/stack.jsx';
 
 class Contact extends React.Component {
     constructor() {
@@ -11,7 +15,8 @@ class Contact extends React.Component {
                 email: '',
                 message: '',
                 url: null
-            }
+            },
+            stack: new Stack()
         };
     }
 
@@ -48,6 +53,8 @@ class Contact extends React.Component {
 
                     <button type="submit">Submit</button>
                 </form>
+
+                <Stack />
             </main>
         );
     }
@@ -55,27 +62,36 @@ class Contact extends React.Component {
     submit(event) {
         event.preventDefault();
 
-        fetch('http://localhost:8080/contact', {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(this.state.contact)
-        })
-            .then(success, failure);
+        var state = this.state;
+
+        request
+            .post('http://localhost:8080/contact')
+            .send(this.state.contact)
+            .set('Accept', 'application/json')
+            .on('error', failure)
+            .end(success);
 
         return false;
 
         /////////////
 
-        function success(response) {
-            console.log(response);
+        function success(error, response) {
+            if (error) {
+                return failure(response);
+            }
+
+            console.log(error, response);
         }
 
         function failure(response) {
-            for (let i = 0; i < Object.keys(response.data).length; i++) {
-                this.addNotification();
+            for (let i = 0; i < Object.keys(response.body).length; i++) {
+                let key = Object.keys(response.body)[i];
+
+                response.body[key].map(function (error) {
+                    state.stack.addNotification(
+                        new Notification('error', 'Validation Error', error)
+                    );
+                });
             }
         }
     }
