@@ -2,10 +2,22 @@ import React from 'react';
 
 import request from 'superagent';
 
-import Notification from '../notification/notification.jsx';
-import Stack from '../notification/stack.jsx';
+import NotificationSystem from 'react-notification-system';
 
 class Contact extends React.Component {
+    _addNotification(level, title, message) {
+        this._notificationSystem.addNotification({
+            level: level,
+            message: message,
+            title: title,
+            autoDismiss: 3600 // Remove me, silly...
+        });
+    }
+
+    componentDidMount() {
+        this._notificationSystem = this.refs.notificationSystem;
+    }
+
     constructor() {
         super();
 
@@ -15,9 +27,10 @@ class Contact extends React.Component {
                 email: '',
                 message: '',
                 url: null
-            },
-            stack: new Stack()
+            }
         };
+
+        this._notificationSystem = null;
     }
 
     changeValue(event) {
@@ -54,7 +67,7 @@ class Contact extends React.Component {
                     <button type="submit">Submit</button>
                 </form>
 
-                <Stack />
+                <NotificationSystem ref="notificationSystem" style={false} />
             </main>
         );
     }
@@ -62,7 +75,7 @@ class Contact extends React.Component {
     submit(event) {
         event.preventDefault();
 
-        var state = this.state;
+        var addNotification = this._addNotification.bind(this);
 
         request
             .post('http://localhost:8080/contact')
@@ -80,7 +93,7 @@ class Contact extends React.Component {
                 return failure(response);
             }
 
-            console.log(error, response);
+            addNotification('success', 'Cool!', 'I\'ve received your message. Thanks!');
         }
 
         function failure(response) {
@@ -88,9 +101,7 @@ class Contact extends React.Component {
                 let key = Object.keys(response.body)[i];
 
                 response.body[key].map(function (error) {
-                    state.stack.addNotification(
-                        new Notification('error', 'Validation Error', error)
-                    );
+                    addNotification('error', 'Validation Error', error);
                 });
             }
         }
