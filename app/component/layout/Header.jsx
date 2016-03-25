@@ -33,10 +33,10 @@ class Header extends React.Component {
                             <Link to="/">Home</Link>
                         </li>
                         <li>
-                            <Link to="/about"  activeClassName="active">About</Link>
+                            <Link to="/about" activeClassName="active">About</Link>
                         </li>
                         <li>
-                            <Link to="/contact"  activeClassName="active">Contact</Link>
+                            <Link to="/contact" activeClassName="active">Contact</Link>
                         </li>
                     </ul>
                 </nav>
