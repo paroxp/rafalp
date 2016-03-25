@@ -11,7 +11,7 @@ import NotFound from '../layout/NotFound.jsx';
 class Article extends React.Component {
     componentDidMount() {
         request
-            .get('http://localhost:8080/article/' + this.props.params.slug)
+            .get('/api/article/' + this.props.params.slug)
             .on('error', failure)
             .end(success.bind(this));
 

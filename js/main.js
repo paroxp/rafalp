@@ -26291,7 +26291,7 @@
 	    _createClass(Article, [{
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
-	            _superagent2.default.get('http://localhost:8080/article/' + this.props.params.slug).on('error', failure).end(success.bind(this));
+	            _superagent2.default.get('/api/article/' + this.props.params.slug).on('error', failure).end(success.bind(this));
 
 	            /////////////
 
@@ -41180,7 +41180,7 @@
 
 	            var addNotification = this._addNotification.bind(this);
 
-	            _superagent2.default.post('http://localhost:8080/contact').send(this.state.contact).set('Accept', 'application/json').on('error', failure).end(success);
+	            _superagent2.default.post('/api/contact').send(this.state.contact).set('Accept', 'application/json').on('error', failure).end(success);
 
 	            return false;
 
@@ -42310,7 +42310,7 @@
 	    _createClass(Journal, [{
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
-	            _superagent2.default.get('http://localhost:8080/article').on('error', failure).end(success.bind(this));
+	            _superagent2.default.get('/api/article').on('error', failure).end(success.bind(this));
 
 	            /////////////
 
