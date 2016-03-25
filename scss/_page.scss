@@ -4,9 +4,13 @@ body main[role=main].home {
   text-align: center;
 
   img {
-    display: block;
-    margin: 0 auto;
-    max-width: 20rem;
+    max-width: 10rem;
+
+    @include min(40em) {
+      display: block;
+      margin: 0 auto;
+      max-width: 20rem;
+    }
   }
 }
 
