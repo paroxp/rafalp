@@ -78,7 +78,7 @@ class Contact extends React.Component {
         var addNotification = this._addNotification.bind(this);
 
         request
-            .post('http://api.rafalp.com/contact')
+            .post('https://api.rafalp.com/contact')
             .send(this.state.contact)
             .set('Accept', 'application/json')
             .on('error', failure)
