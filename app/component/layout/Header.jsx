@@ -2,6 +2,10 @@ import React from 'react';
 import {Link} from 'react-router';
 
 class Header extends React.Component {
+    closeMenu() {
+        this.setState({expanded: false});
+    }
+
     constructor() {
         super();
 
@@ -30,13 +34,19 @@ class Header extends React.Component {
                 <nav className={expandedClass}>
                     <ul>
                         <li>
-                            <Link to="/">Home</Link>
+                            <Link to="/" onClick={this.closeMenu.bind(this)}>
+                                Home
+                            </Link>
                         </li>
                         <li>
-                            <Link to="/about" activeClassName="active">About</Link>
+                            <Link to="/about" activeClassName="active" onClick={this.closeMenu.bind(this)}>
+                                About
+                            </Link>
                         </li>
                         <li>
-                            <Link to="/contact" activeClassName="active">Contact</Link>
+                            <Link to="/contact" activeClassName="active" onClick={this.closeMenu.bind(this)}>
+                                Contact
+                            </Link>
                         </li>
                     </ul>
                 </nav>

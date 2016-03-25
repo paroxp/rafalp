@@ -100,6 +100,10 @@ header[role=banner] {
 
     &.active {
       height: rem(140);
+
+      @include min(40em) {
+        height: auto;
+      }
     }
 
     @include min(40em) {
