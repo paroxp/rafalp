@@ -11,13 +11,21 @@ class App extends React.Component {
 
     render() {
         return (
-            <div>
+            <ReactCSSTransitionGroup
+                component='div'
+                className='application-wrapper'
+                transitionName='fade'
+                transitionEnterTimeout={300}
+                transitionLeaveTimeout={300}
+            >
                 <Header />
 
-                {this.props.children}
+                {React.cloneElement(this.props.children, {
+                    key: this.props.location.pathname
+                })}
 
                 <Footer />
-            </div>
+            </ReactCSSTransitionGroup>
         );
     }
 }

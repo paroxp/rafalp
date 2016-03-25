@@ -12,9 +12,9 @@ import NotFound from '../component/layout/NotFound.jsx';
 let routes = (
     <Router history={browserHistory}>
         <Route path="/" component={App}>
-            <IndexRoute component={Home}/>
-            <Route path="about" component={About}/>
-            <Route path="contact" component={Contact}/>
+            <IndexRoute name="home" component={Home}/>
+            <Route name="about" path="about" component={About}/>
+            <Route name="contact" path="contact" component={Contact}/>
             <Route name="404" path="*" component={NotFound}/>
         </Route>
     </Router>

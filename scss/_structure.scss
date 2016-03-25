@@ -1,12 +1,17 @@
-header[role=banner], main[role=main], footer[role=contentinfo] {
+.application-wrapper {
   margin: 0 1rem;
   max-width: 48rem;
+  position: relative;
 
   @include clearfix;
 
   @include min(48em + 1em) {
     margin: 0 auto;
   }
+}
+
+header[role=banner], main[role=main], footer[role=contentinfo] {
+  @include clearfix;
 }
 
 header[role=banner] {
