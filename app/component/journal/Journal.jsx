@@ -12,7 +12,7 @@ import NotFound from '../layout/NotFound.jsx';
 class Journal extends React.Component {
     componentDidMount() {
         request
-            .get('/api/article')
+            .get('http://api.rafalp.com/article')
             .on('error', failure)
             .end(success.bind(this));
 
