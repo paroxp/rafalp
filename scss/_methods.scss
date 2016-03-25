@@ -1,3 +1,6 @@
+/**
+ * Our custom button, to be used throughout the project.
+ */
 @mixin button() {
   @include border-top-radius(5px);
   @include border-right-radius(5px);

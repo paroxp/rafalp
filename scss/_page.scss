@@ -1,16 +1,20 @@
-body.home main[role=main] {
+body main[role=main].home {
   font-size: 26px;
   font-size: rem(26);
   text-align: center;
 
   img {
-    display: block;
-    margin: 0 auto;
-    max-width: 20rem;
+    max-width: 10rem;
+
+    @include min(40em) {
+      display: block;
+      margin: 0 auto;
+      max-width: 20rem;
+    }
   }
 }
 
-body.blog main[role=main] {
+body main[role=main].blog {
 
   @include min(40rem) {
     @include display(flex);
@@ -52,7 +56,7 @@ body.blog main[role=main] {
   }
 }
 
-body.contact main[role=main] {
+body main[role=main].contact {
   aside {
     font-size: 26px;
     font-size: rem(26);
@@ -78,7 +82,7 @@ body.contact main[role=main] {
   }
 }
 
-body.about main[role=main] {
+body main[role=main].about {
   section {
     @include min(40em) {
       @include span(first 8 of 12);

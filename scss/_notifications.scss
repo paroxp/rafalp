@@ -1,0 +1,187 @@
+$defaultWidth: 320px;
+$defaultOpacity: .9;
+
+.notifications-tl, .notifications-tr, .notifications-tc,
+.notifications-bl, .notifications-br, .notifications-bc {
+  @include prefixer(box-sizing, border-box, webkit moz ms o spec);
+  font-family: inherit;
+  height: auto;
+  padding: 0 10px 10px 10px;
+  position: fixed;
+  width: $defaultWidth;
+  z-index: 9998;
+}
+
+.notifications-tl {
+  bottom: auto;
+  left: 0;
+  right: auto;
+  top: 0;
+}
+
+.notifications-tr {
+  bottom: auto;
+  left: auto;
+  right: 0;
+  top: 0;
+}
+
+.notifications-tc {
+  bottom: auto;
+  left: 50%;
+  margin: 0 auto;
+  margin-left: -($defaultWidth / 2);
+  top: 0;
+}
+
+.notifications-bl {
+  bottom: 0;
+  left: 0;
+  right: auto;
+  top: auto;
+}
+
+.notifications-br {
+  bottom: 0;
+  left: auto;
+  right: 0;
+  top: auto;
+}
+
+.notifications-bc {
+  bottom: 0;
+  left: 50%;
+  margin: 0 auto;
+  margin-left: -($defaultWidth / 2);
+  top: auto;
+}
+
+.notification {
+  @include prefixer(box-sizing, border-box, webkit moz ms o spec);
+  cursor: pointer;
+  display: block;
+  font-size: 13px;
+  margin: 10px 0 0;
+  opacity: 0;
+  padding: 10px;
+  position: relative;
+  width: 100%;
+
+  @include transition(all .3s ease);
+
+  &.notification-hidden {
+    opacity: 0;
+  }
+
+  &.notification-visible {
+    opacity: 1;
+  }
+
+  .notification-title {
+    font-size: 14px;
+    font-size: rem(14);
+    font-weight: bold;
+    margin: 0 0 5px 0;
+    padding: 0;
+  }
+
+  .notification-dismiss {
+    color: $white;
+    font-family: Arial, serif;
+    font-size: 17px;
+    font-weight: bold;
+    height: 16px;
+    line-height: 15px;
+    position: absolute;
+    right: 5px;
+    text-align: center;
+    top: 4px;
+    width: 16px;
+  }
+
+  .notification-action-wrapper {
+    margin: 0;
+    padding: 0;
+  }
+
+  .notification-action-button {
+    background: #ffffff;
+    border: 0;
+    font-weight: bold;
+    margin: 10px 0 0 0;
+    padding: 6px 20px;
+  }
+
+  &.notification-success {
+    border-top: 2px solid $olive;
+    background-color: lighten($olive, 50);
+    color: $olive;
+
+    @include prefixer(box-shadow, 0 0 1px rgba($olive, $defaultOpacity), webkit moz ms o spec);
+
+    .notification-title, .notification-dismiss {
+      color: $olive;
+    }
+
+    .notification-action-button {
+      background-color: $olive;
+      color: $white;
+    }
+  }
+
+  &.notification-error {
+    border-top: 2px solid $red;
+    background-color: lighten($red, 35);
+    color: $red;
+
+    @include prefixer(box-shadow, 0 0 1px rgba($red, $defaultOpacity), webkit moz ms o spec);
+
+    .notification-title, .notification-dismiss {
+      color: $red;
+    }
+
+    .notification-action-button {
+      background-color: $red;
+      color: $white;
+    }
+  }
+
+  &.notification-warning {
+    border-top: 2px solid $orange;
+    background-color: lighten($orange, 39);
+    color: $orange;
+
+    @include prefixer(box-shadow, 0 0 1px rgba($orange, $defaultOpacity), webkit moz ms o spec);
+
+    .notification-title, .notification-dismiss {
+      color: $orange;
+    }
+
+    .notification-action-button {
+      background-color: $orange;
+      color: $white;
+    }
+  }
+
+  &.notification-info {
+    border-top: 2px solid $teal;
+    background-color: lighten($teal, 40);
+    color: $teal;
+
+    @include prefixer(box-shadow, 0 0 1px rgba($teal, $defaultOpacity), webkit moz ms o spec);
+
+    .notification-title, .notification-dismiss {
+      color: $teal;
+    }
+
+    .notification-action-button {
+      background-color: $teal;
+      color: $white;
+    }
+  }
+}
+
+.notifications-wrapper {
+  margin: 0;
+  padding: 0;
+}
