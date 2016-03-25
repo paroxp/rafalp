@@ -1,0 +1,29 @@
+.fade-enter {
+  opacity: 0.01;
+  position: absolute;
+  @include transition(all .3s ease-in);
+
+  + footer[role=contentinfo] {
+    opacity: 1;
+
+    @include transition(all .3s ease-in);
+  }
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+}
+
+.fade-leave {
+  opacity: 1;
+  position: absolute;
+  @include transition(all .3s ease-in);
+
+  + footer[role=contentinfo] {
+    opacity: 0;
+  }
+}
+
+.fade-leave.fade-leave-active {
+  opacity: 0;
+}

@@ -1,0 +1,244 @@
+body main[role=main].home {
+  font-size: 26px;
+  font-size: rem(26);
+  text-align: center;
+
+  img {
+    max-width: 10rem;
+
+    @include min(40em) {
+      display: block;
+      margin: 0 auto;
+      max-width: 20rem;
+    }
+  }
+}
+
+body main[role=main].blog {
+
+  @include min(40rem) {
+    @include display(flex);
+    @include flex-direction(row);
+    @include flex-wrap(wrap);
+  }
+
+  article {
+    background-color: #f0f0f0;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    width: 100%;
+    @include clearfix;
+
+    @include min(40rem) {
+      margin-bottom: gutter(12);
+
+      &:not(:first-of-type) {
+        width: span(6 of 12);
+
+        &:nth-of-type(even) {
+          margin-right: gutter(12);
+        }
+      }
+    }
+  }
+
+  article time {
+    color: lighten($gray, 15);
+    float: right;
+    font-size: 12px;
+    font-size: rem(12);
+
+    @include transition(all .3s ease);
+  }
+
+  article:hover time {
+    color: $gray;
+  }
+}
+
+body main[role=main].contact {
+  aside {
+    font-size: 26px;
+    font-size: rem(26);
+    text-align: center;
+
+    @include min(40em) {
+      @include span(6 of 12);
+    }
+  }
+
+  form {
+    background-color: #f0f0f0;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+
+    @include min(40em) {
+      @include span(last 6 of 12);
+    }
+
+    input, textarea, button {
+      width: 100%;
+    }
+  }
+}
+
+body main[role=main].about {
+  section {
+    @include min(40em) {
+      @include span(first 8 of 12);
+    }
+
+    ol, ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    p, ol, ul {
+      margin: 1rem 0;
+    }
+  }
+
+  aside {
+    @include min(40em) {
+      @include span(last 4 of 12);
+    }
+
+    figure {
+      margin: 0;
+      margin-bottom: 1rem;
+      padding: 0;
+      text-align: center;
+      @include clearfix;
+
+      img {
+        border: 3px solid $white;
+        border-radius: 100%;
+        box-shadow: 0 0 10px rgba($navy, .25);
+        display: inline-block;
+        margin-bottom: 1rem;
+      }
+
+      figcaption {
+        width: 100%;
+      }
+    }
+
+    element {
+      display: block;
+      padding: .5rem 1rem;
+      position: relative;
+
+      &:before {
+        @include min(40em) {
+          border: solid transparent;
+          border-color: rgba(240, 240, 240, 0);
+          border-left-color: #f0f0f0;
+          border-width: 10px;
+          content: " ";
+          display: none;
+          height: 0;
+          margin-left: -1rem;
+          margin-top: .25rem;
+          opacity: 0;
+          pointer-events: none;
+          position: absolute;
+          width: 0;
+          z-index: 1;
+
+          @include transition(all .3s ease);
+        }
+      }
+    }
+
+    element label {
+      display: block;
+    }
+
+    element progress {
+      @include appearance(none);
+      display: block;
+      width: 100%;
+
+      &::-webkit-progress-bar {
+        background-color: #eee;
+        @include border-top-radius(3px);
+        @include border-right-radius(3px);
+        @include border-bottom-radius(3px);
+        @include border-left-radius(3px);
+        box-shadow: 0 2px 5px rgba($gray, 0.25) inset;
+      }
+
+      &::-ms-fill {
+        background-color: $olive;
+        @include border-top-radius(3px);
+        @include border-right-radius(3px);
+        @include border-bottom-radius(3px);
+        @include border-left-radius(3px);
+      }
+
+      &::-webkit-progress-value {
+        background-color: $olive;
+        @include border-top-radius(3px);
+        @include border-right-radius(3px);
+        @include border-bottom-radius(3px);
+        @include border-left-radius(3px);
+      }
+
+      &::-moz-progress-bar {
+        background-color: $olive;
+        @include border-top-radius(3px);
+        @include border-right-radius(3px);
+        @include border-bottom-radius(3px);
+        @include border-left-radius(3px);
+      }
+    }
+
+    element details {
+      background-color: #f0f0f0;
+      margin-top: 1rem;
+      padding: 1.5rem;
+      width: 100%;
+
+      @include min(40em) {
+        box-shadow: 0 0 10px rgba($gray, .5);
+        display: none;
+        left: -100%;
+        margin: 0;
+        margin-top: -50%;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+
+        @include transition(all .3s ease);
+      }
+
+      summary, summary::-webkit-details-marker {
+        display: none;
+      }
+    }
+
+    element:hover {
+      &:before {
+        @include min(40em) {
+          display: block;
+          opacity: 1;
+        }
+      }
+
+      details {
+        @include min(40em) {
+          display: block;
+          opacity: 1;
+        }
+      }
+    }
+
+    p {
+      font-size: 14px;
+      font-size: rem(12);
+      text-align: center;
+      padding: 0 1.5rem;
+    }
+  }
+}

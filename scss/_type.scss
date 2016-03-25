@@ -1,6 +1,12 @@
-a, a:hover, a:active, a:link, a:visited {
-  color: $blue;
+a, a:link, a:visited {
+  color: $olive;
   text-decoration: none;
+
+  @include transition(all .3s ease);
+}
+
+a:hover, a:active, a.active {
+  color: $maroon;
 }
 
 blockquote {
