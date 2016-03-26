@@ -101,12 +101,17 @@ class Contact extends React.Component {
         }
 
         function failure(response) {
-            for (let i = 0; i < Object.keys(response.body).length; i++) {
-                let key = Object.keys(response.body)[i];
+            try {
+                for (let i = 0; i < Object.keys(response.body).length; i++) {
+                    let key = Object.keys(response.body)[i];
 
-                response.body[key].map(function (error) {
-                    addNotification('error', 'Validation Error', error);
-                });
+                    response.body[key].map(function (error) {
+                        addNotification('error', 'Validation Error', error);
+                    });
+                }
+            } catch(error) {
+                var message = "We\'ve found some difficulties on our side... Would you please, come back later?";
+                addNotification('warning', 'Oops!', message);
             }
 
             var items = document.querySelectorAll('input, textarea, button');

@@ -41199,12 +41199,17 @@
 	            }
 
 	            function failure(response) {
-	                for (var _i = 0; _i < Object.keys(response.body).length; _i++) {
-	                    var key = Object.keys(response.body)[_i];
+	                try {
+	                    for (var _i = 0; _i < Object.keys(response.body).length; _i++) {
+	                        var key = Object.keys(response.body)[_i];
 
-	                    response.body[key].map(function (error) {
-	                        addNotification('error', 'Validation Error', error);
-	                    });
+	                        response.body[key].map(function (error) {
+	                            addNotification('error', 'Validation Error', error);
+	                        });
+	                    }
+	                } catch (error) {
+	                    var message = "We\'ve found some difficulties on our side... Would you please, come back later?";
+	                    addNotification('warning', 'Oops!', message);
 	                }
 
 	                var items = document.querySelectorAll('input, textarea, button');
