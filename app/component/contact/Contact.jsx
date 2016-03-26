@@ -74,7 +74,12 @@ class Contact extends React.Component {
     submit(event) {
         event.preventDefault();
 
-        var addNotification = this._addNotification.bind(this);
+        var addNotification = this._addNotification.bind(this),
+            items = document.querySelectorAll('input, textarea, button');
+
+        for (let i = 0; i < items.length; i++) {
+            items[i].setAttribute('disabled', 'disabled');
+        }
 
         request
             .post('https://api.rafalp.com/contact')
@@ -102,6 +107,12 @@ class Contact extends React.Component {
                 response.body[key].map(function (error) {
                     addNotification('error', 'Validation Error', error);
                 });
+            }
+
+            var items = document.querySelectorAll('input, textarea, button');
+
+            for (let i = 0; i < items.length; i++) {
+                items[i].removeAttribute('disabled');
             }
         }
     }

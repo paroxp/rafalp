@@ -79,10 +79,6 @@ button,
   &[disabled] {
     background-color: $silver;
     border: 1px solid $silver;
-
-    &:hover, &:active {
-      background-color: lighten($white, 5);
-    }
   }
 
   &.success {
