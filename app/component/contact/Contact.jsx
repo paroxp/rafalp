@@ -9,8 +9,7 @@ class Contact extends React.Component {
         this._notificationSystem.addNotification({
             level: level,
             message: message,
-            title: title,
-            autoDismiss: 3600 // Remove me, silly...
+            title: title
         });
     }
 
