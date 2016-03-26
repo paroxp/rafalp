@@ -9,8 +9,7 @@ class Contact extends React.Component {
         this._notificationSystem.addNotification({
             level: level,
             message: message,
-            title: title,
-            autoDismiss: 3600 // Remove me, silly...
+            title: title
         });
     }
 
@@ -75,10 +74,15 @@ class Contact extends React.Component {
     submit(event) {
         event.preventDefault();
 
-        var addNotification = this._addNotification.bind(this);
+        var addNotification = this._addNotification.bind(this),
+            items = document.querySelectorAll('input, textarea, button');
+
+        for (let i = 0; i < items.length; i++) {
+            items[i].setAttribute('disabled', 'disabled');
+        }
 
         request
-            .post('http://api.rafalp.com/contact')
+            .post('https://api.rafalp.com/contact')
             .send(this.state.contact)
             .set('Accept', 'application/json')
             .on('error', failure)
@@ -97,12 +101,23 @@ class Contact extends React.Component {
         }
 
         function failure(response) {
-            for (let i = 0; i < Object.keys(response.body).length; i++) {
-                let key = Object.keys(response.body)[i];
+            try {
+                for (let i = 0; i < Object.keys(response.body).length; i++) {
+                    let key = Object.keys(response.body)[i];
 
-                response.body[key].map(function (error) {
-                    addNotification('error', 'Validation Error', error);
-                });
+                    response.body[key].map(function (error) {
+                        addNotification('error', 'Validation Error', error);
+                    });
+                }
+            } catch(error) {
+                var message = "We\'ve found some difficulties on our side... Would you please, come back later?";
+                addNotification('warning', 'Oops!', message);
+            }
+
+            var items = document.querySelectorAll('input, textarea, button');
+
+            for (let i = 0; i < items.length; i++) {
+                items[i].removeAttribute('disabled');
             }
         }
     }

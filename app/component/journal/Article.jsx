@@ -11,7 +11,7 @@ import NotFound from '../layout/NotFound.jsx';
 class Article extends React.Component {
     componentDidMount() {
         request
-            .get('http://api.rafalp.com/article/' + this.props.params.slug)
+            .get('https://api.rafalp.com/article/' + this.props.params.slug)
             .on('error', failure)
             .end(success.bind(this));
 
