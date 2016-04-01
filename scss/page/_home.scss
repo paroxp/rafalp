@@ -1,0 +1,15 @@
+body main[role=main].home {
+  font-size: 26px;
+  font-size: rem(26);
+  text-align: center;
+
+  img {
+    max-width: 10rem;
+
+    @include min(40em) {
+      display: block;
+      margin: 0 auto;
+      max-width: 20rem;
+    }
+  }
+}
