@@ -1,0 +1,3 @@
+User-Agent: *
+Disallow: /contact
+Sitemap: https://rafalp.com/sitemap.xml
