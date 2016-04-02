@@ -34,7 +34,7 @@ header[role=banner] {
       @include span(first 6 of 12);
     }
 
-    img {
+    img, svg {
       display: block;
       margin: 0 auto;
       max-width: 6rem;
@@ -50,6 +50,8 @@ header[role=banner] {
   }
 
   ul {
+    @include display(flex);
+    @include justify-content(flex-end);
     list-style: none;
     margin: 0;
     padding: 0;
