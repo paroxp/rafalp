@@ -15,7 +15,7 @@ let routes = (
             <IndexRoute name="home" component={Home}/>
             <Route name="about" path="about" component={About}/>
             <Route name="contact" path="contact" component={Contact}/>
-            <Route name="404" path="*" component={NotFound}/>
+            <Route name="404" path="*" component={NotFound} status={404}/>
         </Route>
     </Router>
 );

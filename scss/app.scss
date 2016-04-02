@@ -12,8 +12,7 @@
 // Import rest of our styles.
 @import "animations";
 @import "form";
-@import "global";
 @import "notifications";
-@import "page";
-@import "structure";
-@import "type";
+@import "page/about";
+@import "page/blog";
+@import "page/contact";

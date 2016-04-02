@@ -1,0 +1,27 @@
+body main[role=main].home {
+  font-size: 26px;
+  font-size: rem(26);
+  text-align: center;
+
+  img, svg {
+    max-width: 10rem;
+
+    &.desktop {
+      display: none;
+    }
+
+    @include min(40em) {
+      display: block;
+      margin: 0 auto;
+      max-width: 20rem;
+
+      &.desktop {
+        display: initial;
+      }
+
+      &.mobile {
+        display: none;
+      }
+    }
+  }
+}

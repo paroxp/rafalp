@@ -1,51 +1,15 @@
+// Import our settings.
+@import "variables";
+
 // Include some toolkits.
 @import "bourbon";
 @import "susy";
 
 // Import our dependencies.
-@import "variables";
-
-@include keyframes(pulse) {
-  0% {
-    opacity: 1;
-  }
-  35% {
-    opacity: 0;
-  }
-  70% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 1;
-  }
-}
+@import "methods";
 
 // Import rest of our styles.
-div#initial {
-  background-color: $black;
-  bottom: 0;
-  left: 0;
-  position: fixed;
-  right: 0;
-  top: 0;
-  z-index: 9999;
-
-//  @include transition(all .3s ease);
-
-  &:before {
-    @include animation(pulse 1.5s ease);
-    @include animation-iteration-count(infinite);
-    color: $white;
-    content: "...";
-    display: block;
-    font-size: 48px;
-    font-size: rem(48);
-    font-weight: 100;
-    left: 0;
-    margin-top: - rem(30);
-    position: absolute;
-    right: 0;
-    top: 50%;
-    text-align: center;
-  }
-}
+@import "global";
+@import "page/home";
+@import "structure";
+@import "type";
