@@ -19,6 +19,10 @@ header[role=banner] {
   text-align: center;
   text-transform: uppercase;
 
+  > h1, > h2 {
+    display: none;
+  }
+
   @include min(40em) {
     margin: 1rem auto;
     text-align: inherit;
