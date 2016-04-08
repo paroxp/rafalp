@@ -1,7 +1,6 @@
 import React from 'react';
 
 import request from 'superagent';
-
 import NotificationSystem from 'react-notification-system';
 
 class Contact extends React.Component {
