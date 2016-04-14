@@ -21,11 +21,33 @@ header[role=banner] {
 
   > h1, > h2 {
     display: none;
+
+    @media print {
+      display: block;
+      line-height: 1.3;
+      margin-bottom: 0;
+      text-transform: none;
+    }
+  }
+
+  > h2 {
+    @media print {
+      color: $gray;
+      font-weight: 300;
+      margin: 0;
+    }
   }
 
   @include min(40em) {
     margin: 1rem auto;
     text-align: inherit;
+  }
+
+  @media print {
+    margin: 0;
+    margin-bottom: 16px;
+    margin-bottom: rem(16);
+    text-align: left;
   }
 
   figure {
@@ -36,6 +58,10 @@ header[role=banner] {
       margin: 0;
 
       @include span(first 6 of 12);
+    }
+
+    @media print {
+      display: none;
     }
 
     img, svg {
@@ -67,6 +93,10 @@ header[role=banner] {
       right: 0;
       top: 50%;
     }
+
+    @media print {
+      display: none;
+    }
   }
 
   ul li {
@@ -91,6 +121,10 @@ header[role=banner] {
     margin: .5rem 0;
 
     @include min(40em) {
+      display: none;
+    }
+
+    @media print {
       display: none;
     }
   }
@@ -120,6 +154,10 @@ header[role=banner] {
       overflow: initial;
       text-align: right;
     }
+
+    @media print {
+      display: none;
+    }
   }
 }
 
@@ -130,6 +168,10 @@ footer[role=contentinfo] {
   @include min(40em) {
     margin-top: 3rem;
     text-align: left;
+  }
+
+  @media print {
+    display: none;
   }
 
   a {
@@ -166,7 +208,7 @@ footer[role=contentinfo] {
 
   ul {
     @include display(flex);
-    @include justify-content(flex-end);
+    @include justify-content(center);
     list-style: none;
     margin: 0;
     padding: 0;
