@@ -212,6 +212,10 @@ footer[role=contentinfo] {
     list-style: none;
     margin: 0;
     padding: 0;
+
+    @include min(40em) {
+      @include justify-content(flex-end);
+    }
   }
 
   ul li {
