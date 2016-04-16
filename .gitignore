@@ -5,3 +5,5 @@ node_modules
 *.map
 npm-debug.log
 db/dbconf.yml
+vendor/
+cache/

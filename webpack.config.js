@@ -56,7 +56,7 @@ module.exports = {
                 ]
             }
         }),
-        new ExtractTextPlugin('../css/[name].css', {
+        new ExtractTextPlugin('../assets/css/[name].css', {
             allChunks: true,
             disable: false
         }),

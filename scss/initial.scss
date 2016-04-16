@@ -9,7 +9,10 @@
 @import "methods";
 
 // Import rest of our styles.
+@import "form";
 @import "global";
+@import "page/about";
+@import "page/contact";
 @import "page/home";
 @import "structure";
 @import "type";
