@@ -5,6 +5,6 @@ import $ from './system/selector.jsx';
 let router = new Router();
 
 $('nav a')
-    .on('click', new Url().redirect);
+    .on('click', Url.redirect);
 
 router.run();

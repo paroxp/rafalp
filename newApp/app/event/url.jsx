@@ -6,14 +6,16 @@ class Url extends Base {
      * Redirect application to different view.
      *
      * @param event
-     * @returns {string}
+     * @returns boolean
      */
-    redirect(event) {
+    static redirect(event) {
         var url = event.target.getAttribute('href');
 
         event.preventDefault();
 
-        return Router.goTo(url);
+        Router.goTo(url);
+
+        return false;
     }
 }
 
