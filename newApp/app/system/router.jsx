@@ -18,10 +18,12 @@ class Router {
      * @param path
      * @returns {*}
      */
-    goTo(path) {
+    static goTo(path) {
         window.location.hash = '#' + path;
 
-        return this.run();
+        let router = new Router;
+
+        return router.run();
     }
 
     /**
