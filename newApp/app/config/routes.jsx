@@ -3,11 +3,11 @@ import Main from '../handler/main.jsx';
 let routes = {
     "/": {
         "action": "index",
-        "controller": Main
+        "handler": Main
     },
     "/test": {
         "action": "test",
-        "controller": Main
+        "handler": Main
     }
 };
 

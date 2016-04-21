@@ -32,21 +32,21 @@ class Router {
      * @returns {*}
      */
     run() {
-        let action, controller,
+        let action, handler,
             Route = routes[this.getPath()],
             method = (Route.method || 'GET').toUpperCase();
 
         try {
-            controller = new Route.controller;
+            handler = new Route.handler;
         } catch (e) {
-            console.error('Could not find the "' + Route.controller + '" controller.');
+            console.error('Could not find the "' + Route.handler + '" controller.');
             return;
         }
 
         try {
-            action = controller[Route.action];
+            action = handler[Route.action];
         } catch (e) {
-            console.error('The "' + Route.controller + '::' + Route.action + '" method is not defined.');
+            console.error('The "' + Route.handler + '::' + Route.action + '" method is not defined.');
             return;
         }
 
