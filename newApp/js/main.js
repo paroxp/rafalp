@@ -7802,7 +7802,7 @@
 
 	var _router2 = _interopRequireDefault(_router);
 
-	var _selector = __webpack_require__(299);
+	var _selector = __webpack_require__(301);
 
 	var _selector2 = _interopRequireDefault(_selector);
 
@@ -7951,21 +7951,21 @@
 	         */
 	        value: function run() {
 	            var action = void 0,
-	                controller = void 0,
+	                handler = void 0,
 	                Route = _routes2.default[this.getPath()],
 	                method = (Route.method || 'GET').toUpperCase();
 
 	            try {
-	                controller = new Route.controller();
+	                handler = new Route.handler();
 	            } catch (e) {
-	                console.error('Could not find the "' + Route.controller + '" controller.');
+	                console.error('Could not find the "' + Route.handler + '" controller.');
 	                return;
 	            }
 
 	            try {
-	                action = controller[Route.action];
+	                action = handler[Route.action];
 	            } catch (e) {
-	                console.error('The "' + Route.controller + '::' + Route.action + '" method is not defined.');
+	                console.error('The "' + Route.handler + '::' + Route.action + '" method is not defined.');
 	                return;
 	            }
 
@@ -8006,11 +8006,11 @@
 	var routes = {
 	    "/": {
 	        "action": "index",
-	        "controller": _main2.default
+	        "handler": _main2.default
 	    },
 	    "/test": {
 	        "action": "test",
-	        "controller": _main2.default
+	        "handler": _main2.default
 	    }
 	};
 
@@ -8032,6 +8032,10 @@
 
 	var _base2 = _interopRequireDefault(_base);
 
+	var _view = __webpack_require__(299);
+
+	var _view2 = _interopRequireDefault(_view);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -8052,7 +8056,9 @@
 	    _createClass(Main, [{
 	        key: 'index',
 	        value: function index() {
-	            console.log('Hello World!');
+	            var template = __webpack_require__(300);
+
+	            _view2.default.render(template);
 	        }
 	    }, {
 	        key: 'test',
@@ -8086,6 +8092,47 @@
 
 /***/ },
 /* 299 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var View = function () {
+	    function View() {
+	        _classCallCheck(this, View);
+	    }
+
+	    _createClass(View, null, [{
+	        key: 'render',
+	        value: function render(template) {
+	            var data = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+
+	            var current = document.querySelector('.current-template');
+
+	            current.insertAdjacentHTML('afterend', template);
+	        }
+	    }]);
+
+	    return View;
+	}();
+
+	exports.default = View;
+
+/***/ },
+/* 300 */
+/***/ function(module, exports) {
+
+	module.exports = "<main role=\"main\" class=\"home\">\n    <svg class=\"desktop\" xmlns=\"http://www.w3.org/2000/svg\" width=\"320\" height=\"320\"><path d=\"M315.087 8.128h-.023c-3.69.012-6.678 3.005-6.683 6.696v.828c-.304 29.132-28.722 78.2-39.65 94.657-11.17 16.82-26.134 24.63-34.77 27.948-2.246-14.594-9.318-43.977-30.384-53.22l-.723-.316c-11.887-5.2-26.81-8.062-42.018-8.062-15.21 0-30.133 2.862-42.036 8.07l-.72.314c-21.058 9.24-28.127 38.62-30.374 53.212-8.645-3.318-23.6-11.13-34.77-27.947C42.02 93.873 13.643 44.813 13.407 15.554v-.723c0-3.692-2.985-6.69-6.678-6.704h-.026C3.024 8.128.03 11.096 0 14.78v108.363c0 89.096 71.603 162.11 159.615 162.764l1.218.004h.01c42.955 0 83.345-16.728 113.718-47.104 30.38-30.377 47.106-70.767 47.106-113.722l.122-109.363c.002-.314.003-.628 0-.943-.027-3.68-3.02-6.65-6.7-6.65M198.877 193.21c-2.942 3.533-6.915 5.33-12.147 5.483-.356.01-.703.015-1.043.015h-.004c-4.85 0-7.1-1.074-7.557-1.993-1.716-3.464 3.35-14.388 9.022-21.833 1.55-2.026 1.815-4.756.687-7.043-1.13-2.288-3.46-3.736-6.01-3.736h-41.983c-2.55 0-4.876 1.448-6.005 3.732-1.13 2.284-.867 5.015.68 7.04 5.677 7.45 10.746 18.375 9.03 21.84-.457.92-2.71 1.992-7.563 1.992-.34 0-.69-.005-1.048-.015-5.233-.154-9.205-1.948-12.148-5.483-8.104-9.735-7.028-30.36-5.932-37.477.02-.13.037-.258.05-.39.022-.215 2.454-21.86 14.795-26.037 12.642-4.282 23.89-9.537 29.133-12.113 5.245 2.574 16.49 7.83 29.133 12.113 10.328 3.496 14.18 19.993 14.794 26.038.012.126.03.258.05.384 1.097 7.123 2.173 27.75-5.93 37.482z\" fill-rule=\"evenodd\" fill=\"#333\"/></svg>\n    <svg class=\"mobile\" xmlns=\"http://www.w3.org/2000/svg\" width=\"160\" height=\"160\"><path d=\"M156.39 8.128h-.012c-1.832.006-3.314 1.492-3.317 3.323v.413c-.15 14.46-14.255 38.814-19.68 46.982-5.544 8.35-12.97 12.224-17.256 13.87-1.116-7.242-4.626-21.826-15.082-26.413l-.36-.157c-5.898-2.58-13.306-4.002-20.854-4.002-7.55 0-14.956 1.42-20.864 4.005l-.357.156c-10.452 4.586-13.96 19.17-15.076 26.412-4.29-1.647-11.713-5.524-17.257-13.87-5.417-8.16-19.5-32.51-19.62-47.032v-.358c0-1.833-1.48-3.32-3.313-3.328h-.013C1.5 8.128.014 9.6 0 11.43v53.784c0 44.222 35.54 80.463 79.222 80.787l.605.003h.004c21.322 0 41.37-8.303 56.445-23.38 15.077-15.078 23.38-35.125 23.38-56.445l.06-54.28c0-.158.002-.313 0-.47-.013-1.826-1.5-3.3-3.325-3.3M98.71 99.992c-1.46 1.753-3.432 2.644-6.03 2.72-.176.006-.348.008-.517.008h-.002c-2.405 0-3.524-.533-3.75-.99-.852-1.718 1.663-7.14 4.478-10.835.77-1.006.9-2.36.34-3.496-.56-1.136-1.716-1.855-2.982-1.855H69.41c-1.267 0-2.42.72-2.982 1.852-.56 1.134-.43 2.49.337 3.495 2.818 3.698 5.334 9.12 4.482 10.84-.226.456-1.345.988-3.754.988-.168 0-.342-.002-.52-.007-2.597-.077-4.568-.967-6.03-2.72C56.922 95.16 57.457 84.922 58 81.39c.01-.064.018-.128.025-.193.01-.107 1.218-10.85 7.343-12.924 6.274-2.125 11.856-4.733 14.46-6.012 2.602 1.28 8.184 3.888 14.46 6.013 5.125 1.736 7.038 9.924 7.342 12.924.006.063.015.128.024.19.545 3.536 1.08 13.774-2.943 18.605z\" fill-rule=\"evenodd\" fill=\"#333\"/></svg>\n\n    <p>\n        Howdy! My name is Rafal, and I am friendly and hairy web developer, based in Newcastle upon Tyne, UK.\n        Currently I'm serving my ninja duty at\n        <a href=\"http://flipsports.com/\" target=\"_blank\" rel=\"external nofollow\">FLIP Sports</a>.\n        I am also, trying to keep up with the cool stuff, by attending the amazing\n        <a href=\"http://frontendne.co.uk/\" target=\"_blank\" rel=\"external nofollow\">Frontend NE</a> meet ups!\n    </p>\n</main>";
+
+/***/ },
+/* 301 */
 /***/ function(module, exports) {
 
 	'use strict';
