@@ -1,8 +1,11 @@
 import Base from './base.jsx';
+import View from '../system/view.jsx';
 
 class Main extends Base {
     index() {
-        console.log('Hello World!');
+        let template = require('../../../assets/template/home.html');
+
+        View.render(template);
     }
 
     test() {
