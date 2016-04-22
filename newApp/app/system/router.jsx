@@ -27,27 +27,44 @@ class Router {
     }
 
     /**
+     * Attempt to throw a notFound response.
+     *
+     * @returns {*}
+     */
+    notFound() {
+        let action, handler;
+
+        try {
+            handler = new routes.notFound.handler;
+            action = handler[routes.notFound.action];
+        } catch ($e) {
+            console.error('Unable to obtain notFound handler.');
+        }
+
+        return action();
+    }
+
+    /**
      * Run route specific method.
      *
      * @returns {*}
      */
     run() {
         let action, handler,
-            Route = routes[this.getPath()],
-            method = (Route.method || 'GET').toUpperCase();
+            Route = routes[this.getPath()];
 
         try {
             handler = new Route.handler;
         } catch (e) {
             console.error('Could not find the "' + Route.handler + '" controller.');
-            return;
+            return this.notFound();
         }
 
         try {
             action = handler[Route.action];
         } catch (e) {
             console.error('The "' + Route.handler + '::' + Route.action + '" method is not defined.');
-            return;
+            return this.notFound();
         }
 
         return action();
