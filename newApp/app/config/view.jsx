@@ -1,4 +1,4 @@
-import PageTransition from '../event/transition.jsx';
+import PageTransition from '../event/transition';
 
 let view = {
     action: 'replace',

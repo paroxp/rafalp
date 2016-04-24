@@ -1,5 +1,5 @@
-import Base from './base.jsx';
-import View from '../system/view.jsx';
+import Base from './base';
+import View from '../system/view';
 
 class Main extends Base {
     about() {

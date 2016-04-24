@@ -1,5 +1,5 @@
-import Base from './base.jsx';
-import Router from '../system/router.jsx';
+import Base from './base';
+import Router from '../system/router';
 
 class Url extends Base {
     /**

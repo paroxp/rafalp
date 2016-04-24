@@ -9,6 +9,9 @@ module.exports = {
             './app/main.jsx'
         ]
     },
+    resolve: {
+        extensions: ['', '.js', '.jsx']
+    },
     module: {
         loaders: [
             {

@@ -1,5 +1,5 @@
-import $ from '../system/selector.jsx';
-import view from '../config/view.jsx';
+import $ from '../system/selector';
+import view from '../config/view';
 
 class PageTransition {
     /**

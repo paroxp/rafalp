@@ -1,4 +1,4 @@
-import Main from '../handler/main.jsx';
+import Main from '../handler/main';
 
 let routes = {
     '/': {

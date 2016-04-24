@@ -1,4 +1,4 @@
-import view from '../config/view.jsx';
+import view from '../config/view';
 
 class View {
     /**

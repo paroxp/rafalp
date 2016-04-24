@@ -1,4 +1,4 @@
-import routes from '../config/routes.jsx';
+import routes from '../config/routes';
 
 class Router {
     /**
