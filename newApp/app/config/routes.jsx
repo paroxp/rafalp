@@ -2,20 +2,20 @@ import Main from '../handler/main.jsx';
 
 let routes = {
     '/': {
-        'action': 'index',
-        'handler': Main
+        action: 'index',
+        handler: Main
     },
     '/about': {
-        'action': 'about',
-        'handler': Main
+        action: 'about',
+        handler: Main
     },
     '/contact': {
-        'action': 'contact',
-        'handler': Main
+        action: 'contact',
+        handler: Main
     },
-    'notFound': {
-        'action': 'notFound',
-        'handler': Main
+    notFound: {
+        action: 'notFound',
+        handler: Main
     }
 };
 
