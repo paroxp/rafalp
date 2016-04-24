@@ -1,7 +1,8 @@
 import $ from '../system/selector';
+import Base from './base';
 import view from '../config/view';
 
-class PageTransition {
+class PageTransition extends Base {
     /**
      * Add specific classes to the containers.
      *
