@@ -42,9 +42,13 @@ class Selector {
      *
      * @param handle
      */
-    constructor(handle = '') {
-        this.handle = handle;
-        this.elements = document.querySelectorAll(handle);
+    constructor(handle = null) {
+        if (handle) {
+            this.elements = document.querySelectorAll(handle);
+        } else {
+            this.elements = [];
+        }
+    }
     }
 
     /**
@@ -105,7 +109,21 @@ class Selector {
     }
 }
 
+/**
+ * Wrapper arount the Selector class.
+ *
+ * @param handle
+ * @returns {Selector}
+ */
 function $(handle) {
+    if (typeof handle === 'object') {
+        let element = new Selector();
+
+        element.elements.push(handle);
+
+        return element;
+    }
+
     return new Selector(handle);
 }
 
