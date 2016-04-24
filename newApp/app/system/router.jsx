@@ -53,6 +53,10 @@ class Router {
         let action, handler,
             Route = routes[this.getPath()];
 
+        if (Route === undefined) {
+            return this.notFound();
+        }
+
         try {
             handler = new Route.handler;
         } catch (e) {
