@@ -49,6 +49,24 @@ class Selector {
             this.elements = [];
         }
     }
+
+    /**
+     * Return the next sibling for each obtained element.
+     *
+     * @returns {*}
+     */
+    next() {
+        if (!this.elements.length) {
+            return;
+        }
+
+        let siblings = new Selector();
+
+        for (let element of this.elements) {
+            siblings.elements.push(element.nextSibling);
+        }
+
+        return siblings;
     }
 
     /**
