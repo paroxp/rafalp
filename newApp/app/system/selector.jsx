@@ -5,17 +5,13 @@ class Selector {
      * @param className
      */
     addClass(className) {
-        if (!this.elements.length) {
-            return;
-        }
-
-        for (let element of this.elements) {
+        this.assure((element) => {
             let classes = element.className.split(' ');
 
             classes.push(className);
 
             element.className = classes.join(' ');
-        }
+        });
 
         return this;
     }
@@ -26,15 +22,26 @@ class Selector {
      * @param syntax
      */
     after(syntax) {
+        this.assure((element) => element.insertAdjacentHTML('afterend', syntax));
+
+        return this;
+    }
+
+    /**
+     * Make a run for each element.
+     *
+     * @param action
+     * @returns {*}
+     */
+    assure(action) {
         if (!this.elements.length) {
             return;
         }
 
         for (let element of this.elements) {
-            element.insertAdjacentHTML('afterend', syntax);
+            action(element);
         }
 
-        return this;
     }
 
     /**
@@ -56,15 +63,9 @@ class Selector {
      * @returns {*}
      */
     next() {
-        if (!this.elements.length) {
-            return;
-        }
-
         let siblings = new Selector();
 
-        for (let element of this.elements) {
-            siblings.elements.push(element.nextSibling);
-        }
+        this.assure((element) => siblings.elements.push(element.nextSibling));
 
         return siblings;
     }
@@ -76,13 +77,7 @@ class Selector {
      * @param callback
      */
     on(event, callback) {
-        if (!this.elements.length) {
-            return;
-        }
-
-        for (let element of this.elements) {
-            element.addEventListener(event, callback);
-        }
+        this.assure((element) => element.addEventListener(event, callback));
 
         return this;
     }
@@ -91,13 +86,7 @@ class Selector {
      * Ability to remove the element.
      */
     remove() {
-        if (!this.elements.length) {
-            return;
-        }
-
-        for (let element of this.elements) {
-            element.parentNode.removeChild(element);
-        }
+        this.assure((element) => element.parentNode.removeChild(element));
 
         return this;
     }
@@ -108,11 +97,7 @@ class Selector {
      * @param className
      */
     removeClass(className) {
-        if (!this.elements.length) {
-            return;
-        }
-
-        for (let element of this.elements) {
+        this.assure((element) => {
             let classes = element.className.split(' '),
                 index = classes.indexOf(className);
 
@@ -121,7 +106,7 @@ class Selector {
 
                 element.className = classes.join(' ');
             }
-        }
+        });
 
         return this;
     }
