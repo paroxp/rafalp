@@ -41,7 +41,39 @@ class Selector {
         for (let element of this.elements) {
             action(element);
         }
+    }
 
+    /**
+     * Set specific attribute and value, to an element.
+     *
+     * @param attribute
+     * @param value
+     * @returns {*}
+     */
+    attr(attribute, value = undefined) {
+        if (value === undefined) {
+            return this.elements[0].getAttribute(attribute);
+        } else if (value) {
+            this.assure((element) => element.setAttribute(attribute, value));
+        } else {
+            this.assure((element) => element.removeAttribute(attribute, value));
+        }
+
+        return this;
+    }
+
+    /**
+     * Get children of specific type.
+     *
+     * @param handle
+     * @returns {*}
+     */
+    children(handle) {
+        let children = new Selector();
+
+        this.assure((element) => children.elements.concat(element.querySelectorAll(handle)));
+
+        return children;
     }
 
     /**
@@ -78,6 +110,23 @@ class Selector {
      */
     on(event, callback) {
         this.assure((element) => element.addEventListener(event, callback));
+
+        return this;
+    }
+
+    /**
+     * Check if the element is ready.
+     *
+     * @param callback
+     */
+    ready(callback) {
+        this.assure((element) => {
+            if (element.readyState != 'loading'){
+                callback();
+            } else {
+                element.addEventListener('DOMContentLoaded', callback);
+            }
+        });
 
         return this;
     }
@@ -130,5 +179,4 @@ function $(handle) {
     return new Selector(handle);
 }
 
-export default Selector;
 export default $;
