@@ -9,10 +9,28 @@ class PageTransition extends Base {
      * @param current
      * @returns {Promise}
      */
-    static addClasses(current) {
+    static addEnteringClasses(current) {
         return new Promise(function (resolve, reject) {
-            current.addClass(view.leaveClass);
-            current.next().addClass(view.enterClass);
+            current
+                .next()
+                .addClass(view.enterClass)
+                .addClass(view.activeClass);
+
+            resolve(current);
+        });
+    }
+
+    /**
+     * Add specific classes to the containers.
+     *
+     * @param current
+     * @returns {Promise}
+     */
+    static addLeavingClasses(current) {
+        return new Promise(function (resolve, reject) {
+            current
+                .addClass(view.leaveClass)
+                .addClass(view.activeClass);
 
             resolve(current);
         });
@@ -70,7 +88,9 @@ class PageTransition extends Base {
      */
     static removeClasses(next) {
         return new Promise(function (resolve, reject) {
-            next.removeClass(view.enterClass);
+            next
+                .removeClass(view.enterClass)
+                .removeClass(view.activeClass);
 
             resolve(next);
         });
@@ -83,9 +103,10 @@ class PageTransition extends Base {
      */
     static run(template) {
         PageTransition.display(template)
-            .then(PageTransition.addClasses)
+            .then(PageTransition.addLeavingClasses)
             .then(PageTransition.delay)
             .then(PageTransition.destroy)
+            .then(PageTransition.addEnteringClasses)
             .then(PageTransition.removeClasses);
     }
 }

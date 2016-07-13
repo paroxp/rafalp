@@ -1,4 +1,4 @@
-.fade-enter {
+.entering {
   opacity: 0.01;
   position: absolute;
   @include transition(all .3s ease-in);
@@ -10,11 +10,11 @@
   }
 }
 
-.fade-enter.fade-enter-active {
+.entering.active {
   opacity: 1;
 }
 
-.fade-leave {
+.leaving {
   opacity: 1;
   position: absolute;
   @include transition(all .3s ease-in);
@@ -24,6 +24,6 @@
   }
 }
 
-.fade-leave.fade-leave-active {
+.leaving.active {
   opacity: 0;
 }
