@@ -6,7 +6,7 @@ class Router {
      *
      * @returns {string}
      */
-    getPath() {
+    static getPath() {
         var hash = window.location.hash === '' ? '#/' : window.location.hash;
 
         return hash.substr(1);
@@ -19,6 +19,10 @@ class Router {
      * @returns {*}
      */
     static goTo(path) {
+        if (path === Router.getPath()) {
+            return false;
+        }
+
         window.location.hash = '#' + path;
 
         let router = new Router;
@@ -51,7 +55,7 @@ class Router {
      */
     run() {
         let action, handler,
-            Route = routes[this.getPath()];
+            Route = routes[Router.getPath()];
 
         if (Route === undefined) {
             return this.notFound();
