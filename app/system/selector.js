@@ -6,7 +6,7 @@ class Selector {
      */
     addClass(className) {
         this.assure((element) => {
-            let classes = element.className.split(' ');
+            let classes = element.className === undefined ? [] : element.className.split(' ');
 
             classes.push(className);
 
@@ -109,7 +109,13 @@ class Selector {
      * @param callback
      */
     on(event, callback) {
-        this.assure((element) => element.addEventListener(event, callback));
+        this.assure((element) => {
+            if (element.addEventListener) {
+                element.addEventListener(event, callback, false)
+            } else {
+                element.attachEvent(event, callback);
+            }
+        });
 
         return this;
     }
@@ -147,7 +153,7 @@ class Selector {
      */
     removeClass(className) {
         this.assure((element) => {
-            let classes = element.className.split(' '),
+            let classes = element.className === undefined ? [] : element.className.split(' '),
                 index = classes.indexOf(className);
 
             if (index >= 0) {
