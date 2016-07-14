@@ -7,43 +7,27 @@ class Request {
      * @param args
      * @returns {Promise}
      */
-    static call(method = 'GET', url = '/', args = {}) {
+    static call(method = 'GET', url = '/', args = null) {
         return new Promise(makeCall);
 
         ////////////
 
         function makeCall(resolve, reject) {
-            let client = new XMLHttpRequest(),
-                uri = url;
+            let client = new XMLHttpRequest();
 
-            if (args && (method === 'POST' || method === 'PUT')) {
-                let argcount = 0;
-                uri += '?';
+            client.open(method, url, true);
+            client.send(args);
 
-                for (var key in args) {
-                    if (args.hasOwnProperty(key)) {
-                        if (argcount++) {
-                            uri += '&';
-                        }
-
-                        uri += encodeURIComponent(key) + '=' + encodeURIComponent(args[key]);
-                    }
-                }
-            }
-
-            client.open(method, uri);
-            client.send();
-
-            client.onload = function () {
-                if (this.status >= 200 && this.status < 300) {
-                    resolve(this.response);
+            client.onload = () => {
+                if (client.status >= 200 && client.status < 400) {
+                    resolve({data: JSON.parse(client.response), code: client.status});
                 } else {
-                    reject(this.response);
+                    reject({data: JSON.parse(client.response), code: client.status});
                 }
             };
 
-            client.onerror = function () {
-                reject(this.response);
+            client.onerror = () => {
+                reject({data: JSON.parse(client.response), code: client.status});
             };
         }
     }

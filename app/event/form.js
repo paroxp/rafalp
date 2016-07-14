@@ -22,7 +22,7 @@ class Form extends Base {
         items.attr('disabled', 'disabled');
 
         Request
-            .post(action, new FormData(form))
+            .post(action, new FormData(form.elements[0]))
             .then(success)
             .catch(failure);
 
@@ -45,14 +45,17 @@ class Form extends Base {
          * @param response
          */
         function failure(response) {
-            try {
-                for (let i = 0; i < Object.keys(response).length; i++) {
-                    let key = Object.keys(response)[i];
+            if (response.code === 422) {
+                for (let i = 0; i < Object.keys(response.data).length; i++) {
+                    let key = Object.keys(response.data)[i];
 
-                    response[key].map((error) => stack.add(new Notification('failure', error, 'Validation Error')));
+                    response.data[key].map((error) => {
+                        stack.add(new Notification('failure', error, 'Validation Error'))
+                    });
                 }
-            } catch (error) {
-                var message = "We\'ve found some difficulties on our side... Would you please, come back later?";
+            } else {
+                var message = "We've found some difficulties on our side... Would you please, come back later?";
+
                 stack.add(new Notification('failure', message, 'Oops!'));
             }
 
