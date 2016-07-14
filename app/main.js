@@ -8,11 +8,11 @@ import '!style!css!sass!../scss/app.scss';
 
 let router = new Router();
 
-$(document)
-    .ready(() => {
-        $('nav a')
-            .on('click', Url.redirect);
+$('nav a')
+    .on('click', Url.redirect);
 
+router
+    .watch(() => {
         $('form')
             .on('submit', Form.submit);
     });

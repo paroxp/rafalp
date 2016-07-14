@@ -75,7 +75,18 @@ class Router {
             return this.notFound();
         }
 
-        return action();
+        action();
+
+        return window.__watch(Route);
+    }
+
+    /**
+     * Define some functionality to be repeated on each state change.
+     *
+     * @param callback
+     */
+    watch(callback) {
+        window.__watch = callback;
     }
 }
 
