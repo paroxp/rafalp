@@ -1,7 +1,7 @@
 let notification = {
     className: 'notification',
     expiry: 5, // in seconds
-    template: require('../../../assets/partial/notification.html'),
+    template: require('../../assets/partial/notification.html'),
     title: 'Notification',
 
     failure: {

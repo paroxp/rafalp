@@ -6,7 +6,7 @@ module.exports = {
     entry: {
         main: [
             'babel-polyfill',
-            './app/main.jsx'
+            './app/main.js'
         ]
     },
     resolve: {
@@ -15,7 +15,7 @@ module.exports = {
     module: {
         loaders: [
             {
-                test: /\.jsx?$/,
+                test: /\.(js|jsx)?$/,
                 exclude: /(node_modules|bower_components)/,
                 loader: 'babel',
                 query: {
