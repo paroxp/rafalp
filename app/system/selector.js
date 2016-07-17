@@ -105,19 +105,61 @@ class Selector {
     /**
      * Setup event listener for each of obtained elements.
      *
-     * @param event
+     * @param eventName
+     * @param target
      * @param callback
      */
-    on(event, callback) {
-        this.assure((element) => {
-            if (element.addEventListener) {
-                element.addEventListener(event, callback, false)
-            } else {
-                element.attachEvent(event, callback);
-            }
-        });
+    on(eventName, target, callback = null) {
+        let live = callback ? true : false;
+
+        if (!live) {
+            callback = target;
+            target = undefined;
+
+            this.assure((element) => listen(element, callback));
+        } else {
+            listen(document, liveEvent);
+        }
 
         return this;
+
+        ////////////
+
+        /**
+         * Listen to the event on given object, calling specific function.
+         *
+         * @param object
+         * @param func
+         */
+        function listen(object, func) {
+            if (object.addEventListener) {
+                object.addEventListener(eventName, func, false)
+            } else {
+                object.attachEvent('on' + eventName, func);
+            }
+        }
+
+        /**
+         * Perform the live event.
+         *
+         * @param event
+         */
+        function liveEvent(event) {
+            let elements = document.querySelectorAll(target);
+
+            if (elements) {
+                let targetElement = event.target,
+                    index = -1;
+
+                while (targetElement && ((index = Array.prototype.indexOf.call(elements, targetElement)) === -1)) {
+                    targetElement = targetElement.parentElement;
+                }
+
+                if (index > -1) {
+                    callback.call(targetElement, event);
+                }
+            }
+        }
     }
 
     /**
