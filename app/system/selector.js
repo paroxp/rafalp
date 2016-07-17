@@ -28,6 +28,18 @@ class Selector {
     }
 
     /**
+     * Append new syntax to the element.
+     *
+     * @param syntax
+     * @returns {Selector}
+     */
+    append(syntax) {
+        this.assure((element) => element.appendChild(syntax));
+
+        return this;
+    }
+
+    /**
      * Make a run for each element.
      *
      * @param action
