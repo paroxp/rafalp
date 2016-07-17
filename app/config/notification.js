@@ -1,5 +1,6 @@
 let notification = {
     className: 'notification',
+    container: '.notification-stack',
     expiry: 5, // in seconds
     template: require('../../assets/partial/notification.html'),
     title: 'Notification',
