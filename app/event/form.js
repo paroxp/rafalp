@@ -49,9 +49,9 @@ class Form extends Base {
                 for (let i = 0; i < Object.keys(response.data).length; i++) {
                     let key = Object.keys(response.data)[i];
 
-                    response.data[key].map((error) => {
+                    response.data[key].map((error) =>
                         stack.add(new Notification('failure', error, 'Validation Error'))
-                    });
+                    );
                 }
             } else {
                 var message = "We've found some difficulties on our side... Would you please, come back later?";

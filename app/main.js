@@ -1,5 +1,6 @@
-import Url from './event/url';
 import Form from './event/form';
+import Notification from './event/notification';
+import Url from './event/url';
 import Router from './system/router';
 import $ from './system/selector';
 
@@ -8,13 +9,13 @@ import '!style!css!sass!../scss/app.scss';
 
 let router = new Router();
 
-$('nav a')
-    .on('click', Url.redirect);
+$(document)
+    .on('click', 'nav a', Url.redirect)
 
-router
-    .watch(() => {
-        $('form')
-            .on('submit', Form.submit);
-    });
+    .on('notification::destroy', '.notification', Notification.remove)
+    .on('click', '.notification', Notification.close)
+    .on('mouseover', '.notification', Notification.reset)
+
+    .on('submit', 'form', Form.submit);
 
 router.run();
