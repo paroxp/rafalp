@@ -1,7 +1,10 @@
 body main[role=main].about {
   section {
+    padding: 0 1rem;
+
     @include min($tablet) {
       @include span(first 8 of 12);
+      padding: 0;
     }
 
     @media print {
