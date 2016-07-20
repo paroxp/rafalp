@@ -1,21 +1,24 @@
+import App from './system/app';
 import Form from './event/form';
 import Notification from './event/notification';
 import Url from './event/url';
-import Router from './system/router';
 import $ from './system/selector';
 
 import '!style!css!sass!../scss/initial.scss';
 import '!style!css!sass!../scss/app.scss';
 
-let router = new Router();
-
 $(document)
     .on('click', 'nav a', Url.redirect)
 
-    .on('notification::destroy', '.notification', Notification.remove)
+    .on('notification::destroy', '.notification', Notification.hide)
+    .on('notification::fire', '.notification', Notification.show)
     .on('click', '.notification', Notification.close)
     .on('mouseover', '.notification', Notification.reset)
 
-    .on('submit', 'form', Form.submit);
+    .on('submit', 'form', Form.submit)
 
-router.run();
+    .on('app::run', () => console.info('Application is running.'));
+
+let app = new App();
+
+app.router.run();
