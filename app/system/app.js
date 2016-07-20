@@ -20,7 +20,27 @@ class App {
      * Run the application.
      */
     run() {
+        this.startOfflineMode();
+
         $(document).trigger('app::run')
+    }
+
+    /**
+     * Setup the Offline mode for the website.
+     */
+    startOfflineMode() {
+        UpUp.start({
+            'content-url': 'index.html',
+            'assets': [
+                '/img/favicon/favicon.ico',
+                '/js/main.js',
+                '/fonts/fontawesome-webfont.eot',
+                '/fonts/fontawesome-webfont.svg',
+                '/fonts/fontawesome-webfont.ttf',
+                '/fonts/fontawesome-webfont.woff',
+                '/fonts/fontawesome-webfont.woff2'
+            ]
+        });
     }
 }
 
