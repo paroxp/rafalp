@@ -219,6 +219,27 @@ class Selector {
 
         return this;
     }
+
+    /**
+     * Trigger given event on request, pass some optional data.
+     *
+     * @param eventName
+     * @param data
+     */
+    trigger(eventName, data = {}) {
+        this.assure((element) => {
+            let event = document.createEvent('HTMLEvents');
+
+            event.initEvent(eventName, true, true);
+            event.data = data || {};
+            event.eventName = eventName;
+            // event.target = element;
+
+            element.dispatchEvent(event);
+        });
+
+        return this;
+    }
 }
 
 /**
