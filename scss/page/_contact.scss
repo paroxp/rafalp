@@ -4,7 +4,7 @@ body main[role=main].contact {
     font-size: rem(26);
     text-align: center;
 
-    @include min(40em) {
+    @include min($tablet) {
       @include span(6 of 12);
     }
   }
@@ -14,7 +14,7 @@ body main[role=main].contact {
     margin-bottom: 1.5rem;
     padding: 1.5rem;
 
-    @include min(40em) {
+    @include min($tablet) {
       @include span(last 6 of 12);
     }
 
