@@ -1,4 +1,5 @@
 import view from '../config/view';
+import $ from './selector';
 
 class View {
     /**
@@ -7,6 +8,7 @@ class View {
      * @param template
      */
     static render(template) {
+        $(document).trigger('view::render');
         view.event(template);
     }
 }

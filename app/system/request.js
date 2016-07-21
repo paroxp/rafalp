@@ -1,3 +1,5 @@
+import $ from './selector';
+
 class Request {
     /**
      * Call defined endpoint with specific method and list of arguments.
@@ -8,6 +10,7 @@ class Request {
      * @returns {Promise}
      */
     static call(method = 'GET', url = '/', args = null) {
+        $(document).trigger('request::fire');
         return new Promise(makeCall);
 
         ////////////
@@ -20,13 +23,16 @@ class Request {
 
             client.onload = () => {
                 if (client.status >= 200 && client.status < 400) {
+                    $(document).trigger('request::success');
                     resolve({data: JSON.parse(client.response), code: client.status});
                 } else {
+                    $(document).trigger('request::failure');
                     reject({data: JSON.parse(client.response), code: client.status});
                 }
             };
 
             client.onerror = () => {
+                $(document).trigger('request::failure');
                 reject({data: JSON.parse(client.response), code: client.status});
             };
         }

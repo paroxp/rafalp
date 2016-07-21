@@ -14,7 +14,8 @@ class PageTransition extends Base {
             current
                 .next()
                 .addClass(view.enterClass)
-                .addClass(view.activeClass);
+                .addClass(view.activeClass)
+                .trigger('state::enter');
 
             resolve(current);
         });
@@ -30,7 +31,8 @@ class PageTransition extends Base {
         return new Promise(function (resolve, reject) {
             current
                 .addClass(view.leaveClass)
-                .addClass(view.activeClass);
+                .addClass(view.activeClass)
+                .trigger('state::leave');
 
             resolve(current);
         });

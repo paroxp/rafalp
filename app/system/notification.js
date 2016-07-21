@@ -24,6 +24,8 @@ class Notification {
         this.desolve = null;
         this.element = null;
 
+        $(this.element).trigger('notification::create');
+
         this.fire();
     }
 
