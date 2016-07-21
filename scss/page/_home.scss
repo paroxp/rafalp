@@ -10,7 +10,7 @@ body main[role=main].home {
       display: none;
     }
 
-    @include min(40em) {
+    @include min($tablet) {
       display: block;
       margin: 0 auto;
       max-width: 20rem;

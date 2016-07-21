@@ -38,7 +38,7 @@ header[role=banner] {
     }
   }
 
-  @include min(40em) {
+  @include min($tablet) {
     margin: 1rem auto;
     text-align: inherit;
   }
@@ -54,7 +54,7 @@ header[role=banner] {
     margin: 0 0 1rem;
     padding: 0;
 
-    @include min(40em) {
+    @include min($tablet) {
       margin: 0;
 
       @include span(first 6 of 12);
@@ -69,7 +69,7 @@ header[role=banner] {
       margin: 0 auto;
       max-width: 6rem;
 
-      @include min(40em) {
+      @include min($tablet) {
         margin: 0;
       }
     }
@@ -84,7 +84,7 @@ header[role=banner] {
     margin: 0;
     padding: 0;
 
-    @include min(40em) {
+    @include min($tablet) {
       @include display(flex);
       @include justify-content(flex-end);
       left: 0;
@@ -102,7 +102,7 @@ header[role=banner] {
   ul li {
     margin: .5rem 0;
 
-    @include min(40em) {
+    @include min($tablet) {
       display: inline-block;
       margin: 0 .5rem;
 
@@ -120,7 +120,7 @@ header[role=banner] {
     display: block;
     margin: .5rem 0;
 
-    @include min(40em) {
+    @include min($tablet) {
       display: none;
     }
 
@@ -141,12 +141,12 @@ header[role=banner] {
     &.active {
       height: rem(140);
 
-      @include min(40em) {
+      @include min($tablet) {
         height: auto;
       }
     }
 
-    @include min(40em) {
+    @include min($tablet) {
       @include span(last 6 of 12);
 
       height: auto;
@@ -165,7 +165,7 @@ footer[role=contentinfo] {
   margin-top: 1rem;
   text-align: center;
 
-  @include min(40em) {
+  @include min($tablet) {
     margin-top: 3rem;
     text-align: left;
   }
@@ -191,7 +191,7 @@ footer[role=contentinfo] {
   .copyright {
     text-transform: uppercase;
 
-    @include min(40em) {
+    @include min($tablet) {
       @include span(first 6 of 12);
     }
   }
@@ -200,7 +200,7 @@ footer[role=contentinfo] {
     cursor: default;
     @include user-select(none);
 
-    @include min(40em) {
+    @include min($tablet) {
       @include span(last 6 of 12);
       text-align: right;
     }
@@ -213,7 +213,7 @@ footer[role=contentinfo] {
     margin: 0;
     padding: 0;
 
-    @include min(40em) {
+    @include min($tablet) {
       @include justify-content(flex-end);
     }
   }

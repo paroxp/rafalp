@@ -1,7 +1,10 @@
 body main[role=main].about {
   section {
-    @include min(40em) {
+    padding: 0 1rem;
+
+    @include min($tablet) {
       @include span(first 8 of 12);
+      padding: 0;
     }
 
     @media print {
@@ -20,7 +23,7 @@ body main[role=main].about {
   }
 
   aside {
-    @include min(40em) {
+    @include min($tablet) {
       @include span(last 4 of 12);
     }
 
@@ -54,7 +57,7 @@ body main[role=main].about {
       position: relative;
 
       &:before {
-        @include min(40em) {
+        @include min($tablet) {
           border: solid transparent;
           border-color: rgba(240, 240, 240, 0);
           border-left-color: #f0f0f0;
@@ -124,7 +127,7 @@ body main[role=main].about {
       padding: 1.5rem;
       width: 100%;
 
-      @include min(40em) {
+      @include min($tablet) {
         box-shadow: 0 0 10px rgba($gray, .5);
         display: none;
         left: -100%;
@@ -148,14 +151,14 @@ body main[role=main].about {
 
     element:hover {
       &:before {
-        @include min(40em) {
+        @include min($tablet) {
           display: block;
           opacity: 1;
         }
       }
 
       details {
-        @include min(40em) {
+        @include min($tablet) {
           display: block;
           opacity: 1;
         }

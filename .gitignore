@@ -7,3 +7,4 @@ npm-debug.log
 db/dbconf.yml
 vendor/
 cache/
+fonts/

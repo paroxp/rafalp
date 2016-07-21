@@ -1,0 +1,26 @@
+<main role="main" class="contact">
+    <aside>
+        <p>Hey, why don't you drop me a line, say hello? Maybe, I could help you out somehow?</p>
+        <p>I will get back to you, (at some point), I promise.</p>
+        <p>Get in touch!</p>
+    </aside>
+
+    <form method="post" action="https://api.rafalp.com/contact">
+        <label>
+            Name
+            <input type="text" name="name"/>
+        </label>
+        <label>
+            Email
+            <input type="email" name="email"/>
+        </label>
+        <label>
+            Message
+            <textarea name="message"></textarea>
+        </label>
+
+        <input type="hidden" name="url"/>
+
+        <button type="submit">Submit</button>
+    </form>
+</main>
