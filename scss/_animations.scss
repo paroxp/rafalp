@@ -3,7 +3,7 @@
   position: absolute;
   @include transition(all .3s ease-in);
 
-  + footer[role=contentinfo] {
+  + body > footer {
     opacity: 1;
 
     @include transition(all .3s ease-in);
@@ -19,7 +19,7 @@
   position: absolute;
   @include transition(all .3s ease-in);
 
-  + footer[role=contentinfo] {
+  + body > footer {
     opacity: 0;
   }
 }
