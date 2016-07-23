@@ -4,7 +4,6 @@ import Notification from './event/notification';
 import Url from './event/url';
 import $ from './system/selector';
 
-import '!style!css!sass!../scss/initial.scss';
 import '!style!css!sass!../scss/app.scss';
 
 $(document)
