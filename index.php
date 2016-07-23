@@ -17,6 +17,8 @@ function buildView(Slim\Container $container)
         'cache' => 'cache'
     ]);
 
+    $view->getLoader()->addPath('./css');
+
     $view->addExtension(new \Slim\Views\TwigExtension(
         $container['router'],
         $container['request']->getUri()
