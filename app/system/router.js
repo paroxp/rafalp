@@ -9,7 +9,9 @@ class Router {
      * @returns {*}
      */
     static goTo(path) {
-        return Aviator.navigate(path);
+        if (Aviator.getCurrentURI() !== path) {
+            return Aviator.navigate(path);
+        }
     }
 
     /**
