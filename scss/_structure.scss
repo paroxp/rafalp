@@ -161,6 +161,7 @@ body {
   }
 
   > footer {
+    margin-bottom: .5rem;
     margin-top: 1rem;
     text-align: center;
 
@@ -187,6 +188,7 @@ body {
     }
 
     .copyright {
+      line-height: 2.5;
       text-transform: uppercase;
 
       @include min($tablet) {
