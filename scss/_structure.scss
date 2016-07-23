@@ -178,11 +178,10 @@ body {
       width: 2.25em;
 
       @include button() {
-        background-color: $olive;
-        color: $white;
+        color: darken($silver, 3);
 
         &:active, &:hover {
-          background-color: lighten($olive, 3);
+          color: $olive;
         }
       }
     }
