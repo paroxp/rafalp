@@ -1,22 +1,12 @@
+import Aviator from 'aviator';
 import Main from '../handler/main';
 
 let routes = {
-    '/': {
-        action: 'index',
-        handler: Main
-    },
-    '/about': {
-        action: 'about',
-        handler: Main
-    },
-    '/contact': {
-        action: 'contact',
-        handler: Main
-    },
-    notFound: {
-        action: 'notFound',
-        handler: Main
-    }
+    target: new Main,
+    '/': 'index',
+    '/about': 'about',
+    '/contact': 'contact',
+    notFound: 'notFound'
 };
 
 export default routes;
