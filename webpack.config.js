@@ -1,6 +1,5 @@
-var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var webpack = require('webpack');
+let BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+let webpack = require('webpack');
 
 module.exports = {
     entry: {
