@@ -183,6 +183,22 @@ body {
 
         &:active, &:hover {
           color: $olive;
+
+          &[title=GitHub] {
+            color: map_get($social, 'github');
+          }
+
+          &[title=Twitter] {
+            color: map_get($social, 'twitter');
+          }
+
+          &[title=LinkedIn] {
+            color: map_get($social, 'linkedin');
+          }
+
+          &[title=Spotify] {
+            color: map_get($social, 'spotify');
+          }
         }
       }
     }
