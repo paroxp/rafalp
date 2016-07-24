@@ -7,7 +7,7 @@ import $ from './system/selector';
 import '!style!css!sass!../scss/app.scss';
 
 $(document)
-    .on('click', 'nav a', Url.redirect)
+    .on('click', 'nav a, a[data-route]', Url.redirect)
     .on('click', 'nav + a', Url.toggleMenu)
 
     .on('notification::destroy', '.notification', Notification.hide)

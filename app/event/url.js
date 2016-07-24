@@ -10,7 +10,7 @@ class Url extends Base {
      * @returns boolean
      */
     static redirect(event) {
-        var url = event.target.getAttribute('href');
+        var url = this.getAttribute('href');
 
         event.preventDefault();
 

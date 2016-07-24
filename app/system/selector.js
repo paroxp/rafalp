@@ -128,9 +128,9 @@ class Selector {
             callback = target;
             target = undefined;
 
-            this.assure((element) => listen(element, callback));
+            this.assure((element) => element.addEventListener(eventName, callback, false));
         } else {
-            listen(document, liveEvent);
+            document.addEventListener(eventName, liveEvent, false);
         }
 
         return this;
@@ -138,37 +138,24 @@ class Selector {
         ////////////
 
         /**
-         * Listen to the event on given object, calling specific function.
-         *
-         * @param object
-         * @param func
-         */
-        function listen(object, func) {
-            if (object.addEventListener) {
-                object.addEventListener(eventName, func, false)
-            } else {
-                object.attachEvent('on' + eventName, func);
-            }
-        }
-
-        /**
          * Perform the live event.
          *
          * @param event
          */
         function liveEvent(event) {
-            let elements = document.querySelectorAll(target);
+            let possibleTargets = document.querySelectorAll(target),
+                eventTarget = event.target;
 
-            if (elements) {
-                let targetElement = event.target,
-                    index = -1;
+            for (let i = 0, l = possibleTargets.length; i < l; i++) {
+                let el = eventTarget,
+                    p = possibleTargets[i];
 
-                while (targetElement && ((index = Array.prototype.indexOf.call(elements, targetElement)) === -1)) {
-                    targetElement = targetElement.parentElement;
-                }
+                while (el && el !== document) {
+                    if (el === p) {
+                        return callback.call(p, event);
+                    }
 
-                if (index > -1) {
-                    callback.call(targetElement, event);
+                    el = el.parentNode;
                 }
             }
         }
