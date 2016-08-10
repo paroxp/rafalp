@@ -1,4 +1,4 @@
-body main[role=main].blog {
+body > main.blog {
 
   @include min(40rem) {
     @include display(flex);

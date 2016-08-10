@@ -1,4 +1,4 @@
-.application-wrapper {
+body {
   margin: 0 1rem;
   max-width: 48rem;
   position: relative;
@@ -8,103 +8,235 @@
   @include min(48em + 1em) {
     margin: 0 auto;
   }
-}
 
-header[role=banner], main[role=main], footer[role=contentinfo] {
-  @include clearfix;
-}
-
-header[role=banner] {
-  margin: 1rem;
-  text-align: center;
-  text-transform: uppercase;
-
-  > h1, > h2 {
-    display: none;
-
-    @media print {
-      display: block;
-      line-height: 1.3;
-      margin-bottom: 0;
-      text-transform: none;
-    }
+  > header, > main, > footer {
+    @include clearfix;
   }
 
-  > h2 {
-    @media print {
-      color: $gray;
-      font-weight: 300;
-      margin: 0;
-    }
-  }
+  > header {
+    margin: 1rem;
+    text-align: center;
+    text-transform: uppercase;
 
-  @include min(40em) {
-    margin: 1rem auto;
-    text-align: inherit;
-  }
-
-  @media print {
-    margin: 0;
-    margin-bottom: 16px;
-    margin-bottom: rem(16);
-    text-align: left;
-  }
-
-  figure {
-    margin: 0 0 1rem;
-    padding: 0;
-
-    @include min(40em) {
-      margin: 0;
-
-      @include span(first 6 of 12);
-    }
-
-    @media print {
+    > h1, > h2 {
       display: none;
+
+      @media print {
+        display: block;
+        line-height: 1.3;
+        margin-bottom: 0;
+        text-transform: none;
+      }
     }
 
-    img, svg {
-      display: block;
-      margin: 0 auto;
-      max-width: 6rem;
-
-      @include min(40em) {
+    > h2 {
+      @media print {
+        color: $gray;
+        font-weight: 300;
         margin: 0;
+      }
+    }
+
+    @include min($tablet) {
+      margin: 1rem auto;
+      text-align: inherit;
+    }
+
+    @media print {
+      margin: 0;
+      margin-bottom: 16px;
+      margin-bottom: rem(16);
+      text-align: left;
+    }
+
+    figure {
+      margin: 0 0 1rem;
+      padding: 0;
+
+      @include min($tablet) {
+        margin: 0;
+
+        @include span(first 6 of 12);
+      }
+
+      @media print {
+        display: none;
+      }
+
+      img, svg {
+        display: block;
+        margin: 0 auto;
+        max-width: 6rem;
+
+        @include min($tablet) {
+          margin: 0;
+        }
+      }
+    }
+
+    a {
+      font-weight: 400;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      @include min($tablet) {
+        @include display(flex);
+        @include justify-content(flex-end);
+        left: 0;
+        margin-top: -12.5px;
+        position: absolute;
+        right: 0;
+        top: 50%;
+      }
+
+      @media print {
+        display: none;
+      }
+    }
+
+    ul li {
+      margin: .5rem 0;
+
+      @include min($tablet) {
+        display: inline-block;
+        margin: 0 .5rem;
+
+        &:first-of-type {
+          margin-left: 0;
+        }
+
+        &:last-of-type {
+          margin-right: 0;
+        }
+      }
+    }
+
+    nav + a {
+      display: block;
+      margin: .5rem 0;
+
+      @include min($tablet) {
+        display: none;
+      }
+
+      @media print {
+        display: none;
+      }
+    }
+
+    nav {
+      display: block;
+      height: 0;
+      overflow: hidden;;
+      position: relative;
+      @include clearfix;
+
+      @include transition(all .3s ease);
+
+      &.active {
+        height: rem(140);
+
+        @include min($tablet) {
+          height: auto;
+        }
+      }
+
+      @include min($tablet) {
+        @include span(last 6 of 12);
+
+        height: auto;
+        min-height: 6em;
+        overflow: initial;
+        text-align: right;
+      }
+
+      @media print {
+        display: none;
       }
     }
   }
 
-  a {
-    font-weight: 400;
-  }
+  > footer {
+    margin-bottom: .5rem;
+    margin-top: 1rem;
+    text-align: center;
 
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-
-    @include min(40em) {
-      @include display(flex);
-      @include justify-content(flex-end);
-      left: 0;
-      margin-top: -12.5px;
-      position: absolute;
-      right: 0;
-      top: 50%;
+    @include min($tablet) {
+      margin-top: 3rem;
+      text-align: left;
     }
 
     @media print {
       display: none;
     }
-  }
 
-  ul li {
-    margin: .5rem 0;
+    a, a:link, a:visited {
+      height: 2.25em;
+      width: 2.25em;
 
-    @include min(40em) {
+      @include button() {
+        color: darken($silver, 3);
+
+        &:active, &:hover {
+          color: $olive;
+
+          &[title=GitHub] {
+            color: map_get($social, 'github');
+          }
+
+          &[title=Twitter] {
+            color: map_get($social, 'twitter');
+          }
+
+          &[title=LinkedIn] {
+            color: map_get($social, 'linkedin');
+          }
+
+          &[title=Spotify] {
+            color: map_get($social, 'spotify');
+          }
+        }
+      }
+    }
+
+    .copyright {
+      line-height: 2.5;
+      text-transform: uppercase;
+
+      @include min($tablet) {
+        @include span(first 6 of 12);
+      }
+    }
+
+    .social {
+      cursor: default;
+      @include user-select(none);
+
+      @include min($tablet) {
+        @include span(last 6 of 12);
+        text-align: right;
+      }
+    }
+
+    ul {
+      @include display(flex);
+      @include justify-content(center);
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      @include min($tablet) {
+        @include justify-content(flex-end);
+      }
+    }
+
+    ul li {
       display: inline-block;
-      margin: 0 .5rem;
+      margin: .075rem;
 
       &:first-of-type {
         margin-left: 0;
@@ -113,121 +245,6 @@ header[role=banner] {
       &:last-of-type {
         margin-right: 0;
       }
-    }
-  }
-
-  nav + a {
-    display: block;
-    margin: .5rem 0;
-
-    @include min(40em) {
-      display: none;
-    }
-
-    @media print {
-      display: none;
-    }
-  }
-
-  nav {
-    display: block;
-    height: 0;
-    overflow: hidden;;
-    position: relative;
-    @include clearfix;
-
-    @include transition(all .3s ease);
-
-    &.active {
-      height: rem(140);
-
-      @include min(40em) {
-        height: auto;
-      }
-    }
-
-    @include min(40em) {
-      @include span(last 6 of 12);
-
-      height: auto;
-      min-height: 6em;
-      overflow: initial;
-      text-align: right;
-    }
-
-    @media print {
-      display: none;
-    }
-  }
-}
-
-footer[role=contentinfo] {
-  margin-top: 1rem;
-  text-align: center;
-
-  @include min(40em) {
-    margin-top: 3rem;
-    text-align: left;
-  }
-
-  @media print {
-    display: none;
-  }
-
-  a {
-    height: 2.25em;
-    width: 2.25em;
-
-    @include button() {
-      background-color: $olive;
-      color: $white;
-
-      &:active, &:hover {
-        background-color: lighten($olive, 3);
-      }
-    }
-  }
-
-  .copyright {
-    text-transform: uppercase;
-
-    @include min(40em) {
-      @include span(first 6 of 12);
-    }
-  }
-
-  .social {
-    cursor: default;
-    @include user-select(none);
-
-    @include min(40em) {
-      @include span(last 6 of 12);
-      text-align: right;
-    }
-  }
-
-  ul {
-    @include display(flex);
-    @include justify-content(center);
-    list-style: none;
-    margin: 0;
-    padding: 0;
-
-    @include min(40em) {
-      @include justify-content(flex-end);
-    }
-  }
-
-  ul li {
-    display: inline-block;
-    margin: .075rem;
-
-    &:first-of-type {
-      margin-left: 0;
-    }
-
-    &:last-of-type {
-      margin-right: 0;
     }
   }
 }

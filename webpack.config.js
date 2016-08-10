@@ -1,36 +1,35 @@
-var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var webpack = require('webpack');
+let BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+let webpack = require('webpack');
 
 module.exports = {
-    // devtool: 'cheap-module-source-map',
     entry: {
-        initial: [
-            './scss/initial.scss'
-        ],
         main: [
-            './app/main.jsx'
+            'babel-polyfill',
+            './app/main.js'
         ]
+    },
+    resolve: {
+        extensions: ['', '.js', '.jsx']
     },
     module: {
         loaders: [
             {
-                test: /\.jsx?$/,
+                test: /\.(js|jsx)?$/,
                 exclude: /(node_modules|bower_components)/,
                 loader: 'babel',
                 query: {
-                    presets: ['react', 'es2015']
+                    presets: ['es2015']
                 }
+            },
+            {
+                test: /\.html$/,
+                exclude: /(node_modules|bower_components)/,
+                loader: 'html'
             },
             {
                 test: /\.scss$/,
                 exclude: /(node_modules|bower_components)/,
                 loaders: ['style', 'css', 'sass']
-            },
-            {
-                test: /initial.scss$/,
-                exclude: /(node_modules|bower_components)/,
-                loader: ExtractTextPlugin.extract('style', 'css!sass')
             },
             {
                 test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
@@ -55,10 +54,6 @@ module.exports = {
                     './'
                 ]
             }
-        }),
-        new ExtractTextPlugin('../assets/css/[name].css', {
-            allChunks: true,
-            disable: false
         }),
         new webpack.DefinePlugin({
             'process.env': {
