@@ -1,0 +1,25 @@
+---
+name: Rafal Proszowski - Developer
+author: Rafal Proszowski
+copyright: Copyright 2014 - 2017
+content: content/*.yml
+description: Self-named - amazing web developer, based in London.
+keywords: php, html, css, scss, javascript, js, mysql, go, web, developer, england, london
+version: 2.1.0
+inline:
+  initial_css: public/css/app.css
+copy:
+  - name: font-awesome
+    src: node_modules/font-awesome/fonts/*
+    dest: public/fonts
+    force: true
+sass:
+  include_paths:
+    - scss
+    - node_modules/bourbon/app/assets/stylesheets
+    - node_modules/font-awesome/scss
+    - node_modules/susy/sass
+  compile:
+    - name: app
+      input: scss/app.scss
+      output: public/css/app.css
