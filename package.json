@@ -1,33 +1,21 @@
 {
   "name": "rafalp",
-  "version": "2.0.0",
-  "description": "Rafal Proszowski - homepage.",
-  "author": [
-    "Rafal Proszowski"
-  ],
+  "version": "2.1.0",
+  "description": "Rafal Proszowski - homepage",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paroxp/rafalp.git"
+  },
+  "author": "Rafal Proszowski",
   "license": "MIT",
-  "homepage": "https://rafalp.com/",
-  "dependencies": {},
+  "bugs": {
+    "url": "https://github.com/paroxp/rafalp/issues"
+  },
+  "homepage": "https://github.com/paroxp/rafalp#readme",
   "devDependencies": {
-    "aviator": "^0.6.1",
-    "babel-loader": "^6.2.4",
-    "babel-polyfill": "^6.9.1",
-    "babel-preset-es2015": "^6.9.0",
-    "bourbon": "^4.2.7",
-    "browser-sync": "^2.13.0",
-    "browser-sync-webpack-plugin": "^1.1.0",
-    "css-loader": "^0.23.1",
-    "extract-text-webpack-plugin": "^1.0.1",
-    "file-loader": "^0.9.0",
-    "font-awesome": "^4.6.3",
-    "html-loader": "^0.4.3",
-    "moment": "^2.14.1",
-    "node-sass": "^3.8.0",
-    "normalize.css": "^4.2.0",
-    "sass-loader": "^4.0.0",
-    "style-loader": "^0.13.1",
-    "susy": "^2.2.12",
-    "url-loader": "^0.5.7",
-    "webpack": "^1.13.1"
+    "bourbon": "^4.3.4",
+    "font-awesome": "^4.7.0",
+    "susy": "^2.2.12"
   }
 }
