@@ -1,7 +1,13 @@
 <!doctype html>
 <html>
 <head>
-    <title>{{.Config.Name}}</title>
+    <title>
+      {{if .Title}}
+        {{.Title}} - {{.Config.Name}}
+      {{else}}
+        {{.Config.Name}}
+      {{end}}
+    </title>
 
     <meta charset="utf-8">
     <meta name="author" content="{{.Config.Author}}">
@@ -57,15 +63,8 @@
                     About
                 </a>
             </li>
-            <li>
-                <a href="/contact">
-                    Contact
-                </a>
-            </li>
         </ul>
     </nav>
-
-    <a href="#">Menu</a>
 </header>
 
 {{template "content" .}}
@@ -92,11 +91,6 @@
         <li>
             <a href="//play.spotify.com/user/1151201520" target="_blank" rel="external nofollow" title="Spotify">
                 <i class="fa fa-spotify"></i>
-            </a>
-        </li>
-        <li>
-            <a href="/contact" title="Contact" data-route>
-                <i class="fa fa-envelope"></i>
             </a>
         </li>
     </ul>
