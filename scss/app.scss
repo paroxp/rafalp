@@ -10,5 +10,8 @@
 @import "methods";
 
 // Import rest of our styles.
-@import "animations";
-@import "notifications";
+@import "global";
+@import "page/about";
+@import "page/home";
+@import "structure";
+@import "type";
