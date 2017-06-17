@@ -45,7 +45,7 @@ body {
     @media print {
       margin: 0;
       margin-bottom: 16px;
-      margin-bottom: rem(16);
+      margin-bottom: 1rem;
       text-align: left;
     }
 
@@ -99,10 +99,10 @@ body {
     }
 
     ul li {
-      margin: .5rem 0;
+      display: inline-block;
+      margin: .5rem .5rem;
 
       @include min($tablet) {
-        display: inline-block;
         margin: 0 .5rem;
 
         &:first-of-type {
@@ -130,20 +130,8 @@ body {
 
     nav {
       display: block;
-      height: 0;
-      overflow: hidden;;
       position: relative;
       @include clearfix;
-
-      @include transition(all .3s ease);
-
-      &.active {
-        height: rem(140);
-
-        @include min($tablet) {
-          height: auto;
-        }
-      }
 
       @include min($tablet) {
         @include span(last 6 of 12);

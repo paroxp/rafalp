@@ -13,9 +13,9 @@ blockquote {
   border-left: 1px solid $silver;
   display: block;
   margin: 0;
-  margin-bottom: rem(8);
+  margin-bottom: .5rem;
   padding: 0;
-  padding-left: rem(8);
+  padding-left: .5rem;
 
   cite {
     color: $gray;
@@ -36,61 +36,61 @@ code {
   background-color: $silver;
   border: 1px solid $gray;
   display: block;
-  padding: rem(8);
+  padding: .5rem;
 }
 
 h1 {
   font-size: 30px;
-  font-size: rem(30);
+  font-size: 1.875rem;
 
   @include min($tablet) {
     font-size: 38px;
-    font-size: rem(38);
+    font-size: 2.375rem;
   }
 }
 
 h2 {
   font-size: 24px;
-  font-size: rem(24);
+  font-size: 1.5rem;
 
   @include min($tablet) {
     font-size: 32px;
-    font-size: rem(32);
+    font-size: 2rem;
   }
 }
 
 h3 {
   font-size: 19px;
-  font-size: rem(19);
+  font-size: 1.1875rem;
 
   @include min($tablet) {
     font-size: 24px;
-    font-size: rem(24);
+    font-size: 1.5rem;
   }
 }
 
 h4 {
   font-size: 16px;
-  font-size: rem(16);
+  font-size: 1rem;
 
   @include min($tablet) {
     font-size: 20px;
-    font-size: rem(20);
+    font-size: 1.25rem;
   }
 }
 
 h5 {
   font-size: 16px;
-  font-size: rem(16);
+  font-size: 1rem;
 }
 
 h6 {
   font-size: 16px;
-  font-size: rem(16);
+  font-size: 1rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin: rem(4) 0 rem(8);
+  margin: .25rem 0 .5rem;
 
   small {
     color: $gray;
@@ -109,7 +109,7 @@ pre {
   background-color: $black;
   color: $white;
   display: block;
-  padding: rem(8);
+  padding: .5rem;
 }
 
 table {
@@ -117,7 +117,7 @@ table {
   width: 100%;
 
   th, td {
-    padding: rem(4) rem(8);
+    padding: .25rem .5rem;
   }
 
   th {
