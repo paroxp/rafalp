@@ -7,8 +7,8 @@ import (
 	"os"
 )
 
-func createFile(filename string, content bytes.Buffer) error {
-	err := ioutil.WriteFile(filename, content.Bytes(), 0644)
+func createFile(filename string, content []byte) error {
+	err := ioutil.WriteFile(filename, content, 0644)
 	if err != nil {
 		return err
 	}

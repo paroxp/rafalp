@@ -29,7 +29,7 @@ var _ = Describe("Utils", func() {
 
 	It("should createFile()", func() {
 		b := bytes.NewBufferString(`test`)
-		err := createFile("test/test.txt", *b)
+		err := createFile("test/test.txt", b.Bytes())
 
 		Expect(err).ShouldNot(HaveOccurred())
 
@@ -41,7 +41,7 @@ var _ = Describe("Utils", func() {
 		_ = ioutil.WriteFile("test/test.fail", make([]byte, 0), 0444)
 
 		b := bytes.NewBufferString(`test`)
-		err := createFile("test/test.fail", *b)
+		err := createFile("test/test.fail", b.Bytes())
 
 		Expect(err).Should(HaveOccurred())
 	})

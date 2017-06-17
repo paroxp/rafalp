@@ -8,6 +8,8 @@ import (
 	"time"
 
 	"github.com/russross/blackfriday"
+	"github.com/tdewolff/minify"
+	"github.com/tdewolff/minify/html"
 
 	yaml "gopkg.in/yaml.v2"
 )
@@ -44,13 +46,19 @@ func (p *page) compile() error {
 	p.prepareHTML()
 
 	var content bytes.Buffer
-	err = t.Execute(&content, p)
-	if err != nil {
+	var cb []byte
+	if err = t.Execute(&content, p); err != nil {
 		return err
 	}
 
-	err = createFile(p.Path, content)
-	if err != nil {
+	m := minify.New()
+	m.AddFunc("text/html", html.Minify)
+
+	if cb, err = m.Bytes("text/html", content.Bytes()); err != nil {
+		return err
+	}
+
+	if err = createFile(p.Path, cb); err != nil {
 		return err
 	}
 

@@ -109,7 +109,6 @@ var _ = Describe("Main", func() {
 
 			Expect(err).ShouldNot(HaveOccurred())
 			Expect(string(css)).To(ContainSubstring("p span"))
-			Expect(string(css)).To(ContainSubstring("\\f00c"))
 		})
 
 		It("should fail to compileSass() due to invalid input file", func() {
