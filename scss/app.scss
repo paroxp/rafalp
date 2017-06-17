@@ -3,7 +3,6 @@
 
 // Include some toolkits.
 @import "bourbon";
-@import "font-awesome";
 @import "susy";
 
 // Import our dependencies.
@@ -11,6 +10,7 @@
 
 // Import rest of our styles.
 @import "global";
+@import "icons";
 @import "page/about";
 @import "page/home";
 @import "structure";

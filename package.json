@@ -15,7 +15,6 @@
   "homepage": "https://github.com/paroxp/rafalp#readme",
   "devDependencies": {
     "bourbon": "^4.3.4",
-    "font-awesome": "^4.7.0",
     "susy": "^2.2.12"
   }
 }
