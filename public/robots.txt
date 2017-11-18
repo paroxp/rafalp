@@ -1,2 +1,0 @@
-User-Agent: *
-Sitemap: https://rafalp.com/sitemap.xml

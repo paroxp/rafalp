@@ -1,9 +1,0 @@
-$test: "\f00c";
-
-p {
-  content: $test;
-
-  span {
-    text-decoration: underline;
-  }
-}
