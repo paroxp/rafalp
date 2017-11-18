@@ -17,4 +17,4 @@ run:
 
 styles:
 	docker run --rm -v $(WORKING_DIR):$(WORKING_DIR) -w $(WORKING_DIR) node:alpine \
-		./node_modules/.bin/gulp sass
+		./node_modules/.bin/gulp css

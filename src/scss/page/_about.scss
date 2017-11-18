@@ -73,7 +73,7 @@ body > main.about {
           width: 0;
           z-index: 1;
 
-          @include transition(all .3s ease);
+          transition: all .3s ease;
         }
       }
     }
@@ -83,41 +83,47 @@ body > main.about {
     }
 
     element progress {
-      @include appearance(none);
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      -ms-appearance: none;
+      appearance: none;
       display: block;
+      -webkit-print-color-adjust: exact;
+      -moz-print-color-adjust: exact;
+      -ms-print-color-adjust: exact;
       width: 100%;
 
       &::-webkit-progress-bar {
         background-color: #eee;
-        @include border-top-radius(3px);
-        @include border-right-radius(3px);
-        @include border-bottom-radius(3px);
-        @include border-left-radius(3px);
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
         box-shadow: 0 2px 5px rgba($gray, 0.25) inset;
       }
 
       &::-ms-fill {
         background-color: $olive;
-        @include border-top-radius(3px);
-        @include border-right-radius(3px);
-        @include border-bottom-radius(3px);
-        @include border-left-radius(3px);
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
       }
 
       &::-webkit-progress-value {
         background-color: $olive;
-        @include border-top-radius(3px);
-        @include border-right-radius(3px);
-        @include border-bottom-radius(3px);
-        @include border-left-radius(3px);
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
       }
 
       &::-moz-progress-bar {
         background-color: $olive;
-        @include border-top-radius(3px);
-        @include border-right-radius(3px);
-        @include border-bottom-radius(3px);
-        @include border-left-radius(3px);
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
       }
     }
 
@@ -137,7 +143,7 @@ body > main.about {
         position: absolute;
         top: 0;
 
-        @include transition(all .3s ease);
+        transition: all .3s ease;
       }
 
       @media print {

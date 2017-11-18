@@ -84,8 +84,8 @@ body {
       padding: 0;
 
       @include min($tablet) {
-        @include display(flex);
-        @include justify-content(flex-end);
+        display: flex;
+        justify-content: flex-end;
         left: 0;
         margin-top: -12.5px;
         position: absolute;
@@ -202,7 +202,7 @@ body {
 
     .icons {
       cursor: default;
-      @include user-select(none);
+      user-select: none;
 
       @include min($tablet) {
         @include span(last 6 of 12);
@@ -211,14 +211,14 @@ body {
     }
 
     ul {
-      @include display(flex);
-      @include justify-content(center);
+      display: flex;
+      justify-content: center;
       list-style: none;
       margin: 0;
       padding: 0;
 
       @include min($tablet) {
-        @include justify-content(flex-end);
+        justify-content: flex-end;
       }
     }
 
