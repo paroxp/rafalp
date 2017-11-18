@@ -15,6 +15,9 @@
   "homepage": "https://github.com/paroxp/rafalp#readme",
   "devDependencies": {
     "bourbon": "^4.3.4",
+    "gulp": "^3.9.1",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-sass": "^3.1.0",
     "susy": "^2.2.12"
   }
 }
