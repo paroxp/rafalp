@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+{{ partial "head/head" . }}
+<body>
+
+<header>
+    <h1>Rafal Proszowski</h1>
+    <h2>Web Developer</h2>
+
+    <figure>
+      {{ readFile "dist/img/logo.svg" | safeHTML }}
+    </figure>
+
+    <nav>
+        <ul>
+        {{ range .Site.Menus.main }}
+          {{- $isCurrent := ( or ( $.IsMenuCurrent "main" . ) ( $.HasMenuCurrent "main" . ) ) -}}
+          <li>
+              <a href="{{ .URL }}" {{ if $isCurrent -}} class="active" {{ end }}>
+                  {{ .Name }}
+              </a>
+          </li>
+        {{ end }}
+        </ul>
+    </nav>
+</header>

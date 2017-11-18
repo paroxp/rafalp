@@ -1,0 +1,28 @@
+baseURL = "https://www.rafalp.com/"
+title = "Rafal Proszowski - Developer"
+
+disableHugoGeneratorInject = true
+disableKinds = ["taxonomy","taxonomyTerm","RSS"]
+enableRobotsTXT = true
+
+[params]
+  author = "Rafal Proszowski"
+  description = "WebOps, DevOps, SysOps, Site Reliability Engineer, all kinds of wizardry."
+
+[params.social]
+  github = "paroxp"
+  twitter = "paroxp"
+  linkedin = "rafał-proszowski-78816744"
+  spotify = "1151201520"
+
+[params.social.config]
+  platforms = ["github","twitter","linkedin","spotify","email"]
+
+[blackfriday]
+  hrefTargetBlank = true
+
+[params.copyright]
+  prefix = "Copyright"
+  holder = " "
+  startYear = "2014"
+  suffix = ""

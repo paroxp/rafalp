@@ -1,0 +1,6 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="description" content="{{ $isHomePage := eq .Title .Site.Title }}{{ .Site.Params.description }}{{ if eq $isHomePage false }} - {{ .Description }}{{ end }}"  property="og:description">
+<meta name="keywords" content="{{ delimit .Keywords ", " }}">
+<meta name="author" content="{{ .Site.Params.author }}">
+<meta name="copyright" content="{{ trim ( partial "meta/copyright" . | chomp ) " " }}">

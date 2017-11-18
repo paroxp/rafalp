@@ -1,0 +1,14 @@
+{{- if not .Site.Params.settings.hideSocialMenu -}}
+<ul class="icons">
+  {{- $social := ( .Site.Params.social ) -}}
+  {{- range $platform := $social.config.platforms -}}
+    {{- with $username := ( index $social $platform ) -}}
+    <li>
+        <a href="{{ print ( index $.Site.Data.theme.social.base $platform ) $username }}" target="_blank" rel="external nofollow" title="{{ $platform | title }}">
+            <i class="icon {{ $platform }}"></i>
+        </a>
+    </li>
+    {{- end -}}
+  {{- end -}}
+</ul>
+{{- end -}}

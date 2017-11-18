@@ -1,0 +1,8 @@
+<element name="{{ .name }}">
+    <label>{{ .name }}</label>
+    <progress value="{{ .score }}" max="100"></progress>
+    <details open>
+        <summary>{{ .name }}</summary>
+        {{ .description | markdownify }}
+    </details>
+</element>

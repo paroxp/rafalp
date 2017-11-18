@@ -1,0 +1,1 @@
+{{- with .Site.Copyright -}}{{ . }}{{- else -}}{{- with .Site.Params.copyright -}}{{ with .startyear }}{{ if lt ( int . ) now.Year }}{{ $.Scratch.Set "copyrightStartYear" . }}{{ end }}{{ end }}{{ .prefix }} {{ with ( $.Scratch.Get "copyrightStartYear" ) }}{{ . }} - {{ end }}{{ now.Year }} {{ or .holder $.Site.Title }} {{ .suffix }}{{- end -}}{{ end }}
