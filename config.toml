@@ -1,5 +1,5 @@
 baseURL = "https://www.rafalp.com/"
-title = "Rafal Proszowski - Developer"
+title = "Rafal Proszowski - Site Reliability Engineer"
 
 disableHugoGeneratorInject = true
 disableKinds = ["taxonomy","taxonomyTerm","RSS"]

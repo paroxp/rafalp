@@ -3,6 +3,11 @@ body {
   max-width: 48rem;
   position: relative;
 
+  @media print {
+    margin: 0;
+    max-width: 100%;
+  }
+
   @include clearfix;
 
   @include min(48em + 1em) {

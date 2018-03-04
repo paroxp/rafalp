@@ -1,5 +1,7 @@
 {
 	"name": "Rafal Proszowski",
+	"theme_color": "#3D9970",
+	"short_name": "Rafal P.",
 	"icons": [
 		{
 			"src": "\/android-chrome-36x36.png",

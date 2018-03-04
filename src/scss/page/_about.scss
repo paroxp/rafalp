@@ -8,17 +8,57 @@ body > main.about {
     }
 
     @media print {
-      @include span(first 8 of 12);
+      padding: 0;
+      width: 100%;
     }
 
     ol, ul {
-      list-style: none;
       margin: 0;
-      padding: 0;
+      padding-left: 1rem;
+
+      > li {
+        margin: .75rem 0;
+      }
+
+      @media print {
+        padding-left: 1.5rem;
+
+        > li {
+          margin: .25rem 0;
+        }
+      }
     }
 
-    p, ol, ul {
-      margin: 1rem 0;
+    details {
+      summary {
+        cursor: pointer;
+        outline: none;
+
+        @media print {
+          font-weight: 400;
+        }
+      }
+
+      p {
+        margin: 0;
+        padding: 0;
+      }
+
+      > ul {
+        margin: .5rem;
+        margin-left: 1.5rem;
+
+        @media print {
+          margin: .25rem;
+          margin-left: 1.5rem;
+        }
+      }
+    }
+
+    [data-details=no-print] > *:not(summary) {
+      @media print {
+        display: none;
+      }
     }
   }
 
@@ -28,7 +68,8 @@ body > main.about {
     }
 
     @media print {
-      @include span(last 4 of 12);
+      margin-bottom: 1rem;
+      width: 100%;
     }
 
     figure {
@@ -37,6 +78,10 @@ body > main.about {
       padding: 0;
       text-align: center;
       @include clearfix;
+
+      @media print {
+        display: none;
+      }
 
       img {
         border: 3px solid $white;
@@ -51,10 +96,40 @@ body > main.about {
       }
     }
 
+    figure + h3 {
+      display: none;
+
+      @media print {
+        display: block;
+      }
+    }
+
     element {
       display: block;
       padding: .5rem 1rem;
       position: relative;
+
+      @media print {
+        display: inline-block;
+        margin: 0 .5rem;
+        padding: 0;
+
+        &:first-of-type {
+          margin-left: 0;
+        }
+
+        &:last-of-type {
+          margin-right: 0;
+        }
+      }
+
+      &.minimal {
+        display: none;
+
+        @media print {
+          display: inline-block;
+        }
+      }
 
       &:before {
         @include min($tablet) {
@@ -87,11 +162,16 @@ body > main.about {
       -moz-appearance: none;
       -ms-appearance: none;
       appearance: none;
+      border-radius: 5px;
       display: block;
       -webkit-print-color-adjust: exact;
       -moz-print-color-adjust: exact;
       -ms-print-color-adjust: exact;
       width: 100%;
+
+      @media print {
+        display: none;
+      }
 
       &::-webkit-progress-bar {
         background-color: #eee;
@@ -150,7 +230,7 @@ body > main.about {
         display: none;
       }
 
-      summary, summary::-webkit-details-marker {
+      summary {
         display: none;
       }
 
@@ -181,6 +261,10 @@ body > main.about {
       font-size: .75rem;
       text-align: center;
       padding: 0 1.5rem;
+
+      @media print {
+        display: none;
+      }
     }
   }
 }

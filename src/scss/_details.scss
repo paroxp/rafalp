@@ -1,0 +1,52 @@
+[data-details] {
+  display: block;
+
+  > summary, &[open] > summary {
+    list-style: none;
+    list-style-type: none;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+  }
+
+  > summary::before {
+    @include min($tablet) {
+      content: "\f101";
+      display: inline-block;
+      font-family: "Social";
+      font-style: normal;
+      font-weight: normal;
+      font-size: .75rem;
+      font-variant: normal;
+      line-height: 1.75;
+      margin-right: .5rem;
+      text-decoration: inherit;
+      text-rendering: optimizeLegibility;
+      text-transform: none;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-font-smoothing: antialiased;
+      font-smoothing: antialiased;
+      text-align: center;
+      width: 1rem;
+    }
+  }
+
+  &.active > summary::before {
+    @include min($tablet) {
+      content: "\f100";
+    }
+  }
+
+  > *:not(summary) {
+    @include min($tablet) {
+      display: none;
+    }
+  }
+
+  &.active > *:not(summary) {
+    @include min($tablet) {
+      display: block;
+    }
+  }
+}

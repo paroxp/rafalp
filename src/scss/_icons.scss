@@ -29,28 +29,34 @@
     font-smoothing: antialiased;
   }
 
-  &.envelope:before {
+  &.down:before {
     content: "\f100";
   }
 
-  &.spotify:before {
+  &.right:before {
     content: "\f101";
   }
 
-  &.github:before {
+  &.spotify:before {
     content: "\f102";
   }
 
-  &.twitter:before {
+  &.github:before {
     content: "\f103";
+  }
+
+  &.twitter:before {
+    content: "\f105";
   }
 
   &.linkedin:before {
     content: "\f104";
   }
 }
-$icon-envelope: "\f100";
-$icon-spotify: "\f101";
-$icon-github: "\f102";
-$icon-twitter: "\f103";
+
+$icon-down: "\f100";
+$icon-right: "\f101";
+$icon-spotify: "\f102";
+$icon-github: "\f103";
 $icon-linkedin: "\f104";
+$icon-twitter: "\f105";

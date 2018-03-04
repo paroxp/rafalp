@@ -6,9 +6,11 @@
           <img src="{{ .Params.avatar }}" alt="{{ .Params.author }}" />
           <figcaption>
               <h3>{{ .Params.author }}</h3>
-              Twitter: <a href="//twitter.com/{{ .Params.twitter }}" target="_blank" rel="external nofollow" title="Twitter">@{{ .Params.twitter }}</a>
+              Twitter: <a href="//twitter.com/{{ .Params.twitter }}" target="_blank" rel="external nofollow noopener" title="Twitter">@{{ .Params.twitter }}</a>
           </figcaption>
       </figure>
+
+      <h3>Skills</h3>
 
       {{ range $key, $value := .Params.skills }}
         {{ partial "about/skill" . }}
@@ -24,5 +26,7 @@
     {{ .Content }}
   </section>
 </main>
+
+<script>{{ readFile "dist/js/about.js" | safeJS }}</script>
 
 {{ partial "footer" . }}

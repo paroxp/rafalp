@@ -4,7 +4,7 @@
   {{- range $platform := $social.config.platforms -}}
     {{- with $username := ( index $social $platform ) -}}
     <li>
-        <a href="{{ print ( index $.Site.Data.theme.social.base $platform ) $username }}" target="_blank" rel="external nofollow" title="{{ $platform | title }}">
+        <a href="{{ print ( index $.Site.Data.theme.social.base $platform ) $username }}" target="_blank" rel="external nofollow noopener" title="{{ $platform | title }}">
             <i class="icon {{ $platform }}"></i>
         </a>
     </li>
