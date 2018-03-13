@@ -80,6 +80,7 @@ weight: 2
       2016 - \*
     </time>:
     Developer at [Government Digital Service](//gds.blog.gov.uk/)
+    <span aria-hidden>( https://gds.blog.gov.uk )</span>
   </summary>
 
   - Frontend Lead - Planning, Prioritising and Building an admin tool for
@@ -119,7 +120,8 @@ weight: 2
     <time datetime="2015-11-30" title="November 30th 2015 - August 5th 2016">
       2015 - 2016
     </time>:
-    Front End Developer at [FLIP Sports](http://flipsports.com/)
+    Frontend Developer at [FLIP Sports](http://flipsports.com/)
+    <span aria-hidden>( http://flipsports.com )</span>
   </summary>
 
   - Working on a rewards system with the use of Angular, Ionic, JWT, OIDC,
@@ -138,6 +140,7 @@ weight: 2
       2013 - 2015
     </time>:
     Developer at [HurstDEV](//hurstdev.co.uk/)
+    <span aria-hidden>( https://hurstdev.co.uk )</span>
   </summary>
 
   - Working with variety of clients on different needs, solutions and
@@ -160,6 +163,7 @@ weight: 2
       2012 - 2013
     </time>:
     Junior Web Developer at [Surreal Creative](http://whysurreal.com/)
+    <span aria-hidden>( http://whysurreal.com )</span>
   </summary>
 
   - Working with variety of clients on different needs, solutions and

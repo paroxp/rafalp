@@ -37,6 +37,15 @@ body > main.about {
         @media print {
           font-weight: 400;
         }
+
+        span {
+          display: none;
+          font-weight: 300;
+
+          @media print {
+            display: inline;
+          }
+        }
       }
 
       p {
