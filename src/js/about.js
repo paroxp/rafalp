@@ -1,11 +1,13 @@
 (() => {
   assure('[data-details] summary', (element) => {
     element.addEventListener('click', (e) => {
-      e.preventDefault();
-
-      toggleClass(element.parentNode, 'active');
-
-      return true;
+      if (e.target.tagName.toLowerCase() !== 'a') {
+        e.preventDefault();
+  
+        toggleClass(element.parentNode, 'active');
+  
+        return true;
+      }
     });
   });
 })();
