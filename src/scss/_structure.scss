@@ -177,7 +177,7 @@ body {
         &:active, &:hover {
           color: $olive;
 
-          &[title=GitHub] {
+          &[title=GitHub], &[title=Github] {
             color: map_get($social, 'github');
           }
 
@@ -185,7 +185,7 @@ body {
             color: map_get($social, 'twitter');
           }
 
-          &[title=LinkedIn] {
+          &[title=LinkedIn], &[title=Linkedin] {
             color: map_get($social, 'linkedin');
           }
 
