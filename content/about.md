@@ -1,7 +1,7 @@
 ---
 author: Rafal Proszowski
 avatar: ../img/avatar.png
-description: Curriculum Vitae - Site Reliability Engineer; WebOps; DevOps
+description: Curriculum Vitae
 keywords:
   - php
   - html
