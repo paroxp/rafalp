@@ -25,12 +25,6 @@ menu:
 skills:
   - name: Agile
     minimal: true
-  - name: YAML
-    minimal: true
-  - name: AWS
-    minimal: true
-  - name: CloudFoundry
-    minimal: true
   - name: Go
     score: 65
     description: "It has became my language of choice, for most of new projects
@@ -46,6 +40,26 @@ skills:
     [Angular](//angular.io/) & [TypeScript](http://www.typescriptlang.org/),
     [React](//facebook.github.io/react/) and ES6. I've done some WebGL
     stuff, therefore, I've also looked into: [Pixi.js](http://www.pixijs.com/)."
+  - name: TypeScript
+    minimal: true
+  - name: ES6
+    minimal: true
+  - name: NPM
+    minimal: true
+  - name: Node.js
+    minimal: true
+  - name: Express.js
+    minimal: true
+  - name: JSON
+    minimal: true
+  - name: JWT
+    minimal: true
+  - name: React
+    minimal: true
+  - name: Angular
+    minimal: true
+  - name: Ionic
+    minimal: true
   - name: PHP
     score: 75
     description: "Over 5 years of experience with PHP, helped me to develop this
@@ -56,6 +70,10 @@ skills:
     and little bits of others, I am able to put together some amazing
     applications. I go around with Composer and PSRs, however I may be a little
     bit behind, due to my new role, especially with the new PHP 7 stuff."
+  - name: Ruby
+    minimal: true
+  - name: Python
+    minimal: true
   - name: HTML
     score: 90
     description: "Not much I could really say here... I try to keep my syntax
@@ -67,52 +85,119 @@ skills:
     I love SASS and prefer it over Less. I use [Susy](http://susy.oddbird.net/)
     very often and lately, I've started using [Bourbon](http://bourbon.io/), in
     order to increase my productivity. Also, mobile-first!"
+  - name: REST APIs
+    minimal: true
+  - name: OIDC
+    minimal: true
+  - name: OAuth2
+    minimal: true
+  - name: Web Applications
+    minimal: true
+  - name: YAML
+    minimal: true
+  - name: AWS
+    minimal: true
+  - name: CloudFoundry
+    minimal: true
+  - name: Docker
+    minimal: true
+  - name: Git
+    minimal: true
+  - name: Terraform
+    minimal: true
+  - name: Continuous Integration and Delivery
+    minimal: true
+  - name: Concourse
+    minimal: true
+  - name: Travis
+    minimal: true
+  - name: NGINX
+    minimal: true
+  - name: Shell
+    minimal: true
+  - name: Ansible
+    minimal: true
+  - name: Puppet
+    minimal: true
+  - name: Vagrant
+    minimal: true
+  - name: DevOps
+    minimal: true
+  - name: WebOps
+    minimal: true
+  - name: Unit Testing
+    minimal: true
+  - name: Integration Testing
+    minimal: true
+  - name: SQL
+    minimal: true
+  - name: Linux
+    minimal: true
+  - name: Webpack
+    minimal: true
+  - name: Gulp
+    minimal: true
+  - name: Foundation
+    minimal: true
+  - name: Bootstrap
+    minimal: true
+  - name: Platform monitoring
+    minimal: true
+  - name: Kibana
+    minimal: true
+  - name: DataDog
+    minimal: true
+  - name: Prometheus
+    minimal: true
+  - name: Mailgun
+    minimal: true
+  - name: Redis
+    minimal: true
+  - name: Memcached
+    minimal: true
+  - name: Database Design
+    minimal: true
+  - name: Excellent problem-solving
+    minimal: true
 title: About
 twitter: paroxp
 weight: 2
 ---
 
+### Professional summary
+
+I'm an experienced developer / SRE with just over 6 years of professional
+experience, committed to maintaining cutting edge technical skills and
+up-to-date industry knowledge. I'm eager to learn and always after new exciting
+opportunities and challenges.
+
 ### Experience
 
 <details data-details open>
   <summary>
-    <time datetime="2016-08-08" title="August 8th 2016 - Current">
-      2016 - \*
+    <time datetime="2016-08-08" title="August 8th 2016 - Present">
+      2016 - present
     </time>:
-    Developer at [Government Digital Service](//gds.blog.gov.uk/)
+    Component Lead at [Government Digital Service](//gds.blog.gov.uk/)
     <span aria-hidden>( https://gds.blog.gov.uk )</span>
   </summary>
 
-  - Frontend Lead - Planning, Prioritising and Building an admin tool for
-    tenants to manage their resources on GOV.UK PaaS
-    - Planned out the direction for the project
-    - Made various evaluation and skill set comparisons to ensure the future of
-      the project
-    - Decided on the use of NodeJS, Express, Webpack, SASS and other stack to
-      satisfy the needs - did consider other options
-    - Using CloudFoundry API to obtain data for the tenants to be presented with
-    - Working with Mobile First, Progressive Enhancement and Accessibility
-      requirements
-  - Developing GOV.UK PaaS with the use of Terraform AWS, Concourse,
+  - Planned, Prioritised and Built various components for
+    tenants of GOV.UK PaaS
+  - Developed GOV.UK PaaS with the use of Terraform AWS, Concourse,
     CloudFoundry, Bosh, YAML, Go, Shell Scripts
-  - Working with Secure Continuous Delivery system using Git and GPG encryption
+  - Developed web applications for GOV.UK PaaS tenants with the use of
+    Node.js, TypeScript, Sinatra, JS, Webpack
+  - Worked with Secure Continuous Delivery system using Git and GPG encryption
     to ensure integrity of developer commits prior to deployment
-  - Continuous contribution to deliver the user needs in a form of PaaS
-  - Contributed to implementation of DataDog monitoring on the platform
-  - Contributed to work on various Service Brokers for the tenants to use
-  - Attending regular prioritisation sessions
   - Troubleshoot complex network and systems issues
-  - Actively patching various CVE's
-  - Doing heavy pair programming for knowledge sharing
-  - Coding in the open
-  - Helping out Open Source community by providing Software, PRs, Issues and
-    Comments
-  - Working in an Agile - Kanban environment
-  - Working with stages of Planing, Doing, Reviewing and Approving of each task
-  - Using ticketing system Pivotal Tracker for assignment and tracking
-  - Helping out in recruitment process
-  - Being a Line Manager
-  - Being a support and technical guide to the tenants
+  - Actively patched various CVE's
+  - Did heavy pair programming in order to spread the knowledge
+  - Presented and demonstrated at show and tells / knowledge shares
+  - Been heavily involved in team progression and well being
+  - Worked in an Agile - Kanban environment
+  - Worked with stages of Planing, Doing, Reviewing and Approving of each task
+  - Used ticketing system Pivotal Tracker for project management
 
 </details>
 <details data-details open>
@@ -124,14 +209,14 @@ weight: 2
     <span aria-hidden>( http://flipsports.com )</span>
   </summary>
 
-  - Working on a rewards system with the use of Angular, Ionic, JWT, OIDC,
+  - Worked on a rewards system with the use of Angular, Ionic, JWT, OIDC,
     Python, AWS
-  - Delivering services in a form of REST APIs, Web Applications, Metric
+  - Delivered services in a form of REST APIs, Web Applications, Metric
     collectors
-  - Mainly focusing on the Frontend aspect of the projects
-  - Helping out with certain python micro services
-  - Helping out with PHP projects
-  - Using ticketing system JIRA for assignment and tracking
+  - Mainly focussed on the Frontend aspect of the projects
+  - Helped out with certain python micro services
+  - Helped out with PHP projects
+  - Used ticketing system JIRA for project management
 
 </details>
 <details data-details open>
@@ -143,18 +228,18 @@ weight: 2
     <span aria-hidden>( https://hurstdev.co.uk )</span>
   </summary>
 
-  - Working with variety of clients on different needs, solutions and
+  - Worked with variety of clients on different needs, solutions and
     technologies
-  - Being able to choose a stack for each project to satisfy needs
-  - Working with PHP, Laravel, CakePHP, jQuery, NodeJS, Gulp, Grunt, Ansible,
+  - Been able to choose a stack for each project to satisfy needs
+  - Worked with PHP, Laravel, CakePHP, jQuery, Node.js, Gulp, Grunt, Ansible,
     Vagrant, NGINX, Ubuntu Server, Puppet, Shell Scripts
-  - Delivering services in a form of REST APIs, eCommerce Stores, CMS,
+  - Delivered services in a form of REST APIs, eCommerce Stores, CMS,
     Web Applications, Chat
-  - Helping out junior members of the team in progression
-  - Helping out in recruitment process
-  - Solving interesting problems to satisfy clients needs
-  - Being on call for certain clients
-  - Using ticketing system Codebase and JIRA for assignment and tracking
+  - Helped out junior members of the team in progression
+  - Helped out in recruitment process
+  - Solved interesting problems to satisfy clients needs
+  - Been on call for certain clients
+  - Used ticketing systems Codebase and JIRA for project management
 
 </details>
 <details data-details open>
@@ -166,13 +251,13 @@ weight: 2
     <span aria-hidden>( http://whysurreal.com )</span>
   </summary>
 
-  - Working with variety of clients on different needs, solutions and
+  - Worked with variety of clients on different needs, solutions and
     technologies
-  - Working with PHP, CodeIgniter, Laravel, JavaScript, jQuery, Vagrant, Puppet,
+  - Worked with PHP, CodeIgniter, Laravel, JavaScript, jQuery, Vagrant, Puppet,
     Chef
-  - Solving interesting problems to satisfy clients needs
-  - Using ticketing system Pivotal Tracker, Codebase and Bootstrap for
-    assignment and tracking
+  - Solved interesting problems to satisfy client needs
+  - Used ticketing system Pivotal Tracker, Codebase and Bootcamp for
+    project management
 
 </details>
 <details data-details="no-print" open>
@@ -201,17 +286,9 @@ weight: 2
 
 </details>
 
-### Stack used on daily basis \*
-
-Git, AWS, Terraform, Docker, CloudFoundry, Concourse, Node.js, Express.js, JWT,
-Webpack, Gulp, Kibana, DataDog, Prometheus, Ubuntu Server, NGINX, Mailgun,
-Redis, Memcached, Bootstrap, Ruby on Rails, Python.
-
-_\* or otherwise previously encountered_
-
 ### Hobbies & Interests
 
-IT, Technology, Software Development, Gaming, Open Source and other cool and hip
-stuff.
+IT, Technology, Software Development, Gaming, Open Source, Sci-Fi, Fantasy,
+comic books.
 
 Golang; Frontend NE -  conferences and monthly based meet ups.

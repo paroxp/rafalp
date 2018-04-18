@@ -1,8 +1,6 @@
 <element name="{{ .name }}" class="{{ if .minimal }}minimal{{ end }}">
-  {{ if .minimal }}
-    <label>{{ .name }}</label>
-  {{ else }}
-    <label>{{ .name }}</label>
+  <label>{{ .name }}</label>
+  {{ if not .minimal }}
     <progress value="{{ .score }}" max="100"></progress>
     <details open>
         <summary>{{ .name }}</summary>
