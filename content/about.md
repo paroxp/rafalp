@@ -129,6 +129,8 @@ skills:
     minimal: true
   - name: Integration Testing
     minimal: true
+  - name: MySQL
+    minimal: true
   - name: SQL
     minimal: true
   - name: Linux
@@ -185,7 +187,7 @@ opportunities and challenges.
   - Planned, Prioritised and Built various components for
     tenants of GOV.UK PaaS
   - Developed GOV.UK PaaS with the use of Terraform AWS, Concourse,
-    CloudFoundry, Bosh, YAML, Go, Shell Scripts
+    CloudFoundry, Bosh, YAML, Go, Shell Scripts, Postgres
   - Developed web applications for GOV.UK PaaS tenants with the use of
     Node.js, TypeScript, Sinatra, JS, Webpack
   - Worked with Secure Continuous Delivery system using Git and GPG encryption
@@ -210,7 +212,7 @@ opportunities and challenges.
   </summary>
 
   - Worked on a rewards system with the use of Angular, Ionic, JWT, OIDC,
-    Python, AWS
+    Python, AWS, Postgres
   - Delivered services in a form of REST APIs, Web Applications, Metric
     collectors
   - Mainly focussed on the Frontend aspect of the projects
@@ -231,8 +233,8 @@ opportunities and challenges.
   - Worked with variety of clients on different needs, solutions and
     technologies
   - Been able to choose a stack for each project to satisfy needs
-  - Worked with PHP, Laravel, CakePHP, jQuery, Node.js, Gulp, Grunt, Ansible,
-    Vagrant, NGINX, Ubuntu Server, Puppet, Shell Scripts
+  - Worked with PHP, MySQL, Laravel, CakePHP, jQuery, Node.js, Gulp, Grunt,
+    Ansible, Vagrant, NGINX, Ubuntu Server, Puppet, Shell Scripts
   - Delivered services in a form of REST APIs, eCommerce Stores, CMS,
     Web Applications, Chat
   - Helped out junior members of the team in progression
@@ -253,8 +255,8 @@ opportunities and challenges.
 
   - Worked with variety of clients on different needs, solutions and
     technologies
-  - Worked with PHP, CodeIgniter, Laravel, JavaScript, jQuery, Vagrant, Puppet,
-    Chef
+  - Worked with PHP, MySQL, CodeIgniter, Laravel, JavaScript, jQuery, Vagrant,
+    Puppet, Chef
   - Solved interesting problems to satisfy client needs
   - Used ticketing system Pivotal Tracker, Codebase and Bootcamp for
     project management
