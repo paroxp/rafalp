@@ -1,5 +1,5 @@
 baseURL = "https://www.rafalp.com/"
-title = "Rafal Proszowski - Site Reliability Engineer"
+title = "Rafal Proszowski - Fullstack Developer"
 
 disableHugoGeneratorInject = true
 disableKinds = ["taxonomy","taxonomyTerm","RSS"]
@@ -7,7 +7,7 @@ enableRobotsTXT = true
 
 [params]
   author = "Rafal Proszowski"
-  description = "WebOps, DevOps, SysOps, Site Reliability Engineer, all kinds of wizardry."
+  description = "Fullstack, WebOps, DevOps, SysOps, Site Reliability Engineer, all kinds of wizardry."
 
 [params.social]
   github = "paroxp"

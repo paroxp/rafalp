@@ -1,11 +1,12 @@
 ---
 keywords:
+  - fullstack
   - developer
   - london
 linkTitle: Home
 menu:
   - main
-title: Rafal Proszowski - Developer
+title: Rafal Proszowski - Fullstack Developer
 weight: 1
 ---
 
