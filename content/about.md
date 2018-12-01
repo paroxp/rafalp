@@ -15,6 +15,7 @@ keywords:
   - webops
   - ruby
   - python
+  - kubernetes
   - cloudfoundry
   - london
   - cv
@@ -96,6 +97,8 @@ skills:
   - name: YAML
     minimal: true
   - name: AWS
+    minimal: true
+  - name: Kubernetes
     minimal: true
   - name: CloudFoundry
     minimal: true
@@ -180,16 +183,17 @@ opportunities and challenges.
     <time datetime="2016-08-08" title="August 8th 2016 - Present">
       2016 - present
     </time>:
-    Component Lead at [Government Digital Service](//gds.blog.gov.uk/)
+    Senior Developer and Component Lead at [Government Digital Service](//gds.blog.gov.uk/)
     <span aria-hidden>( https://gds.blog.gov.uk )</span>
   </summary>
 
-  - Planned, Prioritised and Built various components for
-    tenants of GOV.UK PaaS
-  - Developed GOV.UK PaaS with the use of Terraform AWS, Concourse,
-    CloudFoundry, Bosh, YAML, Go, Shell Scripts, Postgres
-  - Developed web applications for GOV.UK PaaS tenants with the use of
-    Node.js, TypeScript, Sinatra, JS, Webpack
+  - Planned, Prioritised and Built various components for tenants of GOV.UK
+    PaaS and Build & Run teams
+  - Developed GOV.UK PaaS and Build & Run processes with the use of Terraform,
+    AWS, Concourse, Kubernetes, CloudFoundry, Bosh, YAML, Go, Shell Scripts,
+    Postgres
+  - Developed web applications for GOV.UK PaaS tenants with the use of Node.js,
+    TypeScript, Sinatra, JS, Webpack
   - Worked with Secure Continuous Delivery system using Git and GPG encryption
     to ensure integrity of developer commits prior to deployment
   - Troubleshoot complex network and systems issues
