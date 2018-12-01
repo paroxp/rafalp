@@ -43,9 +43,19 @@ skills:
     stuff, therefore, I've also looked into: [Pixi.js](http://www.pixijs.com/)."
   - name: TypeScript
     minimal: true
-  - name: ES6
+  - name: Kubernetes
     minimal: true
-  - name: NPM
+  - name: Docker
+    minimal: true
+  - name: AWS
+    minimal: true
+  - name: Git
+    minimal: true
+  - name: Terraform
+    minimal: true
+  - name: Continuous Integration and Delivery
+    minimal: true
+  - name: ES6
     minimal: true
   - name: Node.js
     minimal: true
@@ -96,19 +106,7 @@ skills:
     minimal: true
   - name: YAML
     minimal: true
-  - name: AWS
-    minimal: true
-  - name: Kubernetes
-    minimal: true
   - name: CloudFoundry
-    minimal: true
-  - name: Docker
-    minimal: true
-  - name: Git
-    minimal: true
-  - name: Terraform
-    minimal: true
-  - name: Continuous Integration and Delivery
     minimal: true
   - name: Concourse
     minimal: true
@@ -128,9 +126,7 @@ skills:
     minimal: true
   - name: WebOps
     minimal: true
-  - name: Unit Testing
-    minimal: true
-  - name: Integration Testing
+  - name: Unit and Integration Testing
     minimal: true
   - name: MySQL
     minimal: true
