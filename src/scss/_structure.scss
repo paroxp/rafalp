@@ -179,19 +179,19 @@ body {
         &:active, &:hover {
           color: $olive;
 
-          &[title=GitHub], &[title=Github] {
+          &.github {
             color: map_get($social, 'github');
           }
 
-          &[title=Twitter] {
+          &.twitter {
             color: map_get($social, 'twitter');
           }
 
-          &[title=LinkedIn], &[title=Linkedin] {
+          &.linkedin {
             color: map_get($social, 'linkedin');
           }
 
-          &[title=Spotify] {
+          &.spotify {
             color: map_get($social, 'spotify');
           }
         }
