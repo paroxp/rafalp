@@ -1,0 +1,119 @@
+import fs from 'fs';
+import moment from 'moment';
+import React from 'react';
+import { IConfig } from '../../config';
+
+interface IHeaderProperties {
+  readonly page?: string;
+}
+
+interface ISocialLinkProperties {
+  readonly icon: string;
+  readonly title: string;
+  readonly url: string;
+}
+
+function SocialLink(props: ISocialLinkProperties): JSX.Element {
+  return (
+    <li>
+      <a
+        href={props.url}
+        target="_blank"
+        rel="external nofollow noopener noreferrer"
+        title={props.title}
+        className={props.icon}>
+        <i className={['icon', props.icon].join(' ')}></i>
+      </a>
+    </li>
+  );
+}
+
+export function Header(props: IHeaderProperties): JSX.Element {
+  const logo = fs.readFileSync(`${__dirname}/logo.svg`, 'utf8');
+
+  return (
+    <header>
+      <h1>Rafal Proszowski</h1>
+      <h2>Software Engineer</h2>
+
+      <figure dangerouslySetInnerHTML={{__html: logo}}></figure>
+
+      <nav>
+        <ul>
+          <li>
+            <a href="/" className={!props.page || props.page === 'home' ? 'active' : ''}>Home</a>
+          </li>
+          <li>
+            <a href="/about/" className={props.page === 'about' ? 'active' : ''}>About</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+  );
+}
+
+export function Footer(): JSX.Element {
+  const currentYear = moment().year();
+  return (
+    <footer>
+      <ul className="icons">
+        <SocialLink icon="github" title="Check me out on GitHub" url="https://github.com/paroxp" />
+        <SocialLink icon="twitter" title="Follow me on Twitter" url="https://twitter.com/paroxp" />
+        <SocialLink icon="linkedin" title="Connect with me on LinkedIn" url="https://www.linkedin.com/in/rafal-proszowski-78816744/" />
+        <SocialLink icon="spotify" title="Follow me on Spotify" url="https://play.spotify.com/user/1151201520" />
+      </ul>
+      <div className="copyright">
+        <small>
+          Copyright 2014 - {currentYear}.
+        </small>
+      </div>
+    </footer>
+  );
+}
+
+export function htmlDocument(config: IConfig, body: string): string {
+  const styles = fs.readFileSync(`${__dirname}/../../../dist/css/app.css`, 'utf8');
+  const title = `${config.name} - ${config.title}`;
+  const pageTitle = `${config.subtitle ? `${config.subtitle} - ` : ''}${title}`;
+
+  return `<!doctype html>
+  <html lang="en">
+    <head>
+      <title>${pageTitle}</title>
+      <meta content="${pageTitle}" property="og:title">
+
+      <meta charset="utf-8">
+      <meta name="theme-color" content="#3D9970"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0">
+      <meta name="description" content="${config.description}"  property="og:description">
+      <meta name="keywords" content="${config.keywords.join(',')}">
+      <meta name="author" content="${config.name}">
+      <meta name="copyright" content="Copyright 2014 - ${moment().year()}">
+
+      <link rel="canonical" href="${config.url}">
+      <link rel="apple-touch-icon" sizes="57x57" href="/img/favicon/apple-touch-icon-57x57.png">
+      <link rel="apple-touch-icon" sizes="60x60" href="/img/favicon/apple-touch-icon-60x60.png">
+      <link rel="apple-touch-icon" sizes="72x72" href="/img/favicon/apple-touch-icon-72x72.png">
+      <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon/apple-touch-icon-76x76.png">
+      <link rel="apple-touch-icon" sizes="114x114" href="/img/favicon/apple-touch-icon-114x114.png">
+      <link rel="apple-touch-icon" sizes="120x120" href="/img/favicon/apple-touch-icon-120x120.png">
+      <link rel="apple-touch-icon" sizes="144x144" href="/img/favicon/apple-touch-icon-144x144.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/img/favicon/apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon-180x180.png">
+      <link rel="icon" type="image/png" href="/img/favicon/favicon-32x32.png" sizes="32x32">
+      <link rel="icon" type="image/png" href="/img/favicon/favicon-194x194.png" sizes="194x194">
+      <link rel="icon" type="image/png" href="/img/favicon/favicon-96x96.png" sizes="96x96">
+      <link rel="icon" type="image/png" href="/img/favicon/android-chrome-192x192.png" sizes="192x192">
+      <link rel="icon" type="image/png" href="/img/favicon/favicon-16x16.png" sizes="16x16">
+      <link rel="manifest" href="/img/favicon/manifest.json">
+      <link rel="mask-icon" href="/img/favicon/safari-pinned-tab.svg">
+      <meta name="msapplication-TileColor" content="#ffffff">
+      <meta name="msapplication-TileImage" content="/img/favicon/mstile-144x144.png">
+      <meta name="theme-color" content="#ffffff">
+
+      <style>${styles}</style>
+    </head>
+
+    ${body}
+  </html>`;
+}
