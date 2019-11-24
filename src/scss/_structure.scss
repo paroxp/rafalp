@@ -59,9 +59,10 @@ body {
       padding: 0;
 
       @include min($tablet) {
+        float: left;
         margin: 0;
-
-        @include span(first 6 of 12);
+        margin-right: gutter(6 of 12);
+        width: span(6 of 12);
       }
 
       @media print {
@@ -139,12 +140,13 @@ body {
       @include clearfix;
 
       @include min($tablet) {
-        @include span(last 6 of 12);
-
+        float: right;
         height: auto;
+        margin-right: 0;
         min-height: 6em;
         overflow: initial;
         text-align: right;
+        width: span(6 of 12);
       }
 
       @media print {
@@ -201,7 +203,9 @@ body {
       text-transform: uppercase;
 
       @include min($tablet) {
-        @include span(first 6 of 12);
+        float: left;
+        margin-right: gutter(6 of 12);
+        width: span(6 of 12);
       }
     }
 
@@ -210,8 +214,10 @@ body {
       user-select: none;
 
       @include min($tablet) {
-        @include span(last 6 of 12);
+        float: right;
+        margin-right: 0;
         text-align: right;
+        width: span(6 of 12);
       }
     }
 

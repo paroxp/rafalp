@@ -28,6 +28,6 @@
     "gulp-htmlmin": "4.0.0",
     "gulp-sass": "3.1.0",
     "gulp-uglify": "3.0.0",
-    "susy": "2.2.12"
+    "susy": "^3.0.5"
   }
 }

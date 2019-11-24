@@ -3,8 +3,10 @@ body > main.about {
     padding: 0 1rem;
 
     @include min($tablet) {
-      @include span(first 8 of 12);
+      float: left;
+      margin-right: gutter(8 of 12);
       padding: 0;
+      width: span(8 of 12);
     }
 
     @media print {
@@ -78,7 +80,9 @@ body > main.about {
 
   aside {
     @include min($tablet) {
-      @include span(last 4 of 12);
+      float: right;
+      margin-right: 0;
+      width: span(4 of 12);
     }
 
     @media print {
