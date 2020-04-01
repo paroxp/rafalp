@@ -8,6 +8,11 @@ html {
   font-weight: 300;
   line-height: 1.6;
 
+  @media not print and (prefers-color-scheme: dark) {
+    background-color: $black;
+    color: $white;
+  }
+
   @media print {
     font-size: 10px;
     font-size: .625rem;

@@ -51,3 +51,25 @@
     }
   }
 }
+
+#beardPath,
+#topLeftSwordHandlePath,
+#topRightSwordHandlePath,
+#bottomLeftSwordBladePath,
+#bottomRightSwordBladePath {
+  stroke: none;
+  fill-rule: nonzero;
+  fill: #333333;
+  fill-opacity: 1;
+
+  @media not print and (prefers-color-scheme: dark) {
+    fill: $gray;
+  }
+}
+
+#topLeftSwordHandlePath,
+#topRightSwordHandlePath,
+#bottomLeftSwordBladePath,
+#bottomRightSwordBladePath {
+  fill-rule: evenodd;
+}

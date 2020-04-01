@@ -171,6 +171,10 @@ body > main.about {
           z-index: 1;
 
           transition: all .3s ease;
+
+          @media not print and (prefers-color-scheme: dark) {
+            border-left-color: #333333;
+          }
         }
       }
     }
@@ -235,6 +239,11 @@ body > main.about {
       padding: 1.5rem;
       width: 100%;
 
+      @media not print and (prefers-color-scheme: dark) {
+        background-color: #333333;
+        color: $white;
+      }
+
       @include min($tablet) {
         box-shadow: 0 0 10px rgba($gray, .5);
         display: none;
@@ -246,6 +255,10 @@ body > main.about {
         top: 0;
 
         transition: all .3s ease;
+
+        @media not print and (prefers-color-scheme: dark) {
+          box-shadow: 0 0 10px rgba(#444444, .5);
+        }
       }
 
       @media print {

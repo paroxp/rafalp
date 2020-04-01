@@ -7,6 +7,10 @@ a, a:link, a:visited {
 
 a:hover, a:active, a.active {
   color: $maroon;
+
+  @media not print and (prefers-color-scheme: dark) {
+    color: $fuchsia;
+  }
 }
 
 blockquote {
