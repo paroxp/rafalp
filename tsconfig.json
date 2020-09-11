@@ -11,8 +11,8 @@
       "es2017",
       "dom"
     ],
-    "sourceMap": true,
-    "inlineSources": true,
+    "sourceMap": false,
+    "inlineSources": false,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "moduleResolution": "node",

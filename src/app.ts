@@ -1,6 +1,8 @@
 import Router from '@koa/router';
 import Koa from 'koa';
-import serve from 'koa-static';
+import KoaCompress from 'koa-compress';
+import KoaHTMLMinifier from 'koa-html-minifier';
+import KoaStatic from 'koa-static';
 
 import { About } from './components/about';
 import { handleErrors } from './components/errors';
@@ -14,9 +16,11 @@ const router = new Router();
 router.get('home', '/', render(config, Home));
 router.get('about', '/about', render(config, About, { subtitle: 'Resume' }));
 
-app.use(serve(`${__dirname}'/../dist`));
+app.use(KoaStatic(`${__dirname}'/../dist`));
 app.use(router.routes());
 app.use(router.allowedMethods());
 app.use(handleErrors);
+app.use(KoaCompress());
+app.use(KoaHTMLMinifier({ collapseWhitespace: true }));
 
 app.listen(process.env.PORT || 3000);
