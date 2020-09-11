@@ -106,13 +106,10 @@ export function About(): ReactElement {
         <Skill name="Docker" minimal={true} />
         <Skill name="Git" minimal={true} />
         <Skill name="Node.js and JavaScript" score={75}>
-          I cannot really talk about JavaScript without clarifying that I have a strong preference towards
-          <Link href="https://www.typescriptlang.org/">TypeScript</Link>, <Link href="https://reactjs.org/">React</Link>
-          and backend code such as <Link href="https://koajs.com/">Koa</Link> and {}
-          <Link href="https://expressjs.com/">Express</Link>. Although, I've got a lot of experience with jQuery and
-          plugins written for it, some time ago I decided, I didn't like it that much and more often found myself trying
-          to avoid using it. I'm a fan of Progressive Enhancement and believe there is time and place for frontend
-          JavaScript, but would prefer everything backend rendered.
+          Strong preference towards <Link href="https://www.typescriptlang.org/">TypeScript</Link>,
+          <Link href="https://reactjs.org/">React</Link>, <Link href="https://koajs.com/">Koa</Link> and {}
+          <Link href="https://expressjs.com/">Express</Link>. I'm a fan of Progressive Enhancement and believe there is
+          time and place for frontend JavaScript, but would prefer everything backend rendered.
         </Skill>
         <Skill name="TypeScript" minimal={true} />
         <Skill name="React" minimal={true} />
