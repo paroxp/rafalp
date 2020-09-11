@@ -1,4 +1,4 @@
-export interface IConfig {
+export type Config = {
   readonly name: string;
   readonly title: string;
   readonly description: string;
@@ -7,7 +7,7 @@ export interface IConfig {
   readonly url: string;
 }
 
-export const config: IConfig = {
+export const config: Config = {
   description: 'DevOps, Developer, Site Reliability Engineer, all kinds of wizardry.',
   keywords: [
     'javascript', 'typescript', 'go', 'kubernetes', 'fullstack', 'software', 'engineer', 'web', 'developer', 'devops',

@@ -7,12 +7,12 @@ import { renderToString } from 'react-dom/server';
 import { About } from './components/about';
 import { Home } from './components/home';
 import { htmlDocument } from './components/layout';
-import { config, IConfig } from './config';
+import { config, Config } from './config';
 
 const app = new Koa();
 const router = new Router();
 
-function render(cfg: IConfig, page: () => ReactElement, overrides?: object): Middleware {
+function render(cfg: Config, page: () => ReactElement, overrides?: object): Middleware {
   const content = page();
 
   return async (ctx: Koa.Context, next: Koa.Next): Promise<void> => {

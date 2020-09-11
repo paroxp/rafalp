@@ -3,7 +3,7 @@ import fs from 'fs';
 import moment from 'moment';
 import React, { ReactElement, ReactNode } from 'react';
 
-import { IConfig } from '../../config';
+import { Config } from '../../config';
 
 type HeaderProperties = {
   readonly page?: string;
@@ -88,7 +88,7 @@ export function Footer(): ReactElement {
   </footer>;
 }
 
-export function htmlDocument(config: IConfig, body: string): string {
+export function htmlDocument(config: Config, body: string): string {
   const styles = fs.readFileSync(`${__dirname}/../../../dist/css/app.css`, 'utf8');
   const title = `${config.name} - ${config.title}`;
   const pageTitle = `${config.subtitle ? `${config.subtitle} - ` : ''}${title}`;
