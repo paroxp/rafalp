@@ -1,17 +1,11 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 
-import { Footer, Header } from '../layout';
+import { ErrorPage } from './error';
 
-export function NotFound() {
-  return (
-    <body>
-      <Header page="home" />
-      <main className="not-found">
-        <h1>Oops...</h1>
+export function NotFound(): ReactElement {
+  return <ErrorPage className="not-found" title="Page not found">
+    <p>Looks like you're lost...</p>
 
-        <p>Looks like you're lost...</p>
-      </main>
-      <Footer />
-    </body>
-  );
+    <p>Please use the header navigation in order to get onto the <a href="/">home</a> page.</p>
+  </ErrorPage>;
 }

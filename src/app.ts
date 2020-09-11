@@ -1,6 +1,7 @@
 import Router from '@koa/router';
-import Koa from 'koa';
+import Koa, { Middleware } from 'koa';
 import serve from 'koa-static';
+import { ReactElement } from 'react';
 import { renderToString } from 'react-dom/server';
 
 import { About } from './components/about';
@@ -11,17 +12,17 @@ import { config, IConfig } from './config';
 const app = new Koa();
 const router = new Router();
 
-function handle(cfg: IConfig, page: () => JSX.Element, overrides?: object) {
+function render(cfg: IConfig, page: () => ReactElement, overrides?: object): Middleware {
   const content = page();
 
-  return async (ctx: Koa.Context, next: Koa.Next) => {
-    ctx.body = htmlDocument({...cfg, ...overrides}, renderToString(content));
+  return async (ctx: Koa.Context, next: Koa.Next): Promise<void> => {
+    ctx.body = htmlDocument({ ...cfg, ...overrides }, renderToString(content));
     await next();
   };
 }
 
-router.get('home', '/', handle(config, Home));
-router.get('about', '/about', handle(config, About, { subtitle: 'Resume' }));
+router.get('home', '/', render(config, Home));
+router.get('about', '/about', render(config, About, { subtitle: 'Resume' }));
 
 app.use(serve(`${__dirname}'/../dist`));
 app.use(router.routes());
