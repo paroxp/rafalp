@@ -106,7 +106,7 @@ export function About(): ReactElement {
         <Skill name="Docker" minimal={true} />
         <Skill name="Git" minimal={true} />
         <Skill name="Node.js and JavaScript" score={75}>
-          Strong preference towards <Link href="https://www.typescriptlang.org/">TypeScript</Link>,
+          Strong preference towards <Link href="https://www.typescriptlang.org/">TypeScript</Link>, {}
           <Link href="https://reactjs.org/">React</Link>, <Link href="https://koajs.com/">Koa</Link> and {}
           <Link href="https://expressjs.com/">Express</Link>. I'm a fan of Progressive Enhancement and believe there is
           time and place for frontend JavaScript, but would prefer everything backend rendered.
@@ -123,11 +123,10 @@ export function About(): ReactElement {
         <Skill name="Angular" minimal={true} />
         <Skill name="Ionic" minimal={true} />
         <Skill name="PHP" score={75}>
-          Over 5 years of experience with PHP, helped me to develop this skill almost to mastery. By playing around
-          with many frameworks, such as <Link href="https://laravel.com/">Laravel</Link> &amp; {}
+          Had a lot of exposure to many frameworks, such as <Link href="https://laravel.com/">Laravel</Link> &amp; {}
           <Link href="https://lumen.laravel.com/">Lumen</Link>, <Link href="https://cakephp.org/">CakePHP</Link> and
           little bits of others, I am able to put together some amazing applications. I go around with Composer and
-          PSRs, however I may be a little bit behind, due to my new role, especially with the new PHP 7 stuff.
+          PSRs, however I didn't get a chance to play with the new PHP 7 stuff yet.
         </Skill>
         <Skill name="Ruby" minimal={true} />
         <Skill name="Python" minimal={true} />
