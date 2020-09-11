@@ -60,7 +60,7 @@ export function Header(props: HeaderProperties): ReactElement {
           <a href="/" className={props.page === 'home' ? 'active' : ''}>Home</a>
         </li>
         <li>
-          <a href="/about/" className={props.page === 'about' ? 'active' : ''}>About</a>
+          <a href="/about" className={props.page === 'about' ? 'active' : ''}>About</a>
         </li>
       </ul>
     </nav>
