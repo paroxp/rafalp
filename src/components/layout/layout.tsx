@@ -46,7 +46,7 @@ function SocialLink(props: SocialLinkProperties): ReactElement {
 }
 
 export function Header(props: HeaderProperties): ReactElement {
-  const logo = fs.readFileSync(`${__dirname}/logo.svg`, 'utf8');
+  const logo = fs.readFileSync(`${__dirname}/../../../dist/img/logo.svg`, 'utf8');
 
   return <header>
     <h1>Rafal Proszowski</h1>
