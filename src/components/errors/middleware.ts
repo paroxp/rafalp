@@ -8,6 +8,8 @@ import { GenericError } from './500';
 
 export async function handleErrors(ctx: Koa.Context, next: Koa.Next): Promise<void> {
   if (ctx.status === 404) {
+    ctx.status = 404;
+
     return await render(config, NotFound)(ctx, next);
   }
 
