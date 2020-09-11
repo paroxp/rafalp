@@ -10,7 +10,7 @@ type ErrorPageProperties = {
 
 export function ErrorPage(props: ErrorPageProperties): ReactElement {
   return <body>
-    <Header page="home" />
+    <Header page="error" />
     <main className={props.className}>
       <h1>{props.title}</h1>
 
