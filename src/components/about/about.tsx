@@ -166,8 +166,8 @@ export function About(): ReactElement {
         <Skill name="Excellent problem-solving" minimal={true} />
 
         <p>
-          I do hate these scales. Everyone has a different understanding of them. Don't take them seriously...
-          In fact, if you'd like to know more, ask! I'll be more than happy to explore the topic with you :D
+          Everyone has a different understanding of these scales. Don't take them seriously...
+          If you'd like to know more, ask! I'll be more than happy to explore the topic with you.
         </p>
       </aside>
 
