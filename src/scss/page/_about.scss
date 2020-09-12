@@ -173,7 +173,7 @@ body > main.about {
           transition: all .3s ease;
 
           @media not print and (prefers-color-scheme: dark) {
-            border-left-color: #333333;
+            border-left-color: map_get($social, 'github');
           }
         }
       }
@@ -240,7 +240,7 @@ body > main.about {
       width: 100%;
 
       @media not print and (prefers-color-scheme: dark) {
-        background-color: #333333;
+        background-color: map_get($social, 'github');
         color: $white;
       }
 

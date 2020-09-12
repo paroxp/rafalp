@@ -59,11 +59,11 @@
 #bottomRightSwordBladePath {
   stroke: none;
   fill-rule: nonzero;
-  fill: #333333;
+  fill: map_get($social, 'github');
   fill-opacity: 1;
 
   @media not print and (prefers-color-scheme: dark) {
-    fill: $gray;
+    fill: $silver;
   }
 }
 

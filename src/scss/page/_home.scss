@@ -6,10 +6,6 @@ body > main.home {
   img, svg {
     max-width: 10rem;
 
-    @media not print and (prefers-color-scheme: dark) {
-      fill: $white;
-    }
-
     &.desktop {
       display: none;
     }
