@@ -20,7 +20,7 @@ router.get('sitemap', '/sitemap.xml', sitemapFromRouter(config, router));
 app.use(attachLogger(logger));
 
 app.use(captureErrors);
-app.use(KoaStatic(`${__dirname}'/../dist`));
+app.use(KoaStatic(`${__dirname}'/../dist/public`));
 app.use(router.routes());
 app.use(router.allowedMethods());
 app.use(KoaCompress());

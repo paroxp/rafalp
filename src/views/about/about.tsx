@@ -62,7 +62,7 @@ function Skill(props: SkillProperties): ReactElement {
 }
 
 export function About(): ReactElement {
-  const aboutJS = fs.readFileSync(`${__dirname}/../../../dist/js/about.js`, 'utf8');
+  const aboutJS = fs.readFileSync(`${__dirname}/../../../dist/public/js/about.js`, 'utf8');
 
   return <body>
     <Header page="about" />
@@ -80,7 +80,7 @@ export function About(): ReactElement {
 
       <aside>
         <figure>
-          <img src="../img/avatar.png" alt="Rafal Proszowski" />
+          <img src="/img/avatar.png" alt="Rafal Proszowski" />
           <figcaption>
             <h3>Rafal Proszowski</h3>
             Twitter: <a

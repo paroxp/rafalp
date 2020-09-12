@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/paroxp/rafalp#readme",
   "scripts": {
-    "build:scss": "node-sass --output-style compressed --include-path src/scss --include-path node_modules/susy/sass src/scss/app.scss --output dist/css",
+    "build:scss": "node-sass --output-style compressed --include-path src/scss --include-path node_modules/susy/sass src/scss/app.scss --output dist/public/css",
     "build:ts": "tsc",
     "build": "npm run -s build:scss && npm run -s build:ts",
     "fix:ts": "eslint --fix --ext .js,.jsx,.ts,.tsx .",

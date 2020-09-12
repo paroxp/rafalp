@@ -5,7 +5,7 @@ import React, { ReactElement } from 'react';
 import { Footer, Header, Link } from '../layout';
 
 export function Home(): ReactElement {
-  const beard = fs.readFileSync(`${__dirname}/../../../dist/img/beard.svg`, 'utf8');
+  const beard = fs.readFileSync(`${__dirname}/../../../dist/public/img/beard.svg`, 'utf8');
 
   return <body>
     <Header page="home" />

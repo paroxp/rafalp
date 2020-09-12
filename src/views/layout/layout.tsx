@@ -46,7 +46,7 @@ function SocialLink(props: SocialLinkProperties): ReactElement {
 }
 
 export function Header(props: HeaderProperties): ReactElement {
-  const logo = fs.readFileSync(`${__dirname}/../../../dist/img/logo.svg`, 'utf8');
+  const logo = fs.readFileSync(`${__dirname}/../../../dist/public/img/logo.svg`, 'utf8');
 
   return <header>
     <h1>Rafal Proszowski</h1>
@@ -89,7 +89,7 @@ export function Footer(): ReactElement {
 }
 
 export function htmlDocument(config: Config, body: string): string {
-  const styles = fs.readFileSync(`${__dirname}/../../../dist/css/app.css`, 'utf8');
+  const styles = fs.readFileSync(`${__dirname}/../../../dist/public/css/app.css`, 'utf8');
   const title = `${config.name} - ${config.title}`;
   const pageTitle = `${config.subtitle ? `${config.subtitle} - ` : ''}${title}`;
 
