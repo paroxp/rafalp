@@ -1,3 +1,5 @@
+import winston from 'winston';
+
 export type Config = {
   readonly name: string;
   readonly title: string;
@@ -17,3 +19,10 @@ export const config: Config = {
   title: 'Software Engineer',
   url: 'https://www.rafalp.com/',
 };
+
+export const logger = winston.createLogger({
+  defaultMeta: { service: config.url },
+  format: winston.format.combine(winston.format.timestamp(), winston.format.json()),
+  level: process.env.NODE_ENV === 'production' ? 'warn' : 'info',
+  transports: [ new winston.transports.Console() ],
+});

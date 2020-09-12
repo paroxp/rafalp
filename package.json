@@ -37,7 +37,8 @@
     "koa-static": "^5.0.0",
     "moment": "^2.27.0",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "winston": "^3.3.3"
   },
   "devDependencies": {
     "@types/koa": "^2.11.4",
