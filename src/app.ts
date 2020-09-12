@@ -5,6 +5,7 @@ import KoaHTMLMinifier from 'koa-html-minifier';
 import KoaStatic from 'koa-static';
 
 import { config, logger } from './config';
+import { sitemapFromRouter } from './controller';
 import { attachLogger, captureErrors, handleErrors, render } from './middleware';
 import { About } from './views/about';
 import { Home } from './views/home';
@@ -14,6 +15,7 @@ const router = new Router();
 
 router.get('home', '/', render(config, Home));
 router.get('about', '/about', render(config, About, { subtitle: 'Resume' }));
+router.get('sitemap', '/sitemap.xml', sitemapFromRouter(config, router));
 
 app.use(attachLogger(logger));
 

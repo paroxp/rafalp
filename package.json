@@ -38,6 +38,7 @@
     "moment": "^2.27.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "sitemap": "^6.3.0",
     "winston": "^3.3.3"
   },
   "devDependencies": {
