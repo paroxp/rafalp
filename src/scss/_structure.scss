@@ -182,7 +182,7 @@ body {
           &.github {
             color: map_get($social, 'github');
 
-            @media not print and (prefers-color-scheme: dark) {
+            @media screen and (prefers-color-scheme: dark) {
               color: $white;
             }
           }

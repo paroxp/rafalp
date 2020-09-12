@@ -42,8 +42,13 @@ body > main.about {
 
       summary {
         cursor: pointer;
-        margin-left: 1.5rem;
         outline: none;
+
+        @include min($tablet) {
+          @media screen {
+            margin-left: 1.5rem;
+          }
+        }
 
         @media print {
           font-weight: 400;
@@ -172,7 +177,7 @@ body > main.about {
 
           transition: all .3s ease;
 
-          @media not print and (prefers-color-scheme: dark) {
+          @media screen and (prefers-color-scheme: dark) {
             border-left-color: map_get($social, 'github');
           }
         }
@@ -239,7 +244,7 @@ body > main.about {
       padding: 1.5rem;
       width: 100%;
 
-      @media not print and (prefers-color-scheme: dark) {
+      @media screen and (prefers-color-scheme: dark) {
         background-color: map_get($social, 'github');
         color: $white;
       }
@@ -256,7 +261,7 @@ body > main.about {
 
         transition: all .3s ease;
 
-        @media not print and (prefers-color-scheme: dark) {
+        @media screen and (prefers-color-scheme: dark) {
           box-shadow: 0 0 10px rgba(#444444, .5);
         }
       }
