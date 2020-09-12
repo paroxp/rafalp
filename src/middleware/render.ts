@@ -3,9 +3,8 @@ import { Context, Middleware, Next } from 'koa';
 import { ReactElement } from 'react';
 import { renderToString } from 'react-dom/server';
 
-import { Config } from '../../config';
-
-import { htmlDocument } from './layout';
+import { Config } from '../config';
+import { htmlDocument } from '../views/layout';
 
 export function render(cfg: Config, page: () => ReactElement, overrides?: object): Middleware {
   const content = page();
