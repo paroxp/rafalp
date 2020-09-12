@@ -24,7 +24,7 @@ app.use(KoaStatic(`${__dirname}'/../dist/public`));
 app.use(router.routes());
 app.use(router.allowedMethods());
 app.use(KoaCompress());
-app.use(KoaHTMLMinifier({ collapseWhitespace: true }));
+app.use(KoaHTMLMinifier({ collapseWhitespace: true, minifyJS: true, removeComments: true }));
 
 app.on('error', handleErrors);
 
