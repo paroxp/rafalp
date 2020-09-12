@@ -6,9 +6,21 @@ import { GenericError } from '../views/errors/500';
 
 import { render } from './render';
 
+export class NotFoundError extends Error {
+  public readonly status = 404;
+
+  constructor(msg = 'Not Found') {
+    super(msg);
+  }
+}
+
 export async function captureErrors(ctx: Koa.Context, next: Koa.Next): Promise<void> {
   try {
     await next();
+
+    if (ctx.status === 404) {
+      throw new NotFoundError();
+    }
   } catch (err) {
     ctx.status = err.status || 500;
     ctx.body = err.message;
