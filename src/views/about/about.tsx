@@ -74,22 +74,11 @@ export function About(): ReactElement {
   return <body>
     <Header page="about" />
     <main className="about">
-      <section>
-        <h3>Professional summary</h3>
-
-        <p>
-          I'm an experienced developer / SRE with just over 7 years of professional
-          experience, committed to maintaining cutting edge technical skills and
-          up-to-date industry knowledge. I'm eager to learn and always after new exciting
-          opportunities and challenges.
-        </p>
-      </section>
-
       <aside>
         <figure>
           <img src="/img/avatar.png" alt="Rafal Proszowski" />
           <figcaption>
-            <h3>Rafal Proszowski</h3>
+            <strong>Rafal Proszowski</strong>
             Twitter: <a
               href="https://twitter.com/paroxp"
               target="_blank"
@@ -179,6 +168,15 @@ export function About(): ReactElement {
       </aside>
 
       <section>
+        <h3>Professional summary</h3>
+
+        <p>
+          I'm an experienced developer / SRE with just over 7 years of professional
+          experience, committed to maintaining cutting edge technical skills and
+          up-to-date industry knowledge. I'm eager to learn and always after new exciting
+          opportunities and challenges.
+        </p>
+
         <h3>Experience</h3>
 
         <Experience
