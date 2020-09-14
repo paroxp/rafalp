@@ -43,6 +43,7 @@ function SocialLink(props: SocialLinkProperties): ReactElement {
       title={props.title}
       className={props.icon}>
       <i className={['icon', props.icon].join(' ')} dangerouslySetInnerHTML={{ __html: image }}></i>
+      <span className="visually-hidden">{props.title}</span>
     </a>
   </li>;
 }
