@@ -42,7 +42,7 @@ function SocialLink(props: SocialLinkProperties): ReactElement {
       rel="external nofollow noopener noreferrer"
       title={props.title}
       className={props.icon}>
-      <i className={['icon', props.icon].join(' ')} dangerouslySetInnerHTML={{ __html: image }}></i>
+      <span className={['icon', props.icon].join(' ')} dangerouslySetInnerHTML={{ __html: image }}></span>
       <span className="visually-hidden">{props.title}</span>
     </a>
   </li>;
