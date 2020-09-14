@@ -84,7 +84,7 @@ export function Footer(): ReactElement {
     </ul>
     <div className="copyright">
       <small>
-        Copyright 2014 - {currentYear}.
+        Copyright 2014 - {currentYear}
       </small>
     </div>
   </footer>;
