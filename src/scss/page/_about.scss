@@ -117,6 +117,19 @@ body > main.about {
 
       figcaption {
         width: 100%;
+
+        strong {
+          display: block;
+          margin: .25rem 0 .5rem;
+          font-size: 19px;
+          font-size: 1.1875rem;
+          font-weight: 400;
+
+          @include min($tablet) {
+            font-size: 24px;
+            font-size: 1.5rem;
+          }
+        }
       }
     }
 
