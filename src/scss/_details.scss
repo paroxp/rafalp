@@ -10,35 +10,47 @@
     }
   }
 
-  > summary::before {
-    @include min($tablet) {
-      content: "\f101";
-      display: inline-block;
-      font-family: "Social";
-      font-style: normal;
-      font-weight: normal;
-      font-size: .75rem;
-      font-variant: normal;
-      line-height: 1.75;
-      margin-right: .5rem;
-      text-decoration: inherit;
-      text-rendering: optimizeLegibility;
-      text-transform: none;
-      -moz-osx-font-smoothing: grayscale;
-      -webkit-font-smoothing: antialiased;
-      font-smoothing: antialiased;
-      text-align: center;
-      width: 1rem;
-
-      @media screen {
-        margin-left: -1.5rem;
-      }
-    }
+  summary .icon {
+    display: none;
   }
 
-  &.active > summary::before {
-    @include min($tablet) {
-      content: "\f100";
+  @include min($tablet) {
+    @media screen {
+      summary .icon {
+        display: block;
+        float: left;
+        height: 1em;
+        width: 1em;
+        text-align: center;
+
+        &.open {
+          display: none;
+        }
+
+        svg {
+          margin-top: 0.25em;
+          max-height: 1em;
+          max-width: 1em;
+
+          @media screen and (prefers-color-scheme: dark) {
+            fill: #fff;
+          }
+        }
+      }
+
+      &.active summary .icon {
+        &.open {
+          display: block;
+        }
+
+        &.closed {
+          display: none;
+        }
+      }
+
+      summary .icon + div {
+        margin-left: 1.3em;
+      }
     }
   }
 

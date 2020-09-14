@@ -11,6 +11,10 @@
   text-align: center;
   transition: all .3s ease;
 
+  svg path {
+    transition: all .3s ease;
+  }
+
   @content;
 }
 

@@ -27,14 +27,21 @@ function Experience(props: ExperienceProperties): ReactElement {
   const termEnd = !props.finish ? 'Present' : props.finish.format('MMM Do YYYY');
   const title = `${termStart} - ${termEnd}`;
 
+  const closedImg = fs.readFileSync(`${__dirname}/../../../dist/public/img/arrows/right.svg`, 'utf8');
+  const openImg = fs.readFileSync(`${__dirname}/../../../dist/public/img/arrows/down.svg`, 'utf8');
+
   return <details data-details={props.nonPrintable ? 'no-print' : ''} open>
     <summary>
-      <time dateTime={props.start.format('YYYY-MM-DD')} title={title}>
-        {props.start.year()} - {!props.finish ? 'present' : props.finish.year()}
-      </time>: {}
-      {props.title} at <a href={props.organisationURL} target="_blank" rel="external nofollow noopener noreferrer">
-        {props.organisation}
-      </a> <span aria-hidden>( {props.organisationURL} )</span>
+      <span className="icon closed" dangerouslySetInnerHTML={{ __html: closedImg }} />
+      <span className="icon open" dangerouslySetInnerHTML={{ __html: openImg }} />
+      <div>
+        <time dateTime={props.start.format('YYYY-MM-DD')} title={title}>
+          {props.start.year()} - {!props.finish ? 'present' : props.finish.year()}
+        </time>: {}
+        {props.title} at <a href={props.organisationURL} target="_blank" rel="external nofollow noopener noreferrer">
+          {props.organisation}
+        </a> <span aria-hidden>( {props.organisationURL} )</span>
+      </div>
     </summary>
 
     <ul>

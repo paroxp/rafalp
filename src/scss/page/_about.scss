@@ -44,12 +44,6 @@ body > main.about {
         cursor: pointer;
         outline: none;
 
-        @include min($tablet) {
-          @media screen {
-            margin-left: 1.5rem;
-          }
-        }
-
         @media print {
           font-weight: 400;
           margin-bottom: .5rem;

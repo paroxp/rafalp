@@ -33,6 +33,8 @@ export function Link(props: LinkProperties): ReactElement {
 }
 
 function SocialLink(props: SocialLinkProperties): ReactElement {
+  const image = fs.readFileSync(`${__dirname}/../../../dist/public/img/social/${props.icon}.svg`, 'utf8');
+
   return <li>
     <a
       href={props.url}
@@ -40,7 +42,7 @@ function SocialLink(props: SocialLinkProperties): ReactElement {
       rel="external nofollow noopener noreferrer"
       title={props.title}
       className={props.icon}>
-      <i className={['icon', props.icon].join(' ')}></i>
+      <i className={['icon', props.icon].join(' ')} dangerouslySetInnerHTML={{ __html: image }}></i>
     </a>
   </li>;
 }

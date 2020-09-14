@@ -174,29 +174,31 @@ body {
       width: 2.25em;
 
       @include button() {
-        color: darken($silver, 3);
+        svg path {
+          fill: $gray;
+        }
 
         &:active, &:hover {
-          color: $olive;
+          fill: $olive;
 
-          &.github {
-            color: map_get($social, 'github');
+          &.github svg path {
+            fill: map_get($social, 'github');
 
             @media screen and (prefers-color-scheme: dark) {
-              color: $white;
+              fill: $white;
             }
           }
 
-          &.twitter {
-            color: map_get($social, 'twitter');
+          &.twitter svg path {
+            fill: map_get($social, 'twitter');
           }
 
-          &.linkedin {
-            color: map_get($social, 'linkedin');
+          &.linkedin svg path {
+            fill: map_get($social, 'linkedin');
           }
 
-          &.spotify {
-            color: map_get($social, 'spotify');
+          &.spotify svg path {
+            fill: map_get($social, 'spotify');
           }
         }
       }
