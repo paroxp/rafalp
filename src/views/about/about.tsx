@@ -70,13 +70,14 @@ function Skill(props: SkillProperties): ReactElement {
 
 export function About(): ReactElement {
   const aboutJS = fs.readFileSync(`${__dirname}/../../../dist/public/js/about.js`, 'utf8');
+  const avatarImg = fs.readFileSync(`${__dirname}/../../../dist/public/img/avatar.png`, 'base64');
 
   return <body>
     <Header page="about" />
     <main className="about">
       <aside>
         <figure>
-          <img src="/img/avatar.png" alt="Rafal Proszowski" />
+          <img src={`data:image/jpeg;base64,${avatarImg}`} alt="Rafal Proszowski" />
           <figcaption>
             <strong>Rafal Proszowski</strong>
             Twitter: <a
