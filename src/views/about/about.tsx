@@ -266,7 +266,7 @@ export function About(): ReactElement {
         </Experience>
 
         <Experience
-          start={moment('2019-09-14')}
+          start={moment('2009-09-14')}
           finish={moment('2012-06-14')}
           title="Extended Diploma in IT"
           organisation="Newcastle College"
