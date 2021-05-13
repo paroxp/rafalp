@@ -172,7 +172,7 @@ export function About(): ReactElement {
         <h3>Professional summary</h3>
 
         <p>
-          I'm an experienced developer / SRE with just over 7 years of professional
+          I'm an experienced developer / SRE with just over {moment('2012-09-17').fromNow(true)} of professional
           experience, committed to maintaining cutting edge technical skills and
           up-to-date industry knowledge. I'm eager to learn and always after new exciting
           opportunities and challenges.
@@ -189,6 +189,14 @@ export function About(): ReactElement {
             Planned, Prioritised and Built various components for tenants of GOV.UK PaaS and Build &amp; Run teams
           </li>
           <li>
+            Worked with Product Managers, User Researchers, UI and Content Designers to set out deadlines and
+            prioritise work to deliver on user needs and various projects.
+          </li>
+          <li>
+            Worked closely with users and tenants, helping the adaptation of the platform and establishing better
+            practices and technical directions.
+          </li>
+          <li>
             Developed GOV.UK PaaS and Build &amp; Run processes with the use of Terraform, AWS, Concourse,
             Kubernetes, CloudFoundry, Bosh, YAML, Go, Shell Scripts, Postgres
           </li>
@@ -200,6 +208,7 @@ export function About(): ReactElement {
             Worked with Secure Continuous Delivery system using Git and GPG encryption to ensure integrity of
             developer commits prior to deployment
           </li>
+          <li>Line managed and mentored colleagues through career progression</li>
           <li>Troubleshoot complex network and systems issues</li>
           <li>Actively patched various CVE's</li>
           <li>Did heavy pair programming in order to spread the knowledge</li>
@@ -257,8 +266,8 @@ export function About(): ReactElement {
         </Experience>
 
         <Experience
-          start={moment('2010-09-13')}
-          finish={moment('2013-06-14')}
+          start={moment('2019-09-14')}
+          finish={moment('2012-06-14')}
           title="Extended Diploma in IT"
           organisation="Newcastle College"
           organisationURL="https://www.ncl-coll.ac.uk"
