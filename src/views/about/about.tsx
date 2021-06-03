@@ -186,37 +186,55 @@ export function About(): ReactElement {
           organisation="Government Digital Service"
           organisationURL="https://gds.blog.gov.uk">
           <li>
-            Planned, Prioritised and Built various components for tenants of GOV.UK PaaS and Build &amp; Run teams
+            Planned, Prioritised and Built various components for tenants of GOV.UK PaaS including admin portal, billing
+            statements and calculator, IPSec encryption for traffic between cells and routers
           </li>
           <li>
-            Worked with Product Managers, User Researchers, UI and Content Designers to set out deadlines and
-            prioritise work to deliver on user needs and various projects.
+            Architected and designed various components for the Kubernetes platform including service operator, signed
+            docker images, deployment and smoke testing pipelines
+          </li>
+          <li>
+            Worked with Senior Management, Product Managers, User Researchers, UI and Content Designers to set out
+            deadlines and prioritise work to deliver on user needs and various projects
           </li>
           <li>
             Worked closely with users and tenants, helping the adaptation of the platform and establishing better
-            practices and technical directions.
+            practices and technical directions across the teams, programmes and departments
           </li>
           <li>
             Developed GOV.UK PaaS and Build &amp; Run processes with the use of Terraform, AWS, Concourse,
             Kubernetes, CloudFoundry, Bosh, YAML, Go, Shell Scripts, Postgres
           </li>
           <li>
-            Developed web applications for GOV.UK PaaS tenants with the use of Node.js, TypeScript, Sinatra, JS,
+            Developed web applications for GOV.UK PaaS tenants with the use of Go, Node.js, TypeScript, Sinatra, JS,
             Webpack
           </li>
           <li>
             Worked with Secure Continuous Delivery system using Git and GPG encryption to ensure integrity of
             developer commits prior to deployment
           </li>
-          <li>Line managed and mentored colleagues through career progression</li>
-          <li>Troubleshoot complex network and systems issues</li>
-          <li>Actively patched various CVE's</li>
-          <li>Did heavy pair programming in order to spread the knowledge</li>
-          <li>Presented and demonstrated at show and tells / knowledge shares</li>
-          <li>Been heavily involved in team progression and well being</li>
+          <li>
+            Line managed and mentored colleagues through career progression, more demanding tasks and new
+            responsibilities
+          </li>
+          <li>Troubleshoot complex network and systems issues through being on support or a incident lead</li>
+          <li>Actively patched various CVE's, performed security audits, triaged risks and pen-test findings</li>
+          <li>
+            Did heavy pair programming in order to spread the knowledge, onboard colleagues to complex systems and share
+            the burden or more demanding tasks
+          </li>
+          <li>
+            Presented and demonstrated at show and tells, knowledge shares, meet-ups, conferences and online panels and
+            podcasts
+          </li>
+          <li>
+            Been heavily involved in team progression and well being, been setting best working practices for the team
+          </li>
           <li>Worked in an Agile - Kanban environment</li>
-          <li>Worked with stages of Planing, Doing, Reviewing and Approving of each task</li>
-          <li>Used ticketing system Pivotal Tracker for project management</li>
+          <li>
+            Used and Managed ticketing system Pivotal Tracker for project management which involved creating epics and
+            stories
+          </li>
         </Experience>
 
         <Experience
