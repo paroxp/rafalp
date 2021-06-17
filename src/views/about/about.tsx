@@ -186,20 +186,22 @@ export function About(): ReactElement {
           organisation="Government Digital Service"
           organisationURL="https://gds.blog.gov.uk">
           <li>
-            Planned, Prioritised and Built various components for tenants of GOV.UK PaaS including admin portal, billing
-            statements and calculator, IPSec encryption for traffic between cells and routers
+            Planned, prioritised and built various components for tenants of GOV.UK PaaS (home to 200+ organisations,
+            2.5k applications and 2k backing services) including admin portal, billing statements and calculator, IPSec
+            encryption for traffic between cells and routers, performance dashboards and alerts
           </li>
           <li>
-            Architected and designed various components for the Kubernetes platform including service operator, signed
-            docker images, deployment and smoke testing pipelines
+            Architected and led the design and development of various components for the Kubernetes platform including
+            service operator, signed docker images, deployment and smoke testing pipelines
           </li>
           <li>
-            Worked with Senior Management, Product Managers, User Researchers, UI and Content Designers to set out
-            deadlines and prioritise work to deliver on user needs and various projects
+            Worked with Senior Management, Product Managers, User Researchers, UI and Content Designers to understand
+            user needs and design, plan and prioritise multiple streams of work to improve the platform
           </li>
           <li>
-            Worked closely with users and tenants, helping the adaptation of the platform and establishing better
-            practices and technical directions across the teams, programmes and departments
+            Provided expert advice to PaaS tenants across government and the wider public sector to help them get the
+            most out of the platform and to establish best practice patterns and approaches. Feeding learnings from this
+            support back into the team to help identify unmet needs
           </li>
           <li>
             Developed GOV.UK PaaS and Build &amp; Run processes with the use of Terraform, AWS, Concourse,
@@ -220,19 +222,19 @@ export function About(): ReactElement {
           <li>Troubleshoot complex network and systems issues through being on support or a incident lead</li>
           <li>Actively patched various CVE's, performed security audits, triaged risks and pen-test findings</li>
           <li>
-            Did heavy pair programming in order to spread the knowledge, onboard colleagues to complex systems and share
-            the burden or more demanding tasks
+            In-depth pair programming to build shared knowledge, onboard colleagues to complex systems and share
+            the burden of more demanding tasks
           </li>
           <li>
             Presented and demonstrated at show and tells, knowledge shares, meet-ups, conferences and online panels and
             podcasts
           </li>
           <li>
-            Been heavily involved in team progression and well being, been setting best working practices for the team
+            Driving progression, well being, and best working practices for the team
           </li>
           <li>Worked in an Agile - Kanban environment</li>
           <li>
-            Used and Managed ticketing system Pivotal Tracker for project management which involved creating epics and
+            Used and managed ticketing system Pivotal Tracker for project management which involved creating epics and
             stories
           </li>
         </Experience>
