@@ -35,7 +35,7 @@
     "koa-compress": "^5.0.1",
     "koa-html-minifier": "^2.1.0",
     "koa-static": "^5.0.0",
-    "moment": "^2.29.1",
+    "moment": "^2.29.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "sitemap": "^7.0.0",
