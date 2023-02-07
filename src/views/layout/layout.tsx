@@ -76,13 +76,11 @@ export function Footer(): ReactElement {
   return <footer>
     <ul className="icons">
       <SocialLink icon="github" title="Check me out on GitHub" url="https://github.com/paroxp" />
-      <SocialLink icon="twitter" title="Follow me on Twitter" url="https://twitter.com/paroxp" />
       <SocialLink icon="mastodon" title="Follow me on Mastodon" url="https://fosstodon.org/@paroxp" />
       <SocialLink
         icon="linkedin"
         title="Connect with me on LinkedIn"
         url="https://www.linkedin.com/in/rafal-proszowski-78816744/" />
-      <SocialLink icon="spotify" title="Follow me on Spotify" url="https://play.spotify.com/user/1151201520" />
     </ul>
     <div className="copyright">
       <small>
