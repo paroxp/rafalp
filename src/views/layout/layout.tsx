@@ -39,7 +39,7 @@ function SocialLink(props: SocialLinkProperties): ReactElement {
     <a
       href={props.url}
       target="_blank"
-      rel="external nofollow noopener noreferrer"
+      rel="external nofollow noopener noreferrer me"
       title={props.title}
       className={props.icon}>
       <span className={['icon', props.icon].join(' ')} dangerouslySetInnerHTML={{ __html: image }}></span>
@@ -77,6 +77,7 @@ export function Footer(): ReactElement {
     <ul className="icons">
       <SocialLink icon="github" title="Check me out on GitHub" url="https://github.com/paroxp" />
       <SocialLink icon="twitter" title="Follow me on Twitter" url="https://twitter.com/paroxp" />
+      <SocialLink icon="mastodon" title="Follow me on Mastodon" url="https://fosstodon.org/@paroxp" />
       <SocialLink
         icon="linkedin"
         title="Connect with me on LinkedIn"
