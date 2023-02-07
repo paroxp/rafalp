@@ -80,12 +80,12 @@ export function About(): ReactElement {
           <img src={`data:image/jpeg;base64,${avatarImg}`} alt="Rafal Proszowski" />
           <figcaption>
             <strong>Rafal Proszowski</strong>
-            Twitter: <a
-              href="https://twitter.com/paroxp"
+            Mastodon: <a
+              href="https://fosstodon.org/@paroxp"
               target="_blank"
               rel="external nofollow noopener noreferrer"
-              title="Follow me on Twitter">
-              @paroxp
+              title="Follow me on Mastodon">
+              @paroxp<small>@fosstodon.org</small>
             </a>
           </figcaption>
         </figure>
