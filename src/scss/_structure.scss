@@ -193,6 +193,10 @@ body {
             fill: map_get($social, 'twitter');
           }
 
+          &.mastodon svg path {
+            fill: map_get($social, 'mastodon');
+          }
+
           &.linkedin svg path {
             fill: map_get($social, 'linkedin');
           }
