@@ -182,7 +182,7 @@ export function About(): ReactElement {
 
         <Experience
           start={moment('2016-08-08')}
-          title="Tech Lead and Senior Developer"
+          title="Lead SRE"
           organisation="Government Digital Service"
           organisationURL="https://gds.blog.gov.uk">
           <li>
