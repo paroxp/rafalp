@@ -215,6 +215,7 @@ body > main.about {
       -webkit-print-color-adjust: exact;
       -moz-print-color-adjust: exact;
       -ms-print-color-adjust: exact;
+      print-color-adjust: exact;
       width: 100%;
 
       @media print {
