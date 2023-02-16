@@ -23,25 +23,6 @@ body {
     text-align: center;
     text-transform: uppercase;
 
-    > h1, > h2 {
-      display: none;
-
-      @media print {
-        display: block;
-        line-height: 1.3;
-        margin-bottom: 0;
-        text-transform: none;
-      }
-    }
-
-    > h2 {
-      @media print {
-        color: $gray;
-        font-weight: 300;
-        margin: 0;
-      }
-    }
-
     @include min($tablet) {
       margin: 1rem auto;
       text-align: inherit;
@@ -54,7 +35,8 @@ body {
       text-align: left;
     }
 
-    figure {
+    > div {
+      display: none;
       margin: 0 0 1rem;
       padding: 0;
 
@@ -65,18 +47,20 @@ body {
         width: span(6 of 12);
       }
 
-      @media print {
-        display: none;
+      > h1, > h2 {
+        line-height: 1.3;
+        margin-bottom: 0;
+        text-transform: none;
+
+        @media print {
+          display: block;
+        }
       }
 
-      img, svg {
-        display: block;
-        margin: 0 auto;
-        max-width: 6rem;
-
-        @include min($tablet) {
-          margin: 0;
-        }
+      > h2 {
+        color: $gray;
+        font-weight: 300;
+        margin: 0;
       }
     }
 

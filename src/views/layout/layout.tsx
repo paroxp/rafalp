@@ -49,13 +49,11 @@ function SocialLink(props: SocialLinkProperties): ReactElement {
 }
 
 export function Header(props: HeaderProperties): ReactElement {
-  const logo = fs.readFileSync(`${__dirname}/../../../dist/public/img/logo.svg`, 'utf8');
-
-  return <header>
-    <h1>Rafal Proszowski</h1>
-    <h2>Software Engineer</h2>
-
-    <figure dangerouslySetInnerHTML={{ __html: logo }}></figure>
+  return <header className={props.page}>
+    <div>
+      <h1>Rafal Proszowski</h1>
+      <h2>Software Engineer</h2>
+    </div>
 
     <nav>
       <ul>

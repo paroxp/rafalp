@@ -79,7 +79,6 @@ export function About(): ReactElement {
         <figure>
           <img src={`data:image/jpeg;base64,${avatarImg}`} alt="Rafal Proszowski" />
           <figcaption>
-            <strong>Rafal Proszowski</strong>
             Mastodon: <a
               href="https://fosstodon.org/@paroxp"
               target="_blank"

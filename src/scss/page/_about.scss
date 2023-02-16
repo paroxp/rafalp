@@ -1,3 +1,9 @@
+body > header.about {
+  > div {
+    display: block;
+  }
+}
+
 body > main.about {
   section {
     padding: 0 1rem;
