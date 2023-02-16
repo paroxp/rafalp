@@ -37,7 +37,7 @@ body {
 
     > div {
       display: none;
-      margin: 0 0 1rem;
+      margin: 0;
       padding: 0;
 
       @include min($tablet) {
