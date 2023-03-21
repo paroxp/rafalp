@@ -119,6 +119,7 @@ export function About(): ReactElement {
           using it widely in my everyday job.
         </Skill>
         <Skill name="Kubernetes" minimal={true} />
+        <Skill name="AWS Lambda" minimal={true} />
         <Skill name="Docker" minimal={true} />
         <Skill name="Git" minimal={true} />
         <Skill name="Node.js and JavaScript" score={75}>
@@ -177,6 +178,8 @@ export function About(): ReactElement {
         <Skill name="DataDog" minimal={true} />
         <Skill name="Redis" minimal={true} />
         <Skill name="Memcached" minimal={true} />
+        <Skill name="AWS API Gateway" minimal={true} />
+        <Skill name="DynamoDB" minimal={true} />
         <Skill name="Mailgun" minimal={true} />
         <Skill name="Database Design" minimal={true} />
         <Skill name="Excellent problem-solving" minimal={true} />
@@ -204,6 +207,45 @@ export function About(): ReactElement {
           title="Lead SRE"
           organisation="Government Digital Service"
           organisationURL="https://gds.blog.gov.uk">
+          <ul>
+            <li>
+              Lead the Site Reliability Engineering team, manage workload, provide guidance and mentorship to junior
+              team members
+            </li>
+            <li>
+              Collaborated with cross-functional teams including software development, IT operations, and security teams
+              to improve reliability, scalability, and security of infrastructure and the surrounding processes
+            </li>
+            <li>
+              Developed and implemented proactive monitoring and alerting systems to ensure that issues are caught
+              before they become critical
+            </li>
+            <li>
+              Worked with development teams to ensure that software releases are properly tested, validated and deployed
+              in production environments
+            </li>
+            <li>
+              Developed and maintained documentation for infrastructure and processes related to Site Reliability
+              Engineering
+            </li>
+            <li>
+              Participated in incident response and post-mortem analysis to identify the root cause of problems and
+              implement preventative measures to avoid similar incidents in the future
+            </li>
+            <li>
+              Ensured compliance with industry standards and best practices related to Site Reliability Engineering and
+              serverless systems
+            </li>
+            <li>
+              Evaluated and implemented new technologies and tools that can help improve system performance and
+              reliability
+            </li>
+            <li>
+              Communicated with senior management and stakeholders regarding the progress and status of Site Reliability
+              Engineering initiatives
+            </li>
+          </ul>
+
           <EmbeddedExperience
             start={moment('2016-08-08')}
             finish={moment('2022-03-22')}
