@@ -5,6 +5,12 @@ body > header.about {
 }
 
 body > main.about {
+  strong {
+    @media print {
+      font-weight: 600;
+    }
+  }
+
   section {
     padding: 0 1rem;
 
