@@ -71,13 +71,22 @@ body > main.about {
         padding: 0;
       }
 
-      > ul {
-        margin: .5rem;
+      ul {
+        margin: .25rem;
         margin-left: 1.5rem;
 
         @media print {
-          margin: .25rem;
-          margin-left: 1.5rem;
+          margin: .5rem;
+        }
+      }
+
+      div.embedded {
+        @media screen {
+          margin-left: 1.3rem;
+
+          ul {
+            margin-left: 0;
+          }
         }
       }
     }

@@ -5,14 +5,17 @@ import React, { ReactElement, ReactNode } from 'react';
 
 import { Footer, Header, Link } from '../layout';
 
-type ExperienceProperties = {
+type BaseExperienceProperties = {
   readonly title: string;
   readonly start: moment.Moment;
   readonly finish?: moment.Moment;
-  readonly organisation: string;
-  readonly organisationURL: string;
   readonly nonPrintable?: boolean;
-  readonly children: readonly ReactNode[];
+  readonly children: ReactNode;
+};
+
+type ExperienceProperties = BaseExperienceProperties & {
+  readonly organisation: string;
+  readonly organisationURL?: string;
 }
 
 type SkillProperties = {
@@ -38,17 +41,34 @@ function Experience(props: ExperienceProperties): ReactElement {
         <time dateTime={props.start.format('YYYY-MM-DD')} title={title}>
           {props.start.year()} - {!props.finish ? 'present' : props.finish.year()}
         </time>: {}
-        {props.title} at <a href={props.organisationURL} target="_blank" rel="external nofollow noopener noreferrer">
+        <strong>
+          {props.title}
+        </strong> at <a href={props.organisationURL} target="_blank" rel="external nofollow noopener noreferrer">
           {props.organisation}
-        </a> <span aria-hidden>( {props.organisationURL} )</span>
+        </a> {props.organisationURL
+          ? <span aria-hidden>( {props.organisationURL} )</span>
+          : <></>}
       </div>
     </summary>
 
-    <ul>
-      {...props.children}
-    </ul>
+    {props.children}
 
   </details>;
+}
+
+function EmbeddedExperience(props: BaseExperienceProperties): ReactElement {
+  const termStart = props.start.format('MMM Do YYYY');
+  const termEnd = !props.finish ? 'Present' : props.finish.format('MMM Do YYYY');
+  const title = `${termStart} - ${termEnd}`;
+
+  return <div className="embedded">
+    <strong>{props.title}</strong> until {}
+    <time dateTime={props.finish?.format('YYYY-MM-DD')} title={title}>
+      {props.finish?.format('MMM YYYY')}
+    </time>
+
+    {props.children}
+  </div>;
 }
 
 function Skill(props: SkillProperties): ReactElement {
@@ -184,58 +204,65 @@ export function About(): ReactElement {
           title="Lead SRE"
           organisation="Government Digital Service"
           organisationURL="https://gds.blog.gov.uk">
-          <li>
-            Planned, prioritised and built various components for tenants of GOV.UK PaaS (home to 200+ organisations,
-            2.5k applications and 2k backing services) including admin portal, billing statements and calculator, IPSec
-            encryption for traffic between cells and routers, performance dashboards and alerts
-          </li>
-          <li>
-            Architected and led the design and development of various components for the Kubernetes platform including
-            service operator, signed docker images, deployment and smoke testing pipelines
-          </li>
-          <li>
-            Worked with Senior Management, Product Managers, User Researchers, UI and Content Designers to understand
-            user needs and design, plan and prioritise multiple streams of work to improve the platform
-          </li>
-          <li>
-            Provided expert advice to PaaS tenants across government and the wider public sector to help them get the
-            most out of the platform and to establish best practice patterns and approaches. Feeding learnings from this
-            support back into the team to help identify unmet needs
-          </li>
-          <li>
-            Developed GOV.UK PaaS and Build &amp; Run processes with the use of Terraform, AWS, Concourse,
-            Kubernetes, CloudFoundry, Bosh, YAML, Go, Shell Scripts, Postgres
-          </li>
-          <li>
-            Developed web applications for GOV.UK PaaS tenants with the use of Go, Node.js, TypeScript, Sinatra, JS,
-            Webpack
-          </li>
-          <li>
-            Worked with Secure Continuous Delivery system using Git and GPG encryption to ensure integrity of
-            developer commits prior to deployment
-          </li>
-          <li>
-            Line managed and mentored colleagues through career progression, more demanding tasks and new
-            responsibilities
-          </li>
-          <li>Troubleshoot complex network and systems issues through being on support or a incident lead</li>
-          <li>Actively patched various CVE's, performed security audits, triaged risks and pen-test findings</li>
-          <li>
-            In-depth pair programming to build shared knowledge, onboard colleagues to complex systems and share
-            the burden of more demanding tasks
-          </li>
-          <li>
-            Presented and demonstrated at show and tells, knowledge shares, meet-ups, conferences and online panels and
-            podcasts
-          </li>
-          <li>
-            Driving progression, well being, and best working practices for the team
-          </li>
-          <li>Worked in an Agile - Kanban environment</li>
-          <li>
-            Used and managed ticketing system Pivotal Tracker for project management which involved creating epics and
-            stories
-          </li>
+          <EmbeddedExperience
+            start={moment('2016-08-08')}
+            finish={moment('2022-03-22')}
+            title="Senior SRE">
+            <ul>
+              <li>
+                Planned, prioritised and built various components for tenants of GOV.UK PaaS (home to 200+
+                organisations, 2.5k applications and 2k backing services) including admin portal, billing statements and
+                calculator, IPSec encryption for traffic between cells and routers, performance dashboards and alerts
+              </li>
+              <li>
+                Architected and led the design and development of various components for the Kubernetes platform
+                including service operator, signed docker images, deployment and smoke testing pipelines
+              </li>
+              <li>
+                Worked with Senior Management, Product Managers, User Researchers, UI and Content Designers to
+                understand user needs and design, plan and prioritise multiple streams of work to improve the platform
+              </li>
+              <li>
+                Provided expert advice to PaaS tenants across government and the wider public sector to help them get
+                the most out of the platform and to establish best practice patterns and approaches. Feeding learnings
+                from this support back into the team to help identify unmet needs
+              </li>
+              <li>
+                Developed GOV.UK PaaS and Build &amp; Run processes with the use of Terraform, AWS, Concourse,
+                Kubernetes, CloudFoundry, Bosh, YAML, Go, Shell Scripts, Postgres
+              </li>
+              <li>
+                Developed web applications for GOV.UK PaaS tenants with the use of Go, Node.js, TypeScript, Sinatra, JS,
+                Webpack
+              </li>
+              <li>
+                Worked with Secure Continuous Delivery system using Git and GPG encryption to ensure integrity of
+                developer commits prior to deployment
+              </li>
+              <li>
+                Line managed and mentored colleagues through career progression, more demanding tasks and new
+                responsibilities
+              </li>
+              <li>Troubleshoot complex network and systems issues through being on support or a incident lead</li>
+              <li>Actively patched various CVE's, performed security audits, triaged risks and pen-test findings</li>
+              <li>
+                In-depth pair programming to build shared knowledge, onboard colleagues to complex systems and share
+                the burden of more demanding tasks
+              </li>
+              <li>
+                Presented and demonstrated at show and tells, knowledge shares, meet-ups, conferences and online panels
+                and podcasts
+              </li>
+              <li>
+                Driving progression, well being, and best working practices for the team
+              </li>
+              <li>Worked in an Agile - Kanban environment</li>
+              <li>
+                Used and managed ticketing system Pivotal Tracker for project management which involved creating epics
+                and stories
+              </li>
+            </ul>
+          </EmbeddedExperience>
         </Experience>
 
         <Experience
@@ -244,32 +271,35 @@ export function About(): ReactElement {
           title="Frontend Developer"
           organisation="FLIP Sports"
           organisationURL="http://flipsports.com">
-          <li>Worked on a rewards system with the use of Angular, Ionic, JWT, OIDC, Python, AWS, Postgres</li>
-          <li>Delivered services in a form of REST APIs, Web Applications, Metric collectors</li>
-          <li>Mainly focussed on the Frontend aspect of the projects</li>
-          <li>Helped out with certain python micro services</li>
-          <li>Helped out with PHP projects</li>
-          <li>Used ticketing system JIRA for project management</li>
+          <ul>
+            <li>Worked on a rewards system with the use of Angular, Ionic, JWT, OIDC, Python, AWS, Postgres</li>
+            <li>Delivered services in a form of REST APIs, Web Applications, Metric collectors</li>
+            <li>Mainly focussed on the Frontend aspect of the projects</li>
+            <li>Helped out with certain python micro services</li>
+            <li>Helped out with PHP projects</li>
+            <li>Used ticketing system JIRA for project management</li>
+          </ul>
         </Experience>
 
         <Experience
           start={moment('2013-06-17')}
           finish={moment('2015-11-27')}
           title="Developer"
-          organisation="HurstDEV"
-          organisationURL="https://hurstdev.co.uk">
-          <li>Worked with variety of clients on different needs, solutions and technologies</li>
-          <li>Been able to choose a stack for each project to satisfy needs</li>
-          <li>
-            Worked with PHP, MySQL, Laravel, CakePHP, jQuery, Node.js, Gulp, Grunt, Ansible, Vagrant, NGINX,
-            Ubuntu Server, Puppet, Shell Scripts
-          </li>
-          <li>Delivered services in a form of REST APIs, eCommerce Stores, CMS, Web Applications, Chat</li>
-          <li>Helped out junior members of the team in progression</li>
-          <li>Helped out in recruitment process</li>
-          <li>Solved interesting problems to satisfy clients needs</li>
-          <li>Been on call for certain clients</li>
-          <li>Used ticketing systems Codebase and JIRA for project management</li>
+          organisation="HurstDEV">
+          <ul>
+            <li>Worked with variety of clients on different needs, solutions and technologies</li>
+            <li>Been able to choose a stack for each project to satisfy needs</li>
+            <li>
+              Worked with PHP, MySQL, Laravel, CakePHP, jQuery, Node.js, Gulp, Grunt, Ansible, Vagrant, NGINX,
+              Ubuntu Server, Puppet, Shell Scripts
+            </li>
+            <li>Delivered services in a form of REST APIs, eCommerce Stores, CMS, Web Applications, Chat</li>
+            <li>Helped out junior members of the team in progression</li>
+            <li>Helped out in recruitment process</li>
+            <li>Solved interesting problems to satisfy clients needs</li>
+            <li>Been on call for certain clients</li>
+            <li>Used ticketing systems Codebase and JIRA for project management</li>
+          </ul>
         </Experience>
 
         <Experience
@@ -277,11 +307,13 @@ export function About(): ReactElement {
           finish={moment('2013-06-14')}
           title="Junior Web Developer"
           organisation="Surreal Creative"
-          organisationURL="http://whysurreal.com">
-          <li>Worked with variety of clients on different needs, solutions and technologies</li>
-          <li>Worked with PHP, MySQL, CodeIgniter, Laravel, JavaScript, jQuery, Vagrant, Puppet, Chef</li>
-          <li>Solved interesting problems to satisfy client needs</li>
-          <li>Used ticketing system Pivotal Tracker, Codebase and Bootcamp for project management</li>
+          organisationURL="https://whysurreal.com">
+          <ul>
+            <li>Worked with variety of clients on different needs, solutions and technologies</li>
+            <li>Worked with PHP, MySQL, CodeIgniter, Laravel, JavaScript, jQuery, Vagrant, Puppet, Chef</li>
+            <li>Solved interesting problems to satisfy client needs</li>
+            <li>Used ticketing system Pivotal Tracker, Codebase and Bootcamp for project management</li>
+          </ul>
         </Experience>
 
         <Experience
@@ -291,32 +323,34 @@ export function About(): ReactElement {
           organisation="Newcastle College"
           organisationURL="https://www.ncl-coll.ac.uk"
           nonPrintable={true}>
-          <li>
-            Worked on Exciting modules:
             <ul>
-              <li>Unit 1: Communication and Employability Skills for IT</li>
-              <li>Unit 2: Computer Systems</li>
-              <li>Unit 3: Information Systems</li>
-              <li>Unit 4: Impact of the Use of IT on Business Systems</li>
-              <li>Unit 5: Managing Networks</li>
-              <li>Unit 6: Software Design and Development</li>
-              <li>Unit 7: Organisational Systems Security</li>
-              <li>Unit 8: e-Commerce</li>
-              <li>Unit 9: Computer Networks</li>
-              <li>Unit 10: Communication Technologies</li>
-              <li>Unit 11: Systems Analysis and Design</li>
-              <li>Unit 12: IT Technical Support</li>
-              <li>Unit 13: IT Systems Troubleshooting and Repair</li>
-            </ul>
-          </li>
-          <li>
-            Did few projects in PHP on the side in exchange for games
-            <ul>
-              <li>Local Game Shop website</li>
-              <li>A tool to generate websites for my class colleagues to pass their modules</li>
-            </ul>
-          </li>
-          <li>Completed with an impressive result of Triple Distinction (D*DD)</li>
+            <li>
+              Worked on Exciting modules:
+              <ul>
+                <li>Unit 1: Communication and Employability Skills for IT</li>
+                <li>Unit 2: Computer Systems</li>
+                <li>Unit 3: Information Systems</li>
+                <li>Unit 4: Impact of the Use of IT on Business Systems</li>
+                <li>Unit 5: Managing Networks</li>
+                <li>Unit 6: Software Design and Development</li>
+                <li>Unit 7: Organisational Systems Security</li>
+                <li>Unit 8: e-Commerce</li>
+                <li>Unit 9: Computer Networks</li>
+                <li>Unit 10: Communication Technologies</li>
+                <li>Unit 11: Systems Analysis and Design</li>
+                <li>Unit 12: IT Technical Support</li>
+                <li>Unit 13: IT Systems Troubleshooting and Repair</li>
+              </ul>
+            </li>
+            <li>
+              Did few projects in PHP on the side in exchange for games
+              <ul>
+                <li>Local Game Shop website</li>
+                <li>A tool to generate websites for my class colleagues to pass their modules</li>
+              </ul>
+            </li>
+            <li>Completed with an impressive result of Triple Distinction (D*DD)</li>
+          </ul>
         </Experience>
 
         <h3>Hobbies &amp; Interests</h3>
