@@ -122,7 +122,7 @@ export function About(): ReactElement {
           using it widely in my everyday job.
         </Skill>
         <Skill name="Kubernetes" minimal={true} />
-        <Skill name="AWS Lambda" minimal={true} />
+        <Skill name="Lambda" minimal={true} />
         <Skill name="Docker" minimal={true} />
         <Skill name="Git" minimal={true} />
         <Skill name="Node.js and JavaScript" score={75}>
@@ -135,6 +135,7 @@ export function About(): ReactElement {
         <Skill name="React" minimal={true} />
         <Skill name="AWS" minimal={true} />
         <Skill name="Terraform" minimal={true} />
+        <Skill name="CloudFormation" minimal={true} />
         <Skill name="Continuous Integration and Delivery" minimal={true} />
         <Skill name="ES6" minimal={true} />
         <Skill name="Express.js" minimal={true} />
@@ -166,7 +167,6 @@ export function About(): ReactElement {
         <Skill name="Puppet" minimal={true} />
         <Skill name="Vagrant" minimal={true} />
         <Skill name="DevOps" minimal={true} />
-        <Skill name="WebOps" minimal={true} />
         <Skill name="Unit and Integration Testing" minimal={true} />
         <Skill name="MySQL" minimal={true} />
         <Skill name="SQL" minimal={true} />
@@ -197,10 +197,8 @@ export function About(): ReactElement {
         <h3>Professional summary</h3>
 
         <p>
-          I'm an experienced developer / SRE with just over {moment('2012-09-17').fromNow(true)} of professional
-          experience, committed to maintaining cutting edge technical skills and
-          up-to-date industry knowledge. I'm eager to learn and always after new exciting
-          opportunities and challenges.
+          I'm an experienced developer / SRE, committed to maintaining cutting edge technical skills and up-to-date
+          industry knowledge. I'm eager to learn and always after new exciting opportunities and challenges.
         </p>
 
         <h3>Experience</h3>
