@@ -14,6 +14,10 @@
       }
     });
   });
+
+  assure('[data-skill]', (element: Element) => {
+    element.addEventListener('click', _e => toggleClass(element, 'bold'));
+  });
 })();
 
 function assure(element: string, cb: (element: Element) => void): void {
