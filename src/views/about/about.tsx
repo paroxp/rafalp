@@ -14,6 +14,7 @@ type BaseExperienceProperties = {
 };
 
 type ExperienceProperties = BaseExperienceProperties & {
+  readonly hasEmbeddedExperience?: boolean;
   readonly organisation: string;
   readonly organisationURL?: string;
 }
@@ -27,7 +28,7 @@ type SkillProperties = {
 
 function Experience(props: ExperienceProperties): ReactElement {
   const termStart = props.start.format('MMM Do YYYY');
-  const termEnd = !props.finish ? 'Present' : props.finish.format('MMM Do YYYY');
+  const termEnd = !props.finish ? 'present' : props.finish.format('MMM Do YYYY');
   const title = `${termStart} - ${termEnd}`;
 
   const closedImg = fs.readFileSync(`${__dirname}/../../../dist/public/img/arrows/right.svg`, 'utf8');
@@ -40,13 +41,15 @@ function Experience(props: ExperienceProperties): ReactElement {
       <div>
         <time dateTime={props.start.format('YYYY-MM-DD')} title={title}>
           {props.start.year()} - {!props.finish ? 'present' : props.finish.year()}
-        </time>: {}
-        <strong>
-          {props.title}
-        </strong> at <a href={props.organisationURL} target="_blank" rel="external nofollow noopener noreferrer">
+        </time>
+        <span className={props.hasEmbeddedExperience ? 'no-print' : ''}>: {}
+          <strong>
+            {props.title}
+          </strong> at
+        </span> <a href={props.organisationURL} target="_blank" rel="external nofollow noopener noreferrer">
           {props.organisation}
         </a> {props.organisationURL
-          ? <span aria-hidden>( {props.organisationURL} )</span>
+          ? <span className="link" aria-hidden>( {props.organisationURL} )</span>
           : <></>}
       </div>
     </summary>
@@ -58,14 +61,14 @@ function Experience(props: ExperienceProperties): ReactElement {
 
 function EmbeddedExperience(props: BaseExperienceProperties): ReactElement {
   const termStart = props.start.format('MMM Do YYYY');
-  const termEnd = !props.finish ? 'Present' : props.finish.format('MMM Do YYYY');
+  const termEnd = !props.finish ? 'present' : props.finish.format('MMM Do YYYY');
   const title = `${termStart} - ${termEnd}`;
 
   return <div className="embedded">
-    <strong>{props.title}</strong> until {}
-    <time dateTime={props.finish?.format('YYYY-MM-DD')} title={title}>
-      {props.finish?.format('MMM YYYY')}
-    </time>
+    <time dateTime={props.start.format('YYYY-MM-DD')} title={title}>
+      {props.start.format('MMMM YYYY')} - {!props.finish ? 'present' : props.finish.format('MMMM YYYY')}
+    </time>: {}
+    <strong>{props.title}</strong>
 
     {props.children}
   </div>;
@@ -73,12 +76,12 @@ function EmbeddedExperience(props: BaseExperienceProperties): ReactElement {
 
 function Skill(props: SkillProperties): ReactElement {
   if (props.minimal) {
-    return <div title={props.name} className="minimal">
+    return <div data-skill={props.name} title={props.name} className="minimal">
       <label>{props.name}</label>
     </div>;
   }
 
-  return <div title={props.name}>
+  return <div data-skill={props.name} title={props.name}>
     <label>{props.name}</label>
       <progress value={props.score} max="100"></progress>
       <details open>
@@ -205,46 +208,51 @@ export function About(): ReactElement {
         <Experience
           start={moment('2016-08-08')}
           title="Lead SRE"
+          hasEmbeddedExperience={true}
           organisation="Government Digital Service"
           organisationURL="https://gds.blog.gov.uk">
-          <ul>
-            <li>
-              Lead the Site Reliability Engineering team, manage workload, provide guidance and mentorship to junior
-              team members
-            </li>
-            <li>
-              Collaborated with cross-functional teams including software development, IT operations, and security teams
-              to improve reliability, scalability, and security of infrastructure and the surrounding processes
-            </li>
-            <li>
-              Developed and implemented proactive monitoring and alerting systems to ensure that issues are caught
-              before they become critical
-            </li>
-            <li>
-              Worked with development teams to ensure that software releases are properly tested, validated and deployed
-              in production environments
-            </li>
-            <li>
-              Developed and maintained documentation for infrastructure and processes related to Site Reliability
-              Engineering
-            </li>
-            <li>
-              Participated in incident response and post-mortem analysis to identify the root cause of problems and
-              implement preventative measures to avoid similar incidents in the future
-            </li>
-            <li>
-              Ensured compliance with industry standards and best practices related to Site Reliability Engineering and
-              serverless systems
-            </li>
-            <li>
-              Evaluated and implemented new technologies and tools that can help improve system performance and
-              reliability
-            </li>
-            <li>
-              Communicated with senior management and stakeholders regarding the progress and status of Site Reliability
-              Engineering initiatives
-            </li>
-          </ul>
+          <EmbeddedExperience
+            start={moment('2022-03-23')}
+            title="Senior SRE">
+            <ul>
+              <li>
+                Lead the Site Reliability Engineering team, manage workload, provide guidance and mentorship to junior
+                team members
+              </li>
+              <li>
+                Collaborated with cross-functional teams including software development, IT operations, and security
+                teams to improve reliability, scalability, and security of infrastructure and the surrounding processes
+              </li>
+              <li>
+                Developed and implemented proactive monitoring and alerting systems to ensure that issues are caught
+                before they become critical
+              </li>
+              <li>
+                Worked with development teams to ensure that software releases are properly tested, validated and
+                deployed in production environments
+              </li>
+              <li>
+                Developed and maintained documentation for infrastructure and processes related to Site Reliability
+                Engineering
+              </li>
+              <li>
+                Participated in incident response and post-mortem analysis to identify the root cause of problems and
+                implement preventative measures to avoid similar incidents in the future
+              </li>
+              <li>
+                Ensured compliance with industry standards and best practices related to Site Reliability Engineering
+                and serverless systems
+              </li>
+              <li>
+                Evaluated and implemented new technologies and tools that can help improve system performance and
+                reliability
+              </li>
+              <li>
+                Communicated with senior management and stakeholders regarding the progress and status of Site
+                Reliability Engineering initiatives
+              </li>
+            </ul>
+          </EmbeddedExperience>
 
           <EmbeddedExperience
             start={moment('2016-08-08')}

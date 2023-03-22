@@ -36,5 +36,11 @@ h1, h2, h3, h4, h5, h6 {
   @include govuk-visually-hidden();
 }
 
+.no-print {
+  @media print {
+    display: none;
+  }
+}
+
 ::-moz-selection { background-color: $purple; color: $white; }
 ::selection { background-color: $purple; color: $white; }
