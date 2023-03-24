@@ -115,16 +115,14 @@ export function About(): ReactElement {
         <h3>Skills</h3>
 
         <Skill name="Agile" minimal={true} />
+
+        {/* Languages */}
         <Skill name="Go" score={65}>
           It has became my language of choice, for most of new projects
           I am picking up. It has a lot of benefits, and the ease of use along with
           vast speed, made me fall in love with it. I feel confident with it, as I am
           using it widely in my everyday job.
         </Skill>
-        <Skill name="Kubernetes" minimal={true} />
-        <Skill name="Lambda" minimal={true} />
-        <Skill name="Docker" minimal={true} />
-        <Skill name="Git" minimal={true} />
         <Skill name="Node.js and JavaScript" score={75}>
           Strong preference towards <Link href="https://www.typescriptlang.org/">TypeScript</Link>, {}
           <Link href="https://reactjs.org/">React</Link>, <Link href="https://koajs.com/">Koa</Link> and {}
@@ -132,18 +130,7 @@ export function About(): ReactElement {
           time and place for frontend JavaScript, but would prefer everything backend rendered.
         </Skill>
         <Skill name="TypeScript" minimal={true} />
-        <Skill name="React" minimal={true} />
-        <Skill name="AWS" minimal={true} />
-        <Skill name="Infrastructure as Code" minimal={true} />
-        <Skill name="Terraform" minimal={true} />
-        <Skill name="CloudFormation" minimal={true} />
-        <Skill name="Continuous Integration and Delivery" minimal={true} />
         <Skill name="ES6" minimal={true} />
-        <Skill name="Express.js" minimal={true} />
-        <Skill name="JSON" minimal={true} />
-        <Skill name="JWT" minimal={true} />
-        <Skill name="Angular" minimal={true} />
-        <Skill name="Ionic" minimal={true} />
         <Skill name="PHP" score={75}>
           Had a lot of exposure to many frameworks, such as <Link href="https://laravel.com/">Laravel</Link> &amp; {}
           <Link href="https://lumen.laravel.com/">Lumen</Link>, <Link href="https://cakephp.org/">CakePHP</Link> and
@@ -154,41 +141,70 @@ export function About(): ReactElement {
         <Skill name="Python" minimal={true} />
         <Skill name="HTML" minimal={true} />
         <Skill name="CSS" minimal={true} />
-        <Skill name="REST APIs" minimal={true} />
-        <Skill name="OIDC" minimal={true} />
-        <Skill name="OAuth2" minimal={true} />
-        <Skill name="Web Applications" minimal={true} />
+        <Skill name="JSON" minimal={true} />
         <Skill name="YAML" minimal={true} />
+        <Skill name="SQL" minimal={true} />
+
+        {/* Infrastructure */}
+        <Skill name="AWS" minimal={true} />
+        <Skill name="Kubernetes" minimal={true} />
+        <Skill name="Lambda" minimal={true} />
+        <Skill name="Docker" minimal={true} />
         <Skill name="CloudFoundry" minimal={true} />
+        <Skill name="API Gateway" minimal={true} />
+
+        {/* Tools */}
+        <Skill name="Linux" minimal={true} />
+        <Skill name="Git" minimal={true} />
+        <Skill name="Terraform" minimal={true} />
         <Skill name="Concourse" minimal={true} />
-        <Skill name="Travis" minimal={true} />
+        <Skill name="CloudFormation" minimal={true} />
+        <Skill name="Prometheus" minimal={true} />
         <Skill name="NGINX" minimal={true} />
+        <Skill name="Kibana" minimal={true} />
+        <Skill name="DataDog" minimal={true} />
+        <Skill name="Webpack" minimal={true} />
+        <Skill name="Gulp" minimal={true} />
+        <Skill name="Mailgun" minimal={true} />
         <Skill name="Shell" minimal={true} />
+        <Skill name="Travis" minimal={true} />
         <Skill name="Ansible" minimal={true} />
         <Skill name="Puppet" minimal={true} />
         <Skill name="Vagrant" minimal={true} />
+
+        {/* Methods */}
+        <Skill name="JWT" minimal={true} />
+        <Skill name="OIDC" minimal={true} />
+        <Skill name="OAuth2" minimal={true} />
         <Skill name="DevOps" minimal={true} />
-        <Skill name="Unit and Integration Testing" minimal={true} />
+        <Skill name="Web Applications" minimal={true} />
+        <Skill name="REST APIs" minimal={true} />
+
+        {/* Backing services */}
+        <Skill name="Postgres" minimal={true} />
+        <Skill name="Redis" minimal={true} />
         <Skill name="MySQL" minimal={true} />
-        <Skill name="SQL" minimal={true} />
-        <Skill name="Linux" minimal={true} />
-        <Skill name="Webpack" minimal={true} />
-        <Skill name="Gulp" minimal={true} />
+        <Skill name="DynamoDB" minimal={true} />
+        <Skill name="Memcached" minimal={true} />
+
+        {/* Frameworks */}
+        <Skill name="Koa.js" minimal={true} />
+        <Skill name="React" minimal={true} />
+        <Skill name="Express.js" minimal={true} />
+        <Skill name="Angular" minimal={true} />
+        <Skill name="Ionic" minimal={true} />
         <Skill name="Foundation" minimal={true} />
         <Skill name="Bootstrap" minimal={true} />
+
+        {/* Competencies */}
+        <Skill name="Continuous Integration and Delivery" minimal={true} />
+        <Skill name="Infrastructure as Code" minimal={true} />
         <Skill name="Platform monitoring" minimal={true} />
-        <Skill name="Kibana" minimal={true} />
-        <Skill name="Prometheus" minimal={true} />
-        <Skill name="DataDog" minimal={true} />
-        <Skill name="Redis" minimal={true} />
-        <Skill name="Memcached" minimal={true} />
-        <Skill name="AWS API Gateway" minimal={true} />
-        <Skill name="DynamoDB" minimal={true} />
-        <Skill name="Mailgun" minimal={true} />
-        <Skill name="Database Design" minimal={true} />
         <Skill name="Technical Leadership" minimal={true} />
+        <Skill name="Unit and Integration Testing" minimal={true} />
         <Skill name="Mentoring" minimal={true} />
         <Skill name="Excellent problem-solving" minimal={true} />
+        <Skill name="Database Design" minimal={true} />
 
         <p>
           Everyone has a different understanding of these scales. Don't take them seriously...
