@@ -134,6 +134,7 @@ export function About(): ReactElement {
         <Skill name="TypeScript" minimal={true} />
         <Skill name="React" minimal={true} />
         <Skill name="AWS" minimal={true} />
+        <Skill name="Infrastructure as Code" minimal={true} />
         <Skill name="Terraform" minimal={true} />
         <Skill name="CloudFormation" minimal={true} />
         <Skill name="Continuous Integration and Delivery" minimal={true} />
@@ -185,6 +186,8 @@ export function About(): ReactElement {
         <Skill name="DynamoDB" minimal={true} />
         <Skill name="Mailgun" minimal={true} />
         <Skill name="Database Design" minimal={true} />
+        <Skill name="Technical Leadership" minimal={true} />
+        <Skill name="Mentoring" minimal={true} />
         <Skill name="Excellent problem-solving" minimal={true} />
 
         <p>
@@ -197,8 +200,9 @@ export function About(): ReactElement {
         <h3>Professional summary</h3>
 
         <p>
-          I'm an experienced developer / SRE, committed to maintaining cutting edge technical skills and up-to-date
-          industry knowledge. I'm eager to learn and always after new exciting opportunities and challenges.
+          I'm a highly experienced Site Reliability Engineer with extensive experience of providing technical leadership
+          across teams and projects, committed to maintaining cutting edge technical skills and up-to-date industry
+          knowledge. I'm eager to learn and always after new exciting opportunities and challenges.
         </p>
 
         <h3>Experience</h3>
@@ -211,11 +215,11 @@ export function About(): ReactElement {
           organisationURL="https://gds.blog.gov.uk">
           <EmbeddedExperience
             start={moment('2022-03-23')}
-            title="Senior SRE">
+            title="Lead SRE">
             <ul>
               <li>
-                Lead the Site Reliability Engineering team, manage workload, provide guidance and mentorship to junior
-                team members
+                Lead the Site Reliability Engineering capabilities across multiple teams, managed workload, provided
+                guidance and mentorship to junior team members
               </li>
               <li>
                 Collaborated with cross-functional teams including software development, IT operations, and security
@@ -246,8 +250,12 @@ export function About(): ReactElement {
                 reliability
               </li>
               <li>
-                Communicated with senior management and stakeholders regarding the progress and status of Site
-                Reliability Engineering initiatives
+                Worked and Communicated with senior management and stakeholders regarding the strategy, progress and
+                status of Site Reliability Engineering initiatives providing guidance at various levels
+              </li>
+              <li>
+                Contributed and assisted in building the support model for the programme, setting out the strategy for
+                running critical service sustainably and reliably
               </li>
             </ul>
           </EmbeddedExperience>
@@ -257,6 +265,10 @@ export function About(): ReactElement {
             finish={moment('2022-03-22')}
             title="Senior SRE">
             <ul>
+              <li>
+                As Tech Lead of the GOV.UK PaaS team, provided technical leadership of a large scale government wide
+                cloud hosting platform
+              </li>
               <li>
                 Planned, prioritised and built various components for tenants of GOV.UK PaaS (home to 200+
                 organisations, 2.5k applications and 2k backing services) including admin portal, billing statements and

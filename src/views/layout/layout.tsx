@@ -52,7 +52,7 @@ export function Header(props: HeaderProperties): ReactElement {
   return <header className={props.page}>
     <div>
       <h1>Rafal Proszowski</h1>
-      <h2>Software Engineer</h2>
+      <h2>Site Reliability Engineer</h2>
     </div>
 
     <nav>
