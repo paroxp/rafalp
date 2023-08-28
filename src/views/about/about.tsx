@@ -3,7 +3,7 @@ import fs from 'fs';
 import moment from 'moment';
 import React, { ReactElement, ReactNode } from 'react';
 
-import { Footer, Header, Link } from '../layout';
+import { Footer, Header } from '../layout';
 
 type BaseExperienceProperties = {
   readonly title: string;
@@ -17,13 +17,6 @@ type ExperienceProperties = BaseExperienceProperties & {
   readonly hasEmbeddedExperience?: boolean;
   readonly organisation: string;
   readonly organisationURL?: string;
-}
-
-type SkillProperties = {
-  readonly children?: ReactNode;
-  readonly minimal?: boolean;
-  readonly name: string;
-  readonly score?: number;
 }
 
 function Experience(props: ExperienceProperties): ReactElement {
@@ -74,145 +67,13 @@ function EmbeddedExperience(props: BaseExperienceProperties): ReactElement {
   </div>;
 }
 
-function Skill(props: SkillProperties): ReactElement {
-  if (props.minimal) {
-    return <div data-skill={props.name} title={props.name} className="minimal">
-      <label>{props.name}</label>
-    </div>;
-  }
-
-  return <div data-skill={props.name} title={props.name}>
-    <label>{props.name}</label>
-      <progress value={props.score} max="100"></progress>
-      <details open>
-          <summary>{props.name}</summary>
-          {props.children}
-      </details>
-  </div>;
-}
-
 export function About(): ReactElement {
   const aboutJS = fs.readFileSync(`${__dirname}/../../../dist/public/js/about.js`, 'utf8');
-  const avatarImg = fs.readFileSync(`${__dirname}/../../../dist/public/img/avatar.png`, 'base64');
 
   return <body>
     <Header page="about" />
-    <main className="about">
-      <aside>
-        <figure>
-          <img src={`data:image/jpeg;base64,${avatarImg}`} alt="Rafal Proszowski" />
-          <figcaption>
-            Mastodon: <a
-              href="https://fosstodon.org/@paroxp"
-              target="_blank"
-              rel="external nofollow noopener noreferrer"
-              title="Follow me on Mastodon">
-              @paroxp<small>@fosstodon.org</small>
-            </a>
-          </figcaption>
-        </figure>
-
-        <h3>Skills</h3>
-
-        <Skill name="Agile" minimal={true} />
-
-        {/* Languages */}
-        <Skill name="Go" score={65}>
-          It has became my language of choice, for most of new projects
-          I am picking up. It has a lot of benefits, and the ease of use along with
-          vast speed, made me fall in love with it. I feel confident with it, as I am
-          using it widely in my everyday job.
-        </Skill>
-        <Skill name="Node.js and JavaScript" score={75}>
-          Strong preference towards <Link href="https://www.typescriptlang.org/">TypeScript</Link>, {}
-          <Link href="https://reactjs.org/">React</Link>, <Link href="https://koajs.com/">Koa</Link> and {}
-          <Link href="https://expressjs.com/">Express</Link>. I'm a fan of Progressive Enhancement and believe there is
-          time and place for frontend JavaScript, but would prefer everything backend rendered.
-        </Skill>
-        <Skill name="TypeScript" minimal={true} />
-        <Skill name="ES6" minimal={true} />
-        <Skill name="PHP" score={75}>
-          Had a lot of exposure to many frameworks, such as <Link href="https://laravel.com/">Laravel</Link> &amp; {}
-          <Link href="https://lumen.laravel.com/">Lumen</Link>, <Link href="https://cakephp.org/">CakePHP</Link> and
-          little bits of others, I am able to put together some amazing applications. I go around with Composer and
-          PSRs, however I didn't get a chance to play with the new PHP 7 stuff yet.
-        </Skill>
-        <Skill name="Ruby" minimal={true} />
-        <Skill name="Python" minimal={true} />
-        <Skill name="HTML" minimal={true} />
-        <Skill name="CSS" minimal={true} />
-        <Skill name="JSON" minimal={true} />
-        <Skill name="YAML" minimal={true} />
-        <Skill name="SQL" minimal={true} />
-
-        {/* Infrastructure */}
-        <Skill name="AWS" minimal={true} />
-        <Skill name="Kubernetes" minimal={true} />
-        <Skill name="Lambda" minimal={true} />
-        <Skill name="Docker" minimal={true} />
-        <Skill name="CloudFoundry" minimal={true} />
-        <Skill name="API Gateway" minimal={true} />
-
-        {/* Tools */}
-        <Skill name="Linux" minimal={true} />
-        <Skill name="Git" minimal={true} />
-        <Skill name="Terraform" minimal={true} />
-        <Skill name="Concourse" minimal={true} />
-        <Skill name="CloudFormation" minimal={true} />
-        <Skill name="Prometheus" minimal={true} />
-        <Skill name="NGINX" minimal={true} />
-        <Skill name="Kibana" minimal={true} />
-        <Skill name="DataDog" minimal={true} />
-        <Skill name="Webpack" minimal={true} />
-        <Skill name="Gulp" minimal={true} />
-        <Skill name="Mailgun" minimal={true} />
-        <Skill name="Shell" minimal={true} />
-        <Skill name="Travis" minimal={true} />
-        <Skill name="Ansible" minimal={true} />
-        <Skill name="Puppet" minimal={true} />
-        <Skill name="Vagrant" minimal={true} />
-
-        {/* Methods */}
-        <Skill name="JWT" minimal={true} />
-        <Skill name="OIDC" minimal={true} />
-        <Skill name="OAuth2" minimal={true} />
-        <Skill name="DevOps" minimal={true} />
-        <Skill name="Web Applications" minimal={true} />
-        <Skill name="REST APIs" minimal={true} />
-
-        {/* Backing services */}
-        <Skill name="Postgres" minimal={true} />
-        <Skill name="Redis" minimal={true} />
-        <Skill name="MySQL" minimal={true} />
-        <Skill name="DynamoDB" minimal={true} />
-        <Skill name="Memcached" minimal={true} />
-
-        {/* Frameworks */}
-        <Skill name="Koa.js" minimal={true} />
-        <Skill name="React" minimal={true} />
-        <Skill name="Express.js" minimal={true} />
-        <Skill name="Angular" minimal={true} />
-        <Skill name="Ionic" minimal={true} />
-        <Skill name="Foundation" minimal={true} />
-        <Skill name="Bootstrap" minimal={true} />
-
-        {/* Competencies */}
-        <Skill name="Continuous Integration and Delivery" minimal={true} />
-        <Skill name="Infrastructure as Code" minimal={true} />
-        <Skill name="Platform monitoring" minimal={true} />
-        <Skill name="Technical Leadership" minimal={true} />
-        <Skill name="Unit and Integration Testing" minimal={true} />
-        <Skill name="Mentoring" minimal={true} />
-        <Skill name="Excellent problem-solving" minimal={true} />
-        <Skill name="Database Design" minimal={true} />
-
-        <p>
-          Everyone has a different understanding of these scales. Don't take them seriously...
-          If you'd like to know more, ask! I'll be more than happy to explore the topic with you.
-        </p>
-      </aside>
-
-      <section>
+    <main id="about">
+      <section id="summary">
         <h3>Professional summary</h3>
 
         <p>
@@ -220,7 +81,92 @@ export function About(): ReactElement {
           across teams and projects, committed to maintaining cutting edge technical skills and up-to-date industry
           knowledge. I'm eager to learn and always after new exciting opportunities and challenges.
         </p>
+      </section>
 
+      <section id="skills">
+        <h3>Skills</h3>
+
+        <ul data-skills>
+          <li>Agile</li>
+
+          {/* Languages */}
+          <li>Go</li>
+          <li>Node.js and JavaScript</li>
+          <li>TypeScript</li>
+          <li>ES6</li>
+          <li>PHP</li>
+          <li>Ruby</li>
+          <li>Python</li>
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JSON</li>
+          <li>YAML</li>
+          <li>SQL</li>
+
+          {/* Infrastructure */}
+          <li>AWS</li>
+          <li>Kubernetes</li>
+          <li>Lambda</li>
+          <li>Docker</li>
+          <li>CloudFoundry</li>
+          <li>API Gateway</li>
+
+          {/* Tools */}
+          <li>Linux</li>
+          <li>Git</li>
+          <li>Terraform</li>
+          <li>Concourse</li>
+          <li>CloudFormation</li>
+          <li>Prometheus</li>
+          <li>NGINX</li>
+          <li>Kibana</li>
+          <li>DataDog</li>
+          <li>Webpack</li>
+          <li>Gulp</li>
+          <li>Mailgun</li>
+          <li>Shell</li>
+          <li>Travis</li>
+          <li>Ansible</li>
+          <li>Puppet</li>
+          <li>Vagrant</li>
+
+          {/* Methods */}
+          <li>JWT</li>
+          <li>OIDC</li>
+          <li>OAuth2</li>
+          <li>DevOps</li>
+          <li>Web Applications</li>
+          <li>REST APIs</li>
+
+          {/* Backing services */}
+          <li>Postgres</li>
+          <li>Redis</li>
+          <li>MySQL</li>
+          <li>DynamoDB</li>
+          <li>Memcached</li>
+
+          {/* Frameworks */}
+          <li>Koa.js</li>
+          <li>React</li>
+          <li>Express.js</li>
+          <li>Angular</li>
+          <li>Ionic</li>
+          <li>Foundation</li>
+          <li>Bootstrap</li>
+
+          {/* Competencies */}
+          <li>Continuous Integration and Delivery</li>
+          <li>Infrastructure as Code</li>
+          <li>Platform monitoring</li>
+          <li>Technical Leadership</li>
+          <li>Unit and Integration Testing</li>
+          <li>Mentoring</li>
+          <li>Excellent problem-solving</li>
+          <li>Database Design</li>
+        </ul>
+      </section>
+
+      <section id="timeline">
         <h3>Experience</h3>
 
         <Experience

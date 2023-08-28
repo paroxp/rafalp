@@ -4,14 +4,14 @@ import { Footer, Header } from '../layout';
 
 type ErrorPageProperties = {
   readonly children: ReactNode;
-  readonly className?: string;
+  readonly id?: string;
   readonly title: string;
 };
 
 export function ErrorPage(props: ErrorPageProperties): ReactElement {
   return <body>
     <Header page="error" />
-    <main className={props.className}>
+    <main id={props.id}>
       <h1>{props.title}</h1>
 
       {props.children}

@@ -9,7 +9,7 @@ export function Home(): ReactElement {
 
   return <body>
     <Header page="home" />
-    <main className="home">
+    <main id="home">
       <div dangerouslySetInnerHTML={{ __html: beard }}></div>
 
       <p>

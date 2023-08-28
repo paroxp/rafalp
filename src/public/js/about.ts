@@ -15,8 +15,8 @@
     });
   });
 
-  assure('[data-skill]', (element: Element) => {
-    element.addEventListener('click', _e => toggleClass(element, 'bold'));
+  assure('[data-skills] li', (element: Element) => {
+    element.addEventListener('click', _e => toggleClass(element, 'highlight'));
   });
 })();
 

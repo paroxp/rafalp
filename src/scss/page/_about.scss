@@ -4,7 +4,7 @@ body > header.about {
   }
 }
 
-body > main.about {
+body > main#about {
   strong {
     @media print {
       font-weight: 600;
@@ -12,20 +12,46 @@ body > main.about {
   }
 
   section {
-    padding: 0 1rem;
+    padding: 0;
+    width: 100%;
+  }
 
-    @include min($tablet) {
-      float: left;
-      margin-right: gutter(8 of 12);
+  section#skills {
+    ul[data-skills] {
+      margin: 0;
       padding: 0;
-      width: span(8 of 12);
-    }
+      list-style: none;
 
-    @media print {
-      padding: 0;
-      width: 100%;
-    }
+      li {
+        cursor: pointer;
+        display: inline-block;
+        line-height: 1.6;
+        margin-right: 1rem;
 
+        @media screen {
+          font-size: 14px;
+          font-size: 0.875rem;
+        }
+
+        &:last-of-type {
+          margin-right: 0;
+        }
+
+        &.highlight {
+          @media screen {
+            color: $maroon;
+            text-decoration: underline;
+          }
+
+          @media print {
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+
+  section#timeline {
     h3 {
       margin-top: 1rem;
     }
@@ -98,250 +124,6 @@ body > main.about {
     }
 
     [data-details=no-print] > *:not(summary) {
-      @media print {
-        display: none;
-      }
-    }
-  }
-
-  aside {
-    @include min($tablet) {
-      float: right;
-      margin-right: 0;
-      width: span(4 of 12);
-    }
-
-    @media print {
-      margin-bottom: 1rem;
-      width: 100%;
-    }
-
-    figure {
-      margin: 0;
-      margin-bottom: 1rem;
-      padding: 0;
-      text-align: center;
-      @include clearfix;
-
-      @media print {
-        display: none;
-      }
-
-      img {
-        border: 3px solid $white;
-        border-radius: 100%;
-        box-shadow: 0 0 10px rgba($navy, .25);
-        display: inline-block;
-        height: 9.75rem;
-        margin-bottom: 1rem;
-        width: 9.75rem;
-      }
-
-      figcaption {
-        width: 100%;
-
-        strong {
-          display: block;
-          margin: .25rem 0 .5rem;
-          font-size: 19px;
-          font-size: 1.1875rem;
-          font-weight: 400;
-
-          @include min($tablet) {
-            font-size: 24px;
-            font-size: 1.5rem;
-          }
-        }
-
-        a small {
-          display: block;
-          font-size: 13px;
-          font-size: 0.8331rem;
-        }
-      }
-    }
-
-    figure + h3 {
-      display: none;
-
-      @media print {
-        display: block;
-      }
-    }
-
-    div {
-      display: block;
-      padding: .5rem 1rem;
-      position: relative;
-
-      @media print {
-        display: inline-block;
-        line-height: 1.6;
-        margin-right: 1rem;
-        padding: 0;
-
-        &:last-of-type {
-          margin-right: 0;
-        }
-      }
-
-      &.minimal {
-        display: none;
-
-        @media print {
-          display: inline-block;
-        }
-      }
-
-      &.bold {
-        font-weight: 500;
-      }
-
-      &:before {
-        @include min($tablet) {
-          border: solid transparent;
-          border-color: rgba(240, 240, 240, 0);
-          border-left-color: #f0f0f0;
-          border-width: 10px;
-          content: " ";
-          display: none;
-          height: 0;
-          margin-left: -1rem;
-          margin-top: .25rem;
-          opacity: 0;
-          pointer-events: none;
-          position: absolute;
-          width: 0;
-          z-index: 1;
-
-          transition: all .3s ease;
-
-          @media screen and (prefers-color-scheme: dark) {
-            border-left-color: map_get($social, 'github');
-          }
-        }
-      }
-    }
-
-    div label {
-      display: block;
-    }
-
-    div progress {
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      -ms-appearance: none;
-      appearance: none;
-      border-radius: 5px;
-      display: block;
-      -webkit-print-color-adjust: exact;
-      -moz-print-color-adjust: exact;
-      -ms-print-color-adjust: exact;
-      print-color-adjust: exact;
-      width: 100%;
-
-      @media print {
-        display: none;
-      }
-
-      &::-webkit-progress-bar {
-        background-color: #eee;
-        border-bottom-left-radius: 3px;
-        border-bottom-right-radius: 3px;
-        border-top-left-radius: 3px;
-        border-top-right-radius: 3px;
-        box-shadow: 0 2px 5px rgba($gray, 0.25) inset;
-      }
-
-      &::-ms-fill {
-        background-color: $olive;
-        border-bottom-left-radius: 3px;
-        border-bottom-right-radius: 3px;
-        border-top-left-radius: 3px;
-        border-top-right-radius: 3px;
-      }
-
-      &::-webkit-progress-value {
-        background-color: $olive;
-        border-bottom-left-radius: 3px;
-        border-bottom-right-radius: 3px;
-        border-top-left-radius: 3px;
-        border-top-right-radius: 3px;
-      }
-
-      &::-moz-progress-bar {
-        background-color: $olive;
-        border-bottom-left-radius: 3px;
-        border-bottom-right-radius: 3px;
-        border-top-left-radius: 3px;
-        border-top-right-radius: 3px;
-      }
-    }
-
-    div details {
-      background-color: #f0f0f0;
-      margin-top: 1rem;
-      padding: 1.5rem;
-      width: 100%;
-
-      @media screen and (prefers-color-scheme: dark) {
-        background-color: map_get($social, 'github');
-        color: $white;
-      }
-
-      @include min($tablet) {
-        box-shadow: 0 0 10px rgba($gray, .5);
-        display: none;
-        left: -100%;
-        margin: 0;
-        margin-top: -50%;
-        opacity: 0;
-        position: absolute;
-        top: 0;
-
-        transition: all .3s ease;
-
-        @media screen and (prefers-color-scheme: dark) {
-          box-shadow: 0 0 10px rgba(#444444, .5);
-        }
-      }
-
-      @media print {
-        display: none;
-      }
-
-      summary {
-        display: none;
-      }
-
-      p {
-        margin: 0;
-        padding: 0;
-      }
-    }
-
-    div:hover {
-      &:before {
-        @include min($tablet) {
-          display: block;
-          opacity: 1;
-        }
-      }
-
-      details {
-        @include min($tablet) {
-          display: block;
-          opacity: 1;
-        }
-      }
-    }
-
-    > p {
-      font-size: 14px;
-      font-size: .75rem;
-      text-align: center;
-      padding: 0 1.5rem;
-
       @media print {
         display: none;
       }
