@@ -13,4 +13,9 @@
     echo "Node $(node --version)"
     echo "NPM $(npm --version)"
   '';
+
+  pre-commit.hooks = {
+    actionlint.enable = true;
+    typos.enable = true;
+  };
 }

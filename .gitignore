@@ -158,3 +158,5 @@ dist/
 .devenv*
 devenv.local.nix
 
+# Pre-Commit Hooks
+.pre-commit-config.yaml
