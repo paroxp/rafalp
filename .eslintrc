@@ -59,7 +59,6 @@
     "max-len": ["warn", {"code": 120}],
     "newline-before-return": "warn",
     "no-case-declarations": "warn",
-    "no-console": "error",
     "no-delete-var": "error",
     "no-eval": "error",
     "no-octal": "error",

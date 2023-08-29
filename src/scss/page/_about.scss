@@ -41,6 +41,10 @@ body > main#about {
           @media screen {
             color: $maroon;
             text-decoration: underline;
+
+            @media screen and (prefers-color-scheme: dark) {
+              color: $fuchsia;
+            }
           }
 
           @media print {

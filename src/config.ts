@@ -1,4 +1,4 @@
-import winston from 'winston';
+import path from 'path';
 
 export type Config = {
   readonly name: string;
@@ -10,19 +10,14 @@ export type Config = {
 }
 
 export const config: Config = {
-  description: 'DevOps, Developer, Site Reliability Engineer, all kinds of wizardry.',
+  description: 'Technologist, DevOps, Developer, Site Reliability Engineer, all kinds of wizardry.',
   keywords: [
     'javascript', 'typescript', 'go', 'kubernetes', 'fullstack', 'software', 'engineer', 'web', 'developer', 'devops',
-    'php', 'ruby', 'python', 'html', 'scss', 'css', 'cloudfoundry', 'london', 'cv', 'resume',
+    'php', 'ruby', 'python', 'html', 'scss', 'css', 'cloudfoundry', 'london', 'cv', 'resume', 'aws',
   ],
   name: 'Rafal Proszowski',
   title: 'Software Engineer',
   url: 'https://www.rafalp.com/',
 };
 
-export const logger = winston.createLogger({
-  defaultMeta: { service: config.url },
-  format: winston.format.combine(winston.format.timestamp(), winston.format.json()),
-  level: process.env.NODE_ENV === 'production' ? 'warn' : 'info',
-  transports: [ new winston.transports.Console() ],
-});
+export const distDir = (...parts: readonly string[]): string => path.join(__dirname, '..', 'dist', ...parts);

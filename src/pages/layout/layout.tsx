@@ -3,7 +3,7 @@ import fs from 'fs';
 import moment from 'moment';
 import React, { ReactElement, ReactNode } from 'react';
 
-import { Config } from '../../config';
+import { Config, distDir } from '../../config';
 
 type HeaderProperties = {
   readonly page?: string;
@@ -33,7 +33,7 @@ export function Link(props: LinkProperties): ReactElement {
 }
 
 function SocialLink(props: SocialLinkProperties): ReactElement {
-  const image = fs.readFileSync(`${__dirname}/../../../dist/public/img/social/${props.icon}.svg`, 'utf8');
+  const image = fs.readFileSync(distDir('img', 'social', `${props.icon}.svg`), 'utf8');
 
   return <li>
     <a
@@ -89,7 +89,7 @@ export function Footer(): ReactElement {
 }
 
 export function htmlDocument(config: Config, body: string): string {
-  const styles = fs.readFileSync(`${__dirname}/../../../dist/public/css/app.css`, 'utf8');
+  const styles = fs.readFileSync(distDir('css', 'app.css'), 'utf8');
   const title = `${config.name} - ${config.title}`;
   const pageTitle = `${config.subtitle ? `${config.subtitle} - ` : ''}${title}`;
 
