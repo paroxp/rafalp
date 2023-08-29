@@ -24,7 +24,8 @@ $social: (
   mastodon: #6364ff,
 );
 
-// View break ports.
-$mobile: 20em;
-$tablet: 48rem;
-$desktop: 60rem;
+$width: (
+  mobile: 20em,
+  tablet: 48rem,
+  desktop: 60rem,
+);

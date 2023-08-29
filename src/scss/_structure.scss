@@ -23,7 +23,7 @@ body {
     text-align: center;
     text-transform: uppercase;
 
-    @include min($tablet) {
+    @include min(map_get($width, 'tablet')) {
       margin: 1rem auto;
       text-align: inherit;
     }
@@ -40,7 +40,7 @@ body {
       margin: 0;
       padding: 0;
 
-      @include min($tablet) {
+      @include min(map_get($width, 'tablet')) {
         float: left;
         margin: 0;
         margin-right: gutter(6 of 12);
@@ -77,7 +77,7 @@ body {
       margin: 0;
       padding: 0;
 
-      @include min($tablet) {
+      @include min(map_get($width, 'tablet')) {
         display: flex;
         justify-content: flex-end;
         left: 0;
@@ -96,7 +96,7 @@ body {
       display: inline-block;
       margin: .5rem .5rem;
 
-      @include min($tablet) {
+      @include min(map_get($width, 'tablet')) {
         margin: 0 .5rem;
 
         &:first-of-type {
@@ -113,7 +113,7 @@ body {
       display: block;
       margin: .5rem 0;
 
-      @include min($tablet) {
+      @include min(map_get($width, 'tablet')) {
         display: none;
       }
 
@@ -127,7 +127,7 @@ body {
       position: relative;
       @include clearfix;
 
-      @include min($tablet) {
+      @include min(map_get($width, 'tablet')) {
         float: right;
         height: auto;
         margin-right: 0;
@@ -148,7 +148,7 @@ body {
     margin-top: 1rem;
     text-align: center;
 
-    @include min($tablet) {
+    @include min(map_get($width, 'tablet')) {
       margin-top: 3rem;
       text-align: left;
     }
@@ -200,7 +200,7 @@ body {
       line-height: 2.5;
       text-transform: uppercase;
 
-      @include min($tablet) {
+      @include min(map_get($width, 'tablet')) {
         float: left;
         margin-right: gutter(6 of 12);
         width: span(6 of 12);
@@ -211,7 +211,7 @@ body {
       cursor: default;
       user-select: none;
 
-      @include min($tablet) {
+      @include min(map_get($width, 'tablet')) {
         float: right;
         margin-right: 0;
         text-align: right;
@@ -226,7 +226,7 @@ body {
       margin: 0;
       padding: 0;
 
-      @include min($tablet) {
+      @include min(map_get($width, 'tablet')) {
         justify-content: flex-end;
       }
     }

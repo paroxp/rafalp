@@ -14,7 +14,7 @@
     display: none;
   }
 
-  @include min($tablet) {
+  @include min(map_get($width, 'tablet')) {
     @media screen {
       summary .icon {
         display: block;
@@ -56,13 +56,13 @@
   }
 
   > *:not(summary) {
-    @include min($tablet) {
+    @include min(map_get($width, 'tablet')) {
       display: none;
     }
   }
 
   &.active > *:not(summary) {
-    @include min($tablet) {
+    @include min(map_get($width, 'tablet')) {
       display: block;
     }
   }

@@ -10,7 +10,7 @@ body > main#home {
       display: none;
     }
 
-    @include min($tablet) {
+    @include min(map_get($width, 'tablet')) {
       display: block;
       margin: 0 auto;
       max-width: 20rem;
