@@ -44,7 +44,7 @@
 }
 
 /**
- * GOV.UK Frontend's Visually Hidden mixin, allowing elements to be readable but visaully non-existent.
+ * GOV.UK Frontend's Visually Hidden mixin, allowing elements to be readable but visually non-existent.
  */
 @mixin govuk-visually-hidden($important: true) {
   position: absolute if($important, !important, null);
