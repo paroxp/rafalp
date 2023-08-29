@@ -7,7 +7,7 @@ import { Home } from './pages/home';
 import { generateSiteMap } from './pages/sitemap';
 import { render } from './utils';
 
-async function run(): Promise<void> {
+async function generator(): Promise<void> {
   const pages = [
     { body: Home, file: 'index.html', name: 'home', path: '/' },
     { body: NotFound, file: '404.html', name: '404', path: '/404' },
@@ -26,5 +26,5 @@ async function run(): Promise<void> {
   console.info('sitemap.xml file generated.');
 }
 
-run()
+generator()
   .catch(console.error);
