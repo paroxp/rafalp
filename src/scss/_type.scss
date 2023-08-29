@@ -1,46 +1,20 @@
 a, a:link, a:visited {
-  color: $olive;
+  color: map_get($light-mode, 'link');
   text-decoration: none;
 
   transition: all .3s ease;
+
+  @media screen and (prefers-color-scheme: dark) {
+    color: map_get($dark-mode, 'link');
+  }
 }
 
 a:hover, a:active, a.active {
-  color: $maroon;
+  color: map_get($light-mode, 'link-active');
 
   @media screen and (prefers-color-scheme: dark) {
-    color: $fuchsia;
+    color: map_get($dark-mode, 'link-active');
   }
-}
-
-blockquote {
-  border-left: 1px solid $silver;
-  display: block;
-  margin: 0;
-  margin-bottom: .5rem;
-  padding: 0;
-  padding-left: .5rem;
-
-  cite {
-    color: $gray;
-    display: block;
-    font-size: 90%;
-
-    &:before {
-      content: "- "
-    }
-  }
-
-  q {
-    display: block;
-  }
-}
-
-code {
-  background-color: $silver;
-  border: 1px solid $gray;
-  display: block;
-  padding: .5rem;
 }
 
 h1 {
@@ -97,39 +71,12 @@ h1, h2, h3, h4, h5, h6 {
   margin: .25rem 0 .5rem;
 
   small {
-    color: $gray;
+    color: map_get($light-mode, 'secondary');
     font-size: 60%;
     font-weight: normal;
-  }
-}
 
-hr {
-  border: none;
-  border-bottom: 1px solid $white;
-  border-top: 1px solid $silver;
-}
-
-pre {
-  background-color: $black;
-  color: $white;
-  display: block;
-  padding: .5rem;
-}
-
-table {
-  border: 1px solid $gray;
-  width: 100%;
-
-  th, td {
-    padding: .25rem .5rem;
-  }
-
-  th {
-    background-color: lighten($silver, 5);
-    text-align: left;
-  }
-
-  tr:nth-of-type(even) {
-    background-color: lighten($silver, 10);
+    @media screen and (prefers-color-scheme: dark) {
+      color: map_get($dark-mode, 'secondary');
+    }
   }
 }

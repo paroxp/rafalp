@@ -58,9 +58,13 @@ body {
       }
 
       > h2 {
-        color: $gray;
+        color: map_get($light-mode, 'secondary');
         font-weight: 300;
         margin: 0;
+
+        @media screen and (prefers-color-scheme: dark) {
+          color: map_get($dark-mode, 'secondary');
+        }
       }
     }
 
@@ -159,22 +163,26 @@ body {
 
       @include button() {
         svg path {
-          fill: $gray;
+          fill: map_get($light-mode, 'secondary');
+
+          @media screen and (prefers-color-scheme: dark) {
+            fill: map_get($dark-mode, 'secondary');
+          }
         }
 
         &:active, &:hover {
-          fill: $olive;
+          fill: map_get($light-mode, 'link-active');
+
+          @media screen and (prefers-color-scheme: dark) {
+            fill: map_get($dark-mode, 'link-active');
+          }
 
           &.github svg path {
             fill: map_get($social, 'github');
 
             @media screen and (prefers-color-scheme: dark) {
-              fill: $white;
+              fill: map_get($dark-mode, 'foreground');
             }
-          }
-
-          &.twitter svg path {
-            fill: map_get($social, 'twitter');
           }
 
           &.mastodon svg path {
@@ -183,10 +191,6 @@ body {
 
           &.linkedin svg path {
             fill: map_get($social, 'linkedin');
-          }
-
-          &.spotify svg path {
-            fill: map_get($social, 'spotify');
           }
         }
       }

@@ -28,12 +28,13 @@
         }
 
         svg {
+          fill: map_get($light-mode, 'foreground');
           margin-top: 0.25em;
           max-height: 1em;
           max-width: 1em;
 
           @media screen and (prefers-color-scheme: dark) {
-            fill: #fff;
+            fill: map_get($dark-mode, 'foreground');
           }
         }
       }
@@ -74,11 +75,11 @@
 #bottomRightSwordBladePath {
   stroke: none;
   fill-rule: nonzero;
-  fill: map_get($social, 'github');
+  fill: map_get($light-mode, 'foreground');
   fill-opacity: 1;
 
   @media screen and (prefers-color-scheme: dark) {
-    fill: $silver;
+    fill: map_get($dark-mode, 'foreground');
   }
 }
 

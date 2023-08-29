@@ -39,11 +39,11 @@ body > main#about {
 
         &.highlight {
           @media screen {
-            color: $maroon;
+            color: map_get($light-mode, 'link-active');
             text-decoration: underline;
 
             @media screen and (prefers-color-scheme: dark) {
-              color: $fuchsia;
+              color: map_get($dark-mode, 'link-active');
             }
           }
 
