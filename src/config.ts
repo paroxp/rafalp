@@ -23,4 +23,3 @@ export const config: Config = {
 
 export const buildDir = (...parts: readonly string[]): string => path.join(__dirname, '..', 'build', ...parts);
 export const distDir = (...parts: readonly string[]): string => path.join(__dirname, '..', 'dist', ...parts);
-export const srcDir = (...parts: readonly string[]): string => path.join(__dirname, ...parts);

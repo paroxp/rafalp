@@ -3,7 +3,8 @@ import fs from 'fs';
 import moment from 'moment';
 import React, { ReactElement, ReactNode } from 'react';
 
-import { buildDir, srcDir } from '../../config';
+import { buildDir } from '../../config';
+import { arrow } from '../../img';
 import { Footer, Header } from '../layout';
 
 type BaseExperienceProperties = {
@@ -25,13 +26,10 @@ function Experience(props: ExperienceProperties): ReactElement {
   const termEnd = !props.finish ? 'present' : props.finish.format('MMM Do YYYY');
   const title = `${termStart} - ${termEnd}`;
 
-  const closedImg = fs.readFileSync(srcDir('img', 'arrows', 'right.svg'), 'utf8');
-  const openImg = fs.readFileSync(srcDir('img', 'arrows', 'down.svg'), 'utf8');
-
   return <details data-details={props.nonPrintable ? 'no-print' : ''} open>
     <summary>
-      <span className="icon closed" dangerouslySetInnerHTML={{ __html: closedImg }} />
-      <span className="icon open" dangerouslySetInnerHTML={{ __html: openImg }} />
+      <span className="icon closed" dangerouslySetInnerHTML={{ __html: arrow.right }} />
+      <span className="icon open" dangerouslySetInnerHTML={{ __html: arrow.down }} />
       <div>
         <time dateTime={props.start.format('YYYY-MM-DD')} title={title}>
           {props.start.year()} - {!props.finish ? 'present' : props.finish.year()}

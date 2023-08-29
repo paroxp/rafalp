@@ -4,7 +4,8 @@ import path from 'path';
 import moment from 'moment';
 import React, { ReactElement, ReactNode } from 'react';
 
-import { buildDir, Config, srcDir } from '../../config';
+import { buildDir, Config } from '../../config';
+import { social } from '../../img';
 
 type HeaderProperties = {
   readonly page?: string;
@@ -34,7 +35,7 @@ export function Link(props: LinkProperties): ReactElement {
 }
 
 function SocialLink(props: SocialLinkProperties): ReactElement {
-  const image = fs.readFileSync(srcDir('img', 'social', `${props.icon}.svg`), 'utf8');
+  const image = social[props.icon];
 
   return <li>
     <a

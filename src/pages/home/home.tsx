@@ -1,13 +1,9 @@
-import fs from 'fs';
-
 import React, { ReactElement } from 'react';
 
-import { srcDir } from '../../config';
+import { beard } from '../../img';
 import { Footer, Header, Link } from '../layout';
 
 export function Home(): ReactElement {
-  const beard = fs.readFileSync(srcDir('img', 'beard.svg'), 'utf8');
-
   return <body>
     <Header page="home" />
     <main id="home">
