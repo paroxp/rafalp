@@ -15,10 +15,9 @@ async function generator(): Promise<void> {
   ];
   console.info(`${pages.length} pages to iterate.`);
 
-  pages.map(page => {
-    const { path } = page;
-    writeFileSync(distDir(page.file), render(config, page.body, { path }));
-    console.info(`'${page.file}' page generated.`);
+  pages.map(({ body, file, path }) => {
+    writeFileSync(distDir(file), render(config, body, { path }));
+    console.info(`'${file}' page generated.`);
   });
 
   const sitemap = await generateSiteMap(config, pages);
