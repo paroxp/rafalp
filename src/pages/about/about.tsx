@@ -308,7 +308,8 @@ export function About(): ReactElement {
           start={moment('2013-06-17')}
           finish={moment('2015-11-27')}
           title="Developer"
-          organisation="HurstDEV">
+          organisation="HurstDEV"
+          organisationURL="https://github.com/jamiefdhurst">
           <ul>
             <li>Worked with variety of clients on different needs, solutions and technologies</li>
             <li>Been able to choose a stack for each project to satisfy needs</li>
