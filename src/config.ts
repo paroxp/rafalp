@@ -7,6 +7,7 @@ export type Config = {
   readonly keywords: readonly string[];
   readonly subtitle?: string;
   readonly url: string;
+  readonly path?: string;
 }
 
 export const config: Config = {

@@ -1,4 +1,5 @@
 import fs from 'fs';
+import path from 'path';
 
 import moment from 'moment';
 import React, { ReactElement, ReactNode } from 'react';
@@ -107,7 +108,7 @@ export function htmlDocument(config: Config, body: string): string {
       <meta name="author" content="${config.name}">
       <meta name="copyright" content="Copyright 2014 - ${moment().year()}">
 
-      <link rel="canonical" href="${config.url}">
+      <link rel="canonical" href="${path.join(config.url, config.path || '')}">
       <link rel="apple-touch-icon" sizes="57x57" href="/img/favicon/apple-touch-icon-57x57.png">
       <link rel="apple-touch-icon" sizes="60x60" href="/img/favicon/apple-touch-icon-60x60.png">
       <link rel="apple-touch-icon" sizes="72x72" href="/img/favicon/apple-touch-icon-72x72.png">

@@ -9,15 +9,16 @@ import { render } from './utils';
 
 async function run(): Promise<void> {
   const pages = [
-    { body: render(config, NotFound), file: '404.html', name: '404', path: '/404' },
-    { body: render(config, Home), file: 'index.html', name: 'home', path: '/' },
-    { body: render(config, About), file: 'about.html', name: 'about', path: '/about' },
+    { body: Home, file: 'index.html', name: 'home', path: '/' },
+    { body: NotFound, file: '404.html', name: '404', path: '/404' },
+    { body: About, file: 'about.html', name: 'about', path: '/about' },
   ];
   console.info(`${pages.length} pages to iterate.`);
 
   pages.map(page => {
-    writeFileSync(distDir(page.file), page.body);
-    console.info(`'${page.name}' page generated.`);
+    const { path } = page;
+    writeFileSync(distDir(page.file), render(config, page.body, { path }));
+    console.info(`'${page.file}' page generated.`);
   });
 
   const sitemap = await generateSiteMap(config, pages);
