@@ -101,7 +101,7 @@ export function htmlDocument(config: Config, body: string): string {
 
       <meta charset="utf-8">
       <meta name="theme-color" content="#3D9970"/>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
       <meta name="description" content="${config.description}"  property="og:description">
       <meta name="keywords" content="${config.keywords.join(',')}">
       <meta name="author" content="${config.name}">
