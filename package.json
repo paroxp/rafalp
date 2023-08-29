@@ -22,7 +22,7 @@
     "fix:vulnerabilities": "npm audit fix --update-binary",
     "fix": "npm run -s fix:sass && npm run -s fix:ts",
     "lint:sass": "",
-    "lint:ts": "eslint --format codeframe --ext .js,.jsx,.ts,.tsx .",
+    "lint:ts": "eslint --ext .js,.jsx,.ts,.tsx .",
     "lint": "npm run -s lint:sass && npm run -s lint:ts",
     "start": "http-server ./dist",
     "test:audit": "npm audit",
