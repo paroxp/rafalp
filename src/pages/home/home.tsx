@@ -2,11 +2,11 @@ import fs from 'fs';
 
 import React, { ReactElement } from 'react';
 
-import { distDir } from '../../config';
+import { srcDir } from '../../config';
 import { Footer, Header, Link } from '../layout';
 
 export function Home(): ReactElement {
-  const beard = fs.readFileSync(distDir('img', 'beard.svg'), 'utf8');
+  const beard = fs.readFileSync(srcDir('img', 'beard.svg'), 'utf8');
 
   return <body>
     <Header page="home" />
