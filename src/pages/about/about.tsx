@@ -3,7 +3,7 @@ import fs from 'fs';
 import moment from 'moment';
 import React, { ReactElement, ReactNode } from 'react';
 
-import { srcDir } from '../../config';
+import { buildDir, srcDir } from '../../config';
 import { Footer, Header } from '../layout';
 
 type BaseExperienceProperties = {
@@ -69,7 +69,7 @@ function EmbeddedExperience(props: BaseExperienceProperties): ReactElement {
 }
 
 export function About(): ReactElement {
-  const aboutJS = fs.readFileSync(distDir('js', 'about.js'), 'utf8');
+  const aboutJS = fs.readFileSync(buildDir('js', 'about.js'), 'utf8');
 
   return <body>
     <Header page="about" />

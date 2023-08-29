@@ -15,8 +15,8 @@
   "homepage": "https://github.com/paroxp/rafalp#readme",
   "scripts": {
     "build:html": "ts-node src/generator.ts",
-    "build:javascript": "tsc src/js/*.ts --outDir dist/js",
-    "build:scss": "node-sass --output-style compressed --include-path src/scss --include-path node_modules/susy/sass src/scss/app.scss --output dist/css",
+    "build:javascript": "tsc src/js/*.ts --outDir build/js",
+    "build:scss": "node-sass --output-style compressed --include-path src/scss --include-path node_modules/susy/sass src/scss/app.scss --output build/css",
     "build": "npm run -s build:scss && npm run -s build:javascript && npm run -s build:html",
     "fix:ts": "eslint --fix --ext .js,.jsx,.ts,.tsx .",
     "fix:vulnerabilities": "npm audit fix --update-binary",

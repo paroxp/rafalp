@@ -4,7 +4,7 @@ import path from 'path';
 import moment from 'moment';
 import React, { ReactElement, ReactNode } from 'react';
 
-import { Config, srcDir } from '../../config';
+import { buildDir, Config, srcDir } from '../../config';
 
 type HeaderProperties = {
   readonly page?: string;
@@ -90,7 +90,7 @@ export function Footer(): ReactElement {
 }
 
 export function htmlDocument(config: Config, body: string): string {
-  const styles = fs.readFileSync(distDir('css', 'app.css'), 'utf8');
+  const styles = fs.readFileSync(buildDir('css', 'app.css'), 'utf8');
   const title = `${config.name} - ${config.title}`;
   const pageTitle = `${config.subtitle ? `${config.subtitle} - ` : ''}${title}`;
 
