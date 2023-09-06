@@ -109,7 +109,7 @@ export function htmlDocument(config: Config, body: string): string {
       <meta name="author" content="${config.name}">
       <meta name="copyright" content="Copyright 2014 - ${moment().year()}">
 
-      <link rel="canonical" href="${path.join(config.url, config.path || '')}">
+      <link rel="canonical" href="${new URL(config.path || '', config.url).href}">
 
       <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
       <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
