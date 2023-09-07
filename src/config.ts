@@ -17,7 +17,7 @@ export const config: Config = {
     'php', 'ruby', 'python', 'html', 'scss', 'css', 'cloudfoundry', 'london', 'cv', 'resume', 'aws',
   ],
   name: 'Rafal Proszowski',
+  styles: '',
   title: 'Software Engineer',
   url: 'https://www.rafalp.com/',
-  styles: 'html{background-color:red}',
 };

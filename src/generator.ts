@@ -5,7 +5,7 @@ import html from 'html-minifier';
 import scss from 'node-sass';
 import { ReactElement } from 'react';
 import { renderToString } from 'react-dom/server';
-import { TranspileOptions, transpileModule } from 'typescript';
+import { transpileModule, TranspileOptions } from 'typescript';
 
 import * as tsconfig from '../tsconfig.json';
 
@@ -13,19 +13,17 @@ import { Config, config } from './config';
 import { About } from './pages/about';
 import { NotFound } from './pages/errors';
 import { Home } from './pages/home';
-import { generateSiteMap } from './pages/sitemap';
 import { htmlDocument } from './pages/layout';
+import { generateSiteMap } from './pages/sitemap';
 
-namespace File {
-  export interface Copyable {
-    readonly destination: string;
-    readonly source: string;
-  }
+interface FileCopyable {
+  readonly destination: string;
+  readonly source: string;
+}
 
-  export interface Writeable {
-    readonly content: string;
-    readonly filename: string;
-  }
+interface FileWriteable {
+  readonly content: string;
+  readonly filename: string;
 }
 
 interface Page {
@@ -54,21 +52,21 @@ function compileSCSS(filename: string): string {
 
   return scss.renderSync({
     data: source,
-    outputStyle: 'compressed',
     includePaths: [
       'src/scss',
       'node_modules/susy/sass',
     ],
+    outputStyle: 'compressed',
   }).css.toString('utf-8');
 }
 
 function compileTypeScript(filename: string): string {
   const source = readFileSync(path.join(__dirname, filename), 'utf8');
 
-  return transpileModule(source, tsconfig as unknown as TranspileOptions).outputText
+  return transpileModule(source, tsconfig as unknown as TranspileOptions).outputText;
 }
 
-function discoverFilesToCopy(filepath: string): readonly File.Copyable[] {
+function discoverFilesToCopy(filepath: string): readonly FileCopyable[] {
   return readdirSync(path.join(__dirname, filepath)).map((filename: string) =>
     ({ destination: dist(filename), source: path.join(__dirname, filepath, filename) }));
 }
@@ -77,7 +75,7 @@ function dist(...parts: readonly string[]): string {
   return path.join(__dirname, '..', 'dist', ...parts);
 }
 
-function iterativelyCompileHTML(files: readonly File.Writeable[], page: Page): readonly File.Writeable[] {
+function iterativelyCompileHTML(files: readonly FileWriteable[], page: Page): readonly FileWriteable[] {
   const filename = page.filename || `${page.name}${page.extension || '.html'}`;
   const { path, scripts } = page;
   const styles = page.styles || 'html{background-color:red}';
@@ -88,14 +86,32 @@ function iterativelyCompileHTML(files: readonly File.Writeable[], page: Page): r
 
 async function generator(): Promise<void> {
   const pages: readonly Page[] = [
-    { body: Home, filename: 'index.html', name: 'home', path: '/', styles: compileSCSS('./scss/home.scss') },
-    { body: NotFound, name: '404', path: '/404', skipSitemap: true, styles: compileSCSS('./scss/error.scss') },
-    { body: About, name: 'about', path: '/about', scripts: compileTypeScript('./js/about.ts'), styles: compileSCSS('./scss/about.scss') },
+    {
+      body: Home,
+      filename: 'index.html',
+      name: 'home',
+      path: '/',
+      styles: compileSCSS('./scss/home.scss'),
+    },
+    {
+      body: NotFound,
+      name: '404',
+      path: '/404',
+      skipSitemap: true,
+      styles: compileSCSS('./scss/error.scss'),
+    },
+    {
+      body: About,
+      name: 'about',
+      path: '/about',
+      scripts: compileTypeScript('./js/about.ts'),
+      styles: compileSCSS('./scss/about.scss'),
+    },
   ];
 
   const sitemap = await generateSiteMap(config, pages.filter(page => !page.skipSitemap));
 
-  const files: readonly File.Writeable[] = [
+  const files: readonly FileWriteable[] = [
     ...pages.reduce(iterativelyCompileHTML, []),
     { content: sitemap, filename: 'sitemap.xml' },
   ];
