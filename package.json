@@ -29,6 +29,7 @@
   "devDependencies": {
     "@types/html-minifier": "^4.0.2",
     "@types/moment": "^2.13.0",
+    "@types/node-sass": "^4.11.4",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.5.0",
