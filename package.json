@@ -14,8 +14,10 @@
   },
   "homepage": "https://github.com/paroxp/rafalp#readme",
   "scripts": {
-    "build:html": "ts-node src/generator.ts",
-    "build": "npm run -s build:html",
+    "build:clean": "rm -rf dist/",
+    "build:prepare": "mkdir dist/",
+    "build:static": "ts-node src/generator.ts",
+    "build": "npm run -s build:clean && npm run -s build:prepare && npm run -s build:static",
     "fix:ts": "eslint --fix --ext .js,.jsx,.ts,.tsx .",
     "fix:vulnerabilities": "npm audit fix --update-binary",
     "fix": "npm run -s fix:sass && npm run -s fix:ts",
