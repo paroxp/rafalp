@@ -27,20 +27,19 @@ function Experience(props: ExperienceProperties): ReactElement {
     <summary>
       <span className="icon closed" dangerouslySetInnerHTML={{ __html: arrow.right }} />
       <span className="icon open" dangerouslySetInnerHTML={{ __html: arrow.down }} />
-      <div>
-        <time dateTime={props.start.format('YYYY-MM-DD')} title={title}>
-          {props.start.year()} - {!props.finish ? 'present' : props.finish.year()}
-        </time>
-        <span className={props.hasEmbeddedExperience ? 'no-print' : ''}>: {}
-          <strong>
-            {props.title}
-          </strong> at
-        </span> <a href={props.organisationURL} target="_blank" rel="external nofollow noopener noreferrer">
-          {props.organisation}
-        </a> {props.organisationURL
-          ? <span className="link" aria-hidden>( {props.organisationURL} )</span>
-          : <></>}
-      </div>
+
+      <time dateTime={props.start.format('YYYY-MM-DD')} title={title}>
+        {props.start.year()} - {!props.finish ? 'present' : props.finish.year()}
+      </time>
+      <span className={props.hasEmbeddedExperience ? 'no-print' : ''}>: {}
+        <strong>
+          {props.title}
+        </strong> at
+      </span> <a href={props.organisationURL} target="_blank" rel="external nofollow noopener noreferrer">
+        {props.organisation}
+      </a> {props.organisationURL
+        ? <span className="link" aria-hidden>( {props.organisationURL} )</span>
+        : <></>}
     </summary>
 
     {props.children}
