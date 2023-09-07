@@ -9,7 +9,7 @@ type ErrorPageProperties = {
 };
 
 export function ErrorPage(props: ErrorPageProperties): ReactElement {
-  return <body>
+  return <>
     <Header page="error" />
     <main id={props.id}>
       <h1>{props.title}</h1>
@@ -17,5 +17,5 @@ export function ErrorPage(props: ErrorPageProperties): ReactElement {
       {props.children}
     </main>
     <Footer />
-  </body>;
+  </>;
 }

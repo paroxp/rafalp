@@ -4,7 +4,7 @@ import { beard } from '../../img';
 import { Footer, Header, Link } from '../layout';
 
 export function Home(): ReactElement {
-  return <body>
+  return <>
     <Header page="home" />
     <main id="home">
       <div dangerouslySetInnerHTML={{ __html: beard }}></div>
@@ -16,5 +16,5 @@ export function Home(): ReactElement {
       </p>
     </main>
     <Footer />
-  </body>;
+  </>;
 }

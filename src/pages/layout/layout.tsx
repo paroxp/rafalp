@@ -115,8 +115,12 @@ export function htmlDocument(config: Config, body: string): string {
       <meta name="msapplication-TileColor" content="#308559">
       <meta name="theme-color" content="#308559">
 
+      <style>${config.styles}</style>
     </head>
 
-    ${body}
+    <body>
+      ${body}
+      ${config.scripts ? `<script>${config.scripts}</script>` : ''}
+    </body>
   </html>`;
 }

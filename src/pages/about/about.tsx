@@ -64,7 +64,7 @@ function EmbeddedExperience(props: BaseExperienceProperties): ReactElement {
 }
 
 export function About(): ReactElement {
-  return <body>
+  return <>
     <Header page="about" />
     <main id="about">
       <section id="summary">
@@ -381,5 +381,5 @@ export function About(): ReactElement {
       </section>
     </main>
     <Footer />
-  </body>;
+  </>;
 }

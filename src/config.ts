@@ -1,11 +1,13 @@
 export type Config = {
-  readonly name: string;
-  readonly title: string;
   readonly description: string;
   readonly keywords: readonly string[];
-  readonly subtitle?: string;
-  readonly url: string;
+  readonly name: string;
   readonly path?: string;
+  readonly scripts?: string;
+  readonly styles: string;
+  readonly subtitle?: string;
+  readonly title: string;
+  readonly url: string;
 }
 
 export const config: Config = {
@@ -17,4 +19,5 @@ export const config: Config = {
   name: 'Rafal Proszowski',
   title: 'Software Engineer',
   url: 'https://www.rafalp.com/',
+  styles: 'html{background-color:red}',
 };
