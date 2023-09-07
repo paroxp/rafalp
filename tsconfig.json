@@ -12,6 +12,7 @@
       "dom"
     ],
     "sourceMap": false,
+    "resolveJsonModule": true,
     "inlineSources": false,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
