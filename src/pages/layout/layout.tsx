@@ -1,9 +1,7 @@
-import fs from 'fs';
-
 import moment from 'moment';
 import React, { ReactElement, ReactNode } from 'react';
 
-import { buildDir, Config } from '../../config';
+import { Config } from '../../config';
 import { social } from '../../img';
 
 type HeaderProperties = {
@@ -90,7 +88,6 @@ export function Footer(): ReactElement {
 }
 
 export function htmlDocument(config: Config, body: string): string {
-  const styles = fs.readFileSync(buildDir('css', 'app.css'), 'utf8');
   const title = `${config.name} - ${config.title}`;
   const pageTitle = `${config.subtitle ? `${config.subtitle} - ` : ''}${title}`;
 
@@ -118,7 +115,6 @@ export function htmlDocument(config: Config, body: string): string {
       <meta name="msapplication-TileColor" content="#308559">
       <meta name="theme-color" content="#308559">
 
-      <style>${styles}</style>
     </head>
 
     ${body}

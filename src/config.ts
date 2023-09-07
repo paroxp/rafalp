@@ -1,5 +1,3 @@
-import path from 'path';
-
 export type Config = {
   readonly name: string;
   readonly title: string;
@@ -20,6 +18,3 @@ export const config: Config = {
   title: 'Software Engineer',
   url: 'https://www.rafalp.com/',
 };
-
-export const buildDir = (...parts: readonly string[]): string => path.join(__dirname, '..', 'build', ...parts);
-export const distDir = (...parts: readonly string[]): string => path.join(__dirname, '..', 'dist', ...parts);

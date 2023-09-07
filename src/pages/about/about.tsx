@@ -1,9 +1,6 @@
-import fs from 'fs';
-
 import moment from 'moment';
 import React, { ReactElement, ReactNode } from 'react';
 
-import { buildDir } from '../../config';
 import { arrow } from '../../img';
 import { Footer, Header } from '../layout';
 
@@ -67,8 +64,6 @@ function EmbeddedExperience(props: BaseExperienceProperties): ReactElement {
 }
 
 export function About(): ReactElement {
-  const aboutJS = fs.readFileSync(buildDir('js', 'about.js'), 'utf8');
-
   return <body>
     <Header page="about" />
     <main id="about">
@@ -386,7 +381,5 @@ export function About(): ReactElement {
       </section>
     </main>
     <Footer />
-
-    <script dangerouslySetInnerHTML={{ __html: aboutJS }}></script>
   </body>;
 }
