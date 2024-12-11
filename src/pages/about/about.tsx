@@ -218,7 +218,7 @@ export function About(): ReactElement {
           <EmbeddedExperience
             start={moment('2016-08-08')}
             finish={moment('2022-03-22')}
-            title="Senior SRE">
+            title="Senior SRE and Tech Lead">
             <ul>
               <li>
                 As Tech Lead of the GOV.UK PaaS team, provided technical leadership of a large scale government wide
@@ -260,6 +260,7 @@ export function About(): ReactElement {
               </li>
               <li>Troubleshoot complex network and systems issues through being on support or a incident lead</li>
               <li>Actively patched various CVE's, performed security audits, triaged risks and pen-test findings</li>
+              <li>Collaborated with NCSC on improving the designs and architecture for an international system</li>
               <li>
                 In-depth pair programming to build shared knowledge, onboard colleagues to complex systems and share
                 the burden of more demanding tasks
@@ -271,7 +272,7 @@ export function About(): ReactElement {
               <li>
                 Driving progression, well being, and best working practices for the team
               </li>
-              <li>Worked in an Agile - Kanban environment</li>
+              <li>Worked in an Agile - Kanban and Scrum environments</li>
               <li>
                 Used and managed ticketing system Pivotal Tracker for project management which involved creating epics
                 and stories
@@ -376,7 +377,7 @@ export function About(): ReactElement {
           comic books.
         </p>
 
-        <p>Golang; Frontend NE -  conferences and monthly based meet ups.</p>
+        <p>Making things open, making things better.</p>
       </section>
     </main>
     <Footer />
