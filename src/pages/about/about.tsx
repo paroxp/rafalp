@@ -169,6 +169,11 @@ export function About(): ReactElement {
           organisation="Government Digital Service"
           organisationURL="https://gds.blog.gov.uk">
           <EmbeddedExperience
+            start={moment('2025-05-01')}
+            title="Head of Platforms and Reliability Engineering">
+
+            </EmbeddedExperience>
+          <EmbeddedExperience
             start={moment('2022-03-23')}
             title="Lead SRE">
             <ul>
